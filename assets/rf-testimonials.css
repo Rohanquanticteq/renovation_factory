@@ -1,5 +1,5 @@
 .shopify-section--rf-testimonials {
-  background: #e7c2a3;
+  background: #f7f1e8;
 }
 
 .rf-testimonials {
@@ -11,20 +11,20 @@
 
 .rf-testimonials__heading-band {
   display: flex;
-  min-height: 128px;
+  min-height: 96px;
   align-items: center;
   justify-content: center;
-  padding: 28px 24px;
-  background: #e7c2a3;
+  padding: 22px 24px;
+  background: #e5bea0;
 }
 
 .rf-testimonials__heading {
   margin: 0;
   color: #1f1b18;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: clamp(24px, 2vw, 34px);
+  font-size: clamp(22px, 1.65vw, 27px);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
   text-align: center;
 }
 
@@ -34,20 +34,20 @@
 
 .rf-testimonials__body {
   position: relative;
-  padding: clamp(58px, 6vw, 88px) 24px clamp(42px, 5vw, 72px);
+  padding: 36px 24px 28px;
   overflow: hidden;
   background: #f7f1e8;
 }
 
 .rf-testimonials__viewport {
-  width: min(100%, 1040px);
+  width: min(100%, 760px);
   margin: 0 auto;
   overflow: hidden;
 }
 
 .rf-testimonials__track {
   position: relative;
-  min-height: 260px;
+  min-height: 220px;
 }
 
 .rf-testimonials__slide {
@@ -56,11 +56,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(28px);
-  transition: opacity 320ms ease, transform 320ms ease;
+  transform: translateX(24px);
+  transition: opacity 280ms ease, transform 280ms ease;
 }
 
 .rf-testimonials__slide.is-active {
@@ -71,12 +71,12 @@
 }
 
 .rf-testimonials__quote {
-  max-width: 900px;
-  margin: 0;
+  width: min(100%, 620px);
+  margin: 0 auto;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(34px, 4vw, 58px);
+  font-size: clamp(30px, 2.7vw, 38px);
   font-weight: 400;
-  line-height: 1.18;
+  line-height: 1.22;
   text-align: center;
 }
 
@@ -89,7 +89,7 @@
 }
 
 .rf-testimonials__author {
-  margin-top: 34px;
+  margin-top: 26px;
   text-align: center;
 }
 
@@ -100,31 +100,31 @@
 }
 
 .rf-testimonials__name {
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.4;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .rf-testimonials__location {
-  margin-top: 5px;
+  margin-top: 6px;
   color: #6a5f55;
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: 9px;
+  line-height: 1.35;
 }
 
 .rf-testimonials__controls {
   display: flex;
-  width: min(100%, 1040px);
+  width: min(100%, 760px);
   align-items: center;
   justify-content: center;
   gap: 24px;
-  margin: 30px auto 0;
+  margin: 16px auto 0;
 }
 
 .rf-testimonials__arrow {
   display: inline-flex;
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   align-items: center;
   justify-content: center;
   border: 1px solid #3b332d;
@@ -132,7 +132,7 @@
   color: #211e1a;
   background: transparent;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 15px;
   transition: color 160ms ease, background 160ms ease;
 }
 
@@ -147,20 +147,24 @@
 }
 
 .rf-testimonials__counter {
-  min-width: 58px;
+  min-width: 48px;
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-align: center;
 }
 
 @media screen and (max-width: 749px) {
+  .shopify-section--rf-testimonials {
+    background: #f7f1e8;
+  }
+
   .rf-testimonials__heading-band {
     min-height: 0;
     justify-content: flex-start;
-    padding: 40px 24px 18px;
+    padding: 34px 20px 14px;
     background: #f7f1e8;
   }
 
@@ -170,14 +174,19 @@
 
   .rf-testimonials__heading--mobile {
     display: block;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
     text-align: left;
   }
 
   .rf-testimonials__body {
-    padding: 8px 24px 48px;
+    padding: 10px 20px 40px;
+  }
+
+  .rf-testimonials__viewport {
+    width: 100%;
   }
 
   .rf-testimonials__track {
@@ -190,29 +199,32 @@
   }
 
   .rf-testimonials__quote {
-    max-width: 100%;
-    font-size: 32px;
+    width: 100%;
+    max-width: 340px;
+    margin: 0;
+    font-size: clamp(25px, 7.4vw, 30px);
     line-height: 1.24;
     text-align: left;
   }
 
   .rf-testimonials__author {
-    margin-top: 30px;
+    margin-top: 24px;
     text-align: left;
   }
 
   .rf-testimonials__name {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .rf-testimonials__location {
-    font-size: 11px;
+    margin-top: 4px;
+    font-size: 9px;
   }
 
   .rf-testimonials__controls {
     justify-content: flex-start;
-    gap: 14px;
-    margin-top: 32px;
+    gap: 0;
+    margin-top: 24px;
   }
 
   .rf-testimonials__arrow {
@@ -221,8 +233,20 @@
 
   .rf-testimonials__counter {
     min-width: 0;
-    font-size: 11px;
+    font-size: 9px;
     text-align: left;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .rf-testimonials__heading-band,
+  .rf-testimonials__body {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .rf-testimonials__quote {
+    font-size: 25px;
   }
 }
 
