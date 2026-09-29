@@ -144,14 +144,18 @@
     grid-auto-columns: 64vw;
     grid-template-columns: none;
     gap: 12px;
+    width: 100%;
+    margin: 0;
     overflow-x: auto;
     padding: 0 20px 9px;
+    box-sizing: border-box;
     scroll-padding-left: 20px;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
   }
 
   .rf-living-spaces__card {
+    aspect-ratio: auto;
     height: 288px;
     scroll-snap-align: start;
   }
@@ -160,7 +164,11 @@
     right: 14px;
     bottom: 12px;
     left: 14px;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: left;
   }
 }
 
