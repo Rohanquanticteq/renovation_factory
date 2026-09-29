@@ -214,20 +214,6 @@
         "product_link_label": "VIEW PRODUCT"
       }
     },
-    "video_sec_3WnQWx": {
-      "type": "video-sec",
-      "disabled": true,
-      "name": "GALACTIC",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/64ec74de86a54131809d4510c2a452fe.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/c393445730804d7798c1ce2ebe3cc7de.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "Explore Lighting",
-        "link": "shopify://collections/lighting"
-      }
-    },
     "single_banner_m6KVBm": {
       "type": "single-banner",
       "disabled": true,
@@ -832,6 +818,47 @@
       "settings": {
         "accessibility_label": "Renovation Factory service benefits"
       }
+    },
+    "rf_testimonials": {
+      "type": "rf-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The products are artful, fun, have a story just as unique as the designers who made it.",
+            "name": "Akansha Verma",
+            "location": "New Delhi"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The best colors and materials.",
+            "name": "Renovation Factory Client",
+            "location": ""
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Beautifully considered pieces with a distinctive point of view.",
+            "name": "Renovation Factory Client",
+            "location": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "name": "RF Testimonials",
+      "settings": {
+        "heading_desktop": "What Clients Talk About Us",
+        "heading_mobile": "WHAT CLIENTS SAY",
+        "autoplay": false,
+        "autoplay_delay": 6
+      }
     }
   },
   "order": [
@@ -840,7 +867,7 @@
     "main_slider_qYdcLE",
     "rf_designers_edit",
     "rf_usp_strip",
-    "video_sec_3WnQWx",
+    "rf_testimonials",
     "single_banner_m6KVBm",
     "video_sec_JzA4i4",
     "video_sec_qa7FhF",
