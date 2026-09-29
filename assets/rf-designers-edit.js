@@ -68,7 +68,7 @@
       this.closeAllPopovers(trigger);
 
       const popoverId = trigger.dataset.popoverId;
-      const popover = popoverId ? this.querySelector('#' + CSS.escape(popoverId)) : null;
+      const popover = popoverId ? document.getElementById(popoverId) : null;
 
       if (!popover) return;
 
@@ -81,7 +81,7 @@
       if (!trigger) return;
 
       const popoverId = trigger.dataset.popoverId;
-      const popover = popoverId ? this.querySelector('#' + CSS.escape(popoverId)) : null;
+      const popover = popoverId ? document.getElementById(popoverId) : null;
 
       if (popover) popover.hidden = true;
 
