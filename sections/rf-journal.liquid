@@ -6,17 +6,44 @@
   {{ section.shopify_attributes }}
 >
   <div class="rf-journal__inner">
-    <header class="rf-journal__header">
+    <aside class="rf-journal__intro">
       {%- if section.settings.eyebrow != blank -%}
         <p class="rf-journal__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
 
-      {%- if section.settings.heading != blank -%}
-        <h2 id="RFJournalTitle-{{ section.id }}" class="rf-journal__heading">
-          {{ section.settings.heading | escape }}
+      {%- if section.settings.heading_desktop != blank -%}
+        <h2 id="RFJournalTitle-{{ section.id }}" class="rf-journal__heading rf-journal__heading--desktop">
+          {{ section.settings.heading_desktop | escape }}
         </h2>
       {%- endif -%}
-    </header>
+
+      {%- if section.settings.heading_mobile != blank -%}
+        <h2 class="rf-journal__heading rf-journal__heading--mobile">
+          {{ section.settings.heading_mobile | escape }}
+        </h2>
+      {%- endif -%}
+
+      <span class="rf-journal__rule" aria-hidden="true"></span>
+
+      {%- if section.settings.description != blank -%}
+        <div class="rf-journal__description">{{ section.settings.description }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label_desktop != blank -%}
+        <a
+          class="rf-journal__intro-link rf-journal__intro-link--desktop"
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link"
+            aria-disabled="true"
+          {% endif %}
+        >
+          {{ section.settings.button_label_desktop | escape }}
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      {%- endif -%}
+    </aside>
 
     <div class="rf-journal__grid">
       {%- for block in section.blocks -%}
@@ -43,7 +70,7 @@
           endif
         -%}
 
-        <article class="rf-journal__card" {{ block.shopify_attributes }}>
+        <article class="rf-journal__card{% if forloop.index > 2 %} rf-journal__card--desktop-only{% endif %}" {{ block.shopify_attributes }}>
           <a
             class="rf-journal__media"
             {% if card_link != blank %}
@@ -56,11 +83,11 @@
             {%- if card_image != blank -%}
               {{
                 card_image
-                | image_url: width: 1400
+                | image_url: width: 900
                 | image_tag:
                   class: 'rf-journal__image',
-                  widths: '480, 720, 960, 1200, 1400',
-                  sizes: '(min-width: 750px) 46vw, 100vw',
+                  widths: '280, 420, 600, 760, 900',
+                  sizes: '(min-width: 990px) 16vw, (min-width: 750px) 22vw, 100vw',
                   loading: 'lazy',
                   alt: card_image.alt
               }}
@@ -107,10 +134,10 @@
       {%- endfor -%}
     </div>
 
-    {%- if section.settings.button_label != blank -%}
-      <div class="rf-journal__footer">
+    {%- if section.settings.button_label_mobile != blank -%}
+      <div class="rf-journal__mobile-footer">
         <a
-          class="rf-journal__button"
+          class="rf-journal__mobile-button"
           {% if section.settings.button_link != blank %}
             href="{{ section.settings.button_link }}"
           {% else %}
@@ -118,8 +145,7 @@
             aria-disabled="true"
           {% endif %}
         >
-          {{ section.settings.button_label | escape }}
-          <span aria-hidden="true">&rarr;</span>
+          {{ section.settings.button_label_mobile | escape }}
         </a>
       </div>
     {%- endif -%}
@@ -131,7 +157,7 @@
   "name": "RF Journal",
   "tag": "section",
   "class": "shopify-section--rf-journal",
-  "max_blocks": 2,
+  "max_blocks": 4,
   "settings": [
     {
       "type": "text",
@@ -141,20 +167,38 @@
     },
     {
       "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Inspiration for a beautiful life"
+      "id": "heading_desktop",
+      "label": "Desktop heading",
+      "default": "Inspiration for beautiful living."
     },
     {
       "type": "text",
-      "id": "button_label",
-      "label": "Button label",
+      "id": "heading_mobile",
+      "label": "Mobile heading",
+      "default": "Inspiration for a beautiful life"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Desktop description",
+      "default": "<p>Stories, ideas, and expert advice to help you design a home that reflects you.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label_desktop",
+      "label": "Desktop button label",
+      "default": "VIEW ALL ARTICLES"
+    },
+    {
+      "type": "text",
+      "id": "button_label_mobile",
+      "label": "Mobile button label",
       "default": "EXPLORE THE JOURNAL"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button link"
+      "label": "Journal link"
     }
   ],
   "blocks": [
@@ -207,7 +251,7 @@
         {
           "type": "article",
           "settings": {
-            "category": "INTERIORS",
+            "category": "DESIGN TIPS",
             "title": "How to Create a Timeless Interior",
             "read_more_label": "READ MORE"
           }
@@ -215,8 +259,24 @@
         {
           "type": "article",
           "settings": {
-            "category": "MATERIALS",
+            "category": "MATERIAL GUIDE",
             "title": "A Guide to Natural Materials",
+            "read_more_label": "READ MORE"
+          }
+        },
+        {
+          "type": "article",
+          "settings": {
+            "category": "TREND REPORT",
+            "title": "2024 Interior Trends to Watch",
+            "read_more_label": "READ MORE"
+          }
+        },
+        {
+          "type": "article",
+          "settings": {
+            "category": "STYLING IDEAS",
+            "title": "Styling Shelves Like a Pro",
             "read_more_label": "READ MORE"
           }
         }
