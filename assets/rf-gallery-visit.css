@@ -1,0 +1,188 @@
+.shopify-section--rf-gallery-visit {
+  background: #f6f0e8;
+}
+
+.rf-gallery-visit {
+  display: block;
+  width: 100%;
+  color: #2a241f;
+  background: #f6f0e8;
+}
+
+.rf-gallery-visit__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 58%) minmax(0, 42%);
+  min-height: 150px;
+}
+
+.rf-gallery-visit__media {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: #a18e7d;
+}
+
+.rf-gallery-visit__media picture,
+.rf-gallery-visit__image,
+.rf-gallery-visit__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rf-gallery-visit__image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.rf-gallery-visit__placeholder {
+  min-height: 150px;
+  background: #a18e7d;
+}
+
+.rf-gallery-visit__content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px clamp(28px, 4vw, 58px);
+  background: #f6f0e8;
+}
+
+.rf-gallery-visit__title {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+}
+
+.rf-gallery-visit__title--desktop {
+  font-size: clamp(22px, 2vw, 31px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.rf-gallery-visit__title--mobile,
+.rf-gallery-visit__body,
+.rf-gallery-visit__directions {
+  display: none;
+}
+
+.rf-gallery-visit__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 13px;
+}
+
+.rf-gallery-visit__appointment,
+.rf-gallery-visit__directions {
+  color: inherit;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rf-gallery-visit__appointment {
+  padding-bottom: 2px;
+}
+
+.rf-gallery-visit__whatsapp {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  color: #211e1a;
+  text-decoration: none;
+}
+
+.rf-gallery-visit__whatsapp svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rf-gallery-visit a:focus-visible {
+  outline: 2px solid #211e1a;
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 749px) {
+  .rf-gallery-visit__layout {
+    display: block;
+    min-height: 0;
+  }
+
+  .rf-gallery-visit__media {
+    height: clamp(250px, 70vw, 390px);
+  }
+
+  .rf-gallery-visit__content {
+    padding: 34px 20px 44px;
+  }
+
+  .rf-gallery-visit__title--desktop {
+    display: none;
+  }
+
+  .rf-gallery-visit__title--mobile {
+    display: block;
+    font-size: 31px;
+    line-height: 1.08;
+  }
+
+  .rf-gallery-visit__body {
+    display: block;
+    margin-top: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .rf-gallery-visit__body p {
+    margin: 0;
+  }
+
+  .rf-gallery-visit__actions {
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 24px;
+  }
+
+  .rf-gallery-visit__appointment,
+  .rf-gallery-visit__directions {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #211e1a;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+
+  .rf-gallery-visit__appointment {
+    width: 100%;
+    color: #f6f0e8;
+    background: #211e1a;
+  }
+
+  .rf-gallery-visit__directions {
+    width: 100%;
+    margin-top: 10px;
+    background: transparent;
+  }
+
+  .rf-gallery-visit__whatsapp {
+    display: none;
+  }
+}
