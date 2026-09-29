@@ -11,8 +11,9 @@
 
 .rf-gallery-visit__layout {
   display: grid;
-  grid-template-columns: minmax(0, 58%) minmax(0, 42%);
-  min-height: 150px;
+  grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+  height: 142px;
+  min-height: 142px;
 }
 
 .rf-gallery-visit__media {
@@ -32,11 +33,10 @@
 
 .rf-gallery-visit__image {
   object-fit: cover;
-  object-position: center;
+  object-position: center 58%;
 }
 
 .rf-gallery-visit__placeholder {
-  min-height: 150px;
   background: #a18e7d;
 }
 
@@ -45,7 +45,8 @@
   min-width: 0;
   flex-direction: column;
   justify-content: center;
-  padding: 28px clamp(28px, 4vw, 58px);
+  align-items: flex-start;
+  padding: 0 42px;
   background: #f6f0e8;
 }
 
@@ -56,9 +57,9 @@
 }
 
 .rf-gallery-visit__title--desktop {
-  font-size: clamp(22px, 2vw, 31px);
-  line-height: 1.05;
-  letter-spacing: 0.01em;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0.015em;
   text-transform: uppercase;
 }
 
@@ -71,30 +72,27 @@
 .rf-gallery-visit__actions {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 13px;
+  gap: 10px;
+  margin-top: 12px;
 }
 
 .rf-gallery-visit__appointment,
 .rf-gallery-visit__directions {
   color: inherit;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.025em;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.rf-gallery-visit__appointment {
-  padding-bottom: 2px;
-}
-
 .rf-gallery-visit__whatsapp {
   display: inline-flex;
-  width: 28px;
-  height: 28px;
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
   align-items: center;
   justify-content: center;
   color: #211e1a;
@@ -103,13 +101,17 @@
 
 .rf-gallery-visit__whatsapp svg {
   display: block;
-  width: 22px;
-  height: 22px;
+  width: 19px;
+  height: 19px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.4;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.rf-gallery-visit__whatsapp--static {
+  pointer-events: none;
 }
 
 .rf-gallery-visit a:focus-visible {
@@ -117,14 +119,35 @@
   outline-offset: 3px;
 }
 
+@media screen and (max-width: 989px) and (min-width: 750px) {
+  .rf-gallery-visit__layout {
+    grid-template-columns: 54% 46%;
+    height: 132px;
+    min-height: 132px;
+  }
+
+  .rf-gallery-visit__content {
+    padding: 0 28px;
+  }
+
+  .rf-gallery-visit__title--desktop {
+    font-size: 20px;
+  }
+}
+
 @media screen and (max-width: 749px) {
   .rf-gallery-visit__layout {
     display: block;
+    height: auto;
     min-height: 0;
   }
 
   .rf-gallery-visit__media {
     height: clamp(250px, 70vw, 390px);
+  }
+
+  .rf-gallery-visit__image {
+    object-position: center;
   }
 
   .rf-gallery-visit__content {
