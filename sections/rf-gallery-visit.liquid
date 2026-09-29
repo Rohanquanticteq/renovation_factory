@@ -1,0 +1,188 @@
+{{ 'rf-gallery-visit.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="rf-gallery-visit"
+  aria-labelledby="RFGalleryTitle-{{ section.id }}"
+  {{ section.shopify_attributes }}
+>
+  <div class="rf-gallery-visit__layout">
+    <div class="rf-gallery-visit__media">
+      {%- assign desktop_image = section.settings.desktop_image -%}
+      {%- assign mobile_image = section.settings.mobile_image | default: desktop_image -%}
+
+      {%- if desktop_image != blank or mobile_image != blank -%}
+        <picture>
+          {%- if mobile_image != blank -%}
+            <source
+              media="(max-width: 749px)"
+              srcset="
+                {{ mobile_image | image_url: width: 480 }} 480w,
+                {{ mobile_image | image_url: width: 750 }} 750w,
+                {{ mobile_image | image_url: width: 900 }} 900w
+              "
+              sizes="100vw"
+            >
+          {%- endif -%}
+
+          {{
+            desktop_image
+            | image_url: width: 1800
+            | image_tag:
+              class: 'rf-gallery-visit__image',
+              widths: '700, 1000, 1400, 1800',
+              sizes: '(min-width: 750px) 58vw, 100vw',
+              loading: 'lazy',
+              alt: section.settings.image_alt
+          }}
+        </picture>
+      {%- else -%}
+        <span class="rf-gallery-visit__placeholder" aria-hidden="true"></span>
+      {%- endif -%}
+    </div>
+
+    <div class="rf-gallery-visit__content">
+      {%- if section.settings.desktop_title != blank -%}
+        <h2 id="RFGalleryTitle-{{ section.id }}" class="rf-gallery-visit__title rf-gallery-visit__title--desktop">
+          {{ section.settings.desktop_title | escape }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.mobile_title != blank -%}
+        <h2 class="rf-gallery-visit__title rf-gallery-visit__title--mobile">
+          {{ section.settings.mobile_title | escape }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.mobile_body != blank -%}
+        <div class="rf-gallery-visit__body">
+          {{ section.settings.mobile_body }}
+        </div>
+      {%- endif -%}
+
+      <div class="rf-gallery-visit__actions">
+        {%- if section.settings.appointment_label != blank -%}
+          <a
+            class="rf-gallery-visit__appointment"
+            {% if section.settings.appointment_link != blank %}
+              href="{{ section.settings.appointment_link }}"
+            {% else %}
+              role="link"
+              aria-disabled="true"
+            {% endif %}
+          >
+            {{ section.settings.appointment_label | escape }}
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.whatsapp_link != blank -%}
+          <a
+            class="rf-gallery-visit__whatsapp"
+            href="{{ section.settings.whatsapp_link }}"
+            aria-label="{{ section.settings.whatsapp_label | escape }}"
+          >
+            <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true">
+              <path d="M20 11.6a8 8 0 0 1-11.8 7L4 19.8l1.2-4.1A8 8 0 1 1 20 11.6Z"/>
+              <path d="M9.1 8.5c.2-.5.4-.5.7-.5h.6c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.5.7c-.2.2-.2.4-.1.7.4.8 1.3 1.8 2.4 2.3.2.1.4.1.6-.1l.8-.9c.2-.2.4-.3.7-.2l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.6-.5.5-1.2.7-1.9.6-1.1-.2-2.6-.7-4.1-2.1-1.7-1.6-2.4-3.4-2.5-4.4-.1-.7.2-1.3.5-1.7Z"/>
+            </svg>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.directions_label != blank -%}
+          <a
+            class="rf-gallery-visit__directions"
+            {% if section.settings.directions_link != blank %}
+              href="{{ section.settings.directions_link }}"
+            {% else %}
+              role="link"
+              aria-disabled="true"
+            {% endif %}
+          >
+            {{ section.settings.directions_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "RF Gallery visit",
+  "tag": "section",
+  "class": "shopify-section--rf-gallery-visit",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Renovation Factory gallery interior"
+    },
+    {
+      "type": "text",
+      "id": "desktop_title",
+      "label": "Desktop title",
+      "default": "GALLERY VISIT"
+    },
+    {
+      "type": "text",
+      "id": "mobile_title",
+      "label": "Mobile title",
+      "default": "Visit our gallery"
+    },
+    {
+      "type": "richtext",
+      "id": "mobile_body",
+      "label": "Mobile description",
+      "default": "<p>See, touch and sit on every piece. [GALLERY ADDRESS] · [OPENING HOURS]</p>"
+    },
+    {
+      "type": "text",
+      "id": "appointment_label",
+      "label": "Appointment label",
+      "default": "BOOK APPOINTMENT"
+    },
+    {
+      "type": "url",
+      "id": "appointment_link",
+      "label": "Appointment link"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_label",
+      "label": "WhatsApp accessibility label",
+      "default": "Contact us on WhatsApp"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_link",
+      "label": "WhatsApp link"
+    },
+    {
+      "type": "text",
+      "id": "directions_label",
+      "label": "Directions label",
+      "default": "GET DIRECTIONS"
+    },
+    {
+      "type": "url",
+      "id": "directions_link",
+      "label": "Directions link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RF Gallery visit"
+    }
+  ]
+}
+{% endschema %}
