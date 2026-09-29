@@ -1,0 +1,391 @@
+.shopify-section--footer {
+  margin: 0;
+}
+
+.RF-Footer {
+  width: 100%;
+  color: var(--rf-footer-text);
+  background: var(--rf-footer-background);
+}
+
+.RF-Footer a {
+  color: inherit;
+}
+
+.RF-Footer__Main {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.25fr) minmax(0, 3.8fr) minmax(150px, 1fr);
+  gap: clamp(30px, 4vw, 68px);
+  width: min(100%, 1366px);
+  margin: 0 auto;
+  padding: 34px 58px 24px;
+}
+
+.RF-Footer__Brand {
+  min-width: 0;
+}
+
+.RF-Footer__BrandLink {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.RF-Footer__Logo {
+  display: block;
+  width: auto;
+  max-width: 128px;
+  max-height: 54px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.RF-Footer__BrandName {
+  display: inline-block;
+  max-width: 150px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.RF-Footer__Tagline {
+  max-width: 190px;
+  margin-top: 24px;
+  color: var(--rf-footer-text);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.RF-Footer__Tagline p,
+.RF-Footer__TextContent p,
+.RF-Footer__JournalText p {
+  margin: 0;
+}
+
+.RF-Footer__SocialWrap {
+  margin-top: 18px;
+}
+
+.RF-Footer__Social {
+  margin: 0 !important;
+}
+
+.RF-Footer__Social .HorizontalList {
+  margin: 0;
+}
+
+.RF-Footer__Social .HorizontalList__Item {
+  margin: 0 7px 0 0;
+}
+
+.RF-Footer__Social a {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rf-footer-border);
+  border-radius: 50%;
+}
+
+.RF-Footer__Social svg {
+  width: 11px;
+  height: 11px;
+}
+
+.RF-Footer__Menus {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: 24px 34px;
+  min-width: 0;
+}
+
+.RF-Footer__LegacyMenus {
+  display: contents;
+}
+
+.RF-Footer__MenuColumn,
+.RF-Footer__TextColumn,
+.RF-Footer__Newsletter {
+  min-width: 0;
+}
+
+.RF-Footer__MenuTitle,
+.RF-Footer__JournalHeading {
+  margin: 0 0 14px;
+  color: var(--rf-footer-text);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.RF-Footer__MenuList,
+.RF-Footer__Submenu,
+.RF-Footer__Payments {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.RF-Footer__MenuItem + .RF-Footer__MenuItem,
+.RF-Footer__Submenu li + li {
+  margin-top: 8px;
+}
+
+.RF-Footer__Submenu {
+  margin-top: 8px;
+  padding-left: 8px;
+}
+
+.RF-Footer__MenuLink,
+.RF-Footer__TextContent,
+.RF-Footer__JournalText {
+  color: var(--rf-footer-muted);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.RF-Footer__MenuLink {
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.RF-Footer__MenuLink:hover {
+  color: var(--rf-footer-text);
+}
+
+.RF-Footer__Journal {
+  align-self: end;
+  min-width: 0;
+  padding-bottom: 2px;
+}
+
+.RF-Footer__JournalText {
+  max-width: 160px;
+}
+
+.RF-Footer__JournalLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 14px;
+  color: var(--rf-footer-text);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.RF-Footer__NewsletterForm {
+  margin-top: 12px;
+}
+
+.RF-Footer__NewsletterRow {
+  display: flex;
+  border-bottom: 1px solid var(--rf-footer-border);
+}
+
+.RF-Footer__NewsletterInput {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  padding: 8px 0;
+  color: var(--rf-footer-text);
+  background: transparent;
+  font-size: 9px;
+}
+
+.RF-Footer__NewsletterButton {
+  border: 0;
+  padding: 8px 0 8px 10px;
+  color: var(--rf-footer-text);
+  background: transparent;
+  font-size: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.RF-Footer__FormMessage {
+  margin: 8px 0 0;
+  font-size: 9px;
+}
+
+.RF-Footer__Bottom {
+  display: flex;
+  width: min(calc(100% - 116px), 1250px);
+  min-height: 42px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+  border-top: 1px solid var(--rf-footer-border);
+}
+
+.RF-Footer__Copyright,
+.RF-Footer__Legal a {
+  color: var(--rf-footer-muted);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 7px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.RF-Footer__Copyright {
+  margin: 0;
+}
+
+.RF-Footer__Legal {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.RF-Footer__Legal a {
+  text-decoration: none;
+}
+
+.RF-Footer__Legal a + a::before {
+  content: '|';
+  display: inline-block;
+  margin: 0 9px;
+  color: var(--rf-footer-border);
+}
+
+.RF-Footer__Extras {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 8px 30px 16px;
+  border-top: 1px solid var(--rf-footer-border);
+}
+
+.RF-Footer__LocalizationForm select {
+  border: 1px solid var(--rf-footer-border);
+  padding: 6px 8px;
+  color: var(--rf-footer-text);
+  background: transparent;
+  font-size: 8px;
+}
+
+.RF-Footer__Payments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.RF-Footer__Payments svg {
+  width: 30px;
+}
+
+.RF-Footer a:focus-visible,
+.RF-Footer button:focus-visible,
+.RF-Footer input:focus-visible,
+.RF-Footer select:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 989px) and (min-width: 750px) {
+  .RF-Footer__Main {
+    grid-template-columns: 180px minmax(0, 1fr);
+    padding-right: 34px;
+    padding-left: 34px;
+  }
+
+  .RF-Footer__Journal {
+    grid-column: 2;
+    align-self: start;
+  }
+
+  .RF-Footer__Bottom {
+    width: calc(100% - 68px);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .RF-Footer__Main {
+    display: block;
+    padding: 38px 20px 28px;
+  }
+
+  .RF-Footer__Logo {
+    max-width: 118px;
+  }
+
+  .RF-Footer__Tagline {
+    max-width: 270px;
+    margin-top: 18px;
+    font-size: 10px;
+  }
+
+  .RF-Footer__Menus {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 24px;
+    margin-top: 36px;
+  }
+
+  .RF-Footer__MenuTitle,
+  .RF-Footer__JournalHeading {
+    font-size: 9px;
+  }
+
+  .RF-Footer__MenuLink,
+  .RF-Footer__TextContent,
+  .RF-Footer__JournalText {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .RF-Footer__Journal {
+    margin-top: 34px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rf-footer-border);
+  }
+
+  .RF-Footer__JournalText {
+    max-width: 260px;
+  }
+
+  .RF-Footer__JournalLink {
+    margin-top: 13px;
+    font-size: 9px;
+  }
+
+  .RF-Footer__Bottom {
+    display: block;
+    width: calc(100% - 40px);
+    padding: 18px 0 24px;
+  }
+
+  .RF-Footer__Copyright,
+  .RF-Footer__Legal a {
+    font-size: 8px;
+  }
+
+  .RF-Footer__Legal {
+    flex-wrap: wrap;
+    margin-top: 13px;
+  }
+
+  .RF-Footer__Legal a + a::before {
+    margin: 0 7px;
+  }
+
+  .RF-Footer__Extras {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 20px 24px;
+  }
+}
