@@ -175,7 +175,7 @@
   .rf-living-spaces__rail {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 64vw;
+    grid-auto-columns: min(64vw, 300px);
     grid-template-columns: none;
     gap: 12px;
     overflow-x: auto;
@@ -186,7 +186,8 @@
   }
 
   .rf-living-spaces__card {
-    height: 288px;
+    aspect-ratio: 1 / 1;
+    height: auto;
     scroll-snap-align: start;
   }
 
