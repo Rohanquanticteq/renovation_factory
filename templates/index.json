@@ -40,14 +40,37 @@
       }
     },
     "single_banner_gxeaAE": {
-      "type": "single-banner",
-      "name": "Single Banner Sec",
+      "type": "rf-home-hero",
+      "blocks": {
+        "arrive_campaign": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Desktop_Banner_04_06_2026_jpg.jpg",
+            "mobile_image": "shopify://shop_images/Mobile_Banner_04_06_2026_jpg.jpg",
+            "image_alt": "Renovation Factory seasonal arrival campaign",
+            "heading": "ARRIVE",
+            "subheading": "the season of considered arrivals",
+            "date_text": "11 OCT - 10 NOV",
+            "offer_text": "25% OFF",
+            "offer_supporting_text": "SITEWIDE",
+            "button_label": "SHOP THE SALE",
+            "button_link": "shopify://collections/all",
+            "show_button_desktop": false,
+            "content_position": "center",
+            "text_color": "#f4f0e8",
+            "offer_color": "#d97568",
+            "overlay_opacity": 20
+          }
+        }
+      },
+      "block_order": [
+        "arrive_campaign"
+      ],
+      "name": "Arrive campaign",
       "settings": {
-        "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/Desktop_Banner_04_06_2026_jpg.jpg",
-        "mobile_banner": "shopify://shop_images/Mobile_Banner_04_06_2026_jpg.jpg",
-        "button_text": "",
-        "link": "#"
+        "accessibility_label": "Homepage campaign",
+        "autoplay": true,
+        "autoplay_delay": 5
       }
     },
     "main_slider_qYdcLE": {
