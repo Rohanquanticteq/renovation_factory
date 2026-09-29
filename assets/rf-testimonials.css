@@ -1,0 +1,234 @@
+.shopify-section--rf-testimonials {
+  background: #e7c2a3;
+}
+
+.rf-testimonials {
+  display: block;
+  width: 100%;
+  color: #211e1a;
+  background: #f7f1e8;
+}
+
+.rf-testimonials__heading-band {
+  display: flex;
+  min-height: 128px;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px;
+  background: #e7c2a3;
+}
+
+.rf-testimonials__heading {
+  margin: 0;
+  color: #1f1b18;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: clamp(24px, 2vw, 34px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.rf-testimonials__heading--mobile {
+  display: none;
+}
+
+.rf-testimonials__body {
+  position: relative;
+  padding: clamp(58px, 6vw, 88px) 24px clamp(42px, 5vw, 72px);
+  overflow: hidden;
+  background: #f7f1e8;
+}
+
+.rf-testimonials__viewport {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.rf-testimonials__track {
+  position: relative;
+  min-height: 260px;
+}
+
+.rf-testimonials__slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(28px);
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+
+.rf-testimonials__slide.is-active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.rf-testimonials__quote {
+  max-width: 900px;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(34px, 4vw, 58px);
+  font-weight: 400;
+  line-height: 1.18;
+  text-align: center;
+}
+
+.rf-testimonials__quote::before {
+  content: '“';
+}
+
+.rf-testimonials__quote::after {
+  content: '”';
+}
+
+.rf-testimonials__author {
+  margin-top: 34px;
+  text-align: center;
+}
+
+.rf-testimonials__name,
+.rf-testimonials__location {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.rf-testimonials__name {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.rf-testimonials__location {
+  margin-top: 5px;
+  color: #6a5f55;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.rf-testimonials__controls {
+  display: flex;
+  width: min(100%, 1040px);
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 30px auto 0;
+}
+
+.rf-testimonials__arrow {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #3b332d;
+  border-radius: 50%;
+  color: #211e1a;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.rf-testimonials__arrow:hover {
+  color: #f7f1e8;
+  background: #211e1a;
+}
+
+.rf-testimonials__arrow:focus-visible {
+  outline: 2px solid #211e1a;
+  outline-offset: 3px;
+}
+
+.rf-testimonials__counter {
+  min-width: 58px;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+@media screen and (max-width: 749px) {
+  .rf-testimonials__heading-band {
+    min-height: 0;
+    justify-content: flex-start;
+    padding: 40px 24px 18px;
+    background: #f7f1e8;
+  }
+
+  .rf-testimonials__heading--desktop {
+    display: none;
+  }
+
+  .rf-testimonials__heading--mobile {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-align: left;
+  }
+
+  .rf-testimonials__body {
+    padding: 8px 24px 48px;
+  }
+
+  .rf-testimonials__track {
+    min-height: 0;
+  }
+
+  .rf-testimonials__slide {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .rf-testimonials__quote {
+    max-width: 100%;
+    font-size: 32px;
+    line-height: 1.24;
+    text-align: left;
+  }
+
+  .rf-testimonials__author {
+    margin-top: 30px;
+    text-align: left;
+  }
+
+  .rf-testimonials__name {
+    font-size: 12px;
+  }
+
+  .rf-testimonials__location {
+    font-size: 11px;
+  }
+
+  .rf-testimonials__controls {
+    justify-content: flex-start;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .rf-testimonials__arrow {
+    display: none;
+  }
+
+  .rf-testimonials__counter {
+    min-width: 0;
+    font-size: 11px;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rf-testimonials__slide,
+  .rf-testimonials__arrow {
+    transition: none;
+  }
+}
