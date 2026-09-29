@@ -1,47 +1,92 @@
 .shopify-section--rf-journal {
-  background: #f6f0e7;
+  background: #f8f4ed;
 }
 
 .rf-journal {
   display: block;
   width: 100%;
   color: #211e1a;
-  background: #f6f0e7;
+  background: #f8f4ed;
 }
 
 .rf-journal__inner {
-  width: min(100%, 1360px);
+  display: grid;
+  grid-template-columns: minmax(210px, 24%) minmax(0, 1fr);
+  gap: clamp(34px, 4vw, 62px);
+  width: min(100%, 1366px);
   margin: 0 auto;
-  padding: clamp(58px, 6vw, 86px) clamp(24px, 4vw, 58px) clamp(56px, 6vw, 88px);
+  padding: 46px 42px 44px;
 }
 
-.rf-journal__header {
-  margin-bottom: 34px;
+.rf-journal__intro {
+  padding-top: 7px;
 }
 
 .rf-journal__eyebrow {
-  margin: 0 0 13px;
+  margin: 0 0 18px;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 10px;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .rf-journal__heading {
-  max-width: 620px;
   margin: 0;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(34px, 3.5vw, 52px);
   font-weight: 400;
-  line-height: 1.05;
+}
+
+.rf-journal__heading--desktop {
+  max-width: 250px;
+  font-size: clamp(31px, 2.5vw, 39px);
+  line-height: 1.02;
+}
+
+.rf-journal__heading--mobile {
+  display: none;
+}
+
+.rf-journal__rule {
+  display: block;
+  width: 31px;
+  height: 1px;
+  margin: 25px 0 24px;
+  background: #211e1a;
+}
+
+.rf-journal__description {
+  max-width: 225px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.rf-journal__description p {
+  margin: 0;
+}
+
+.rf-journal__intro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  color: inherit;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .rf-journal__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(18px, 2.6vw, 36px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+  min-width: 0;
 }
 
 .rf-journal__card {
@@ -50,7 +95,7 @@
 
 .rf-journal__media {
   display: block;
-  aspect-ratio: 1.45;
+  aspect-ratio: 0.82;
   overflow: hidden;
   background: #a79788;
 }
@@ -64,7 +109,7 @@
 
 .rf-journal__image {
   object-fit: cover;
-  transition: transform 320ms ease;
+  transition: transform 300ms ease;
 }
 
 .rf-journal__media:hover .rf-journal__image {
@@ -76,91 +121,94 @@
 }
 
 .rf-journal__card:nth-child(2) .rf-journal__placeholder {
-  background: #756b61;
+  background: #8e8175;
+}
+
+.rf-journal__card:nth-child(3) .rf-journal__placeholder {
+  background: #776e65;
+}
+
+.rf-journal__card:nth-child(4) .rf-journal__placeholder {
+  background: #5f5851;
 }
 
 .rf-journal__content {
-  padding-top: 18px;
+  padding-top: 12px;
 }
 
 .rf-journal__category {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 9px;
+  font-size: 7px;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .rf-journal__card-title {
-  max-width: 520px;
+  min-height: 42px;
   margin: 0;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(24px, 2vw, 31px);
+  font-size: clamp(16px, 1.35vw, 20px);
   font-weight: 400;
-  line-height: 1.12;
+  line-height: 1.08;
 }
 
 .rf-journal__card-title a,
 .rf-journal__read-more,
-.rf-journal__button {
+.rf-journal__mobile-button {
   color: inherit;
   text-decoration: none;
 }
 
 .rf-journal__read-more {
   display: inline-block;
-  margin-top: 16px;
-  padding-bottom: 4px;
+  margin-top: 13px;
+  padding-bottom: 3px;
   border-bottom: 1px solid currentColor;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 9px;
+  font-size: 7px;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.rf-journal__footer {
-  display: flex;
-  justify-content: center;
-  margin-top: 38px;
-}
-
-.rf-journal__button {
-  display: inline-flex;
-  min-height: 42px;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  padding: 12px 19px;
-  border: 1px solid #211e1a;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 9px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.rf-journal__button:hover {
-  color: #f6f0e7;
-  background: #211e1a;
+.rf-journal__mobile-footer {
+  display: none;
 }
 
 .rf-journal a:focus-visible {
   outline: 2px solid #211e1a;
-  outline-offset: 4px;
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 989px) and (min-width: 750px) {
+  .rf-journal__inner {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 26px;
+    padding-right: 26px;
+    padding-left: 26px;
+  }
+
+  .rf-journal__grid {
+    gap: 10px;
+  }
+
+  .rf-journal__card-title {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 749px) {
   .rf-journal__inner {
+    display: block;
     padding: 44px 20px 52px;
   }
 
-  .rf-journal__header {
-    margin-bottom: 26px;
+  .rf-journal__intro {
+    padding-top: 0;
   }
 
   .rf-journal__eyebrow {
@@ -168,7 +216,15 @@
     font-size: 10px;
   }
 
-  .rf-journal__heading {
+  .rf-journal__heading--desktop,
+  .rf-journal__description,
+  .rf-journal__rule,
+  .rf-journal__intro-link--desktop {
+    display: none;
+  }
+
+  .rf-journal__heading--mobile {
+    display: block;
     max-width: 330px;
     font-size: 34px;
     line-height: 1.08;
@@ -177,6 +233,11 @@
   .rf-journal__grid {
     grid-template-columns: 1fr;
     gap: 34px;
+    margin-top: 28px;
+  }
+
+  .rf-journal__card--desktop-only {
+    display: none;
   }
 
   .rf-journal__media {
@@ -193,6 +254,7 @@
   }
 
   .rf-journal__card-title {
+    min-height: 0;
     max-width: 330px;
     font-size: 27px;
   }
@@ -202,15 +264,24 @@
     font-size: 9px;
   }
 
-  .rf-journal__footer {
-    justify-content: flex-start;
+  .rf-journal__mobile-footer {
+    display: block;
     margin-top: 34px;
   }
 
-  .rf-journal__button {
+  .rf-journal__mobile-button {
+    display: flex;
     width: 100%;
     min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #211e1a;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 }
 
