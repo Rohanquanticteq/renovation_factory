@@ -147,6 +147,61 @@
         "view_all_link": "shopify://collections/all"
       }
     },
+    "rf_designers_edit": {
+      "type": "rf-designers-edit",
+      "blocks": {
+        "hotspot_1": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "desktop_x": 30,
+            "desktop_y": 44,
+            "mobile_x": 29,
+            "mobile_y": 45
+          }
+        },
+        "hotspot_2": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "desktop_x": 69,
+            "desktop_y": 30,
+            "mobile_x": 82,
+            "mobile_y": 31
+          }
+        },
+        "hotspot_3": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "desktop_x": 56,
+            "desktop_y": 70,
+            "mobile_x": 59,
+            "mobile_y": 70
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_1",
+        "hotspot_2",
+        "hotspot_3"
+      ],
+      "name": "Designer's Edit",
+      "settings": {
+        "desktop_image": "",
+        "mobile_image": "",
+        "image_alt": "Modern Parisian living room",
+        "placeholder_label": "IMAGE - Modern Parisian living room",
+        "eyebrow": "DESIGNER'S EDIT",
+        "heading": "Modern Parisian Living",
+        "body": "<p>A curated space blending classic Parisian charm with contemporary silhouettes.</p>",
+        "button_label_desktop": "EXPLORE THE LOOK",
+        "button_label_mobile": "SHOP THE LOOK",
+        "show_piece_count": true,
+        "button_link": "",
+        "product_link_label": "VIEW PRODUCT"
+      }
+    },
     "video_sec_4TFYf7": {
       "type": "video-sec",
       "disabled": true,
@@ -748,6 +803,7 @@
     "single_banner_gxeaAE",
     "rf_editorial_stories",
     "main_slider_qYdcLE",
+    "rf_designers_edit",
     "video_sec_4TFYf7",
     "video_sec_3WnQWx",
     "single_banner_m6KVBm",
