@@ -9,36 +9,6 @@
  */
 {
   "sections": {
-    "169125991439fc29ef": {
-      "type": "apps",
-      "blocks": {
-        "ae096210-83f2-4819-b248-8100f990c0d6": {
-          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
-          "settings": {
-            "title": "",
-            "title_color": "",
-            "title_size_v2": 0,
-            "alignment": "center",
-            "instafeed_margin_top": 0,
-            "instafeed_margin_bottom": 0,
-            "instafeed_margin_sides": 0,
-            "show_instagram_link": false,
-            "link_alignment": "left",
-            "link_color": "#000000",
-            "background_color": "",
-            "feed_id": "",
-            "html_area": ""
-          }
-        }
-      },
-      "block_order": [
-        "ae096210-83f2-4819-b248-8100f990c0d6"
-      ],
-      "disabled": true,
-      "settings": {
-        "include_margins": false
-      }
-    },
     "single_banner_gxeaAE": {
       "type": "rf-home-hero",
       "blocks": {
@@ -73,34 +43,113 @@
         "autoplay_delay": 5
       }
     },
-    "main_slider_qYdcLE": {
-      "type": "main-slider",
+    "rf_editorial_stories": {
+      "type": "rf-editorial-stories",
       "blocks": {
-        "image_73EjxV": {
-          "type": "image",
-          "disabled": true,
+        "octavia": {
+          "type": "story",
           "settings": {
-            "desktop_banner": "shopify://shop_images/3_1.jpg",
-            "mobile_banner": "shopify://shop_images/3_2_ac5483d8-973e-4cad-b932-fb0514ae28f6.jpg",
-            "title": "",
-            "description": "",
-            "link_text": "",
-            "link": "",
-            "set_position": ""
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "The Octavia coffee table in a living room",
+            "placeholder_label": "IMAGE - Octavia coffee table in living room",
+            "eyebrow": "BEST SELLER",
+            "heading": "The Octavia Coffee Table",
+            "body": "<p>Our sculptural coffee table, designed with considered materials and a distinctive finish.</p>",
+            "button_label": "EXPLORE DETAILS",
+            "button_link": "shopify://collections/coffee-tables",
+            "color_scheme": "light"
+          }
+        },
+        "serveware": {
+          "type": "story",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Glassware and decanters",
+            "placeholder_label": "IMAGE - Glassware & decanters",
+            "eyebrow": "",
+            "heading": "The Art of Serving Beautifully",
+            "body": "<p>Stories, inspirations and insights for a life well-designed.</p>",
+            "button_label": "EXPLORE SERVEWARE",
+            "button_link": "shopify://collections/serveware",
+            "color_scheme": "dark"
           }
         }
       },
       "block_order": [
-        "image_73EjxV"
+        "octavia",
+        "serveware"
       ],
-      "disabled": true,
-      "name": "Main Slider",
+      "name": "Featured stories",
       "settings": {
-        "display_main_slider": true
+        "accessibility_label": "Featured stories"
+      }
+    },
+    "main_slider_qYdcLE": {
+      "type": "rf-living-spaces",
+      "blocks": {
+        "living-room": {
+          "type": "space",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Living room inspiration",
+            "placeholder_label": "IMAGE",
+            "title": "LIVING ROOM",
+            "link": "shopify://collections/living-room"
+          }
+        },
+        "dining-room": {
+          "type": "space",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Dining room inspiration",
+            "placeholder_label": "IMAGE",
+            "title": "DINING ROOM",
+            "link": "shopify://collections/dining-room"
+          }
+        },
+        "bedroom": {
+          "type": "space",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Bedroom inspiration",
+            "placeholder_label": "IMAGE",
+            "title": "BEDROOM",
+            "link": "shopify://collections/bedroom"
+          }
+        },
+        "entryway": {
+          "type": "space",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Entryway inspiration",
+            "placeholder_label": "IMAGE",
+            "title": "ENTRYWAY",
+            "link": "shopify://collections/entryway"
+          }
+        }
+      },
+      "block_order": [
+        "living-room",
+        "dining-room",
+        "bedroom",
+        "entryway"
+      ],
+      "name": "Shop by Living Spaces",
+      "settings": {
+        "heading": "Shop by Living Spaces",
+        "view_all_label": "VIEW ALL",
+        "view_all_link": "shopify://collections/all"
       }
     },
     "video_sec_4TFYf7": {
       "type": "video-sec",
+      "disabled": true,
       "name": "WILDWOOD",
       "settings": {
         "display_video_sec": true,
@@ -114,6 +163,7 @@
     },
     "video_sec_3WnQWx": {
       "type": "video-sec",
+      "disabled": true,
       "name": "GALACTIC",
       "settings": {
         "display_video_sec": true,
@@ -695,8 +745,8 @@
     }
   },
   "order": [
-    "169125991439fc29ef",
     "single_banner_gxeaAE",
+    "rf_editorial_stories",
     "main_slider_qYdcLE",
     "video_sec_4TFYf7",
     "video_sec_3WnQWx",
