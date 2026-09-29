@@ -1,0 +1,365 @@
+{{ 'rf-designers-edit.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'rf-designers-edit.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign desktop_image = section.settings.desktop_image
+  assign mobile_image = section.settings.mobile_image | default: desktop_image
+  if desktop_image == blank
+    assign desktop_image = mobile_image
+  endif
+  assign piece_count = section.blocks.size
+-%}
+
+<rf-designers-edit
+  class="rf-designers-edit"
+  data-section-id="{{ section.id }}"
+  {{ section.shopify_attributes }}
+>
+  <div class="rf-designers-edit__layout">
+    <div class="rf-designers-edit__media">
+      {%- if desktop_image != blank or mobile_image != blank -%}
+        <picture>
+          {%- if mobile_image != blank -%}
+            <source
+              media="(max-width: 749px)"
+              srcset="
+                {{ mobile_image | image_url: width: 450 }} 450w,
+                {{ mobile_image | image_url: width: 750 }} 750w,
+                {{ mobile_image | image_url: width: 900 }} 900w
+              "
+              sizes="100vw"
+            >
+          {%- endif -%}
+          {{
+            desktop_image
+            | image_url: width: 2200
+            | image_tag:
+              class: 'rf-designers-edit__image',
+              widths: '750, 1000, 1400, 1800, 2200',
+              sizes: '(min-width: 750px) 75vw, 100vw',
+              loading: 'lazy',
+              alt: section.settings.image_alt
+          }}
+        </picture>
+      {%- else -%}
+        <span class="rf-designers-edit__placeholder" aria-hidden="true"></span>
+        {%- if section.settings.placeholder_label != blank -%}
+          <span class="rf-designers-edit__media-label">{{ section.settings.placeholder_label | escape }}</span>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign product = all_products[block.settings.product]
+          assign desktop_x = block.settings.desktop_x
+          assign desktop_y = block.settings.desktop_y
+          assign mobile_x = block.settings.mobile_x
+          assign mobile_y = block.settings.mobile_y
+          assign popover_side = 'right'
+          if desktop_x > 63
+            assign popover_side = 'left'
+          endif
+        -%}
+
+        {%- if product != blank -%}
+          <a
+            class="rf-designers-edit__hotspot"
+            href="{{ product.url }}"
+            style="--rf-hotspot-x: {{ desktop_x }}%; --rf-hotspot-y: {{ desktop_y }}%; --rf-hotspot-mobile-x: {{ mobile_x }}%; --rf-hotspot-mobile-y: {{ mobile_y }}%;"
+            data-rf-hotspot
+            data-popover-id="RFDesignersEditPopover-{{ section.id }}-{{ block.id }}"
+            aria-controls="RFDesignersEditPopover-{{ section.id }}-{{ block.id }}"
+            aria-expanded="false"
+            aria-label="View {{ product.title | escape }}"
+            {{ block.shopify_attributes }}
+          >
+            <span aria-hidden="true">+</span>
+          </a>
+
+          <div
+            id="RFDesignersEditPopover-{{ section.id }}-{{ block.id }}"
+            class="rf-designers-edit__popover rf-designers-edit__popover--{{ popover_side }}"
+            style="--rf-hotspot-x: {{ desktop_x }}%; --rf-hotspot-y: {{ desktop_y }}%;"
+            data-rf-popover
+            hidden
+            role="dialog"
+            aria-label="{{ product.title | escape }}"
+          >
+            <button
+              class="rf-designers-edit__popover-close"
+              type="button"
+              data-rf-popover-close
+              aria-label="Close product"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+            <a class="rf-designers-edit__product-link" href="{{ product.url }}">
+              <span class="rf-designers-edit__product-media">
+                {%- if product.featured_image != blank -%}
+                  {{
+                    product.featured_image
+                    | image_url: width: 360
+                    | image_tag:
+                      class: 'rf-designers-edit__product-image',
+                      widths: '160, 240, 360',
+                      sizes: '150px',
+                      loading: 'lazy',
+                      alt: product.featured_image.alt
+                  }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'rf-designers-edit__product-image rf-designers-edit__product-placeholder' }}
+                {%- endif -%}
+              </span>
+
+              <span class="rf-designers-edit__product-copy">
+                <span class="rf-designers-edit__product-title">{{ product.title | escape }}</span>
+                <span class="rf-designers-edit__product-price">
+                  {%- if product.price_varies -%}
+                    From {{ product.price_min | money }}
+                  {%- else -%}
+                    {{ product.price | money }}
+                  {%- endif -%}
+                </span>
+                <span class="rf-designers-edit__product-cta">
+                  {{ section.settings.product_link_label | escape }}
+                  <span aria-hidden="true">&rarr;</span>
+                </span>
+              </span>
+            </a>
+          </div>
+        {%- else -%}
+          <span
+            class="rf-designers-edit__hotspot rf-designers-edit__hotspot--placeholder"
+            style="--rf-hotspot-x: {{ desktop_x }}%; --rf-hotspot-y: {{ desktop_y }}%; --rf-hotspot-mobile-x: {{ mobile_x }}%; --rf-hotspot-mobile-y: {{ mobile_y }}%;"
+            aria-hidden="true"
+            {{ block.shopify_attributes }}
+          >
+            <span>+</span>
+          </span>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="rf-designers-edit__content">
+      <div class="rf-designers-edit__copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="rf-designers-edit__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="rf-designers-edit__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <div class="rf-designers-edit__body">{{ section.settings.body }}</div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.button_label_desktop != blank or section.settings.button_label_mobile != blank -%}
+        <a
+          class="rf-designers-edit__button"
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link"
+            aria-disabled="true"
+          {% endif %}
+        >
+          <span class="rf-designers-edit__button-desktop">
+            {{ section.settings.button_label_desktop | escape }}
+          </span>
+          <span class="rf-designers-edit__button-mobile">
+            {{ section.settings.button_label_mobile | escape }}
+            {%- if section.settings.show_piece_count and piece_count > 0 -%}
+              &nbsp;&middot;&nbsp; {{ piece_count }} {% if piece_count == 1 %}PIECE{% else %}PIECES{% endif %}
+            {%- endif -%}
+          </span>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</rf-designers-edit>
+
+{% schema %}
+{
+  "name": "RF Designer's edit",
+  "tag": "section",
+  "class": "shopify-section--rf-designers-edit",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Modern Parisian living room"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_label",
+      "label": "Placeholder label",
+      "default": "IMAGE - Modern Parisian living room"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "DESIGNER'S EDIT"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Modern Parisian Living"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Description",
+      "default": "<p>A curated space blending classic Parisian charm with contemporary silhouettes.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label_desktop",
+      "label": "Desktop button label",
+      "default": "EXPLORE THE LOOK"
+    },
+    {
+      "type": "text",
+      "id": "button_label_mobile",
+      "label": "Mobile button label",
+      "default": "SHOP THE LOOK"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_piece_count",
+      "label": "Show hotspot count on mobile button",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "product_link_label",
+      "label": "Hotspot product link label",
+      "default": "VIEW PRODUCT"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Product hotspot",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "header",
+          "content": "Desktop position"
+        },
+        {
+          "type": "range",
+          "id": "desktop_x",
+          "label": "Horizontal position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "desktop_y",
+          "label": "Vertical position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 45
+        },
+        {
+          "type": "header",
+          "content": "Mobile position"
+        },
+        {
+          "type": "range",
+          "id": "mobile_x",
+          "label": "Horizontal position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "mobile_y",
+          "label": "Vertical position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 45
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RF Designer's edit",
+      "blocks": [
+        {
+          "type": "hotspot",
+          "settings": {
+            "desktop_x": 30,
+            "desktop_y": 44,
+            "mobile_x": 29,
+            "mobile_y": 45
+          }
+        },
+        {
+          "type": "hotspot",
+          "settings": {
+            "desktop_x": 69,
+            "desktop_y": 30,
+            "mobile_x": 82,
+            "mobile_y": 31
+          }
+        },
+        {
+          "type": "hotspot",
+          "settings": {
+            "desktop_x": 56,
+            "desktop_y": 70,
+            "mobile_x": 59,
+            "mobile_y": 70
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
