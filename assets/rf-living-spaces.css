@@ -3,7 +3,7 @@
 }
 
 .rf-living-spaces {
-  padding: 18px 28px 24px;
+  padding: 27px 24px 34px;
 }
 
 .rf-living-spaces__header {
@@ -11,45 +11,37 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  max-width: 1320px;
-  margin: 0 auto 16px;
+  margin-bottom: 14px;
 }
 
 .rf-living-spaces__heading {
   margin: 0;
   color: #211e1a;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.05;
-  letter-spacing: 0;
 }
 
 .rf-living-spaces__view-all {
-  padding-bottom: 3px;
+  padding-bottom: 5px;
   border-bottom: 1px solid currentColor;
   color: #211e1a;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 9px;
-  font-weight: 500;
+  font-size: 11px;
   line-height: 1;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .rf-living-spaces__rail {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  width: min(100%, 900px);
-  margin: 0 auto;
+  gap: 4px;
 }
 
 .rf-living-spaces__card {
   position: relative;
   display: block;
-  aspect-ratio: 0.72;
-  height: auto;
+  height: clamp(260px, 23vw, 320px);
   overflow: hidden;
   color: #fff;
   background: #a99a88;
@@ -97,15 +89,13 @@
 
 .rf-living-spaces__title {
   position: absolute;
-  right: 12px;
-  bottom: 14px;
-  left: 12px;
+  right: 16px;
+  bottom: 15px;
+  left: 16px;
   z-index: 1;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 15px;
-  font-weight: 400;
   line-height: 1;
-  text-align: center;
 }
 
 .rf-living-spaces__card:hover .rf-living-spaces__image {
@@ -115,6 +105,50 @@
 .rf-living-spaces__card:focus-visible {
   outline: 2px solid #211e1a;
   outline-offset: 3px;
+}
+
+@media screen and (min-width: 750px) {
+  .rf-living-spaces {
+    padding: 18px 28px 24px;
+  }
+
+  .rf-living-spaces__header {
+    max-width: 1320px;
+    margin: 0 auto 16px;
+  }
+
+  .rf-living-spaces__heading {
+    font-size: 21px;
+    letter-spacing: 0;
+  }
+
+  .rf-living-spaces__view-all {
+    padding-bottom: 3px;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .rf-living-spaces__rail {
+    gap: 10px;
+    width: min(100%, 900px);
+    margin: 0 auto;
+  }
+
+  .rf-living-spaces__card {
+    aspect-ratio: 0.72;
+    height: auto;
+  }
+
+  .rf-living-spaces__title {
+    right: 12px;
+    bottom: 14px;
+    left: 12px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -144,18 +178,14 @@
     grid-auto-columns: 64vw;
     grid-template-columns: none;
     gap: 12px;
-    width: 100%;
-    margin: 0;
     overflow-x: auto;
     padding: 0 20px 9px;
-    box-sizing: border-box;
     scroll-padding-left: 20px;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
   }
 
   .rf-living-spaces__card {
-    aspect-ratio: auto;
     height: 288px;
     scroll-snap-align: start;
   }
@@ -164,11 +194,7 @@
     right: 14px;
     bottom: 12px;
     left: 14px;
-    font-family: Helvetica, Arial, sans-serif;
     font-size: 15px;
-    font-weight: 400;
-    line-height: 1;
-    text-align: left;
   }
 }
 
