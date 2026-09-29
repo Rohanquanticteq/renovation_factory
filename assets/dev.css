@@ -70,12 +70,15 @@
   margin-bottom:-1px;
 }
 .headerAndAnnocument .announcement_bar_d .inner_d{
-  background: #EDEAEA;
-  color: #1c1b1b;
+  background: #171713;
+  color: #fff;
   /* background: #000;
   color: red; */
   text-align: center;
-  padding: 5px 0;
+  padding: 10px 16px 9px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.35;
 }
 @media screen and (min-width: 990px) {
   .headerAndAnnocument .announcement_bar_d{
@@ -88,12 +91,31 @@ header .Header__MainNav .HorizontalList__Item > a{
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 header .Header__MainNav .HorizontalList__Item>a.saleActive{
   color:#FF0000 !important;
   font-size:14px !important;
+}
+.Header__Wordmark{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #111;
+  line-height: 1;
+}
+.Header__WordmarkInitials{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 31px;
+  font-weight: 400;
+}
+.Header__WordmarkName{
+  margin-top: 1px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 6px;
+  line-height: 1;
+  white-space: nowrap;
 }
 header.Header--transparent span.wishlist{
     background-image: url(https://cdn.shopify.com/s/files/1/0576/3907/5997/files/Vector_5.svg?v=1728469229);
@@ -127,6 +149,27 @@ header .Header__FlexItem.Header__FlexItem--fill{
 }
 /* Logo center css end */
 @media screen and (min-width: 1140px) {
+  header.Header:not(.Header--sidebar) .Header__Wrapper{
+    min-height: 52px;
+    padding: 5px 36px;
+  }
+  header .Header__LogoImage{
+    max-width: 64px;
+  }
+  header .Header__FlexItem.Header__FlexItem--logo{
+    width: 18%;
+    order: -1;
+    justify-content: flex-start;
+    margin-right: 0;
+  }
+  header .Header__FlexItem.Header__FlexItem--fill:first-child{
+    width: 62%;
+    flex: 0 0 62%;
+  }
+  header .Header__FlexItem.Header__FlexItem--fill:last-child{
+    width: 20%;
+    flex: 0 0 20%;
+  }
   header .Header__FlexItem:first-child{
     justify-content:center;
   }
@@ -138,12 +181,13 @@ header .Header__FlexItem.Header__FlexItem--fill{
     margin-right:20px;
   }
   header .Header__MainNav .HorizontalList__Item > a{
-    font-size:16px !important;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:10px !important;
   }
 }
 @media screen and (min-width: 1200px) {
 header .Header__MainNav .HorizontalList__Item > a{
-    font-size:12px !important;
+    font-size:10px !important;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -155,10 +199,55 @@ header .Header__MainNav .HorizontalList__Item > a{
   }
 }
 @media screen and (max-width: 640px) {
-  .Header__Icon .Icon--search{
-    width: 20px;
+  .headerAndAnnocument .announcement_bar_d .inner_d{
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 16px;
+    font-size: 11px;
+  }
+  header.Header .Header__Wrapper{
+    min-height: 65px;
+    padding: 8px 24px;
+  }
+  header .Header__LogoImage{
+    max-width: 55px;
+  }
+  header .Header__FlexItem.Header__FlexItem--fill{
+    width: 30%;
+  }
+  header .Header__FlexItem.Header__FlexItem--logo{
+    width: 40%;
+  }
+  header .Header__Icon--mobileSearch{
+    margin-left: 36px;
+  }
+  header .Header__FlexItem--fill:last-child .Header__Icon + .Header__Icon{
+    margin-left: 28px;
+  }
+  .Header__WordmarkInitials{
+    font-size: 29px;
+  }
+  .Header__WordmarkName{
+    margin-top: 3px;
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  header .Header__Icon .Icon--account{
+    top: 0;
+    width: 18px;
     height: 19px;
   }
+  .Header__Icon .Icon--search{
+    width: 19px;
+    height: 19px;
+  }
+}
+
+body.template-index .footerStickyText,
+body.template-index .footerStickyText__wrapper{
+  display: none !important;
 }
 @media screen and (max-width: 1139px) {
   /* .shopify-section--header {

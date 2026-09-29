@@ -170,11 +170,9 @@ HEADER CONTENT
         <span class="hidden-tablet-and-up">{%- render 'icon' with 'nav' -%}</span>
         <span class="hidden-phone">{%- render 'icon' with 'nav-desktop' -%}</span>
       </button>
-      <span class="wishlist hidden-desk" style="width: 23px !important;
-    height: 23px;
-    margin-left: 22px !important;
-    margin-right: 23px !important;
-    cursor: pointer;"></span>
+      <a href="{{ routes.search_url }}" class="Header__Icon Header__Icon--mobileSearch Icon-Wrapper Icon-Wrapper--clickable hidden-tablet-and-up" data-action="toggle-search" aria-label="{{ 'header.navigation.search' | t }}">
+        {%- render 'icon' with 'search' -%}
+      </a>
 
       {%- comment -%}
       --------------------------------------------------------------------------------------------------------------------
@@ -366,28 +364,11 @@ HEADER CONTENT
     </div>
 
     {%- capture header_logo -%}
-      <a href="{{ routes.root_url }}" class="Header__LogoLink">
-        {%- if section.settings.logo != blank -%}
-          {%- capture image_size -%}{{ section.settings.logo_max_width }}x{%- endcapture -%}
-
-          <img class="Header__LogoImage Header__LogoImage--primary"
-               src="{{ section.settings.logo | img_url: image_size }}"
-               srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-               width="{{ section.settings.logo.width }}"
-               height="{{ section.settings.logo.height }}"
-               alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
-
-          {%- if use_transparent_header and section.settings.transparent_logo != blank -%}
-            <img class="Header__LogoImage Header__LogoImage--transparent"
-                 src="{{ section.settings.transparent_logo | img_url: image_size }}"
-                 srcset="{{ section.settings.transparent_logo | img_url: image_size }} 1x, {{ section.settings.transparent_logo | img_url: image_size, scale: 2 }} 2x"
-                 width="{{ section.settings.logo.width }}"
-                 height="{{ section.settings.logo.height }}"
-                 alt="{{ section.settings.transparent_logo.alt | default: shop.name | escape }}">
-          {%- endif -%}
-        {%- else -%}
-          <span class="Heading u-h4">{{ shop.name }}</span>
-        {%- endif -%}
+      <a href="{{ routes.root_url }}" class="Header__LogoLink" aria-label="{{ shop.name | escape }}">
+        <span class="Header__Wordmark" aria-hidden="true">
+          <span class="Header__WordmarkInitials">RF</span>
+          <span class="Header__WordmarkName">RENOVATION FACTORY</span>
+        </span>
       </a>
     {%- endcapture -%}
 
@@ -436,21 +417,21 @@ HEADER CONTENT
         </nav>
       {%- endunless -%}
 
+      <a href="{{ routes.search_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable hidden-phone {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}" data-action="toggle-search" aria-label="{{ 'header.navigation.search' | t }}">
+        {%- render 'icon' with 'search-desktop' -%}
+      </a>
+
       {%- if shop.customer_accounts_enabled and section.settings.show_icons or use_sidebar_menu -%}
-        <a href="{{ routes.account_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable hidden-phone">
+        <a href="{{ routes.account_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable" aria-label="{{ 'header.navigation.account' | t }}">
           {%- render 'icon' with 'account' -%}
         </a>
       {%- endif -%}
-<span class="wishlist hidden-phone" style="width: 23px !important;
+
+      <span class="wishlist hidden-phone" style="width: 23px !important;
     height: 23px;
     margin-left: 22px !important;
     margin-right: 23px !important;
-    cursor: pointer;"></span>
-      
-      <a href="{{ routes.search_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}" data-action="toggle-search" aria-label="{{ 'header.navigation.search' | t }}">
-        <span class="hidden-tablet-and-up">{%- render 'icon' with 'search' -%}</span>
-        <span class="hidden-phone">{%- render 'icon' with 'search-desktop' -%}</span>
-      </a>
+    cursor: pointer;" role="button" tabindex="0" aria-label="Wishlist"></span>
 
       <a href="{{ routes.cart_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}" {% if settings.cart_type == 'drawer' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-expanded="false" aria-label="{{ 'header.navigation.open_cart' | t }}"{% endif %}>
         <span class="hidden-tablet-and-up">{%- render 'icon' with 'cart' -%}</span>
