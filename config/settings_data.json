@@ -291,19 +291,22 @@
           "3898032c-51b0-40cd-83cb-0510d7729127": {
             "type": "links",
             "settings": {
-              "menu": "company"
+              "menu": "company",
+              "heading": "ABOUT US"
             }
           },
           "7021f640-debe-41ac-b41d-985850a1e38f": {
             "type": "links",
             "settings": {
-              "menu": "policy"
+              "menu": "policy",
+              "heading": "RESOURCES"
             }
           },
           "footer-1": {
             "type": "links",
             "settings": {
-              "menu": "footer"
+              "menu": "footer",
+              "heading": "CUSTOMER CARE"
             }
           },
           "footer-0": {
@@ -314,14 +317,22 @@
               "content": "<p><a href=\"mailto:care@renovationfactory.com\" title=\"mailto:care@renovationfactory.com\">care@renovationfactory.com</a></p><p><a href=\"tel:919289158882\" title=\"tel:919289158882\">9289158882</a><br/>(Monday - Friday, 9 AM - 6 AM)</p><p>AASR Collaborative Private Limited<br/>298, Udyog Vihar Phase-2, <br/>Gurgaon- 122016<br/>Haryana, India<br/><br/></p>",
               "show_social_media": false
             }
+          },
+          "rf-shop": {
+            "type": "links",
+            "settings": {
+              "heading": "SHOP",
+              "menu": "main-menu-2024"
+            }
           }
         },
         "block_order": [
-          "links_with_logo_zhKg9F",
-          "footer-2",
+          "rf-shop",
+          "footer-1",
           "3898032c-51b0-40cd-83cb-0510d7729127",
           "7021f640-debe-41ac-b41d-985850a1e38f",
-          "footer-1",
+          "links_with_logo_zhKg9F",
+          "footer-2",
           "footer-0"
         ],
         "settings": {
