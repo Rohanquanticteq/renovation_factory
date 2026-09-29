@@ -77,6 +77,11 @@
   text-align: center;
   padding: 5px 0;
 }
+@media screen and (min-width: 990px) {
+  .headerAndAnnocument .announcement_bar_d{
+    display: none;
+  }
+}
 header .Header__MainNav .HorizontalList__Item > a{
   font-family: Georgia;
   font-size: 20px !important;

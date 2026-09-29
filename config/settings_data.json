@@ -69,6 +69,62 @@
     "checkout_accent_color": "#1c1b1b",
     "checkout_button_color": "#1c1b1b",
     "sections": {
+      "rf-header-categories": {
+        "type": "rf-header-categories",
+        "blocks": {
+          "lighting": {
+            "type": "category",
+            "settings": {
+              "image": "shopify://shop_images/RFLifestyle1_720x_c9043b64-814d-45d0-9157-40a724092e4c.webp",
+              "image_alt": "Renovation Factory lighting collection",
+              "title": "Lighting",
+              "link_label": "SHOP NOW",
+              "link": "shopify://collections/lighting"
+            }
+          },
+          "furniture": {
+            "type": "category",
+            "settings": {
+              "image": "shopify://shop_images/RFLifestyle65_1024x_f78a73ca-9819-4c59-afe5-db09105f6d7a.webp",
+              "image_alt": "Renovation Factory furniture collection",
+              "title": "Furniture",
+              "link_label": "SHOP NOW",
+              "link": "shopify://collections/furniture"
+            }
+          },
+          "decor": {
+            "type": "category",
+            "settings": {
+              "image": "shopify://shop_images/001-21_1024x_b80649c6-8b28-4b2d-81bc-3c46db5ed005.webp",
+              "image_alt": "Renovation Factory decor collection",
+              "title": "Décor",
+              "link_label": "SHOP NOW",
+              "link": "shopify://collections/decor"
+            }
+          },
+          "tabletop-bar": {
+            "type": "category",
+            "settings": {
+              "image": "shopify://shop_images/1_1024x_5db66ed2-6838-4243-a568-5bf536962091.webp",
+              "image_alt": "Renovation Factory table top and bar collection",
+              "title": "Table Top & Bar",
+              "link_label": "SHOP NOW",
+              "link": "shopify://collections/table-top-bar"
+            }
+          }
+        },
+        "block_order": [
+          "lighting",
+          "furniture",
+          "decor",
+          "tabletop-bar"
+        ],
+        "settings": {
+          "show_section": true,
+          "heading": "Shop by category",
+          "accessibility_label": "Shop by category"
+        }
+      },
       "sidebar-menu": {
         "type": "sidebar-menu",
         "settings": {
@@ -199,7 +255,7 @@
           "navigation_menu": "main-menu-2024",
           "navigation_style": "center",
           "show_icons": true,
-          "enable_transparent_header": true,
+          "enable_transparent_header": false,
           "enable_transparent_header_collection": false,
           "show_transparent_header_border": false,
           "transparent_text_color": "#ffffff",
