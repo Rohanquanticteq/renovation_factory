@@ -1,0 +1,221 @@
+.shopify-section--rf-journal {
+  background: #f6f0e7;
+}
+
+.rf-journal {
+  display: block;
+  width: 100%;
+  color: #211e1a;
+  background: #f6f0e7;
+}
+
+.rf-journal__inner {
+  width: min(100%, 1360px);
+  margin: 0 auto;
+  padding: clamp(58px, 6vw, 86px) clamp(24px, 4vw, 58px) clamp(56px, 6vw, 88px);
+}
+
+.rf-journal__header {
+  margin-bottom: 34px;
+}
+
+.rf-journal__eyebrow {
+  margin: 0 0 13px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rf-journal__heading {
+  max-width: 620px;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(34px, 3.5vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.rf-journal__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.6vw, 36px);
+}
+
+.rf-journal__card {
+  min-width: 0;
+}
+
+.rf-journal__media {
+  display: block;
+  aspect-ratio: 1.45;
+  overflow: hidden;
+  background: #a79788;
+}
+
+.rf-journal__image,
+.rf-journal__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rf-journal__image {
+  object-fit: cover;
+  transition: transform 320ms ease;
+}
+
+.rf-journal__media:hover .rf-journal__image {
+  transform: scale(1.02);
+}
+
+.rf-journal__placeholder {
+  background: #a79788;
+}
+
+.rf-journal__card:nth-child(2) .rf-journal__placeholder {
+  background: #756b61;
+}
+
+.rf-journal__content {
+  padding-top: 18px;
+}
+
+.rf-journal__category {
+  margin: 0 0 10px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.rf-journal__card-title {
+  max-width: 520px;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(24px, 2vw, 31px);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.rf-journal__card-title a,
+.rf-journal__read-more,
+.rf-journal__button {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rf-journal__read-more {
+  display: inline-block;
+  margin-top: 16px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.rf-journal__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+}
+
+.rf-journal__button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 12px 19px;
+  border: 1px solid #211e1a;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.rf-journal__button:hover {
+  color: #f6f0e7;
+  background: #211e1a;
+}
+
+.rf-journal a:focus-visible {
+  outline: 2px solid #211e1a;
+  outline-offset: 4px;
+}
+
+@media screen and (max-width: 749px) {
+  .rf-journal__inner {
+    padding: 44px 20px 52px;
+  }
+
+  .rf-journal__header {
+    margin-bottom: 26px;
+  }
+
+  .rf-journal__eyebrow {
+    margin-bottom: 11px;
+    font-size: 10px;
+  }
+
+  .rf-journal__heading {
+    max-width: 330px;
+    font-size: 34px;
+    line-height: 1.08;
+  }
+
+  .rf-journal__grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .rf-journal__media {
+    aspect-ratio: 1.28;
+  }
+
+  .rf-journal__content {
+    padding-top: 15px;
+  }
+
+  .rf-journal__category {
+    margin-bottom: 9px;
+    font-size: 9px;
+  }
+
+  .rf-journal__card-title {
+    max-width: 330px;
+    font-size: 27px;
+  }
+
+  .rf-journal__read-more {
+    margin-top: 14px;
+    font-size: 9px;
+  }
+
+  .rf-journal__footer {
+    justify-content: flex-start;
+    margin-top: 34px;
+  }
+
+  .rf-journal__button {
+    width: 100%;
+    min-height: 54px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rf-journal__image {
+    transition: none;
+  }
+}
