@@ -1,0 +1,293 @@
+<style>
+  .container {
+    clear: both;
+    margin: 22px auto 75px;
+    width: 1060px;
+    min-height: 500px;
+    min-width: 1060px;
+    position: relative;
+}
+  #wrap {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 30px;
+}
+  #content, #modal-content {
+    position: relative;
+}
+  .brand, .tabs a {
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+  h1 {
+    font: 18px;
+    margin: 0 0 18px 0;
+    padding-top: 10px;
+}
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+/*     margin-left: -20px; */
+    letter-spacing: -0.31em;
+}
+  .flexbox .grid {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: box;
+    display: flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+  .one-whole {
+    width: 100%;
+}
+  @media only screen and (max-width: 768px) {
+    .grid__item {
+    display: block !important;}
+   #wrap {
+    
+    padding: 0 0px !important;
+}}
+  .grid__item {
+    display: inline-block;
+{% comment %}     padding-left: 20px; {% endcomment %}
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    letter-spacing: normal;
+    word-spacing: normal;
+  }
+  .upsells .mod, .swatch-details .swatch-enlarged, #product-swatches .swatch-group li:hover, .swatch-details .swatch-enlarged, .swatch-details, .sitemap .category-header, .sitemap .menu h3, .sitemap #leftnav, .artisanCollectionShort, #navContainer, #wo-header {
+    border-color: #666;
+}
+  .category-header {
+    margin: 0;
+    font: 14px/18px ;
+    font-size: 20px;
+    font-weight: normal;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: solid 3px;
+}
+  .brand, .tabs a {
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+  .sitemap .category-header {
+    margin: 0;
+    font: 14px/18px ;
+    font-size: 20px;
+    font-weight: normal;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: solid 3px;
+}
+  .sitemap a {
+    text-decoration: none;
+}
+  .sitemap .menu {
+    padding-bottom: 30px;
+}
+  .one-quarter, .two-eighths, .three-twelfths {
+    width: 25%;
+}
+  ol, ul {
+    list-style: none;
+}
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, figure, figcaption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+  .sitemap__links {
+    border-top: solid 1px;
+}
+.sitemap__subheader {
+    border-top: solid 2px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.gridl-gfdf {
+    margin-right: 19px;
+    margin-top: 10px;
+    margin-bottom: 28px;
+}
+@media only screen and (max-width: 768px) {
+.grid__item {
+    display: block;
+    }
+}
+</style>
+
+<div class="container">  
+  <div id="wrap" role="main">
+     <div id="content" class="sitemap">
+			<h1 class="title brand">
+					RF Site Map
+			</h1>
+      <div class="sitemap-category grid">
+       <div class="grid__item one-whole">
+		</div>
+		<div class="category-header brand cat25640008">Concepts</div>
+		</div>
+		</div>
+       <div class="sitemap-category grid">
+	    <div class="grid__item one-whole">
+{% for block in section.blocks %}
+{%- assign collection1 = collections[block.settings.collection-1] -%}
+{%- assign collection2 = collections[block.settings.collection-2] -%}
+{%- assign collection3 = collections[block.settings.collection-3] -%}
+{%- assign collection4 = collections[block.settings.collection-4] -%}
+{%- assign collection5 = collections[block.settings.collection-5] -%}
+{%- assign collection6 = collections[block.settings.collection-6] -%}
+{%- assign collection7 = collections[block.settings.collection-7] -%}
+{%- assign collection8 = collections[block.settings.collection-8] -%}
+ <div class="grid__item one-quarter menu">
+	<div class="gridl-gfdf">
+    <h3 class="sitemap__subheader brand"><a href="#" class="">{{block.settings.heading }}</a></h3>
+      <ul class="sitemap__links">
+  {% if collection1 != blank %}<li> <a class="ctitle" href="{{ collection1.url }}"> {{ collection1.title }}</a></li>{% endif %}
+{% if collection2 != blank %}<li> <a class="ctitle" href="{{ collection2.url }}"> {{ collection2.title }}</a></li>{% endif %}
+{% if collection3 != blank %}<li> <a class="ctitle" href="{{ collection3.url }}"> {{ collection3.title }}</a></li>{% endif %}
+{% if collection4 != blank %}<li> <a class="ctitle" href="{{ collection4.url }}"> {{ collection4.title }}</a></li>{% endif %}
+{% if collection5 != blank %}<li> <a class="ctitle" href="{{ collection5.url }}"> {{ collection5.title }}</a></li>{% endif %}
+{% if collection6 != blank %}<li> <a class="ctitle" href="{{ collection6.url }}"> {{ collection6.title }}</a></li>{% endif %}
+{% if collection7 != blank %}<li> <a class="ctitle" href="{{ collection7.url }}"> {{ collection7.title }}</a></li>{% endif %}
+{% if collection8 != blank %}<li> <a class="ctitle" href="{{ collection8.url }}"> {{ collection8.title }}</a></li>{% endif %}
+</li> 
+</ul>
+  </div>
+</div>
+   {% endfor %}
+</div>
+</div>
+
+            <div class="grid__item one-quarter menu">
+	<div class="gridl-gfdf">
+    <h3 class="sitemap__subheader brand">Products</h3>
+          <ul class="sitemap__links">
+            {% paginate collections.all.products by 500 %}
+{% for product in collections.all.products %}
+        <li class="top"><a class="ctitle" href="{{ product.url }}"> {{ product.title }}</a></li>
+    {%- endfor -%}
+{%- endpaginate -%}
+          </ul>
+  </div>
+  </div>
+            
+
+         <div class="grid__item one-quarter menu">
+	<div class="gridl-gfdf">
+    <h3 class="sitemap__subheader brand"><a href="/company-info" class="">Pages</a></h3>
+          <ul class="sitemap__links">
+            {%- paginate pages by 50 -%}
+    {%- for p in pages -%}
+        <li class="top"><a class="ctitle" href="{{ p.url }}"> {{ p.title }}</a></li>
+    {%- endfor -%}
+    {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }} 
+{%- endpaginate -%}
+          </ul>
+  </div>
+  </div>
+</div>
+  </div>
+</div>
+           
+            
+
+  <style>
+.sitemapmain .container .col-md-6 {
+    width: 50%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.page-width {
+    max-width: 100% !important;
+}
+#MainContent .collection_ul li {
+    width: 50%;
+    float: left;
+}</style>
+           
+            
+
+
+
+            
+  {% schema %}
+  {
+    "name": "Collection product",
+    "settings": [
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection-title",
+            "id": "heading",
+            "type": "text"
+          },
+          {
+            "label": "Collection",
+            "id": "collection-1",
+            "type": "collection"
+          },
+          {
+            "label": "Collection",
+            "id": "collection-2",
+            "type": "collection"
+          },
+          {
+            "label": "Collection",
+            "id": "collection-3",
+            "type": "collection"
+          },
+          {
+            "label": "Collection",
+            "id": "collection-4",
+            "type": "collection"
+          },
+         {
+            "label": "Collection",
+            "id": "collection-5",
+            "type": "collection"
+          },
+          {
+            "label": "Collection",
+            "id": "collection-6",
+            "type": "collection"
+          },
+         {
+            "label": "Collection",
+            "id": "collection-7",
+            "type": "collection"
+          },
+          {
+            "label": "Collection",
+            "id": "collection-8",
+            "type": "collection"
+          }
+        ]
+      }
+    ],
+        "presets": [
+      {
+        "name": "Collection product"
+      }
+    ]
+  }
+{% endschema %}
+
+

@@ -1,0 +1,132 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "about",
+      "disabled": true,
+      "settings": {}
+    },
+    "85af4eac-9721-47bd-8b8c-abc33bb5ab11": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "page": "",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "304d0a03-2ec3-4188-8348-cc3540226661": {
+      "type": "sitemap",
+      "blocks": {
+        "4f4612d9-2a43-4e28-848e-eac3aaa0c103": {
+          "type": "collection",
+          "settings": {
+            "heading": "lighting",
+            "collection-1": "chandeliers",
+            "collection-2": "pendants",
+            "collection-3": "table-lamps",
+            "collection-4": "floor-lamps",
+            "collection-5": "wall-sconce-lights",
+            "collection-6": "all-lighting",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "2768c7dc-1fad-4556-a015-6a54f74bf18e": {
+          "type": "collection",
+          "settings": {
+            "heading": "Serving",
+            "collection-1": "all-dining",
+            "collection-2": "serving-trays-platters",
+            "collection-3": "serving-bowls",
+            "collection-4": "cake-tiered-stands",
+            "collection-5": "tabletop-serving-accents",
+            "collection-6": "",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "120756c4-1d6c-42c2-b0fc-9dead6b3cb3b": {
+          "type": "collection",
+          "settings": {
+            "heading": "Furniture",
+            "collection-1": "all-furniture",
+            "collection-2": "console-tables",
+            "collection-3": "coffee-tables",
+            "collection-4": "end-tables",
+            "collection-5": "accent-and-drink-tables",
+            "collection-6": "etagere-book-cases",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "f781389f-a9df-4ab1-965d-894a694fd003": {
+          "type": "collection",
+          "settings": {
+            "heading": "Bar",
+            "collection-1": "all-bar",
+            "collection-2": "decanters",
+            "collection-3": "drink-glasses-tumblers",
+            "collection-4": "bar-carts",
+            "collection-5": "",
+            "collection-6": "",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "f571676d-7c3d-4160-8807-fa3f42a0d109": {
+          "type": "collection",
+          "settings": {
+            "heading": "Decor",
+            "collection-1": "all-home-accents",
+            "collection-2": "candle-holders",
+            "collection-3": "candle-sconce",
+            "collection-4": "decorative-bowls",
+            "collection-5": "vases-and-urns",
+            "collection-6": "planters",
+            "collection-7": "decorative-trays",
+            "collection-8": ""
+          }
+        },
+        "e0959375-8961-4551-b28b-0572443b4c38": {
+          "type": "collection",
+          "settings": {
+            "heading": "Mirrors",
+            "collection-1": "all-wall-art-1",
+            "collection-2": "wall-mirrors",
+            "collection-3": "floor-mirrors",
+            "collection-4": "",
+            "collection-5": "",
+            "collection-6": "",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        }
+      },
+      "block_order": [
+        "4f4612d9-2a43-4e28-848e-eac3aaa0c103",
+        "2768c7dc-1fad-4556-a015-6a54f74bf18e",
+        "120756c4-1d6c-42c2-b0fc-9dead6b3cb3b",
+        "f781389f-a9df-4ab1-965d-894a694fd003",
+        "f571676d-7c3d-4160-8807-fa3f42a0d109",
+        "e0959375-8961-4551-b28b-0572443b4c38"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "85af4eac-9721-47bd-8b8c-abc33bb5ab11",
+    "304d0a03-2ec3-4188-8348-cc3540226661"
+  ]
+}

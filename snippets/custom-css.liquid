@@ -1,0 +1,65 @@
+<style>
+@media(max-width:767px){
+table.scapp-promobox {
+    height: unset !important;
+    aspect-ratio: 300/297 !important;
+    background-size: 100% !important;
+}}
+</style>
+
+<style>
+/* ===== 03-09-2026: PDP "Request More Info" button - WhatsApp icon + black/white styling ===== */
+.Product .requestEnquiryBtn > a.Button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background-color:#000 !important;
+  color:#fff !important;
+  border:1px solid #000 !important;
+  transition:background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+/* Theme's ::before is the button's slide-in background; repurpose it as the WhatsApp icon (monochrome, follows text colour) */
+.Product .requestEnquiryBtn > a.Button::before{
+  content:"";
+  position:static;
+  display:inline-block;
+  width:18px;
+  height:18px;
+  inset:auto;
+  transform:none;
+  z-index:auto;
+  flex:0 0 auto;
+  background-color:currentColor;
+  -webkit-mask:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Cpath%20d=%22M16.004%200C7.166%200%200%207.163%200%2015.998c0%202.82.738%205.566%202.14%207.982L0.06%2032l8.223-2.157a15.94%2015.94%200%20007.718%201.964h.006C24.837%2031.807%2032%2024.643%2032%2015.807%2032%207.163%2024.837%200%2016.004%200zm0%2029.07h-.005a13.02%2013.02%200%2001-6.63-1.815l-.476-.283-4.877%201.28%201.302-4.755-.31-.488a12.94%2012.94%200%2001-1.986-6.913c0-7.176%205.84-13.014%2013.02-13.014%203.478%200%206.746%201.356%209.204%203.816a12.93%2012.93%200%20013.812%209.204c-.003%207.176-5.843%2013.968-13.054%2013.968zm7.14-9.75c-.39-.196-2.31-1.14-2.67-1.27-.358-.13-.618-.196-.878.196-.26.39-1.005%201.27-1.233%201.53-.226.26-.454.293-.844.098-.39-.196-1.646-.607-3.135-1.936-1.159-1.034-1.942-2.31-2.17-2.7-.226-.39-.024-.6.17-.795.174-.174.39-.454.585-.68.196-.228.26-.39.39-.65.13-.26.065-.487-.032-.683-.098-.196-.878-2.116-1.203-2.898-.317-.76-.638-.656-.878-.668-.226-.01-.487-.012-.747-.012-.26%200-.683.098-1.04.487-.358.39-1.365%201.334-1.365%203.253%200%201.92%201.398%203.777%201.593%204.037.195.26%202.75%204.2%206.665%205.89.932.402%201.66.642%202.227.822.936.298%201.788.256%202.462.155.751-.112%202.31-.944%202.635-1.856.325-.912.325-1.694.228-1.856-.098-.163-.358-.26-.75-.456z%22/%3E%3C/svg%3E") no-repeat center / contain;
+  mask:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Cpath%20d=%22M16.004%200C7.166%200%200%207.163%200%2015.998c0%202.82.738%205.566%202.14%207.982L0.06%2032l8.223-2.157a15.94%2015.94%200%20007.718%201.964h.006C24.837%2031.807%2032%2024.643%2032%2015.807%2032%207.163%2024.837%200%2016.004%200zm0%2029.07h-.005a13.02%2013.02%200%2001-6.63-1.815l-.476-.283-4.877%201.28%201.302-4.755-.31-.488a12.94%2012.94%200%2001-1.986-6.913c0-7.176%205.84-13.014%2013.02-13.014%203.478%200%206.746%201.356%209.204%203.816a12.93%2012.93%200%20013.812%209.204c-.003%207.176-5.843%2013.968-13.054%2013.968zm7.14-9.75c-.39-.196-2.31-1.14-2.67-1.27-.358-.13-.618-.196-.878.196-.26.39-1.005%201.27-1.233%201.53-.226.26-.454.293-.844.098-.39-.196-1.646-.607-3.135-1.936-1.159-1.034-1.942-2.31-2.17-2.7-.226-.39-.024-.6.17-.795.174-.174.39-.454.585-.68.196-.228.26-.39.39-.65.13-.26.065-.487-.032-.683-.098-.196-.878-2.116-1.203-2.898-.317-.76-.638-.656-.878-.668-.226-.01-.487-.012-.747-.012-.26%200-.683.098-1.04.487-.358.39-1.365%201.334-1.365%203.253%200%201.92%201.398%203.777%201.593%204.037.195.26%202.75%204.2%206.665%205.89.932.402%201.66.642%202.227.822.936.298%201.788.256%202.462.155.751-.112%202.31-.944%202.635-1.856.325-.912.325-1.694.228-1.856-.098-.163-.358-.26-.75-.456z%22/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.Product .requestEnquiryBtn > a.Button:hover,
+.Product .requestEnquiryBtn > a.Button:focus{
+  background-color:#fff !important;
+  color:#000 !important;
+  border-color:#000 !important;
+}
+
+/* ===== 03-09-2026: Hide WhatsApp floating chat (Pushdaddy) on product pages only ===== */
+body.template-product #pushdaddy-widget,
+body.template-product #pushdaddy-button{
+  display:none !important;
+}
+
+/* ===== 03-09-2026: Larger share/social icons on product page ===== */
+.Product .ProductMeta__ShareList{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+}
+.Product .ProductMeta__ShareItem{
+  display:inline-flex;
+  align-items:center;
+}
+.Product .ProductMeta__ShareItem .Icon,
+.Product .ProductMeta__ShareItem svg{
+  width:20px;
+  height:20px;
+}
+</style>

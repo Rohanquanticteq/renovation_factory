@@ -1,0 +1,92 @@
+{% if section.settings.display_single_banner_sec != blank %}
+<div class="singleBannerSec video_sec">
+  {% if section.settings.desktop_banner != blank or section.settings.mobile_banner != blank %}
+  <a href="{{ section.settings.link }}">
+    <div class="img_d">
+      {%- comment -%}
+        2026-09-08: performance fix — this used to render BOTH the desktop and mobile
+        <img> unconditionally and use CSS (.hidden-xs/.visible-xs) to hide whichever
+        one didn't apply. Browsers still download an <img> even when it's
+        display:none, so every visitor downloaded both images. <picture>/<source
+        media> makes the browser fetch only the one that matches the viewport.
+        mobile_banner_2 is a genuinely separate, additional image shown only on
+        mobile (not an alternate to mobile_banner), so it stays a plain lazy-loaded
+        <img> rather than folding it into the <picture>.
+      {%- endcomment -%}
+      <picture>
+        {%- if section.settings.mobile_banner != blank -%}
+          <source media="(max-width: 767px)" srcset="{{ section.settings.mobile_banner | img_url: 'master' }}">
+        {%- endif -%}
+        <img
+          src="{{ section.settings.desktop_banner | img_url: 'master' }}"
+          alt="{{ section.settings.desktop_banner.alt | escape }}"
+          {%- if section.settings.desktop_banner.width %}
+          width="{{ section.settings.desktop_banner.width }}"
+          height="{{ section.settings.desktop_banner.height }}"
+          {%- endif %}
+        >
+      </picture>
+      {% if section.settings.mobile_banner_2 != blank %}
+      <img src="{{ section.settings.mobile_banner_2 | img_url: "master" }}" class="visible-xs" loading="lazy">
+      {% endif %}
+    </div>
+    {% if section.settings.button_text != blank %}
+     <div class="content_d">
+    <div class="info_d">
+    {% if section.settings.button_text != blank %}
+        <div class="action_btn">
+          <button class="button11">{{ section.settings.button_text }}</button>
+        </div>
+        {% endif %}
+        </div>
+      </div>
+       {% endif %}
+  </a>
+  {% endif %}
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Single Banner Sec",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_single_banner_sec",
+        "label": "Display Single Banner Sec",
+        "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_banner",
+      "label": "Desktop Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_banner",
+      "label": "Mobile Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_banner_2",
+      "label": "Mobile Banner 2"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Single Banner Sec"
+    }
+  ]
+}
+{% endschema %}

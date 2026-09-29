@@ -1,0 +1,262 @@
+<style>
+/*   a.CollectionItem__Link.Buttn {
+    left: 100px!important;
+} */
+   
+
+  a.CollectionItem__Link.Buttn:after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: scaleX(1);
+    transform-origin: center right;
+    transition: transform 0.45s ease-in-out;
+    border: 2px solid #fff;
+}
+  a.CollectionItem__Link.Buttn {
+    background: transparent!important;
+}
+  a.CollectionItem__Link.Buttn:hover:after {
+    transform: scaleX(0);
+    transform-origin: center right;
+}
+/*   a.CollectionItem__Link.Buttn:hover {
+    color: #ffffff!important;
+    
+}
+  a.CollectionItem__Link.Buttn:focus-visible {
+    outline-offset: 1px;
+} */
+/*   a.CollectionItem__Link.Buttn {
+    transform:matrix(1, 0, 0, 1, 0, 0);
+    position: relative!important;
+    display: inline-block;
+    padding: 14px 28px!important;
+    line-height: normal;
+    border: 1px solid transparent;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 14px!important;
+    text-align: center!important;
+    letter-spacing: .2em;
+    font-family: Caslon Old Face,serif!important;
+    font-weight: 400;
+    font-style: normal;
+    background-color: transparent!important;
+    transition: color .45s cubic-bezier(.785,.135,.15,.86),border .45s cubic-bezier(.785,.135,.15,.86);
+    z-index: 1;
+    -webkit-tap-highlight-color: initial;
+    visibility: inherit;
+    
+} */
+/*   a.CollectionItem__Link.Buttn {
+    color: #191919;
+    border-color: #ffffff;
+} */
+  button.slick-prev.slick-arrow {
+    left: 30px!important;
+    z-index:99;
+}
+   button.slick-next.slick-arrow {
+    right: 20px!important;
+     z-index:99;
+}
+/*   .slick-prev:before, .slick-next:before{
+    color: #000!important;
+  } */
+ .collection-slide {
+    margin-top: 30px;
+}
+/*    a.CollectionItem__Link.Buttn{
+   position: relative;
+    font-size: 14px;
+    border-color: #ffffff;
+    letter-spacing: .2em !important;
+    text-align: center;
+    padding: 12px 21px !important;
+    padding: 8px 15px;
+    background-color: #fff;
+    top:60px;
+    font-family:Caslon Old Face,serif;
+  } */
+/*   a.btn.btn-section-css{
+    font-size: 14px;
+    border-color: #ffffff;
+    letter-spacing: .2em !important;
+    text-align: center;
+    padding: 12px 21px !important;
+    padding: 8px 15px;
+    background: #fff;
+    font-family:Caslon Old Face,serif;
+  } */
+.slick-initialized .slick-slide{text-align:center;}
+  .slick-slide img{display:inline;}
+  .SectionHeader__ButtonWrapr{text-align-last:center !important;}
+  a.CollectionItem__Link.Buttn{left:0px !important; right:0px !important;}
+  .collection-custom.slick-slide {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+   a.CollectionItem__Link.Buttn {
+    top: -150px;
+    position: relative;
+   left: 65px; 
+    padding: 15px 15px 15px;
+    background: #fff;
+    display: inline-block;
+} 
+   .slick-dots{bottom:-10px !important;}
+
+ div#shopify-section-c29e6c6a-8f86-4951-aac7-cf52c519b591 img.Image--lazyLoaded.hide-no-js {
+    height: 500px;
+}
+  
+  @media only screen and (max-width: 768px) {
+    a.CollectionItem__Link.Buttn {
+      left: 0px !important;
+      top: -125px!important;
+     }
+    .collection-slide{
+      margin-top: 30px;
+    margin-bottom: -100px;
+    }
+    a.CollectionItem__Link.Buttn {
+      font-size: 10px;
+  }
+/*    .SectionHeader__ButtonWrapper.CollectionItem__Link.Button {
+    padding-right: 30px;
+    padding-left: 50px;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+} */
+ }
+  </style>
+
+  
+<div class="container">  
+<div class="collection-slide">
+<div class="slick-slider">
+{%- for block in section.blocks -%} 
+  
+<div class="collection-custom">
+{%- if block.settings.image -%}
+<img class="Image--lazyLoaded hide-no-js lazy2 lazy3" src="{{ block.settings.image | img_url: '1024x600' }}" >                  
+{%- endif -%}
+
+  
+  <div class="SectionHeader__ButtonWrapper CollectionItem__Link Button">
+{%- if block.settings.button_2_text != blank -%}
+<a href="{{ block.settings.button_2_link }}" class="CollectionItem__Link Buttn">{{ block.settings.button_2_text | escape }}</a>
+{%- endif -%}
+  </div>
+</div>
+{%- endfor -%}
+</div>
+</div>
+</div>
+  
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js" ></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css">
+<script>
+
+  $(document).ready(function(){
+  $('.slick-slider').slick({
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: true,
+    dots: false,
+    centerMode: true,
+    responsive: [{
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        // centerMode: true,
+
+      }
+
+    }, {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        dots:false,
+        infinite: true,
+
+      }
+    },  {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots:false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      }
+    }]
+  });
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "collections Slideshow",
+  "class": "collection-slide shopify-section--slideshow",
+  "max_blocks": 6,
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1800 x 1200px .jpg recommended"
+        },
+        {
+          "type": "text",
+          "id": "button_2_text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "button_2_link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "collections Slideshow",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

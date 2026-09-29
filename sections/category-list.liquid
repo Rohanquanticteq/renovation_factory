@@ -1,0 +1,74 @@
+{% if section.settings.display_category_list != blank %}
+<div class="categoryListSec">
+  <div class="inner_d">
+      {%- for block in section.blocks -%}
+        <div class="item_d">
+          <a href="{{ block.settings.link }}">
+            {% if block.settings.image != blank %}
+            <div class="img_d">
+              <img src="{{ block.settings.image | img_url:"master" }}">
+            </div>
+          {% endif %}
+            {% if block.settings.title != blank %}
+            <div class="content_d">
+              <button class="button11">{{ block.settings.title }}</button>
+            </div>
+            {% endif %}
+            {% if block.settings.heading != blank %}
+            <h2>{{ block.settings.heading }}</h2>
+            {% endif %}
+          </a>
+        </div>
+      {% endfor %}
+  </div>
+  </div>
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Category List",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_category_list",
+        "label": "Display Category List",
+        "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category List"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,1487 @@
+{%- if block.type == "smk_smart_products" -%}{%- assign item = block.settings -%}
+{%- assign b_i = block.settings -%}
+
+{%- if item.show_section -%}
+<div class="shopify-section smk-content{% if item.no_borders %} no-borders{% endif %}" data-smk-section-location="{{ item.section_location }}">
+
+    <div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}smk-offset-small {% endif %}container-indent smk-smart-products-{{ block.id }}" data-smk-section-type="smk_smart_products">
+        <div class="container{% if item.fullwidth %}-fluid{% endif %}">
+            <div class="row smk-flex-row" style="position: relative;">
+
+                {% if item.st != blank %}
+                <div class="smk-smart-title" style="text-align: center; font-size: 22px;">
+                    {{ item.st }}
+                </div>
+                {% endif %}
+                {% if item.p != blank %}
+                    {%- assign product_handle = item.p -%}
+                    {%- assign product = all_products[product_handle] -%}
+                {% endif %}
+                <div
+                     class="product-recommendations__list"
+                     data-base-url="{{ routes.product_recommendations_url }}"
+                     data-product-id="{{ product.id }}"
+                     data-limit="{{ item.p_n }}"
+                     data-smk-pb-s="{{ item.pb_s }}"
+                     data-smk-pb-b="{{ item.pb_b }}"
+                     data-smk-pb-u="{{ item.pb_u }}"
+                     data-smk-pb-f="{{ item.pb_f }}"
+                     data-smk-pb-t="{{ item.pb_t }}"
+                     data-smk-dbi="{{ item.dbi }}"
+                     data-smk-pb-f-m="{{ item.pb_f_m }}"
+                   >
+               </div>
+
+               <div class="quick-view-wrap" style="
+               top: 0;
+               display: none;
+               position: fixed;
+               width: 100vw;
+               height: 100vh;
+               z-index: 100;
+               background-color: #000000a3;"
+               overflow-y: auto;
+               >
+               <div class="quick-view" style="    width: 1000px;
+                                                  margin: 0 auto;
+                                                  padding: 20px;
+                                                  margin: 20px auto;
+                                                  background-color: white;
+                                                  position: relative;
+                                                  border-radius: 10px;">
+<div class="" onclick="hideQuickView()" style="position: absolute; top: 10px; right: 10px; font-size: 20px; color: black; cursor:pointer;"><i class="fas fa-times"></i></div>
+               <div class="row smk-flex-row{% if item.rev_pl %} flex-row-reverse{% endif %}{% if item.rev_pl_m %} row-reverse-mobile{% endif %}">
+
+                                {%- assign product_handle = item.p -%}
+                                {%- assign product = all_products[product_handle] -%}
+                                {%- assign product_image_size = item.pi_s | append: 'x' | append: item.pi_s -%}
+                                {%- assign product_image_size = '1024x1024' -%}
+                                {%- assign svg_product_image_size = '400x400' | append: 'px' -%}
+
+                               <div class="smk-product-image col-img col-md-{{ item.grid | split: '.' | first }}" style="max-width: 40%">
+                                   {%- if product == blank -%}
+                                       {%- include "smk_get_svg" type:'collection' size:svg_product_image_size -%}
+                                   {%- else -%}
+                                       <!--img class="lazyload"
+                                        src="{{ b_i[image] | product_img_url: product_image_size }}"
+                                        data-src="{{ b_i[image] | product_img_url: product_image_size }}"
+                                        alt="{{ product.featured_image.alt | escape }}"/-->
+
+
+                                   {%- assign main_url_image = product.featured_image -%}
+                                   <div class="smk-paddings-mobile">
+                                     <div class="stickprcol-js smk-sticky-gallery-main smk-product-gallery">
+                                       <div class="tt-product-single-img{% unless item.gallery_no_zoom %} no-zoom{% endunless %}" data-scrollzoom="{{ item.gallery_scroll }}">
+                                         <div class="smk-gallery-paddings-mobile smk-gallery-main-image{% if item.th_l == 'left' or item.th_l == 'right' %}-vertical{% endif %}">
+
+                                           <!--button class="tt-btn-zomm tt-top-right tt-btn-zomm-product-page"><i class="fas fa-search-plus"></i></button-->
+
+                                           <img loading="lazy"
+                                           class="zoom-product"
+                                           src='{{ main_url_image.src | product_img_url: product_image_size }}'
+                                           data-zoom-image="{{ main_url_image | product_img_url: '2048x2048' }}"
+                                           alt="{{ main_url_image.alt | escape }}" />
+
+                                           <div class="smk-product-single-img-zoom-arrows">
+                                           {%- for image in product.images -%}
+                                             {% assign left_image_index = forloop.index | minus: 2 %}
+                                             {% assign right_image_index = forloop.index | plus: 0 %}
+                                             {% unless forloop.first %}
+                                             <a class="smk-arrows smk-arrows-left"
+                                                style="display: none;"
+                                                href="javascript:void(0);"
+                                                data-image="{{ product.images[left_image_index].src | product_img_url: product_image_size }}"
+                                                data-zoom-image="{{ product.images[left_image_index].src | product_img_url: '2048x2048' }}"
+                                                data-target="{{ product.images[left_image_index].id }}"
+                                                data-image-compare="{{ image.src | product_img_url: product_image_size }}">
+                                               <i class="fas fa-chevron-left smk-slick-prev"></i>
+                                             </a>
+                                             {%- endunless -%}
+                                             {% unless forloop.last %}
+                                             <a class="smk-arrows smk-arrows-right"
+                                                style="display: none;"
+                                                href="javascript:void(0);"
+                                                data-image="{{ product.images[right_image_index].src | product_img_url: product_image_size }}"
+                                                data-zoom-image="{{ product.images[right_image_index].src | product_img_url: '2048x2048' }}"
+                                                data-target="{{ product.images[right_image_index].id }}"
+                                                data-image-compare="{{ image.src | product_img_url: product_image_size }}">
+                                               <i class="fas fa-chevron-right smk-slick-next"></i>
+                                             </a>
+                                             {%- endunless -%}
+                                           {%- endfor -%}
+
+                                           </div>
+                                         </div>
+                                       </div>
+
+                                     </div>
+                                   </div>
+
+
+                                   {%- endif -%}
+
+                               </div>
+
+                               <div class="smk-product-info col-description col-md-{{ item.grid | split: '.' | last }} text-{{ item.ta }}"  style="max-width: 40%">
+
+                                     {% if item.s_pn %}
+                                     <div class="smk-product-name">
+                                         {%- if product == blank -%}
+                                           Product name
+                                         {%- else -%}
+                                           {{ product.title }}
+                                         {%- endif -%}
+                                     </div>
+                                     {% endif %}
+
+                                     {% if item.s_pn %}{% unless item.s_pdb %}
+                                     <div class="smk-product-description">
+                                       {%- if product == blank -%}
+                                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                         {%- else -%}
+                                           {% render 'product-description-tabs', product: product %}
+                                         {%- endif -%}
+                                     </div>
+                                     {% endunless %}{% endif %}
+
+                                     {% if item.s_pp %}
+                                     <div class="smk-product-offer-price">
+
+                                           <div class="smk-price">
+                                               <span class="smk-new-price price-item--sale">
+                                                   {%- if product == blank -%}
+                                                       {{ 0 | money }}
+                                                   {%- else -%}
+                                                       {% if item.u_dc %}
+                                                           {% if item.dt == 'fixed' %}
+                                                               {% assign discount_amount = item.dv | times: 100 %}
+                                                               {% if discount_amount < product.selected_or_first_available_variant.price %}
+                                                                   {{ product.selected_or_first_available_variant.price | minus: discount_amount | money }}
+                                                               {% else %}
+                                                                   {{ 0 | money }}
+                                                               {% endif %}
+                                                           {% else %}
+                                                               {% assign discount_amount = product.selected_or_first_available_variant.price | times: item.dv | divided_by: 100 %}
+                                                               {{ product.selected_or_first_available_variant.price | minus: discount_amount | money }}
+                                                           {% endif %}
+                                                       {%- else -%}
+                                                           {{ product.selected_or_first_available_variant.price | money }}
+                                                       {% endif %}
+                                                   {%- endif -%}
+                                               </span>
+                                               <span class="smk-old-price">
+                                                   {%- if product == blank -%}
+                                                       {{ 0 | money }}
+                                                   {%- else -%}
+                                                       {% if item.use_dt %}
+                                                           {{ product.selected_or_first_available_variant.price | money }}
+                                                       {%- else -%}
+                                                           {{ product.selected_or_first_available_variant.compare_at_price | money }}
+                                                       {% endif %}
+                                                   {%- endif -%}
+                                               </span>
+                                           </div>
+
+                                       </div>
+                                     {% endif %}
+
+                                     {% if item.s_pv %}
+                                       {%- unless product.has_only_default_variant -%}
+                                       <div class="smk-dynamic-product-variant-wrap">
+                                         {%- for option in product.options_with_values -%}
+                                         <div class="smk-dynamic-product-variant">
+                                           {%- if section.settings.product_selector == 'radio' -%}
+                                             <fieldset id="ProductSelect-option-{{ forloop.index0 }}" name="{{ option.name | handleize }}">
+                                               <legend>
+                                                 {{ option.name | escape }}
+                                               </legend>
+                                               {%- for value in option.values -%}
+                                                 <!-- Check to see if there's a product size option. If there is a size, check to see if there's any availble for purchase. If not, set the variant control in a "disabled" state. -->
+                                                 {%- assign variant_label_state = true -%}
+
+                                                 {%- if product.options.size == 1 -%}
+                                                   {%- unless product.variants[forloop.index0].available -%}
+                                                     {%- assign variant_label_state = false -%}
+                                                   {%- endunless -%}
+                                                 {%- endif -%}
+
+                                                 <input type="radio"
+                                                   {% if option.selected_value == value %} checked="checked"{% endif %}
+                                                   {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                                                   value="{{ value | escape }}"
+                                                   data-index="option{{ forloop.index }}"
+                                                   name="{{ option.name | handleize }}"
+                                                   id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+                                                 <label for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+                                                   {{ value | escape }}
+                                                 </label>
+                                               {%- endfor -%}
+                                             </fieldset>
+                                           {%- else -%}
+                                             <label for="ProductSelect-option-{{ forloop.index0 }}">
+                                               {{ option.name | escape }}
+                                             </label>
+                                             <select id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                                               {%- for value in option.values -%}
+                                                 <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
+                                                   {{ value | escape }}
+                                                 </option>
+                                               {%- endfor -%}
+                                             </select>
+                                           {%- endif -%}
+
+
+                                           </div>
+                                         {%- endfor -%}
+                                         </div>
+
+                                         <div class="smk-dynamic-product-variant-list" style="display: none; visibility:hidden;">
+                                             {% for option in product.variants %}
+                                                <span class="smk-dynamic-product-full-variant"
+                                                   data-smk-variant-id="{{option.id}}"
+                                                   data-smk-variant-option1="{{ option.option1 }}"
+                                                   data-smk-variant-option2="{{ option.option2 }}"
+                                                   data-smk-variant-option3="{{ option.option3 }}"
+                                                ></span>
+                                             {% endfor %}
+                                         </div>
+
+                                       {%- endunless -%}
+                                     {% endif %}
+
+                                     {% if item.s_pq %}
+                                       <div class="smk-product-offer-quantity">
+                                           <label for="quantity">Quantity </label>
+                                           <input min="1" type="number" id="quantity" name="quantity" value="1" />
+                                       </div>
+                                     {% endif %}
+
+                                     {% if item.s_pb %}
+                                     <div class="btn btn-xl smk-dynamic-product-btn"
+                                           data-behaviour="{{ item.button_behaviour }}"
+                                           data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                                           data-url="{{ item.link }}"
+                                           data-shopify-url="{{ item.s_link }}"
+                                           data-product-url="{{ product.url }}"
+                                         >
+                                     {{ item.text }}
+                                     </div>
+                                     {% endif %}
+
+                                     {% if item.s_pdb %}
+                                       <div class="smk-product-description">
+                                         {%- if product == blank -%}
+                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                           {%- else -%}
+                                             {% render 'product-description-tabs', product: product %}
+                                           {%- endif -%}
+                                       </div>
+                                       {% endif %}
+
+                                       {% if item.s_apb %}
+                                         <div class="btn btn-xl smk-dynamic-product-btn"
+                                               data-behaviour="{{ item.button_behaviour }}"
+                                               data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                                               data-url="{{ item.link }}"
+                                               data-shopify-url="{{ item.s_link }}"
+                                               data-product-url="{{ product.url }}"
+                                             >
+                                         {{ item.text }}
+                                         </div>
+                                         {% endif %}
+
+                               </div>
+
+                           </div>
+                           </div>
+               </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.smk-quick-view-wrap {
+       top: 0;
+       left: 0;
+       display: none;
+       position: fixed;
+       width: 100vw;
+       height: 100vh;
+       z-index: 100;
+       background-color: #000000a3;
+}
+
+.smk-quick-view-wrap .smk-quick-view {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.smk-content .smk-smart-products-{{ block.id }} .smk-smart-title {
+     font-size: {{ item.t_fs }}px;
+     line-height: {{ item.t_lh }}px;
+     font-weight: {{ item.t_fw }};
+     margin-bottom: 10px;
+     color: {{ item.t_c }};
+}
+
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list {
+    display: flex;
+}
+
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .smk-smart-product-item {
+    max-width: calc(100% / {{ item.p_n }} - 20px);
+    margin: 0px 10px;
+    position: relative;
+}
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .smk-smart-product-item .smk-add-to-cart-icon {
+    position: absolute;
+    background-color: #ffffff;
+    color: #7d7d7d;
+    width: 40px;
+    height: 40px;
+    padding: 11px 9px;
+    cursor: pointer;
+    top: 10px;
+    {% if item.pb_a_t == 'icon_left' %}
+    left: 10px;
+    {% elsif item.pb_a_t == 'icon_right' %}
+    right: 10px;
+    {% endif %}
+    font-size: 18px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px #ececec;
+    {% if item.pb_a_t != 'icon_left' and item.pb_a_t != 'icon_right' %}
+    display: none;
+    {% endif %}
+}
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .smk-smart-product-item .smk-add-to-cart-icon:hover {
+    background-color: #7d7d7d;
+    color: #ffffff;
+}
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .smk-smart-product-quick-btn,
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .smk-smart-product-btn {
+    background-color: #0088cc;
+    color: #fff;
+    width: fit-content;
+    line-height: 1;
+    padding: 6px 10px 4px;
+    border-radius: 2px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .smk-smart-product-quick-btn:hover {
+    background-color: #019dea;
+}
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .smk-smart-product-btn {
+    background-color: #009a0e;
+    {% if item.pb_a_t != 'btn_product' %}
+    display: none;
+    {% endif %}
+}
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .smk-smart-product-btn:hover {
+    background-color: #00ce13;
+}
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .product__title {
+     font-size: {{ item.pn_fs }}px;
+     line-height: {{ item.pn_lh }}px;
+     font-weight: {{ item.pn_fw }};
+     color: {{ item.pn_c }};
+}
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .product__price {
+    text-align: center;
+    font-size: {{ item.pp_fs }}px;
+    line-height: {{ item.pp_lh }}px;
+    font-weight: {{ item.pp_fw }};
+    color: {{ item.ppn_c }};
+}
+.smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .product__price .old-price {
+    text-decoration: line-through;
+    margin-left: 10px;
+    color: {{ item.ppo_c }};
+}
+
+@media (max-width: 790px) {
+    .smk-content .smk-smart-products-{{ block.id }} .smk-smart-title {
+         font-size: {{ item.t_fs_m }}px;
+         line-height: {{ item.t_lh_m }}px;
+         font-weight: {{ item.t_fw_m }};
+         margin-bottom: 10px;
+    }
+    .smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .product__title {
+         font-size: {{ item.pn_fs_m }}px;
+         line-height: {{ item.pn_lh_m }}px;
+         font-weight: {{ item.pn_fw_m }};
+    }
+    .smk-content .smk-smart-products-{{ block.id }} .product-recommendations__list .product__price {
+        font-size: {{ item.pp_fs_m }}px;
+        line-height: {{ item.pp_lh_m }}px;
+        font-weight: {{ item.pp_fw_m }};
+    }
+}
+</style>
+<style>
+
+    .smk-content .smk-flex-row {
+      margin: 0 -20px;
+      justify-content: center;
+    }
+    .smk-content .smk-flex-row > div {
+      padding: 0 20px;
+    }
+
+    .smk-content .smk-flex-row .smk-arrows {
+      font-weight: 600;
+      padding: 5px;
+      /*-webkit-text-stroke: 1px #3e3e3e;
+      color: #dbdbdb;*/
+      font-size: 30px;
+      line-height: 1;
+      font-style: normal;
+    }
+
+    .smk-content .smk-flex-row .smk-gallery-parent {
+        padding: 0 20px;
+    }
+    .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery {
+        padding: 0 20px;
+        margin-bottom: 60px;
+    }
+
+    .smk-content .smk-flex-row .smk-gallery-parent-vertical {
+        max-width: 80px;
+        padding: 0 0 20px 0;
+    }
+    .smk-content .smk-flex-row .smk-gallery-parent-vertical #smallSmkGallery {
+        padding: 0 0 40px 0;
+    }
+
+    .smk-content .smk-flex-row .smk-gallery-parent-vertical .slick-prev,
+    .smk-content .smk-flex-row .smk-gallery-parent-vertical .slick-next {
+        bottom: 0;
+        top: auto;
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+    }
+
+    .smk-content .smk-flex-row .smk-gallery-parent-vertical .slick-prev {
+        left: -2px;
+    }
+    .smk-content .smk-flex-row .smk-gallery-parent-vertical .slick-next {
+        right: -2px;
+    }
+
+
+
+    .smk-content .smk-flex-row .slick-prev,
+    .smk-content .smk-flex-row .slick-next,
+    .smk-content .smk-flex-row .smk-arrows {
+        color: {{ item.th_ac }};
+        background-color: {{ item.th_abc }};
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    .smk-content .smk-flex-row .smk-arrows {
+        width: 48px;
+        height: 48px;
+    }
+
+
+    .smk-content .smk-flex-row .smk-arrows-left {
+        position:absolute; left: 10px; top: 50%; margin-top: -68px;
+    }
+    .smk-content .smk-flex-row .smk-arrows-right {
+        position:absolute; right: 15px; top: 50%; margin-top: -68px;
+    }
+    .smk-content .smk-flex-row .smk-gallery-parent-vertical .smk-arrows-left {
+        left: 110px;
+    }
+
+    .smk-content .smk-flex-row .smk-arrows-left i {
+        transform: translateX(3px);
+    }
+    .smk-content .smk-flex-row .smk-arrows-right i {
+        transform: translateX(6px);
+    }
+
+
+    .smk-content .smk-flex-row .slick-prev:hover,
+    .smk-content .smk-flex-row .slick-next:hover,
+    .smk-content .smk-flex-row .smk-arrows:hover {
+        color: {{ item.th_ac_h }};
+        background-color: {{ item.th_abc_h }};
+    }
+
+
+     .smk-content .smk-product-info {
+         /*width: {{ item.pi_s }};*/
+     }
+
+     .smk-content .smk-product-info > div {
+        margin-bottom: {{ item.dbi }}px;
+     }
+
+     .smk-content .smk-flex-row .smk-product-name {
+         color: {{ item.pn_c }};
+         font-size: {{ item.pn_fs }}px;
+         line-height: {{ item.pn_lh }}px;
+         font-weight: {{ item.pn_fw }};
+     }
+
+     .smk-content .smk-flex-row .smk-product-gallery {
+        display: flex;
+        {% case item.th_l %}
+            {% when 'left' %}
+            flex-direction: row-reverse;
+            {% when 'right' %}
+            flex-direction: row;
+            {% when 'top' %}
+            flex-direction: column-reverse;
+            {% when 'bottom' %}
+            flex-direction: column;
+            {% when 'dots' %}
+            flex-direction: column;
+        {% endcase %}
+     }
+
+     .smk-content .smk-flex-row .smk-product-gallery > div {
+         position: relative;
+      }
+
+      .smk-content .smk-flex-row .smk-product-gallery .smk-gallery-parent li {
+        list-style: none;
+      }
+
+      .smk-content .smk-flex-row .smk-product-description {
+          color: {{ item.pd_c }};
+          font-size: {{ item.pd_fs }}px;
+          line-height: {{ item.pd_lh }}px;
+          font-weight: {{ item.pd_fw }};
+      }
+
+       .smk-content .smk-product-offer-price {
+           color: {{ item.ppn_c }};
+           font-size: {{ item.pp_fs }}px;
+           line-height: {{ item.pp_lh }}px;
+           font-weight: {{ item.pp_fw }};
+       }
+
+       .smk-content .smk-product-offer-price .smk-old-price {
+           color: {{ item.ppo_c }};
+           text-decoration: line-through;
+       }
+
+       .smk-content .smk-product-offer-quantity {
+            {% if item.s_pla %}
+                display: flex;
+                flex-direction: column;
+            {% endif %}
+       }
+
+       .smk-content .smk-product-offer-quantity input {
+            border-radius: 2px;
+            border: 1px solid gray;
+            padding: 10px;
+            max-width: 60px;
+       }
+
+       .smk-content .smk-dynamic-product-variant-wrap {
+            {% if item.s_pvl %}
+                display: flex;
+            {% endif %}
+       }
+
+       .smk-content .smk-dynamic-product-variant {
+           {% if item.s_pla %}
+               display: flex;
+               flex-direction: column;
+           {% endif %}
+       }
+
+       .smk-content .smk-dynamic-product-variant select {
+           border-radius: 2px;
+           background-color: white;
+           padding: 10px;
+           margin-right: 20px;
+       }
+
+     .smk-content .smk-dynamic-product-btn {
+         padding: calc({{ item.bt_lh }}px / 2) calc({{ item.bt_lh }}px / 2 + 20px);
+         text-align: center;
+         border-radius: 2px;
+         cursor: pointer;
+         font-size: {{ item.bt_fs }}px;
+         font-weight: {{ item.bt_fw }};
+         line-height: {{ item.bt_lh }}px;
+         /* margin: auto; */
+         {% if item.pb_f == 'full' %}
+         width: 100%;
+         {% else %}
+         width: fit-content;
+         {% endif %}
+         color: {{ item.tc }};
+         background-color: {{ item.bgc }};
+         border: 1px solid {{ item.bc }};
+     }
+
+     .smk-content .smk-dynamic-product-btn:hover {
+        color: {{ item.tc_h }};
+        background-color: {{ item.bgc_h }};
+        border: 1px solid {{ item.bc_h }};
+     }
+
+     .smk-content .smk-flex-row .smk-product-name {
+         font-size: {{ item.pn_fs_m }}px;
+         line-height: {{ item.pn_lh_m }}px;
+         font-weight: {{ item.pn_fw_m }};
+     }
+
+     .smk-content .smk-product-info .smk-countdown .smk-countdown-title {
+       color: {{ item.ctt_c }};
+       font-size: {{ item.ctt_fs }}px;
+       line-height: {{ item.ctt_lh }}px;
+       font-weight: {{ item.ctt_fw }};
+     }
+
+     .smk-content .smk-product-info .smk-countdown .smk-countdown-time {
+        color: {{ item.ct_c }};
+       font-size: {{ item.ct_fs }}px;
+       line-height: {{ item.ct_lh }}px;
+       font-weight: {{ item.ct_fw }};
+      }
+
+      .smk-content .smk-product-info .smk-additional-text-1 {
+          color: {{ item.at1_c }};
+         font-size: {{ item.at1_fs }}px;
+         line-height: {{ item.at1_lh }}px;
+         font-weight: {{ item.at1_fw }};
+        }
+    .smk-content .smk-product-info .smk-additional-text-2 {
+          color: {{ item.at2_c }};
+         font-size: {{ item.at2_fs }}px;
+         line-height: {{ item.at2_lh }}px;
+         font-weight: {{ item.at2_fw }};
+        }
+
+     .smk-content smk-dynamic-product-{{ block.id }} .btn.smk-cta-btn {
+
+     }
+
+
+
+     @media (max-width: 790px) {
+         .smk-content .smk-flex-row > div {
+           padding: 20px 0;
+         }
+
+         .smk-content .smk-flex-row .smk-product-info {
+            padding-left: 20px;
+            padding-right: 20px;
+         }
+
+         .smk-content .smk-flex-row .smk-product-gallery {
+            {% case item.th_l_m %}
+                 {% when 'left' %}
+                 flex-direction: row-reverse;
+                 {% when 'right' %}
+                 flex-direction: row;
+                 {% when 'top' %}
+                 flex-direction: column-reverse;
+                 {% when 'bottom' %}
+                 flex-direction: column;
+                 {% when 'dots' %}
+                 flex-direction: column;
+             {% endcase %}
+         }
+
+         .smk-content .smk-flex-row .smk-gallery-main-image-vertical .smk-arrows-left {
+             left: 60px;
+         }
+         .smk-content .smk-flex-row .smk-gallery-main-image-vertical .smk-arrows-right {
+             right: -5px;
+         }
+
+         .smk-content .smk-flex-row .smk-gallery-main-image-vertical .smk-arrows-left,
+         .smk-content .smk-flex-row .smk-gallery-main-image-vertical .smk-arrows-right {
+             margin-top: -28px;
+         }
+
+         .smk-content .smk-flex-row .smk-gallery-parent-vertical .slick-prev,
+         .smk-content .smk-flex-row .smk-gallery-parent-vertical .slick-next {
+             width: 30px;
+             height: 30px;
+             transform: rotate(90deg);
+             -webkit-transform: rotate(90deg);
+         }
+
+         .smk-content .smk-flex-row .smk-gallery-parent-vertical .slick-prev i,
+         .smk-content .smk-flex-row .smk-gallery-parent-vertical .slick-prev i
+          {
+             translateY(-5px);
+         }
+
+       .smk-content .smk-flex-row .smk-product-description {
+           font-size: {{ item.pd_fs_m }}px;
+           line-height: {{ item.pd_lh_m }}px;
+           font-weight: {{ item.pd_fw_m }};
+       }
+
+        .smk-content .smk-product-offer-price {
+            font-size: {{ item.pp_fs_m }}px;
+            line-height: {{ item.pp_lh_m }}px;
+            font-weight: {{ item.pp_fw_m }};
+        }
+
+        .smk-content .smk-product-offer .smk-dynamic-product-btn {
+             font-size: {{ item.bt_fs_m }}px;
+             font-weight: {{ item.bt_fw_m }};
+             line-height: {{ item.bt_lh_m }}px;
+         }
+
+          .smk-content .smk-product-info .smk-countdown .smk-countdown-title {
+            font-size: {{ item.ctt_fs_m }}px;
+            line-height: {{ item.ctt_lh_m }}px;
+            font-weight: {{ item.ctt_fw_m }};
+          }
+
+          .smk-content .smk-product-info .smk-countdown .smk-countdown-time {
+            font-size: {{ item.ct_fs_m }}px;
+            line-height: {{ item.ct_lh_m }}px;
+            font-weight: {{ item.ct_fw_m }};
+           }
+
+        .smk-content .smk-product-info .smk-additional-text-1 {
+         font-size: {{ item.at1_fs_m }}px;
+         line-height: {{ item.at1_lh_m }}px;
+         font-weight: {{ item.at1_fw_m }};
+        }
+
+        .smk-content .smk-product-info .smk-additional-text-2 {
+         font-size: {{ item.at2_fs_m }}px;
+         line-height: {{ item.at2_lh_m }}px;
+         font-weight: {{ item.at2_fw_m }};
+        }
+     }
+
+     {% if item.th_l == 'dots' %}
+         @media (min-width: 791px) {
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-list .slick-slide li a img,
+             .smk-content .smk-flex-row .smk-gallery-parent .slick-next,
+             .smk-content .smk-flex-row .smk-gallery-parent .slick-prev {
+                 display: none !important;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent {
+                 margin-top: 20px;
+                 margin-bottom: 0;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-track {
+                 width: 100% !important;
+                 display: flex;
+                 justify-content: center;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-list .slick-slide {
+                 width: 25px !important;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-list .slick-slide li a:before {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: "\f111";
+                color: #bfbfbf;
+                text-shadow: 2px 2px #ececec;
+                opacity: 1;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-list .slick-slide li a.zoomGalleryActive:before {
+                color: #3c3c3c;
+             }
+         }
+         {% endif %}
+         {% if item.th_l_m == 'dots' %}
+         @media (max-width: 790px) {
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-list .slick-slide li a img,
+             .smk-content .smk-flex-row .smk-gallery-parent .slick-next,
+             .smk-content .smk-flex-row .smk-gallery-parent .slick-prev {
+                 display: none !important;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent {
+                 max-width: none;
+                 margin-top: 20px;
+                 margin-bottom: 0;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery {
+                 padding: 0;
+                 margin-bottom: 0;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent .smk-arrows-left,
+             .smk-content .smk-flex-row .smk-gallery-parent-vertical .smk-arrows-left {
+                 left: 0;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-track {
+                 width: 100% !important;
+                 display: flex;
+                 justify-content: center;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-list {
+                 height: 20px !important;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-list .slick-slide {
+                 width: 25px !important;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-list .slick-slide li a:before {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: "\f111";
+                color: #bfbfbf;
+                text-shadow: 2px 2px #ececec;
+                opacity: 1;
+             }
+             .smk-content .smk-flex-row .smk-gallery-parent #smallSmkGallery .slick-list .slick-slide li a.zoomGalleryActive:before {
+                color: #3c3c3c;
+             }
+         }
+         {% endif %}
+ </style>
+
+{% endif %}{%- endif -%}
+
+
+{%- if block.type == "smk_upsells_cross_sells" -%}{%- assign item = block.settings -%}
+{%- assign b_i = block.settings -%}
+
+{%- if item.show_section -%}
+<div class="shopify-section smk-content{% if item.no_borders %} no-borders{% endif %}" data-smk-section-location="{{ item.section_location }}">
+    <div class="{% if item.top_offset == 'none' %}nomargin {% elsif item.top_offset == 'small' %}smk-offset-small {% endif %}container-indent smk-upsells-cross-sells-{{ block.id }}" data-smk-section-type="smk_upsells_cross_sells">
+        <div class="container{% if item.fullwidth %}-fluid{% endif %}">
+            <div class="row smk-flex-row" style="position: relative;">
+
+                {% if item.p != blank %}
+                    {%- assign product_handle = item.p -%}
+                    {%- assign product = all_products[product_handle] -%}
+                {% endif %}
+
+                {%- assign product_image_size = item.pi_s | append: 'x' | append: item.pi_s -%}
+                {%- assign svg_product_image_size = '400x400' | append: 'px' -%}
+
+                <div class="in-cart-upsell {% if uc_l %} smk-uc-horizontal{% endif %}">
+
+                    {% if item.st != blank %}
+                    <div class="smk-uc-header"> {{ item.st }}</div>
+                    {% endif %}
+
+                    <div class="smk-uc-products">
+                    {%- for i in (1..5) -%}
+
+                    {%- assign smk_block_type = 'upsells_cross_sells' -%}
+                    {%- assign show = smk_block_type | append: '_' | append: i | append: '_' | append: 'show' -%}
+                    {%- assign mp_t = smk_block_type | append: '_' | append: i | append: '_' | append: 'mp_t' -%}
+                    {%- assign mp = smk_block_type | append: '_' | append: i | append: '_' | append: 'mp' -%}
+
+                    {% if b_i[mp_t] == 'manual' and b_i[mp] != blank %}
+                        {%- assign product_handle = b_i[mp] -%}
+                        {%- assign product = all_products[product_handle] -%}
+                    {% endif %}
+
+                    {%- if b_i[show] -%}
+
+                    <div class="smk-uc-product-area">
+                    <div class="smk-uc-product-image-wrap">
+                        {%- if product == blank -%}
+                        {%- include "smk_get_svg" type:'collection' size: product_image_size -%}
+                        {%- else -%}
+                        {%- assign main_url_image = product.featured_image -%}
+                        <img loading="lazy"    class="smk-uc-product-image"
+                                src='{{ main_url_image.src | product_img_url: product_image_size }}'
+                                alt="{{ main_url_image.alt | escape }}" />
+                        {%- endif -%}
+
+                    </div>
+                    <div class="smk-uc-product-mid{% if item.s_pv %} smk-uc-with-variants{% endif %}">
+                        <div class="smk-uc-product-name">
+                            {%- if product == blank -%}
+                            Product name
+                            {%- else -%}
+                            {{ product.title }}
+                            {%- endif -%}
+                        </div>
+
+                        {% if item.s_pv %}
+                        {%- unless product.has_only_default_variant -%}
+                        <div class="smk-dynamic-product-variant-wrap">
+                            {%- for option in product.options_with_values -%}
+                            <div class="smk-dynamic-product-variant">
+                                {%- if section.settings.product_selector == 'radio' -%}
+                                <fieldset id="ProductSelect-option-{{ forloop.index0 }}" name="{{ option.name | handleize }}">
+                                    <legend>
+                                        {{ option.name | escape }}
+                                    </legend>
+                                    {%- for value in option.values -%}
+                                    <!-- Check to see if there's a product size option. If there is a size, check to see if there's any availble for purchase. If not, set the variant control in a "disabled" state. -->
+                                    {%- assign variant_label_state = true -%}
+
+                                    {%- if product.options.size == 1 -%}
+                                    {%- unless product.variants[forloop.index0].available -%}
+                                    {%- assign variant_label_state = false -%}
+                                    {%- endunless -%}
+                                    {%- endif -%}
+
+                                    <input type="radio"
+                                           {% if option.selected_value == value %} checked="checked"{% endif %}
+                                           {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                                           value="{{ value | escape }}"
+                                           data-index="option{{ forloop.index }}"
+                                           name="{{ option.name | handleize }}"
+                                           id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+                                    <label for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+                                        {{ value | escape }}
+                                    </label>
+                                    {%- endfor -%}
+                                </fieldset>
+                                {%- else -%}
+                                <label for="ProductSelect-option-{{ forloop.index0 }}">
+                                    {{ option.name | escape }}
+                                </label>
+                                <select id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                                    {%- for value in option.values -%}
+                                    <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
+                                        {{ value | escape }}
+                                    </option>
+                                    {%- endfor -%}
+                                </select>
+                                {%- endif -%}
+
+
+                            </div>
+                            {%- endfor -%}
+                        </div>
+
+                        <div class="smk-dynamic-product-variant-list" style="display: none; visibility:hidden;">
+                            {% for option in product.variants %}
+                                 <span class="smk-dynamic-product-full-variant"
+                                       data-smk-variant-id="{{option.id}}"
+                                       data-smk-variant-option1="{{ option.option1 }}"
+                                       data-smk-variant-option2="{{ option.option2 }}"
+                                       data-smk-variant-option3="{{ option.option3 }}"
+                                 ></span>
+                            {% endfor %}
+                        </div>
+
+                        {%- endunless -%}
+                        {% endif %}
+
+                    </div>
+                    <div class="smk-uc-product-right">
+                        <div class="price">
+                            <span class="smk-new-price price-item--sale">
+                                    {%- if product == blank -%}
+                                        {{ 0 | money }}
+                                    {%- else -%}
+                                        {% if item.u_dc %}
+                                            {% if item.dt == 'fixed' %}
+                                                {% assign discount_amount = item.dv | times: 100 %}
+                                                {% if discount_amount < product.selected_or_first_available_variant.price %}
+                                                    {{ product.selected_or_first_available_variant.price | minus: discount_amount | money }}
+                                                {% else %}
+                                                    {{ 0 | money }}
+                                                {% endif %}
+                                            {% else %}
+                                                {% assign discount_amount = product.selected_or_first_available_variant.price | times: item.dv | divided_by: 100 %}
+                                                {{ product.selected_or_first_available_variant.price | minus: discount_amount | money }}
+                                            {% endif %}
+                                        {%- else -%}
+                                            {{ product.selected_or_first_available_variant.price | money }}
+                                        {% endif %}
+                                    {%- endif -%}
+                                </span>
+                                <span class="smk-old-price" style="margin-left: 10px; text-decoration: line-through;">
+                                    {%- if product == blank -%}
+                                        {{ 0 | money }}
+                                    {%- else -%}
+                                        {% if item.use_dt %}
+                                            {{ product.selected_or_first_available_variant.price | money }}
+                                        {%- else -%}
+                                            {{ product.selected_or_first_available_variant.compare_at_price | money }}
+                                        {% endif %}
+                                    {%- endif -%}
+                                </span>
+                        </div>
+                        {% if item.qv_l == 'show' %}
+                        <div class="smk-uc-quick-view-btn">{{ item.qv_t }}</div>
+                        {% endif %}
+                        <div class="smk-uc-atc-btn">{{ item.pb_t }}</div>
+
+                        </div>
+                    </div>
+                    {%- endif -%}
+                    {%- endfor -%}
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .in-cart-upsell {
+        /*font-family: "Montserrat";*/
+        margin: auto;
+        width: 100%;
+        max-width: 900px;
+        color: #3d4246;
+        margin-top: -10px;
+        font-style: normal;
+        background-color: {{ item.s_bgc }};
+    }
+
+    .smk-uc-header {
+        font-size: {{ item.st_fs }}px;
+        line-height: {{ item.st_lh }}px;
+        font-weight: {{ item.st_fw }};
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .smk-uc-product-area {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 14px 6px;
+        background-color: {{ item.p_bgc }};
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .smk-uc-product-mid {
+        padding-top: 10px;
+        text-align: left;
+        margin-left: 25px;
+        margin-right: 10px;
+        flex: 1;
+    }
+
+    .smk-uc-product-mid.smk-uc-with-variants {
+        padding-top: 5px;
+    }
+
+    .smk-dynamic-product-variant-wrap {
+        display: flex;
+        margin-top: 5px;
+    }
+
+    .smk-dynamic-product-variant {
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .smk-dynamic-product-variant label {
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+
+    .smk-dynamic-product-variant select {
+        border-radius: 2px;
+        background-color: white;
+        /*padding: 6px;*/
+        color: #2d2d2d;
+        border-color: #ccc;
+    }
+
+    .smk-uc-product-right {
+        padding-top: 10px;
+    /* padding-top: 0;
+        padding-bottom: 10 px; */
+        text-align: center;
+        align-items: center;
+        margin-right: 25px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .smk-uc-product-image {
+        margin-left: 20px;
+    }
+
+    .product-image {
+        margin-left: 25px;
+        margin-top: 5px;
+        width: 95px;
+        height: auto;
+    }
+
+    .product-image-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    .smk-uc-product-name {
+        font-size: {{ item.pn_fs }}px;
+        line-height: {{ item.pn_lh }}px;
+        font-waeight: {{ item.pn_fw }};
+        color: {{ item.pn_c }};
+    }
+
+    .variants {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .variant {
+        display: flex;
+        align-items: center;
+    }
+
+    .variant-label {
+        font-size: variantssize+px;
+        font-style: italic;
+        margin-right: 8px;
+        width: 40px;
+        text-align: right;
+        color: #variantscolor +;
+    }
+
+    .variant-select {
+        width: 120px;
+        padding: 7px 40px 7px 10px !important;
+        font-style: italic;
+        margin-right: 14px;
+        font-size: variantssize+px;
+    }
+
+    .price {
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        margin: 5px 0;
+        max-width: 240px;
+        font-size: {{ item.pp_fs }}px;
+        line-height: {{ item.pp_lh }}px;
+        font-weight: {{ item.pp_fw }};
+        color: #pricecolor +;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .original-price {
+        color: {{ item.ppo_c }};
+        text-decoration: line-through;
+        padding: 0 0 0 5px;
+        opacity: 0.5;
+    }
+
+    .smk-new-price {
+        color: {{ item.ppn_c }};
+    }
+
+    .smk-uc-atc-btn,
+    .smk-uc-quick-view-btn {
+        letter-spacing: 0.08em;
+        background: green;
+        font-size: {{ item.pb_fs }}px;
+        line-height: {{ item.pb_lh }}px;
+        font-weight: {{ item.pb_fw }};
+        cursor: pointer;
+        border-radius: 3px;
+        text-align: center;
+        padding: 10px 22px;
+        border: 0;
+        font-weight: 600;
+        color: #fff;
+        width: 150px;
+        height: 38px;
+    }
+
+    .smk-uc-quick-view-btn {
+        color: #0088cc;
+        margin-bottom: 5px;
+    }
+
+    #CartDrawer .in-cart-upsell {
+        position: absolute;
+        bottom: 180px;
+        width: 260px;
+        z-index: 1
+    }
+
+    #CartDrawer .smk-uc-product-area {
+        width: 108%;
+        margin-left: -4%;
+        padding: 10px 6px;
+    }
+
+    #CartDrawer .header {
+        width: 108%;
+        margin-left: -4%;
+        font-size: 14px;
+    }
+
+    #CartDrawer .smk-uc-atc-btn {
+        font-size: 11px;
+        width: 60px;
+        height: 30px;
+        padding: 8px 1px;
+    }
+
+    #CartDrawer .xs-hide {
+        display: none;
+    }
+
+    #CartDrawer .price {
+        font-size: 14px;
+        margin: 0 0 5px 0;
+        flex-direction: column;
+        line-height: 1.2;
+    }
+
+    #CartDrawer .original-price {
+    / / margin-top: - 5 px;
+    }
+
+    #CartDrawer .smk-uc-product-name {
+        line-height: 11px;
+        font-size: 12px;
+    }
+
+    #CartDrawer .variant-select, #CartDrawer .variant-label {
+        font-size: 13px;
+    }
+
+    #CartDrawer .variant-label {
+        display: none;
+    }
+
+    #CartDrawer .variant-select {
+        width: 92px;
+        font-size: 12px !important;
+        padding: 5px 33px 5px 5px !important;
+        margin-right: 2px;
+    }
+
+    #CartDrawer .product-image {
+        margin-left: 2px;
+        width: 60px;
+        height: auto;
+    }
+
+    #CartDrawer .smk-uc-product-mid {
+        padding-top: 5px;
+        margin-left: 10px;
+        margin-right: 5px;
+    }
+
+    #CartDrawer .smk-uc-product-right {
+    / / margin-top: 10 px;
+        margin-right: 5px !important;
+        padding-top: 5px !important;
+    }
+
+    .smk-uc-horizontal .smk-uc-product-image-wrap {
+        margin: auto;
+    }
+
+    .smk-uc-horizontal .smk-uc-product-image {
+        margin: 0;
+    }
+
+    .smk-uc-horizontal .smk-uc-product-area {
+        flex-direction: column;
+        max-width: 30%;
+        margin-right: 10px;
+    }
+
+    .smk-uc-horizontal .smk-uc-products {
+        display: flex;
+    }
+
+    .smk-uc-horizontal .smk-uc-product-mid {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .smk-uc-horizontal .smk-dynamic-product-variant-wrap {
+        width: fit-content;
+        margin: 10px auto 0;
+    }
+
+    .smk-uc-horizontal .smk-uc-product-right {
+        margin-right: 0;
+    }
+
+    .smk-uc-horizontal .smk-dynamic-product-variant select {
+        max-width: 170px;
+    }
+
+    @media (max-width: 830px) and (min-width: 750px) {
+        .smk-uc-product-right {
+            padding-top: 10px !important;
+            flex-direction: column !important;
+        }
+    }
+
+    @media (max-width: 749px) {
+        .smk-uc-header {
+            font-size: {{ item.st_fs_m }}px;
+            line-height: {{ item.st_lh_m }}px;
+            font-weight: {{ item.st_fw_m }};
+        }
+
+        .smk-uc-product-name {
+            font-size: 16px
+        }
+
+        .product-image {
+            margin: 10px 0px 6px 4px;
+            width: 68px;
+            height: 68px
+        }
+
+        .smk-uc-product-image {
+            margin-left: 0;
+        }
+
+        .smk-uc-product-mid {
+            padding-top: 0px
+        }
+
+        .smk-uc-product-right {
+            padding-top: 5px !important;
+            margin-right: 10px;
+            text-align: right;
+            align-items: flex-end;
+            flex-direction: column !important;
+        }
+
+        .smk-uc-atc-btn {
+            font-size: {{ item.pb_fs_m }}px;
+            line-height: {{ item.pb_lh_m }}px;
+            font-weight: {{ item.pb_fw_m }};
+            width: 124px;
+            height: 34px;
+            padding: 8px 5px;
+        }
+
+        .variants {
+            flex-direction: column;
+            margin-top: 4px;
+            margin-bottom: 0px;
+            align-items: flex-start;
+        }
+
+        .variant-label {
+            font-size: 14px;
+        }
+
+        .variant-select {
+            width: 110px;
+            padding: 6px 38px 6px 8px !important;
+            font-size: 14px;
+        }
+
+        .price {
+            letter-spacing: 0.07em;
+            font-size: 16px;
+            padding: 0;
+        }
+    }
+
+    @media (max-width: 450px) {
+        .in-cart-upsell.bottom-in-cart {
+            margin-top: 20px;
+        }
+
+        .smk-uc-atc-btn {
+            font-size: {{ item.pb_fs_m }}px;
+            line-height: {{ item.pb_lh_m }}px;
+            font-weight: {{ item.pb_fw_m }};
+            width: 60px;
+            height: 30px;
+            padding: 8px 1px;
+        }
+
+        .xs-hide {
+            display: none;
+        }
+
+        .price {
+            font-size: 14px;
+            margin: 0 0 5px 0;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .original-price {
+        / / margin-top: - 5 px;
+        }
+
+        .smk-uc-product-name {
+            font-size: {{ item.pn_fs_m }}px;
+            line-height: {{ item.pn_lh_m }}px;
+            font-waeight: {{ item.pn_fw_m }};
+        }
+
+        .variant-select, .variant-label {
+            font-size: 13px;
+        }
+
+        .variant-select {
+            width: 92px;
+            font-size: 12px;
+            padding: 5px 33px 5px 5px !important;
+            margin-right: 2px;
+        }
+
+        .product-image {
+            margin-left: 2px;
+            width: 60px;
+            height: 60px;
+        }
+
+        .smk-uc-product-mid {
+            margin-left: 10px;
+            margin-right: 5px;
+        }
+
+        .smk-uc-product-right {
+        // margin-top: 10px;
+            margin-right: 5px;
+        }
+
+        .header {
+            font-size: 16px
+        }
+
+        #CartDrawer .in-cart-upsell {
+            margin: auto 10px;
+        }
+    }
+
+    @media (max-width: 370px) {
+        .smk-uc-product-area {
+            width: 108%;
+            margin-left: -4%;
+        }
+
+        .header {
+            width: 108%;
+            margin-left: -4%;
+            font-size: 15px;
+        }
+    }
+</style>
+
+{% endif %}{%- endif -%}
+
+

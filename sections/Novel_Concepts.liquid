@@ -1,0 +1,305 @@
+<style>
+  .desktop_viwe{
+    display: block;
+  }
+  .mobile_viwe{
+    display: none;
+  }
+  .novel-concepts {
+   padding:0px 0;
+    background:#222;
+  }
+  .sec_heading {
+    text-align:center;
+    margin-bottom:0px;
+  }
+
+  .sec_heading h2 {
+    color:#8f7663;
+    font-size:42px;
+  }
+
+.novel_tabs {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 20px;
+  border-bottom:1px solid #fff;
+  margin:0 0 30px;
+}
+.novel_tabs li {
+  display:inline-block;
+}
+
+  .novel_tabs li a {
+    display:inline-block;
+    padding:10px;
+    color:#8f7663;
+  }
+.novel_tabs li .activelink {
+  color:#fff;
+}
+.novel-concepts .block-content {
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center top;
+}
+.novel-concepts .text_block {
+  max-width:60%;
+  background:#222222b5;
+  padding:50px;
+}
+  .novel-concepts .text_block h2 {
+    font-size:32px;
+    margin:0 0 15px;
+  }
+  .novel-concepts .text_block .text1 {
+    margin:0 0 10px;
+  }
+
+  .novel-concepts .text_block .text1 ul {
+    display:block;
+    margin:0 ;
+    padding:0;
+  }
+  .novel-concepts .text_block .text1 ul li {
+    display:block;
+    margin:0 0 7px;
+  }
+
+  .hide {
+    display:none !important;
+  }
+
+
+@media(max-width:767px) {
+  .desktop_viwe{
+    display: none;
+  }
+  .mobile_viwe{
+    display: block;
+  }
+  .novel_tabs {
+    flex-wrap:wrap;
+  }
+  .novel_tabs li {
+    width:50%;
+  }
+  .sec_heading h2 {
+    font-size:32px;
+    padding:0 15px;
+  }
+.novel-concepts .text_block {
+  max-width:100%;
+  padding:20px 15px;
+}
+  .novel-concepts .text_block h2 {
+    font-size:22px;
+  }
+  .novel-concepts .text_block {
+    font-size:16px;
+  }
+
+  .novel_tabs li a {
+  padding:5px;
+}
+
+  
+</style>
+
+
+<div class="novel-concepts">
+    <div class="sec_heading">
+      {% if section.settings.heading != blank %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+    <ul class="novel_tabs">
+      {% if section.settings['tab-title1'] != blank %}
+        <li class="clickme">
+          <a href="javascript:void();" data-tag="tabs-1" class="activelink">{{ section.settings['tab-title1'] }}</a>
+        </li>
+      {% endif %}
+      {% if section.settings['tab-title2'] != blank %}
+        <li class="clickme">
+          <a href="javascript:void();" data-tag="tabs-2">{{ section.settings['tab-title2'] }}</a>
+        </li>
+      {% endif %}
+      {% if section.settings['tab-title3'] != blank %}
+        <li class="clickme">
+          <a href="javascript:void();" data-tag="tabs-3">{{ section.settings['tab-title3'] }}</a>
+        </li>
+      {% endif %}
+      {% if section.settings['tab-title4'] != blank %}
+        <li class="clickme">
+          <a href="javascript:void();" data-tag="tabs-4">{{ section.settings['tab-title4'] }}</a>
+        </li>
+      {% endif %}
+      {% if section.settings['tab-title5'] != blank %}
+        <li class="clickme">
+          <a href="javascript:void();" data-tag="tabs-5">{{ section.settings['tab-title5'] }}</a>
+        </li>
+      {% endif %}
+      {% if section.settings['tab-title6'] != blank %}
+        <li class="clickme">
+          <a href="javascript:void();" data-tag="tabs-6">{{ section.settings['tab-title6'] }}</a>
+        </li>
+      {% endif %}
+      {% if section.settings['tab-title7'] != blank %}
+        <li class="clickme">
+          <a href="javascript:void();" data-tag="tabs-7">{{ section.settings['tab-title7'] }}</a>
+        </li>
+      {% endif %}
+    </ul>
+    <div class="novel-deta">
+      {% for block in section.blocks %}
+        <div class="tabs-content {% if forloop.first %}{% else %}hide{% endif %}" id="tabs-{{ forloop.index }}">
+          <div class="block-content">
+            <img class="desktop_viwe" src="{{ block.settings.img | img_url: 'master' }}"/>
+            <img class="mobile_viwe" src="{{ block.settings.mobimg | img_url: '720x' }}"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {% comment %}              <div class="text_block">
+            {% if block.settings.heading != blank %}
+              <h2 style="color:{{ block.settings.color0 }}">{{ block.settings.heading }}</h2>
+            {% endif %}
+            {% if block.settings.desc != blank %}
+              <div class="text1" style="color:{{ block.settings.color }}">{{ block.settings.desc }}</div>
+            {% endif %}
+            {% if block.settings.desc2 != blank %}
+              <div class="text1" style="color:{{ block.settings.color2 }}">{{ block.settings.desc2 }}</div>
+            {% endif %}
+              </div>{% endcomment %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<script>
+  
+  $(document).ready(function(){
+      $('.clickme a').on('mouseover focus', function(){
+          $('.clickme a').removeClass('activelink');
+          $(this).addClass('activelink');
+          var tagid = $(this).data('tag');
+          $('.tabs-content').removeClass('active').addClass('hide');
+          $('#'+tagid).addClass('active').removeClass('hide');
+      });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Novel Concepts",
+  "settings": [
+    {
+    "type": "header",
+    "content": "Section Title"
+   },
+      {
+  "type": "text",
+  "id": "heading",
+  "label": "Heading"
+  },
+   {
+    "type": "header",
+    "content": "Tabs Title"
+   },
+  {
+  "type": "text",
+  "id": "tab-title1",
+  "label": "Tab Title 1"
+  },
+    {
+  "type": "text",
+  "id": "tab-title2",
+  "label": "Tab Title 2"
+  },
+    {
+  "type": "text",
+  "id": "tab-title3",
+  "label": "Tab Title 3"
+  },
+    {
+  "type": "text",
+  "id": "tab-title4",
+  "label": "Tab Title 4"
+  },
+    {
+  "type": "text",
+  "id": "tab-title5",
+  "label": "Tab Title 5"
+  },
+    {
+  "type": "text",
+  "id": "tab-title6",
+  "label": "Tab Title 6"
+  },
+    {
+  "type": "text",
+  "id": "tab-title7",
+  "label": "Tab Title 7"
+  }
+  ],
+  "blocks": [
+    {
+      "type": "novel_deta",
+      "name": "Novel Deta",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimg",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Example sub-heading"
+        },
+         {
+          "type": "color",
+          "id": "color0",
+          "label": "Add Color",
+           "default": "#8f7663"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Add Color",
+          "default": "#ffffff"
+        },
+         {
+          "type": "richtext",
+          "id": "desc2",
+          "label": "Description"
+        },
+         {
+          "type": "color",
+          "id": "color2",
+          "label": "Add Color",
+           "default": "#8f7663"
+        }
+      ]
+    }
+  ],
+"presets": [{
+"name": "Novel Concepts"
+}]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

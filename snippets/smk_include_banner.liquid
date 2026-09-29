@@ -1,0 +1,148 @@
+
+{%- assign show = smk_block_type | append: '_' | append: i | append: '_' | append: 'show' -%}
+{%- assign background_alpha = smk_block_type | append: '_' | append: i | append: '_' | append: 'background_alpha' -%}
+{%- assign cbtnbg = smk_block_type | append: '_' | append: i | append: '_' | append: 'cbtnbg' -%}
+{%- assign background_alpha_a = smk_block_type | append: '_' | append: i | append: '_' | append: 'background_alpha_a' -%}
+{%- assign acbtnbg = smk_block_type | append: '_' | append: i | append: '_' | append: 'acbtnbg' -%}
+{%- assign border_alpha = smk_block_type | append: '_' | append: i | append: '_' | append: 'border_alpha' -%}
+{%- assign cbtnbor = smk_block_type | append: '_' | append: i | append: '_' | append: 'cbtnbor' -%}
+{%- assign border_alpha_a = smk_block_type | append: '_' | append: i | append: '_' | append: 'border_alpha_a' -%}
+{%- assign acbtnbor = smk_block_type | append: '_' | append: i | append: '_' | append: 'acbtnbor' -%}
+{%- assign use_link = smk_block_type | append: '_' | append: i | append: '_' | append: 'use_link' -%}
+{%- assign link = smk_block_type | append: '_' | append: i | append: '_' | append: 'link' -%}
+{%- assign description_size = smk_block_type | append: '_' | append: i | append: '_' | append: 'description_size' -%}
+{%- assign animation = smk_block_type | append: '_' | append: i | append: '_' | append: 'animation' -%}
+{%- assign image = smk_block_type | append: '_' | append: i | append: '_' | append: 'image' -%}
+{%- assign text1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'text1' -%}
+{%- assign text2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'text2' -%}
+{%- assign show_icon = smk_block_type | append: '_' | append: i | append: '_' | append: 'show_icon' -%}
+{%- assign main_position = smk_block_type | append: '_' | append: i | append: '_' | append: 'main_position' -%}
+{%- assign text_to_left = smk_block_type | append: '_' | append: i | append: '_' | append: 'text_to_left' -%}
+{%- assign width = smk_block_type | append: '_' | append: i | append: '_' | append: 'width' -%}
+{%- assign icon_image = smk_block_type | append: '_' | append: i | append: '_' | append: 'icon_image' -%}
+{%- assign cbtntext = smk_block_type | append: '_' | append: i | append: '_' | append: 'cbtntext' -%}
+{%- assign cbtntext2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'cbtntext2' -%}
+{%- assign acbtntext = smk_block_type | append: '_' | append: i | append: '_' | append: 'acbtntext' -%}
+{%- assign acbtntext2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'acbtntext2' -%}
+{%- assign show_custom_html = smk_block_type | append: '_' | append: i | append: '_' | append: 'show_custom_html' -%}
+{%- assign custom_html_position = smk_block_type | append: '_' | append: i | append: '_' | append: 'custom_html_position' -%}
+{%- assign custom_html = smk_block_type | append: '_' | append: i | append: '_' | append: 'custom_html' -%}
+{%- assign show_prem_btn = smk_block_type | append: '_' | append: i | append: '_' | append: 'show_prem_btn' -%}
+{%- assign show_prem_btn_1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'show_prem_btn_1' -%}
+{%- assign show_prem_btn_2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'show_prem_btn_2' -%}
+{%- assign background_alpha_1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'background_alpha_1' -%}
+{%- assign background_alpha_a_1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'background_alpha_a_1' -%}
+{%- assign background_alpha_2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'background_alpha_2' -%}
+{%- assign background_alpha_a_2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'background_alpha_a_2' -%}
+{%- assign cbtnbg_1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'cbtnbg_1' -%}
+{%- assign acbtnbg_1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'acbtnbg_1' -%}
+{%- assign cbtnbg_2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'cbtnbg_2' -%}
+{%- assign acbtnbg_2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'acbtnbg_2' -%}
+{%- assign cbtntext_1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'cbtntext_1' -%}
+{%- assign acbtntext_1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'acbtntext_1' -%}
+{%- assign cbtntext_2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'cbtntext_2' -%}
+{%- assign acbtntext_2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'acbtntext_2' -%}
+{%- assign text_b_1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'text_b_1' -%}
+{%- assign text_b_2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'text_b_2' -%}
+{%- assign link_1 = smk_block_type | append: '_' | append: i | append: '_' | append: 'link_1' -%}
+{%- assign link_2 = smk_block_type | append: '_' | append: i | append: '_' | append: 'link_2' -%}
+{%- assign use_link = smk_block_type | append: '_' | append: i | append: '_' | append: 'use_link' -%}
+{%- if b_i[show] -%}
+
+
+
+                    {%- if b_i[image] != blank -%}{%- assign img_url = b_i[image] | img_url: 'x1024' -%}
+                                                      {%- else -%}{%- assign img_url = 'template_slider.png' | asset_url -%}
+                                                     {%- endif -%}
+
+                      {%- assign bg_alpha = b_i[background_alpha] | divided_by: 100.00 -%}
+                      {%- assign bg_color = b_i[cbtnbg] | color_modify: 'alpha', bg_alpha -%}
+                      {%- assign bg_alpha_a = b_i[background_alpha_a] | divided_by: 100.00 -%}
+                      {%- assign bg_color_a = b_i[acbtnbg] | color_modify: 'alpha', bg_alpha_a -%}
+
+                      {%- assign bor_alpha = b_i[border_alpha] | divided_by: 100.00 -%}
+                      {%- assign bor_color = b_i[cbtnbor] | color_modify: 'alpha', bor_alpha -%}
+                      {%- assign bor_alpha_a = b_i[border_alpha_a] | divided_by: 100.00 -%}
+                      {%- assign bor_color_a = b_i[acbtnbor] | color_modify: 'alpha', bor_alpha_a -%}
+
+                      {%- assign radius = '-moz-border-radius:' | append: item.bg_round | append: 'px;' | append: '-webkit-border-radius:' | append: item.bg_round | append: 'px;' | append: 'border-radius:' | append: item.bg_round | append: 'px;' | append: '-khtml-border-radius:' | append: item.bg_round | append: 'px;' %}
+
+                      {%- assign img_size2 = img_size | remove: 'x' | times: 2 | append: 'x' -%}
+                      {% if b_i[use_link] %}
+                      <a href="{{ b_i[link] }}" class="respimgsize smk-promo-box{% if b_i[description_size] == 'use_main_size' %}{% if item.description_size == 'small' %} smk-one-child{% endif %}{% else %}{% if b_i[description_size] == 'small' %} smk-one-child{% endif %}{% endif %}{% if b_i[animation] == 'use_main_animation' %}{% if item.animation == 'simple' %} hover-type-2{% endif %}{% else %}{% if b_i[animation] == 'simple' %} hover-type-2{% endif %}{% endif %}" {% if item.show_border %}style="border: {{ item.border_color }} solid 1px"{% endif %} data-hovercolors>
+                      {% else %}
+                      <div class="respimgsize smk-promo-box selecttext{% if b_i[description_size] == 'use_main_size' %}{% if item.description_size == 'small' %} smk-one-child{% endif %}{% else %}{% if b_i[description_size] == 'small' %} smk-one-child{% endif %}{% endif %}{% if b_i[animation] == 'use_main_animation' %}{% if item.animation == 'simple' %} hover-type-2{% endif %}{% else %}{% if b_i[animation] == 'simple' %} hover-type-2{% endif %}{% endif %}" {% if item.show_border %}style="border: {{ item.border_color }} solid 1px"{% endif %} data-hovercolors>
+                      {% endif %}
+
+                        {%- if b_i[image] == blank -%}{%- include "smk_get_svg" type:'image' size:info_image_size -%}
+                        {%- else -%}
+                        {%- assign scale_numbers = '_' | append: img_size -%}
+                          <img loading="lazy" class="lazyload"
+                               src="{{ b_i[image] | img_url: '1500x1500' }}"
+                               data-src="{{ b_i[image] | img_url: '1500x1500' }}"
+                               alt="{{ b_i[image].alt }}">
+                        {%- endif -%}
+                        {%- unless b_i[description_size] == 'hide' -%}{%- if b_i[text1] != '' or b_i[text2] != '' or b_i[show_icon] -%}
+                        <div class="smk-description {% if b_i[main_position] != 'use_main_position' %}{{ b_i[main_position] }}{% else %}{{ item.main_position }}{% endif %}">
+                          <div class="smk-description-wrapper{% if b_i[text_to_left] %} text-left{% endif %}"{% if item.use_same_desc_width %} style="min-width: {{ item.same_width }}px"{% endif %}>
+                            <div class="smk-background" style="background:{{ bg_color }}; border: {{ bor_color }} solid 2px; {{ radius }}" data-bgc="{{ bg_color }}" data-abgc="{{ bg_color_a }}" data-borc="{{ bor_color }}" data-aborc="{{ bor_color_a }}"></div>
+                            {%- if b_i[show_icon] -%}
+                            {%- assign icon_width = b_i[width] | append: 'x' -%}
+                            {%- assign icon_width2 = b_i[width] | times: 2 | append: 'x' -%}
+                            {%- assign img_size2 = img_size | remove: 'x' | times: 2 | append: 'x' -%}
+                            <img loading="lazy"
+                                 srcset="{{ b_i[icon_image] | img_url: icon_width }} 1x,
+                                         {{ b_i[icon_image] | img_url: icon_width2 }} 2x"
+                                 alt="{{ b_i[icon_image].alt }}"
+                                 >
+                            {%- endif -%}
+                            {% if b_i[text1] != '' %}<div class="smk-title-small" style="color:{{ b_i[cbtntext] }};" data-c="{{ b_i[cbtntext] }}" data-ac="{{ b_i[acbtntext] }}">{{ b_i[text1] }}</div>{% endif %}
+                            {% if b_i[text2] != '' %}<div class="smk-title-large" style="color:{{ b_i[cbtntext2] }};" data-c="{{ b_i[cbtntext2] }}" data-ac="{{ b_i[acbtntext2] }}">{{ b_i[text2] }}</div>{% endif %}
+                          </div>
+                        </div>
+                        {%- endif -%}{%- endunless -%}
+
+                        {%- if b_i[show_custom_html] -%}
+                        <div class="smk-description {{ b_i[custom_html_position] }}">
+                          <div class="smk-description-wrapper{% if b_i[text_to_left] %} text-left{% endif %}">
+                            <div class="smk-background" style="background:rgba(0,0,0,0)"></div>
+
+                            {{ b_i[custom_html] }}
+
+                            {%- if b_i[show_prem_btn] -%}
+
+                            <div class="custom-buttons">
+                              {%- if b_i[show_prem_btn_1] -%}
+                              {%- assign bg_alpha = b_i[background_alpha_1] | divided_by: 100.00 -%}
+                              {%- assign bg_color = b_i[cbtnbg_1] | color_modify: 'alpha', bg_alpha -%}
+                              {%- assign bg_alpha_a = b_i[background_alpha_a_1] | divided_by: 100.00 -%}
+                              {%- assign bg_color_a = b_i[acbtnbg_1] | color_modify: 'alpha', bg_alpha_a -%}
+                              <a href="{{ b_i[link_1] }}"
+                                 class="btn"
+                                 style="background:{{ bg_color }}; color:{{ b_i[cbtntext_1] }};" data-bgc="{{ bg_color }}" data-abgc="{{ bg_color_a }}" data-c="{{ b_i[cbtntext_1] }}" data-ac="{{ b_i[acbtntext_1] }}" data-hovercolors use-on-hover="true"
+                                 >{{ b_i[text_b_1] }}</a>{%- endif -%}
+                              {%- if b_i[show_prem_btn_2] -%}
+                              {%- assign bg_alpha = b_i[background_alpha_2] | divided_by: 100.00 -%}
+                              {%- assign bg_color = b_i[cbtnbg_2] | color_modify: 'alpha', bg_alpha -%}
+                              {%- assign bg_alpha_a = b_i[background_alpha_a_2] | divided_by: 100.00 -%}
+                              {%- assign bg_color_a = b_i[acbtnbg_2] | color_modify: 'alpha', bg_alpha_a -%}
+                              <a href="{{ b_i[link_2] }}"
+                                 class="btn"
+                                 style="background:{{ bg_color }}; color:{{ b_i[cbtntext_2] }};" data-bgc="{{ bg_color }}" data-abgc="{{ bg_color_a }}" data-c="{{ b_i[cbtntext_2] }}" data-ac="{{ b_i[acbtntext_2] }}" data-hovercolors use-on-hover="true"
+                                 >{{ b_i[text_b_2] }}</a>{%- endif -%}
+                            </div>
+
+                            {%- endif -%}
+
+                          </div>
+
+                        {%- endif -%}
+
+                      {% if b_i[use_link] == false %}
+                      </div>
+                      {% else %}
+                      </a>
+                      {% endif %}
+
+
+  {% endif %}

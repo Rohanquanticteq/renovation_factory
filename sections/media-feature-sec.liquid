@@ -1,0 +1,96 @@
+{% if section.settings.display_media_feature_sec != blank %}
+<div class="mediaFeatureSec">
+    <div class="container">
+      <header class="PageHeader">
+        <div class="SectionHeader SectionHeader--center">
+          {% if section.settings.title != blank %}
+          <h1 class="SectionHeader__Heading Heading u-h1">{{ section.settings.title }}</h1>
+          {% endif %}
+          {% if section.settings.description != blank %}
+          <div class="desc">{{ section.settings.description }}</div>
+          {% endif %}
+        </div>
+      </header>
+        <div class="inner_d">
+            {%- for block in section.blocks -%}
+            <div class="item_d">
+              <div class="itemd_info">
+                <a href="{{ block.settings.link }}" target="_blank">
+                  {% if block.settings.image != blank %}
+                  <div class="img_d">
+                    <img src="{{ block.settings.image | img_url:"master" }}">
+                  </div>
+                  {% endif %}
+                  <div class="info_d">
+                    {% if block.settings.sub_title != blank %}
+                    <div class="mediaSubTitle">{{ block.settings.sub_title }}</div>
+                    {% endif %}
+                    {% if block.settings.title != blank %}
+                    <div class="mediaTitle">{{ block.settings.title }}</div>
+                    {% endif %}
+                  </div>
+                </a>
+              </div>
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% schema %}
+{
+  "name": "Media Feature Sec",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_media_feature_sec",
+        "label": "Display Media Feature Sec",
+        "default": true
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+    },
+    {
+        "type": "text",
+        "id": "description",
+        "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media Feature Sec"
+    }
+  ]
+}
+{% endschema %}

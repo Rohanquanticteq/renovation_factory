@@ -1,0 +1,62 @@
+{% if section.settings.display_single_banner_with_text != blank %}
+<div class="singleBannerWithText">
+  <div class="item_d">
+    {% if section.settings.desktop_banner != blank or section.settings.mobile_banner != blank %}
+    <div class="img_d">
+      <img src="{{ section.settings.desktop_banner | img_url:"master" }}" class="hidden-xs">
+      <img src="{{ section.settings.mobile_banner | img_url:"master" }}" class="visible-xs">
+    </div>
+    {% endif %}
+    {% if section.settings.title != blank or block.settings.description != blank %}
+    <div class="content_d">
+      {% if section.settings.title != blank %}
+      <h3 class="title_d">{{ section.settings.title }}</h3>
+      {% endif %}
+      {% if section.settings.description != blank %}
+      <div class="desc_d"><span>{{ section.settings.description }}</span></div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Single Banner With Text",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_single_banner_with_text",
+        "label": "Display Single Banner With Text",
+        "default": true
+    },
+    {
+          "type": "image_picker",
+          "id": "desktop_banner",
+          "label": "Desktop Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_banner",
+          "label": "Mobile Banner"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "description"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Single Banner With Text"
+    }
+  ]
+}
+{% endschema %}

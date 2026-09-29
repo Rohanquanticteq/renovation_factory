@@ -1,0 +1,143 @@
+{% if section.settings.display_main_slider != blank %}
+<div class="mainSliderSec">
+  <div class="swiper-container swiperMainSlider swiperMainSlider_{{ section.id }}">
+     <div class="swiper-wrapper">
+      {%- for block in section.blocks -%}
+      <div class="swiper-slide">
+        <div class="item_d {{ block.settings.set_position }}">
+          <a href="{{ block.settings.link }}">
+            {% if block.settings.desktop_banner != blank or block.settings.mobile_banner != blank %}
+            <div class="img_d">
+              {%- comment -%}
+                2026-09-08: performance fix — both the desktop and mobile <img> used
+                to render unconditionally (only CSS hid the non-matching one), so
+                every visitor downloaded both. <picture>/<source media> makes the
+                browser fetch only the one for the current viewport.
+              {%- endcomment -%}
+              <picture>
+                {%- if block.settings.mobile_banner != blank -%}
+                  <source media="(max-width: 767px)" srcset="{{ block.settings.mobile_banner | img_url: 'master' }}">
+                {%- endif -%}
+                <img
+                  src="{{ block.settings.desktop_banner | img_url: 'master' }}"
+                  alt="{{ block.settings.desktop_banner.alt | escape }}"
+                  {%- if block.settings.desktop_banner.width %}
+                  width="{{ block.settings.desktop_banner.width }}"
+                  height="{{ block.settings.desktop_banner.height }}"
+                  {%- endif %}
+                >
+              </picture>
+            </div>
+            {% endif %}
+            <div class="content_d">
+              <div class="info_d">
+                 {% if block.settings.title != blank or block.settings.description != blank %}
+                <div class="title_n_desc">
+                {% if block.settings.title != blank %}
+                <h3 class="title_d">{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.description != blank %}
+                <div class="desc_d"><span>{{ block.settings.description }}</span></div>
+                {% endif %}
+                </div>
+                   {% endif %}
+                {% if block.settings.link_text != blank %}
+                <div class="action_btn">
+                  <button class="button11">{{ block.settings.link_text }}</button>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+     </div>
+    <div class="swiper-pagination"></div>
+
+     <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0576/3907/5997/files/Vector_1.svg?v=1727776764"></div>
+    <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0576/3907/5997/files/Vector_1_-svg.svg?v=1727776765"></div>
+
+  </div>
+</div>
+{% endif %}
+
+<script>
+  var swiper1 = new Swiper('.swiperMainSlider_{{ section.id }}', {
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        disabledClass: "is-disabled"
+    },
+    pagination: {
+        el: '.swiper-pagination',
+    },
+      autoplay: {
+        delay: 3000, // 3 seconds delay for autoplay
+       disableOnInteraction: false, // Optional: autoplay continues after user interactions
+     }
+});
+</script>
+{% schema %}
+{
+  "name": "Main Slider",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_main_slider",
+        "label": "Display Main Slider",
+        "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_banner",
+          "label": "Desktop Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_banner",
+          "label": "Mobile Banner"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "description"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "set_position",
+          "label": "Set Position Class"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Slider"
+    }
+  ]
+}
+{% endschema %}

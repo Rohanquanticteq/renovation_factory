@@ -1,0 +1,498 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "about",
+      "settings": {}
+    },
+    "slideshow_89Cgjb": {
+      "type": "slideshow",
+      "blocks": {
+        "image_JC4V64": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1_Dusk_1.png",
+            "mobile_image": "shopify://shop_images/1_Dusk_1.png",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "Shop Dusk",
+            "button_1_link": "shopify://collections/dusk",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_JC4V64"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "slideshow_GR3c4a": {
+      "type": "slideshow",
+      "blocks": {
+        "image_QzRNUG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_41.png",
+            "mobile_image": "shopify://shop_images/Frame_41.png",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "Shop Thyra",
+            "button_1_link": "shopify://collections/silva",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_QzRNUG"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "slideshow_DTezrV": {
+      "type": "slideshow",
+      "blocks": {
+        "image_bcWBTe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_42.png",
+            "mobile_image": "shopify://shop_images/Frame_42.png",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "Shop Octavia",
+            "button_1_link": "shopify://collections/octavia",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_bcWBTe"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "slideshow_EEhniP": {
+      "type": "slideshow",
+      "blocks": {
+        "image_phGnfD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_43.png",
+            "mobile_image": "shopify://shop_images/Frame_43.png",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "Shop Gotham",
+            "button_1_link": "shopify://collections/gotham",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_phGnfD"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "slideshow_YFbLEa": {
+      "type": "slideshow",
+      "blocks": {
+        "image_6RCHUr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_39.png",
+            "mobile_image": "shopify://shop_images/Frame_39.png",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "Shop Ebon",
+            "button_1_link": "shopify://collections/ebon",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_6RCHUr"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "slideshow_8rAGqM": {
+      "type": "slideshow",
+      "blocks": {
+        "image_hxtJtf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_40.png",
+            "mobile_image": "shopify://shop_images/Frame_40.png",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "Shop Fuselage",
+            "button_1_link": "shopify://collections/fuselage",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_hxtJtf"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "710af395-66c9-4920-b16f-afbdacd271c9": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16091797586077__710af395-66c9-4920-b16f-afbdacd271c9-1688808776c52d2179-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/homepage-05.jpg",
+            "mobile_image": "shopify://shop_images/homepage-05.jpg",
+            "apply_overlay": true,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "SHOP TROUSSE",
+            "button_1_link": "shopify://collections/trousse",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16091797586077__710af395-66c9-4920-b16f-afbdacd271c9-1688808776c52d2179-0"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": true,
+        "show_arrow": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "243a2b11-e7c3-4e43-a417-4a714ea799b0": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16091797586077__243a2b11-e7c3-4e43-a417-4a714ea799b0-1685384836607507f5-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/homepage-15_6d635e69-e3cc-49c7-b9b3-b4162efaef82.jpg",
+            "mobile_image": "shopify://shop_images/homepage-15_6d635e69-e3cc-49c7-b9b3-b4162efaef82.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "SHOP DAUMIER",
+            "button_1_link": "shopify://collections/daumier",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16091797586077__243a2b11-e7c3-4e43-a417-4a714ea799b0-1685384836607507f5-0"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "7ce8eec4-cb76-4e45-a52b-4927085ac32c": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16091797586077__7ce8eec4-cb76-4e45-a52b-4927085ac32c-1685384836607507f5-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/homepage-13.jpg",
+            "mobile_image": "shopify://shop_images/homepage-13.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "SHOP CLASSICUS",
+            "button_1_link": "shopify://collections/classicus-1",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16091797586077__7ce8eec4-cb76-4e45-a52b-4927085ac32c-1685384836607507f5-1"
+      ],
+      "custom_css": [],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "596182ae-380a-4792-91b9-5d8fb6f47f4f": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16091797586077__596182ae-380a-4792-91b9-5d8fb6f47f4f-1685384836607507f5-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/homepage-17_12cd170e-d0f6-4c35-b8ce-c47b71bfe84f.jpg",
+            "mobile_image": "shopify://shop_images/homepage-17_12cd170e-d0f6-4c35-b8ce-c47b71bfe84f.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "SHOP ORACLE",
+            "button_1_link": "shopify://collections/oracle",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16091797586077__596182ae-380a-4792-91b9-5d8fb6f47f4f-1685384836607507f5-1"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": true,
+        "show_arrow": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "f1dba21c-142a-4489-8458-7bafdd1c4e27": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16091797586077__f1dba21c-142a-4489-8458-7bafdd1c4e27-1685384836607507f5-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/homepage-16_b089fc7d-1868-4c6c-a12c-dd473fb749dc.jpg",
+            "mobile_image": "shopify://shop_images/homepage-16_b089fc7d-1868-4c6c-a12c-dd473fb749dc.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "SHOP TROY",
+            "button_1_link": "shopify://collections/troy",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16091797586077__f1dba21c-142a-4489-8458-7bafdd1c4e27-1685384836607507f5-1"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "1a415dbf-834f-47cf-94b4-d87852b6463f": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16091797586077__1a415dbf-834f-47cf-94b4-d87852b6463f-1685384836607507f5-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/homepage-14_0438bdf1-c5fb-499e-9be6-d6afb9d514a1.jpg",
+            "mobile_image": "shopify://shop_images/homepage-14_0438bdf1-c5fb-499e-9be6-d6afb9d514a1.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "SHOP KANTO",
+            "button_1_link": "shopify://collections/kanto",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16091797586077__1a415dbf-834f-47cf-94b4-d87852b6463f-1685384836607507f5-0"
+      ],
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "3284a824-46b5-43d2-9d2a-127803e41bf3": {
+      "type": "slideshow",
+      "blocks": {
+        "image_dD66mq": {
+          "type": "image",
+          "settings": {
+            "apply_overlay": true,
+            "content_position": "bottomLeft",
+            "subheading": "Slide title",
+            "title": "Tell your story",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        },
+        "template--16091797586077__3284a824-46b5-43d2-9d2a-127803e41bf3-1685384836607507f5-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/homepage-18_ef667d87-9187-4f67-8d97-bf845efd4217.jpg",
+            "mobile_image": "shopify://shop_images/homepage-18_ef667d87-9187-4f67-8d97-bf845efd4217.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "SHOP THEBES",
+            "button_1_link": "shopify://collections/thebes",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_dD66mq",
+        "template--16091797586077__3284a824-46b5-43d2-9d2a-127803e41bf3-1685384836607507f5-0"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".Slideshow {margin-top: 10px;}"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_89Cgjb",
+    "slideshow_GR3c4a",
+    "slideshow_DTezrV",
+    "slideshow_EEhniP",
+    "slideshow_YFbLEa",
+    "slideshow_8rAGqM",
+    "710af395-66c9-4920-b16f-afbdacd271c9",
+    "243a2b11-e7c3-4e43-a417-4a714ea799b0",
+    "596182ae-380a-4792-91b9-5d8fb6f47f4f",
+    "f1dba21c-142a-4489-8458-7bafdd1c4e27",
+    "1a415dbf-834f-47cf-94b4-d87852b6463f",
+    "7ce8eec4-cb76-4e45-a52b-4927085ac32c",
+    "3284a824-46b5-43d2-9d2a-127803e41bf3"
+  ]
+}

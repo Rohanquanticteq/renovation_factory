@@ -1,0 +1,659 @@
+{% if settings.slc_preview_lead_capture_popup or settings.slc_enable_lead_capture_popup %}
+<script type="text/javascript">
+//alert('yes');
+$(document).ready(function() {
+    {% if settings.slc_layout == 'sticky' %}
+    if ($('.smk-lead-capture').is(":visible")) {
+        $('body').css('padding-top', $('.smk-lead-capture').height() + 'px');
+    }
+    {% endif %}
+
+
+    if ($('.smk-lead-capture-countdown-time').length) {
+        timer(60 * 1000, $('.smk-lead-capture-countdown-time'));
+    }
+
+    function timer(distance, item) {
+        if ($(item).attr('data-smk-time-remaining')) {
+            distance = convertStringToMilliseconds($(item).attr('data-smk-time-remaining'));
+        }
+
+        function convertStringToMilliseconds(distance)
+        {
+            //distance = '20d 100h 15m   11s';
+            distance = distance.replace(/\s/g, '');
+            var dPosition = (distance.lastIndexOf("d") !== -1) ? distance.lastIndexOf("d") : 0;
+            var hPosition = (distance.lastIndexOf("h") !== -1) ? distance.lastIndexOf("h") : 0;
+            var mPosition = (distance.lastIndexOf("m") !== -1) ? distance.lastIndexOf("m") : 0;
+            var sPosition = (distance.lastIndexOf("s") !== -1) ? distance.lastIndexOf("s") : 0;
+
+            var days = parseInt(distance.substring(
+                0,
+                dPosition
+            ));
+            var hours = parseInt(distance.substring(
+                dPosition + 1,
+                hPosition
+            ));
+            var minutes = parseInt(distance.substring(
+                hPosition + 1,
+                mPosition
+            ));
+            var seconds = parseInt(distance.substring(
+                mPosition + 1,
+                sPosition
+            ));
+            return (days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60 + seconds) * 1000;
+        }
+
+        function reset() {
+            localStorage.smkEndTime = +new Date + distance;
+        }
+
+        if( ! localStorage.smkEndTime ) {
+            reset();
+        }
+
+        var x = setInterval(function() {
+            var remaining = localStorage.smkEndTime - new Date;
+
+            // Find the distance between now and the count down date
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            $(item).text(days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ");
+
+            // If the count down is finished, write some text
+            if (remaining < 0) {
+                //clearInterval(x);
+                reset();
+                $(item).text("EXPIRED");
+            }
+        }, 1000);
+    }
+
+});
+
+
+</script>
+
+<div class="smk-lead-capture-wrap">
+    <div class="smk-lead-capture shopify-section smk-content">
+        {% if settings.slc_show_close_btn %}
+        <div class="smk-lead-capture-close-btn"><i class="fas fa-times"></i></div>
+        {% endif %}
+        <div class="row smk-lead-capture-form-step smk-layout-box01{% if settings.slc_reverse %} flex-row-reverse{% endif %}{% if settings.slc_reverse_mobile %} row-reverse-mobile{% endif %} {{ item.contentalign }}">
+            {% if settings.slc_form_image != blank %}
+            <div class="col-img col-md-{{ settings.slc_grid | split: '.' | first }}{% unless item.showimage %} d-sm-none-custom{% endunless %} respimgsize" style="line-height: 0">
+                {% if settings.slc_form_image != blank %}
+                <img loading="lazy" class="lazyload"
+                     src="{{ settings.slc_form_image | img_url: 'master' }}"
+                     data-src="{{ settings.slc_form_image | img_url: 'master' }}"
+                     alt="{{ settings.slc_form_image.alt }}"
+                >
+                {% endif %}
+            </div>
+            {% endif %}
+            <div class="col-description col-md-{% if settings.slc_form_image != blank %}{{ settings.slc_grid | split: '.' | last }}{% else %}12{% endif %} text-{{ settings.slc_form_text_align }}">
+                {%- if settings.slc_title != "" -%}<h6 class="smk-lead-capture-title">{{ settings.slc_title }}</h6>{%- endif -%}
+                {%- if settings.slc_subtitle != "" -%}<div class="smk-lead-capture-subtitle">{{ settings.slc_subtitle }}</div>{%- endif -%}
+
+                <div{% if settings.slc_field_submit_one_line %} class="smk-lead-capture-field-button-stack"{% endif %}>
+                    {%- if settings.slc_show_email -%}<div class="smk-lead-capture-field">
+                        {%- if settings.slc_show_field_labels -%}<label>Email: </label>{%- endif -%}
+                        <input type="text" name="email" placeholder="Enter your email">
+                    </div>{% endif %}
+                    {%- if settings.slc_show_phone -%}<div class="smk-lead-capture-field">
+                        {%- if settings.slc_show_field_labels -%}<label>Phone number: </label>{%- endif -%}
+                        <input type="text" name="phone" placeholder="Enter your phone number">
+                    </div>{% endif %}
+                    {%- if settings.slc_show_first_name -%}<div class="smk-lead-capture-field">
+                        {%- if settings.slc_show_field_labels -%}<label>First name: </label>{%- endif -%}
+                        <input type="text" name="first_name" placeholder="Enter your first name">
+                    </div>{% endif %}
+                    {%- if settings.slc_show_last_name -%}<div class="smk-lead-capture-field">
+                        {%- if settings.slc_show_field_labels -%}<label>Last name: </label>{%- endif -%}
+                        <input type="text" name="last_name" placeholder="Enter your last name">
+                    </div>{% endif %}
+                    {%- if settings.slc_show_full_name -%}<div class="smk-lead-capture-field">
+                        {%- if settings.slc_show_field_labels -%}<label>Name: </label>{%- endif -%}
+                        <input type="text" name="last_name" placeholder="Enter your name">
+                    </div>{% endif %}
+                    {%- if settings.slc_show_address -%}<div class="smk-lead-capture-field">
+                        {%- if settings.slc_show_field_labels -%}<label>Address: </label>{%- endif -%}
+                        <input type="text" name="address" placeholder="Enter your address">
+                    </div>{% endif %}
+
+                    {% if settings.slc_show_countdown and settings.slc_countdown_position == 'b_btn' %}
+                      <div class="smk-lead-capture-countdown">
+                        <div class="smk-lead-capture-countdown-title">{{ settings.slc_countdown_title }}</div>
+                        <span class="smk-lead-capture-countdown-time" data-smk-time-remaining="{{ settings.slc_countdown_time_remaining }}">1d 11h 59m 59s</span>
+                      </div>
+                    {% endif %}
+
+                    <div class="smk-lead-capture-btn-wrap">
+                    {% if settings.slc_submit_btn_text != blank %}
+                    <div class="smk-lead-capture-submit-btn">
+                        {{ settings.slc_submit_btn_text }}
+                    </div>
+                    {% endif %}
+
+                    {% if settings.slc_cancel_btn_text != blank %}
+                    <div class="smk-lead-capture-cancel-btn">
+                        {{ settings.slc_cancel_btn_text }}
+                    </div>
+                    {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row smk-lead-capture-success-step smk-layout-box01{% if settings.slc_success_reverse %} flex-row-reverse{% endif %}{% if settings.slc_success_reverse_mobile %} row-reverse-mobile{% endif %} {{ item.contentalign }}">
+            {% if settings.slc_success_image != blank %}
+            <div class="col-img col-md-{{ settings.slc_success_grid | split: '.' | first }}{% unless item.showimage %} d-sm-none-custom{% endunless %} respimgsize"  style="line-height: 0">
+                {% if settings.slc_success_image != blank %}
+                <img loading="lazy" class="lazyload"
+                     src="{{ settings.slc_success_image | img_url: 'master' }}"
+                     data-src="{{ settings.slc_success_image | img_url: 'master' }}"
+                     alt="{{ settings.slc_success_image.alt }}"
+                >
+                {% endif %}
+            </div>
+            {% endif %}
+            <div class="col-description col-md-{% if settings.slc_form_image != blank %}{{ settings.slc_grid | split: '.' | last }}{% else %}12{% endif %} text-{{ settings.slc_form_text_align }}">
+                {%- if settings.slc_success_title != "" -%}<h6 class="smk-lead-capture-title">{{ settings.slc_success_title }}</h6>{%- endif -%}
+                {%- if settings.slc_success_subtitle != "" -%}<div class="smk-lead-capture-subtitle">{{ settings.slc_success_subtitle }}</div>{%- endif -%}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .smk-lead-capture-wrap {
+        top: 0;
+        left: 0;
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        background-color: #000000a3;
+    }
+
+    {% if settings.slc_preview_lead_capture_popup %}
+    .smk-lead-capture-wrap {
+        display: block;
+    }
+    body {
+        overflow: hidden;
+    }
+    {% endif %}
+
+    .smk-lead-capture-wrap .smk-lead-capture {
+        width: 100%;
+        {% if settings.slc_regular_max_width > 0 %}
+            max-width: {{ settings.slc_regular_max_width }}px;
+        {% endif %}
+        padding: {{ settings.slc_inside_padding }}px;
+        /*margin: 20px auto;*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+    }
+
+    .smk-lead-capture-wrap .smk-lead-capture {
+        background-color: {{ settings.slc_bg_color }};
+        border-radius: {{ settings.slc_rounded_corners }}px;
+        border: {{ settings.slc_border_size }}px {{ settings.slc_border_style }} {{ settings.slc_border_color }};
+        {% assign bg_image_size = settings.slc_regular_max_width | plus: 10 | append: 'x' %}
+        {% if settings.slc_layout == 'fullscreen' %}
+            {% assign bg_image_size = 'master' %}
+            background-size: cover;
+        {% endif %}
+        {% if settings.slc_bg_image != blank %}
+        background-image: url({{ settings.slc_bg_image | img_url: bg_image_size }});
+        {% endif %}
+    }
+
+    .smk-lead-capture.smk-content {
+        padding: {{ settings.slc_inside_padding }}px;
+    }
+
+
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-form-step {
+        display: flex;
+        {% if settings.slc_preview_success_step %}
+        display: none;
+        {% endif %}
+        {% if settings.slc_img_form_vertical %}
+        flex-direction: column;
+        {% endif %}
+    }
+
+    {% if settings.slc_img_form_vertical %}
+        .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-form-step .col-description,
+        .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-form-step .col-img {
+            max-width: 100%;
+        }
+    {% endif %}
+
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-form-step .col-description,
+    .smk-lead-capture-wrap .smk-lead-capture .smk-layout-box01:not(.flex-row-reverse) .col-description {
+        background-color: {{ settings.slc_form_bg_color }};
+        padding: {{ settings.slc_form_padding }}px;
+    }
+
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-success-step {
+        display: none;
+        {% if settings.slc_preview_success_step %}
+        display: flex;
+        {% endif %}
+    }
+
+    .smk-lead-capture.smk-content .row {
+        margin: 0;
+    }
+
+    {% if settings.slc_layout == 'fullscreen' %}
+    .smk-lead-capture-wrap .smk-lead-capture {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        position: relative;
+    }
+    .smk-lead-capture-wrap .smk-lead-capture .row {
+        {% if settings.slc_regular_max_width > 0 %}
+            max-width: {{ settings.slc_regular_max_width }}px;
+        {% endif %}
+        padding: {{ settings.slc_inside_padding }}px;
+        {% if settings.slc_layout == 'fullscreen' %}
+            width: 100%;
+        {% endif %}
+    }
+    {% elsif settings.slc_layout == 'sticky' %}
+
+    .smk-lead-capture-wrap {
+        height: fit-content;
+    }
+    .smk-lead-capture-wrap .smk-lead-capture {
+        width: 100%;
+        max-width: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-form-step {
+        justify-content: center;
+    }
+
+    .smk-lead-capture-wrap .smk-lead-capture .col-img {
+        flex: none;
+        max-width: none;
+        width: fit-content;
+        margin: 0 20px;
+    }
+    .smk-lead-capture-wrap .smk-lead-capture .col-description {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        flex: none;
+        max-width: none;
+        width: fit-content;
+    }
+
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-title,
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-subtitle,
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-field,
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-submit-btn {
+      margin: 0 20px 0;
+    }
+
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-field {
+        padding-bottom: 3px;
+    }
+
+
+    {% elsif settings.slc_layout == 'footer' %}
+    {% endif %}
+
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-close-btn {
+        position: absolute;
+        z-index: 101;
+        {% if settings.slc_close_btn_position == 'top_left' %}
+        top: 10px;
+        left: 10px;
+            {% elsif settings.slc_close_btn_position == 'top_right' %}
+        top: 10px;
+        right: 10px;
+            {% elsif settings.slc_close_btn_position == 'bottom_left' %}
+        bottom: 10px;
+        left: 10px;
+            {% elsif settings.slc_close_btn_position == 'bottom_right' %}
+        bottom: 10px;
+        right: 10px;
+        {% endif %}
+
+    }
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-close-btn i {
+        color: {{ settings.slc_close_btn_color }};
+        font-size: {{ settings.slc_close_btn_size }}px;
+    }
+
+    .smk-lead-capture .smk-lead-capture-title {
+        font-size: {{ settings.slc_title_fs }}px;
+        line-height: {{ settings.slc_title_lh }}px;
+        font-weight: {{ settings.slc_title_fw }};
+        color: {{ settings.slc_title_color }};
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    .smk-lead-capture .smk-lead-capture-subtitle {
+        font-size: {{ settings.slc_subtitle_fs }}px;
+        line-height: {{ settings.slc_subtitle_lh }}px;
+        font-weight: {{ settings.slc_subtitle_fw }};
+        color: {{ settings.slc_subtitle_color }};
+        margin-bottom: 20px;
+    }
+
+    .smk-lead-capture .smk-lead-capture-field {
+        max-width: {{ settings.scl_field_max_width_limit }}px;
+        {% if settings.slc_form_text_align == 'left' %}
+            margin: 0 auto 10px 0;
+        {% elsif settings.slc_form_text_align == 'right' %}
+            margin: 0 0 10px auto;
+        {% else %}
+            margin: 0 auto 10px;
+        {% endif %}
+    }
+
+    .smk-lead-capture .smk-lead-capture-field label {
+        font-size: {{ settings.slc_field_label_fs }}px;
+        line-height: {{ settings.slc_field_label_lh }}px;
+        font-weight: {{ settings.slc_field_label_fw }};
+        color: {{ settings.slc_field_label_color }};
+        margin: 0;
+        text-align: left;
+    }
+
+    .smk-lead-capture .smk-lead-capture-field input {
+        width: 100%;
+        height: {{ settings.slc_field_height }}px;
+        border-color: {{ settings.slc_field_border_color }};
+        border-radius: {{ settings.slc_field_border_radius }}px;
+    }
+
+    .smk-lead-capture-btn-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    {% if settings.slc_submit_cancel_one_line %}
+    .smk-lead-capture-btn-wrap {
+        flex-direction: row;
+    }
+
+    .smk-lead-capture-btn-wrap > div:not(:first-child):not(:last-child) {
+        margin: 0 10px; /* calc({{ settings.slc_button_lh }}px / 2);*/
+    }
+
+    .smk-lead-capture-btn-wrap > div:first-child {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    .smk-lead-capture-btn-wrap > div:last-child {
+        margin-right: 0;
+        margin-left: 10px;
+    }
+    {% endif %}
+
+    .smk-lead-capture .smk-lead-capture-submit-btn {
+        max-width: {{ settings.scl_field_max_width_limit }}px;
+        width: 100%;
+        cursor: pointer;
+        font-size: {{ settings.slc_button_fs }}px;
+        line-height: {{ settings.slc_button_lh }}px;
+        font-weight: {{ settings.slc_button_fw }};
+        border-radius: {{ settings.slc_button_border_radius }}px;
+        {% if settings.slc_form_text_align == 'left' %}
+        margin: 0 auto 10px 0;
+        {% elsif settings.slc_form_text_align == 'right' %}
+        margin: 0 0 10px auto                                                                                                                                                                                                                                                                                                               ;
+        {% else %}
+        margin: 0 auto 10px;
+        {% endif %}
+        text-align: center;
+
+        color: {{ settings.slc_submit_btn_text_color }};
+        background-color: {{ settings.slc_submit_btn_bg_color }};
+    }
+
+    .smk-lead-capture .smk-lead-capture-submit-btn:hover {
+        color: {{ settings.slc_submit_btn_text_color_h }};
+        background-color: {{ settings.slc_submit_btn_bg_color_h }};
+    }
+
+    .smk-lead-capture .smk-lead-capture-cancel-btn {
+            max-width: {{ settings.scl_field_max_width_limit }}px;
+            width: 100%;
+            cursor: pointer;
+            font-size: {{ settings.slc_cancel_btn_fs }}px;
+            line-height: {{ settings.slc_cancel_btn_lh }}px;
+            font-weight: {{ settings.slc_cancel_btn_fw }};
+            border-radius: {{ settings.slc_cancel_btn_border_radius }}px;
+            {% if settings.slc_form_text_align == 'left' %}
+            margin: 0 auto 10px 0;
+            {% elsif settings.slc_form_text_align == 'right' %}
+            margin: 0 0 10px auto;
+            {% else %}
+            margin: 0 auto 10px;
+            {% endif %}
+            text-align: center;
+
+            color: {{ settings.slc_cancel_btn_text_color }};
+            background-color: {{ settings.slc_cancel_btn_bg_color }};
+    }
+
+    .smk-lead-capture .smk-lead-capture-cancel-btn:hover {
+            color: {{ settings.slc_cancel_btn_text_color_h }};
+            background-color: {{ settings.slc_cancel_btn_bg_color_h }};
+    }
+
+    .smk-lead-capture .smk-lead-capture-countdown {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .smk-lead-capture .smk-lead-capture-countdown .smk-lead-capture-countdown-title {
+       color: {{ settings.slc_countdown_title_color }};
+       font-size: {{ settings.slc_countdown_title_fs }}px;
+       line-height: {{ settings.slc_countdown_title_lh }}px;
+       font-weight: {{ settings.slc_countdown_title_fw }};
+     }
+
+    .smk-lead-capture .smk-lead-capture-countdown .smk-lead-capture-countdown-time {
+        color: {{ settings.slc_countdown_time_color }};
+        font-size: {{ settings.slc_countdown_time_fs }}px;
+        line-height: {{ settings.slc_countdown_time_lh }}px;
+        font-weight: {{ settings.slc_countdown_time_fw }};
+    }
+
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-field-button-stack {
+        display: flex;
+    }
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-field-button-stack .smk-lead-capture-field {
+        flex: 0 0 {{ settings.scl_field_max_width_limit }}px;
+        max-width: none;
+    }
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-field-button-stack .smk-lead-capture-field input {
+        border-radius: {{ settings.slc_field_border_radius }}px 0 0 {{ settings.slc_field_border_radius }}px;
+        padding-bottom: 9px;
+    }
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-field-button-stack .smk-lead-capture-btn-wrap {
+        flex: auto;
+    }
+    .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-field-button-stack .smk-lead-capture-submit-btn {
+        max-width: none;
+        border-radius: 0 {{ settings.slc_button_border_radius }}px {{ settings.slc_button_border_radius }}px 0;
+    }
+
+
+    @media (max-width: 790px) {
+
+        .smk-lead-capture-wrap .smk-lead-capture {
+            border: {{ settings.slc_border_size_mobile }}px {{ settings.slc_border_style }} {{ settings.slc_border_color }};
+            {% if settings.slc_layout == 'sticky' %}
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            {% endif %}
+        }
+
+        .smk-lead-capture-wrap .smk-lead-capture {
+            padding: {{ settings.slc_inside_padding_m }}px;
+        }
+
+        .smk-lead-capture-wrap .smk-lead-capture .row {
+            padding: {{ settings.slc_inside_padding_m }}px;
+        }
+
+        .smk-lead-capture-wrap .smk-lead-capture .smk-lead-capture-form-step .col-description,
+        .smk-lead-capture-wrap .smk-lead-capture .smk-layout-box01:not(.flex-row-reverse) .col-description {
+            padding: {{ settings.slc_form_padding_m }}px;
+        }
+    }
+
+    {{ settings.slc_custom_css }}
+</style>
+
+{% endif %}
+
+{% if settings.slc_show_templates %}
+<style>
+    body {
+
+    }
+    .lead-capture-templates {
+        position: fixed;
+        overflow: auto;
+        width: 100vw;
+        height: 100vh;
+        z-index: 105;
+        background-color: white;
+        top: 0;
+        left: 0;
+        padding: 10px 20px;
+
+    }
+    .lead-capture-templates-items {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .lead-capture-templates  .lead-capture-template-type-title {
+        padding: 0 10px 20px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .lead-capture-templates .lead-capture-templates-item  {
+        border: 3px solid #ccc;
+        border-radius: 6px;
+        cursor:pointer;
+        padding: 10px;
+        margin: 0 10px 20px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .lead-capture-templates .lead-capture-templates-item img {
+        max-width: 450px;
+        margin-top: 5px;
+    }
+    .lead-capture-templates .lead-capture-templates-item:hover {
+        border: 3px solid #0088cc;
+    }
+    .lead-capture-templates .lead-capture-templates-item .lead-capture-template-apply-btn {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(180deg,#619ddc,#4a7cbb);
+        border-color: #4c82d6;
+        box-shadow: inset 0 1px 0 0 #5792c5, 0 1px 0 0 rgba(22,29,37,.05), 0 0 0 0 transparent;
+        border-radius: 4px;
+        width: fit-content;
+        cursor: pointer;
+        margin: 0 auto;
+        padding: 10px 20px;
+        color: white;
+        z-index: 106;
+    }
+
+    .lead-capture-templates .lead-capture-templates-item:hover .lead-capture-template-apply-btn {
+        display: block;
+    }
+
+    .lead-capture-templates .lead-capture-templates-item:hover img {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        opacity: 0.3;
+    }
+
+
+
+</style>
+<div class="lead-capture-templates" style="">
+<div style="text-align: center; font-size: 30px; font-weight: 600; margin-bottom: 20px;">Choose a template for Smarketly Lead Capture</div>
+ {% assign templates = 't0,t1,t2,t3,t4,t5,t6,t7,t8,t9,f0,f1,f2,f3,n0,n1,n2,n3,n4' | split: ',' %}
+ {%- unless settings.slc_show_email %}
+ {% assign templates = 'n0,n1,n2,n3,n4' | split: ',' %}
+ {%- endunless -%}
+  <div class="lead-capture-templates-items" style="display: none;">
+  {% for item in templates %}
+    {% if item == 't0' %}</div><div class="lead-capture-template-type-title">Regular, Scroll & Click Popups</div><div class="lead-capture-templates-items">{% endif %}
+    {% if item == 'n0' %}</div><div class="lead-capture-template-type-title">Sticky bars (Top & Bottom)</div><div class="lead-capture-templates-items">{% endif %}
+    {% if item == 'f0' %}</div><div class="lead-capture-template-type-title">Fullscreen Popups</div><div class="lead-capture-templates-items">{% endif %}
+    <div class="lead-capture-templates-item">
+            <!--div style="font-weight: 500; margin-bottom: 5px;">Text Plus Image</div-->
+            <div class="lead-capture-template-apply-btn">Apply template</div>
+            <div>
+                <img loading="lazy" src="https://apps.smarketly.com/assets/lead-templates/{{ item }}.png"><!-- style="max-width: 170px"-->
+            </div>
+        </div>
+  {% endfor %}
+
+</div>
+</div>
+
+{% endif %}
+
+

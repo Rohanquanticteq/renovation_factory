@@ -1,0 +1,110 @@
+{% if section.settings.display_slider_with_image != blank %}
+<div class="sliderWithImgSec">
+  <div class="inner_d">
+    <div class="content_d">
+      {% if section.settings.title != blank %}
+      <h3>{{ section.settings.title }}</h3>
+       {% endif %} 
+      <div class="swiperBtnPrevNext">
+        <div class="swiper-container storiesSlider">
+		<div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+          <div class="swiper-slide">
+            <div class="item_d">
+              <img src="{{ block.settings.image | img_url:"master" }}">
+            </div>
+          </div>
+          {%- endfor -%}
+        </div>
+      <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0576/3907/5997/files/Vector_1.svg?v=1727776764"></div>
+  <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0576/3907/5997/files/Vector_1_-svg.svg?v=1727776765"></div>
+      </div>
+      </div>
+    </div>
+    <div class="content_d">
+      {% if section.settings.image != blank %}
+      <div class="img_d">
+        <img src="{{ section.settings.image | img_url:"master" }}">
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<script>
+var mySwiper = new Swiper(".storiesSlider", {
+  direction: "horizontal",
+  loop: true,
+  grabCursor: true,
+  speed: 1000,
+  parallax: true,
+  autoplay: false,
+  effect: "slide",
+  mousewheel: {
+    invert: false,
+    sensitivity: 1,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+    disabledClass: "is-disabled"
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+     768: {
+      direction: "vertical",
+    }
+  },
+});
+</script>
+{% schema %}
+{
+  "name": "Slider With Image",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_slider_with_image",
+        "label": "Display Slider With Image",
+        "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider with Image"
+    }
+  ]
+}
+{% endschema %}

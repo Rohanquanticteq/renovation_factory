@@ -1,0 +1,40 @@
+  {% if section.settings.announcement_text_1 != blank or section.settings.announcement_text_2 != blank or section.settings.announcement_text_3 != blank %}
+<div class="announcement_bar_d">
+  <div class="inner_d">
+     {% if section.settings.announcement_text_1 != blank %}
+    <div class="quotes11 announcement_bar">
+      {% if section.settings.announcement_link_1 != blank %}
+      <a href="{{ section.settings.announcement_link_1 }}">
+      {% endif %}
+        {{ section.settings.announcement_text_1 }}
+      {% if section.settings.announcement_link_1 != blank %}
+      </a>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if section.settings.announcement_text_2 != blank %}
+    <div class="quotes11 announcement_bar">
+      {% if section.settings.announcement_link_2 != blank %}
+      <a href="{{ section.settings.announcement_link_2 }}">
+      {% endif %}
+        {{ section.settings.announcement_text_2 }}
+      {% if section.settings.announcement_link_2 != blank %}
+      </a>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if section.settings.announcement_text_3 != blank %}
+    <div class="quotes11 announcement_bar">
+      {% if section.settings.announcement_link_3 != blank %}
+      <a href="{{ section.settings.announcement_link_3 }}">
+      {% endif %}
+        {{ section.settings.announcement_text_3 }}
+      {% if section.settings.announcement_link_3 != blank %}
+      </a>
+      {% endif %}
+    </div>
+    {% endif %}
+    
+  </div>
+</div>
+  {% endif %}

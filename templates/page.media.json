@@ -1,0 +1,320 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_large": false
+      }
+    },
+    "a7b94b07-fee3-46d1-bd21-a2c01dae7879": {
+      "type": "sitemap",
+      "blocks": {
+        "e31ce609-c805-4ad8-b96c-5dd9266a6b1d": {
+          "type": "collection",
+          "settings": {
+            "heading": "lighting",
+            "collection-1": "chandeliers",
+            "collection-2": "pendants",
+            "collection-3": "table-lamps",
+            "collection-4": "floor-lamps",
+            "collection-5": "wall-sconce-lights",
+            "collection-6": "all-lighting",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "4f6abb84-4420-4f90-9b87-037cd70ff2fd": {
+          "type": "collection",
+          "settings": {
+            "heading": "Serving",
+            "collection-1": "all-dining",
+            "collection-2": "serving-trays-platters",
+            "collection-3": "serving-bowls",
+            "collection-4": "cake-tiered-stands",
+            "collection-5": "tabletop-serving-accents",
+            "collection-6": "",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "60a3a4cb-438d-444b-b46a-1a7505c1757a": {
+          "type": "collection",
+          "settings": {
+            "heading": "Furniture",
+            "collection-1": "all-furniture",
+            "collection-2": "console-tables",
+            "collection-3": "coffee-tables",
+            "collection-4": "end-tables",
+            "collection-5": "accent-and-drink-tables",
+            "collection-6": "etagere-book-cases",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "e91dce15-082d-4b47-8c15-1606b1263689": {
+          "type": "collection",
+          "settings": {
+            "heading": "Bar",
+            "collection-1": "all-bar",
+            "collection-2": "decanters",
+            "collection-3": "drink-glasses-tumblers",
+            "collection-4": "bar-carts",
+            "collection-5": "",
+            "collection-6": "",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "b034d7b0-4966-40da-9e62-f68f70754a34": {
+          "type": "collection",
+          "settings": {
+            "heading": "Decor",
+            "collection-1": "all-home-accents",
+            "collection-2": "candle-holders",
+            "collection-3": "candle-sconce",
+            "collection-4": "decorative-bowls",
+            "collection-5": "vases-and-urns",
+            "collection-6": "planters",
+            "collection-7": "decorative-trays",
+            "collection-8": ""
+          }
+        },
+        "c6d84478-13f7-4460-8cb2-2c5bf7e13c73": {
+          "type": "collection",
+          "settings": {
+            "heading": "Mirrors",
+            "collection-1": "all-wall-art-1",
+            "collection-2": "wall-mirrors",
+            "collection-3": "floor-mirrors",
+            "collection-4": "",
+            "collection-5": "",
+            "collection-6": "",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        }
+      },
+      "block_order": [
+        "e31ce609-c805-4ad8-b96c-5dd9266a6b1d",
+        "4f6abb84-4420-4f90-9b87-037cd70ff2fd",
+        "60a3a4cb-438d-444b-b46a-1a7505c1757a",
+        "e91dce15-082d-4b47-8c15-1606b1263689",
+        "b034d7b0-4966-40da-9e62-f68f70754a34",
+        "c6d84478-13f7-4460-8cb2-2c5bf7e13c73"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "media_feature_sec_HC6Q8R": {
+      "type": "media-feature-sec",
+      "blocks": {
+        "image_TKCfh4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1.webp",
+            "sub_title": "WOC",
+            "title": "WOC",
+            "link": "https://www.worldoneconsulting.com/projects/renovation-factory/"
+          }
+        },
+        "image_qNDHNH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2_RF.webp",
+            "sub_title": "ARCHITECTURE DESIGN",
+            "title": "ARCHITECTURE DESIGN",
+            "link": "https://www.architectureplusdesign.in/business-centre/renovation-factory-launches-its-design-gallery-in-gurugram/"
+          }
+        },
+        "image_nakA4H": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3_c0ed0a8e-ba57-4e06-bc1f-073b908c8d84.webp",
+            "sub_title": "TDJ",
+            "title": "TDJ",
+            "link": "https://www.thedecorjournalindia.com/renovation-factory-showcases-minimalist-theme-with-the-kanto-collection"
+          }
+        },
+        "image_wEiBfF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4_RF.webp",
+            "sub_title": "INTERIORS AND DECOR",
+            "title": "UKIYO",
+            "link": "https://interiorsndecor.com/renovation-factory-unveils-the-eclectic-ukiyo-collection/"
+          }
+        },
+        "image_anRagG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/5_RF.webp",
+            "sub_title": "COMMERCIAL DESIGN",
+            "title": "COMMERCIAL DESIGN",
+            "link": "https://www.commercialdesignindia.com/products/renovation-factory-unveils-the-vibrant-galactic-collection"
+          }
+        },
+        "image_fm4hwL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6_RF.webp",
+            "sub_title": "RETAIL GROWTH",
+            "title": "RETAIL GROWTH",
+            "link": "https://www.retail4growth.com/news/home-decor-brand-renovation-factory-launches-design-gallery-in-gurugram-6108"
+          }
+        },
+        "image_Xq87WF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/7_RF.webp",
+            "sub_title": "FURNITURE DESIGN & TECHNOLOGY",
+            "title": "FURNITURE DESIGN & TECHNOLOGY",
+            "link": "https://furnituredesignindia.com/articles/10428/a-unique-collection-by-renovation-factory-that-blends-charm-with-utility"
+          }
+        },
+        "image_n9MepM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/8.webp",
+            "sub_title": "ARCHITECT AND INTERIORS INDIA",
+            "title": "ARCHITECT AND INTERIORS INDIA",
+            "link": "https://www.architectandinteriorsindia.com/products/renovation-factory-launches-kanto-collection-of-tables"
+          }
+        },
+        "image_gEhJd6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/9.webp",
+            "sub_title": "LUXE POINT INDIA",
+            "title": "LUXE POINT INDIA",
+            "link": "http://www.luxepointindia.com/lifestyle/item/761-renovation-factory-launches-its-stunning-design-gallery-in-gurugram.html"
+          }
+        },
+        "image_UFxkD4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/10.webp",
+            "sub_title": "ARCHITECTURE + DESIGN",
+            "title": "ARCHITECTURE + DESIGN",
+            "link": "https://www.architectureplusdesign.in/business-centre/renovation-factory-launches-its-design-gallery-in-gurugram/"
+          }
+        }
+      },
+      "block_order": [
+        "image_TKCfh4",
+        "image_qNDHNH",
+        "image_nakA4H",
+        "image_wEiBfF",
+        "image_anRagG",
+        "image_fm4hwL",
+        "image_Xq87WF",
+        "image_n9MepM",
+        "image_gEhJd6",
+        "image_UFxkD4"
+      ],
+      "name": "Media Feature Sec",
+      "settings": {
+        "display_media_feature_sec": true,
+        "title": "Features",
+        "description": "Latest news coverage & media articles"
+      }
+    },
+    "media_logos_sec_fynrqr": {
+      "type": "media-logos-sec",
+      "blocks": {
+        "image_Akpg3k": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a1.png"
+          }
+        },
+        "image_mKU7qR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a2.png"
+          }
+        },
+        "image_irBkhz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a3.png"
+          }
+        },
+        "image_NdWrei": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a4.png"
+          }
+        },
+        "image_nMt7x4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a5.png"
+          }
+        },
+        "image_yJ9dCq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a6.png"
+          }
+        },
+        "image_KNdpYr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a7.png"
+          }
+        },
+        "image_VDnnYd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a8.png"
+          }
+        },
+        "image_FXaWNy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a9.png"
+          }
+        },
+        "image_acpGY4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a10.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_Akpg3k",
+        "image_mKU7qR",
+        "image_irBkhz",
+        "image_NdWrei",
+        "image_nMt7x4",
+        "image_yJ9dCq",
+        "image_KNdpYr",
+        "image_VDnnYd",
+        "image_FXaWNy",
+        "image_acpGY4"
+      ],
+      "disabled": true,
+      "name": "Media Logos Sec",
+      "settings": {
+        "display_media_logos_sec": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "a7b94b07-fee3-46d1-bd21-a2c01dae7879",
+    "media_feature_sec_HC6Q8R",
+    "media_logos_sec_fynrqr"
+  ]
+}

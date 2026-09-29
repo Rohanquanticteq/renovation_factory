@@ -1,0 +1,83 @@
+{% if section.settings.display_video_sec != blank %}
+<div class="video_sec">
+  {% if collection.metafields.custom.collection_desktop_video != blank or collection.metafields.custom.collection_mobile_video != blank %}
+   <div class="video_d">
+     <div class="hidden-xs">
+      <video class="lazy-video" width="400" muted playsinline loop preload="none" data-src="{{ collection.metafields.custom.collection_desktop_video | file_url }}"></video>
+     </div>
+     <div class="visible-xs">
+      <video class="lazy-video" width="400" muted playsinline loop preload="none" data-src="{{ collection.metafields.custom.collection_mobile_video | file_url }}"></video>
+     </div>
+   </div>
+  {% endif %}
+  </div>
+{% endif %}
+
+{%- comment -%}
+  2026-09-08: performance fix — same lazy-video loading as sections/video-sec.liquid
+  (see that file for the full explanation). Reuses the same window.__rfLazyVideoInit
+  guard so only one observer is ever set up, however many video sections are on the page.
+{%- endcomment -%}
+{%- unless section.settings.display_video_sec == blank -%}
+  <script>
+    (function () {
+      if (window.__rfLazyVideoInit) return;
+      window.__rfLazyVideoInit = true;
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var loadVideo = function (video) {
+          if (!video || video.dataset.loaded) return;
+          var src = video.getAttribute('data-src');
+          if (!src) return;
+          video.dataset.loaded = 'true';
+          var source = document.createElement('source');
+          source.src = src;
+          source.type = 'video/mp4';
+          video.appendChild(source);
+          video.load();
+          var playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {});
+          }
+        };
+
+        var videos = document.querySelectorAll('video.lazy-video');
+
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                loadVideo(entry.target);
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { rootMargin: '600px 0px' });
+
+          videos.forEach(function (video) { observer.observe(video); });
+        } else {
+          videos.forEach(loadVideo);
+        }
+      });
+    })();
+  </script>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Video Sec 2",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_video_sec",
+        "label": "Display Video sec",
+        "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Sec 2"
+    }
+  ]
+}
+{% endschema %}

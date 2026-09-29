@@ -1,0 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "single_banner_with_text_GNniYY": {
+      "type": "single-banner-with-text",
+      "settings": {
+        "display_single_banner_with_text": false,
+        "desktop_banner": "shopify://shop_images/RF_157_3.webp",
+        "mobile_banner": "shopify://shop_images/RF_157_3.webp",
+        "title": "INSPIRED BY A TREASURED EXPERIENCE",
+        "description": "ENTER THE PORTAL OF DESIRABLE OBJECTS"
+      }
+    },
+    "main": {
+      "type": "main-contact",
+      "blocks": {
+        "747dab0c-79cb-486f-b3a4-0d219b45c308": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Book Appointment",
+            "values": "Store Appointment, Zoom Call, Face Time"
+          }
+        }
+      },
+      "block_order": [
+        "747dab0c-79cb-486f-b3a4-0d219b45c308"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "single_banner_with_text_GNniYY",
+    "main"
+  ]
+}

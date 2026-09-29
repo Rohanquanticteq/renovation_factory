@@ -1,0 +1,256 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "about",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {}
+    },
+    "e2d9baad-ffb4-443e-90e6-9777d6ab26a1": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16087501930653__e2d9baad-ffb4-443e-90e6-9777d6ab26a1-168802990498e9541b-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Structures_webpage-06_1.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomLeft",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16087501930653__e2d9baad-ffb4-443e-90e6-9777d6ab26a1-168802990498e9541b-0"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "d7281ff9-e366-42d1-8bd0-decc204924f1": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16087501930653__d7281ff9-e366-42d1-8bd0-decc204924f1-168802990498e9541b-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Structures-new.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomLeft",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16087501930653__d7281ff9-e366-42d1-8bd0-decc204924f1-168802990498e9541b-0"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "8dd8789f-90ae-4788-b7b0-6cc68b0cdc61": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "custom_css": [
+        "@media only screen and (max-width: 600px) {.ImageHero__ImageWrapper, .ImageHero__Image {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: contain !important; background-position: center; }}"
+      ],
+      "settings": {
+        "section_size": "normal",
+        "image": "shopify://shop_images/Structures_webpage-07_3.jpg",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "c48db00a-0cad-4a3c-a88c-febabd6425a3": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16087501930653__c48db00a-0cad-4a3c-a88c-febabd6425a3-168802990498e9541b-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Structures_webpage-08.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomLeft",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16087501930653__c48db00a-0cad-4a3c-a88c-febabd6425a3-168802990498e9541b-0"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "365068fa-f909-4531-95bc-9142a765080e": {
+      "type": "Novel_Concepts",
+      "blocks": {
+        "ab1c63aa-be33-4585-a41c-200e1a638b8c": {
+          "type": "novel_deta",
+          "settings": {
+            "img": "shopify://shop_images/Structures_webpage-09.jpg",
+            "mobimg": "shopify://shop_images/Structures_webpage-09.jpg",
+            "heading": "PARTITIONS",
+            "color0": "#8f7663",
+            "desc": "",
+            "color": "#ffffff",
+            "desc2": "",
+            "color2": "#8f7663"
+          }
+        },
+        "ca34e42d-babf-4f28-9378-e136b2452609": {
+          "type": "novel_deta",
+          "settings": {
+            "img": "shopify://shop_images/Structures_webpage-10.jpg",
+            "mobimg": "shopify://shop_images/Structures_webpage-10.jpg",
+            "heading": "DOORS",
+            "color0": "#ffffff",
+            "desc": "",
+            "color": "#ffffff",
+            "desc2": "",
+            "color2": "#8f7663"
+          }
+        },
+        "e2304f14-bc28-4077-a4e1-ed136cc246c6": {
+          "type": "novel_deta",
+          "settings": {
+            "img": "shopify://shop_images/Structures_webpage-11.jpg",
+            "mobimg": "shopify://shop_images/Structures_webpage-11.jpg",
+            "heading": "BAR UNITS",
+            "color0": "#ffffff",
+            "desc": "",
+            "color": "#ffffff",
+            "desc2": "",
+            "color2": "#8f7663"
+          }
+        },
+        "93ce3848-4593-4a47-bb47-ff7160e61a6d": {
+          "type": "novel_deta",
+          "settings": {
+            "img": "shopify://shop_images/Structures_webpage-12.jpg",
+            "mobimg": "shopify://shop_images/Structures_webpage-12.jpg",
+            "heading": "LIGHT CLUSTER CUSTOMIZATION",
+            "color0": "#8f7663",
+            "desc": "",
+            "color": "#ffffff",
+            "desc2": "",
+            "color2": "#8f7663"
+          }
+        },
+        "6443964b-0ab9-498f-8d83-35ecceabb599": {
+          "type": "novel_deta",
+          "settings": {
+            "img": "shopify://shop_images/Structures_webpage-13.jpg",
+            "mobimg": "shopify://shop_images/Structures_webpage-13.jpg",
+            "heading": "SHELVING UNITS",
+            "color0": "#8f7663",
+            "desc": "",
+            "color": "#ffffff",
+            "desc2": "",
+            "color2": "#8f7663"
+          }
+        }
+      },
+      "block_order": [
+        "ab1c63aa-be33-4585-a41c-200e1a638b8c",
+        "ca34e42d-babf-4f28-9378-e136b2452609",
+        "e2304f14-bc28-4077-a4e1-ed136cc246c6",
+        "93ce3848-4593-4a47-bb47-ff7160e61a6d",
+        "6443964b-0ab9-498f-8d83-35ecceabb599"
+      ],
+      "settings": {
+        "heading": "",
+        "tab-title1": "PARTITIONS",
+        "tab-title2": "DOORS",
+        "tab-title3": "BAR UNITS",
+        "tab-title4": "LIGHT CLUSTER CUSTOMIZATION",
+        "tab-title5": "SHELVING UNITS",
+        "tab-title6": "",
+        "tab-title7": ""
+      }
+    },
+    "28c799f9-adf2-4a83-90a9-c3de2a004b6c": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16087501930653__28c799f9-adf2-4a83-90a9-c3de2a004b6c-168802990498e9541b-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Structures_webpage-14_1.jpg",
+            "apply_overlay": false,
+            "content_position": "bottomLeft",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16087501930653__28c799f9-adf2-4a83-90a9-c3de2a004b6c-168802990498e9541b-1"
+      ],
+      "settings": {
+        "show_fullscreen": false,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "e2d9baad-ffb4-443e-90e6-9777d6ab26a1",
+    "d7281ff9-e366-42d1-8bd0-decc204924f1",
+    "8dd8789f-90ae-4788-b7b0-6cc68b0cdc61",
+    "c48db00a-0cad-4a3c-a88c-febabd6425a3",
+    "365068fa-f909-4531-95bc-9142a765080e",
+    "28c799f9-adf2-4a83-90a9-c3de2a004b6c"
+  ]
+}

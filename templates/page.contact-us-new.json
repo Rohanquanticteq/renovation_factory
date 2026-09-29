@@ -1,0 +1,144 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_large": false
+      }
+    },
+    "a7b94b07-fee3-46d1-bd21-a2c01dae7879": {
+      "type": "sitemap",
+      "blocks": {
+        "e31ce609-c805-4ad8-b96c-5dd9266a6b1d": {
+          "type": "collection",
+          "settings": {
+            "heading": "lighting",
+            "collection-1": "chandeliers",
+            "collection-2": "pendants",
+            "collection-3": "table-lamps",
+            "collection-4": "floor-lamps",
+            "collection-5": "wall-sconce-lights",
+            "collection-6": "all-lighting",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "4f6abb84-4420-4f90-9b87-037cd70ff2fd": {
+          "type": "collection",
+          "settings": {
+            "heading": "Serving",
+            "collection-1": "all-dining",
+            "collection-2": "serving-trays-platters",
+            "collection-3": "serving-bowls",
+            "collection-4": "cake-tiered-stands",
+            "collection-5": "tabletop-serving-accents",
+            "collection-6": "",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "60a3a4cb-438d-444b-b46a-1a7505c1757a": {
+          "type": "collection",
+          "settings": {
+            "heading": "Furniture",
+            "collection-1": "all-furniture",
+            "collection-2": "console-tables",
+            "collection-3": "coffee-tables",
+            "collection-4": "end-tables",
+            "collection-5": "accent-and-drink-tables",
+            "collection-6": "etagere-book-cases",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "e91dce15-082d-4b47-8c15-1606b1263689": {
+          "type": "collection",
+          "settings": {
+            "heading": "Bar",
+            "collection-1": "all-bar",
+            "collection-2": "decanters",
+            "collection-3": "drink-glasses-tumblers",
+            "collection-4": "bar-carts",
+            "collection-5": "",
+            "collection-6": "",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        },
+        "b034d7b0-4966-40da-9e62-f68f70754a34": {
+          "type": "collection",
+          "settings": {
+            "heading": "Decor",
+            "collection-1": "all-home-accents",
+            "collection-2": "candle-holders",
+            "collection-3": "candle-sconce",
+            "collection-4": "decorative-bowls",
+            "collection-5": "vases-and-urns",
+            "collection-6": "planters",
+            "collection-7": "decorative-trays",
+            "collection-8": ""
+          }
+        },
+        "c6d84478-13f7-4460-8cb2-2c5bf7e13c73": {
+          "type": "collection",
+          "settings": {
+            "heading": "Mirrors",
+            "collection-1": "all-wall-art-1",
+            "collection-2": "wall-mirrors",
+            "collection-3": "floor-mirrors",
+            "collection-4": "",
+            "collection-5": "",
+            "collection-6": "",
+            "collection-7": "",
+            "collection-8": ""
+          }
+        }
+      },
+      "block_order": [
+        "e31ce609-c805-4ad8-b96c-5dd9266a6b1d",
+        "4f6abb84-4420-4f90-9b87-037cd70ff2fd",
+        "60a3a4cb-438d-444b-b46a-1a7505c1757a",
+        "e91dce15-082d-4b47-8c15-1606b1263689",
+        "b034d7b0-4966-40da-9e62-f68f70754a34",
+        "c6d84478-13f7-4460-8cb2-2c5bf7e13c73"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "new_contact_us_ArJKmC": {
+      "type": "new-contact-us",
+      "blocks": {
+        "text_B9MCLJ": {
+          "type": "text",
+          "settings": {
+            "title": "Phone number",
+            "use_long_text": false,
+            "is_required": false
+          }
+        }
+      },
+      "block_order": [
+        "text_B9MCLJ"
+      ],
+      "name": "Contact Us New",
+      "settings": {
+        "display_contact_us_new": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "a7b94b07-fee3-46d1-bd21-a2c01dae7879",
+    "new_contact_us_ArJKmC"
+  ]
+}

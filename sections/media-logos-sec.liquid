@@ -1,0 +1,87 @@
+{% if section.settings.display_media_logos_sec != blank %}
+<div class="medialogosSec">
+        <div class="inner_d">
+            <div class="logosListsD">
+              <div class="media__logo">
+                {%- for block in section.blocks -%}
+                 <img src="{{ block.settings.image | img_url:"master" }}">
+                 {%- endfor -%}
+                 {%- for block in section.blocks -%}
+                 <img src="{{ block.settings.image | img_url:"master" }}">
+                 {%- endfor -%}
+                 {%- for block in section.blocks -%}
+                 <img src="{{ block.settings.image | img_url:"master" }}">
+                 {%- endfor -%}
+              </div>
+            </div>
+        </div>
+</div>
+
+<style>
+    .medialogosSec{
+  padding:40px 0 70px;
+}
+.medialogosSec .logosListsD{
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+.medialogosSec .media__logo{
+    display: inline-block;
+    animation: 25s slideLogos infinite linear;
+}
+.medialogosSec .media__logo img{
+  height: auto;
+  max-height: 90px;
+  margin: 0 40px;
+  vertical-align: middle;
+}
+@keyframes slideLogos {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+@media screen and (max-width: 767px) {
+    .medialogosSec .media__logo img{
+        max-height:60px;
+        margin:0 20px;
+    }
+}
+</style>
+{% endif %}
+{% schema %}
+{
+  "name": "Media Logos Sec",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_media_logos_sec",
+        "label": "Display Media Logos Sec",
+        "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media Logos Sec"
+    }
+  ]
+}
+{% endschema %}

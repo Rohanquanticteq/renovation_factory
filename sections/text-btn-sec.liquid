@@ -1,0 +1,48 @@
+{% if section.settings.display_text_btn_sec != blank %}
+<div class="textWithBtnSec">
+  <div class="inner_d">
+    <div class="desc_d">{{ section.settings.title }}</div>
+    {% if section.settings.button_text != blank %}
+    <div class="action_btn">
+      <a href="{{ section.settings.button_link }}" class="btn button11">{{ section.settings.button_text }}</a>
+    </div>
+      {% endif %}
+  </div>
+</div>
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Text Btn Sec",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_text_btn_sec",
+        "label": "Display Text Btn Sec",
+        "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Btn Sec"
+    }
+  ]
+}
+{% endschema %}

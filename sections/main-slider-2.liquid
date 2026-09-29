@@ -1,0 +1,78 @@
+{% if section.settings.display_main_slider != blank %}
+<div class="mainSliderSec collectionSlideshow">
+  <div class="swiper-container swiperMainSlider2">
+     <div class="swiper-wrapper">
+      {%- for block in section.blocks -%}
+      <div class="swiper-slide">
+        <div class="item_d">
+            {% if block.settings.desktop_banner != blank or block.settings.mobile_banner != blank %}
+            <div class="img_d">
+              <img src="{{ block.settings.desktop_banner | img_url:"master" }}" class="hidden-xs">
+              <img src="{{ block.settings.mobile_banner | img_url:"master" }}" class="visible-xs">
+            </div>
+            {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+     </div>
+    <div class="swiper-pagination"></div>
+  
+     <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0576/3907/5997/files/Vector_1.svg?v=1727776764"></div>
+    <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0576/3907/5997/files/Vector_1_-svg.svg?v=1727776765"></div>
+   
+  </div>
+</div>
+{% endif %}
+
+<script>
+  var swiper1 = new Swiper('.swiperMainSlider2', {
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        disabledClass: "is-disabled"
+    },
+    pagination: {
+        el: '.swiper-pagination',
+    },
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "Main Slider 2",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_main_slider",
+        "label": "Display Main Slider",
+        "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_banner",
+          "label": "Desktop Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_banner",
+          "label": "Mobile Banner"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Slider 2"
+    }
+  ]
+}
+{% endschema %}

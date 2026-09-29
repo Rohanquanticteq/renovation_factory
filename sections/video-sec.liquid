@@ -1,0 +1,156 @@
+{% if section.settings.display_video_sec != blank %}
+<div class="video_sec">
+     <a href="{{ section.settings.link }}">
+  {% if section.settings.video_link != blank or section.settings.mobile_video_link != blank %}
+
+   <div class="video_d">
+     <div class="hidden-xs">
+      <video class="lazy-video" width="400" muted playsinline loop preload="none" data-src="{{ section.settings.video_link }}"></video>
+     </div>
+     <div class="visible-xs">
+      <video class="lazy-video" width="400" muted playsinline loop preload="none" data-src="{{ section.settings.mobile_video_link }}"></video>
+     </div>
+   </div>
+  {% endif %}
+  <div class="content_d">
+    <div class="info_d">
+      {% if section.settings.image_1 != blank %}
+      <div class="img_d_1">
+        <img src="{{ section.settings.image_1 | img_url:"1000x" }}" loading="lazy">
+      </div>
+      {% endif %}
+      {% if section.settings.title != blank %}
+      <h3 class="title_d">{{ section.settings.title }}</h3>
+      {% endif %}
+      {% if section.settings.description != blank %}
+      <div class="desc_d">{{ section.settings.description }}</div>
+      {% endif %}
+        {% if section.settings.image_2 != blank %}
+      <div class="img_d_2">
+        <img src="{{ section.settings.image_2 | img_url:"1000x" }}" loading="lazy">
+      </div>
+      {% endif %}
+      {% if section.settings.link_text != blank %}
+        <div class="action_btn">
+          <!-- <div class="link__d">{{ section.settings.link_text }}</div> -->
+          <button class="button11">{{ section.settings.link_text }}</button>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+     </a>
+  </div>
+{% endif %}
+
+{%- unless section.settings.display_video_sec == blank -%}
+  {%- comment -%}
+    2026-09-08: performance fix — the .mp4 sources used to be requested by every video
+    on the page as soon as the browser parsed the HTML (autoplay with no preload
+    control), so a home page with several Video Sec / Video Sec 2 blocks would try to
+    download every video at once. This IntersectionObserver only sets the real <source>
+    (via data-src) once a video is about to scroll into view, so far-below-the-fold
+    videos no longer compete with the initial page load for bandwidth. The guard flag
+    keeps this script a no-op after the first section on the page runs it.
+  {%- endcomment -%}
+  <script>
+    (function () {
+      if (window.__rfLazyVideoInit) return;
+      window.__rfLazyVideoInit = true;
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var loadVideo = function (video) {
+          if (!video || video.dataset.loaded) return;
+          var src = video.getAttribute('data-src');
+          if (!src) return;
+          video.dataset.loaded = 'true';
+          var source = document.createElement('source');
+          source.src = src;
+          source.type = 'video/mp4';
+          video.appendChild(source);
+          video.load();
+          var playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {});
+          }
+        };
+
+        var videos = document.querySelectorAll('video.lazy-video');
+
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                loadVideo(entry.target);
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { rootMargin: '600px 0px' });
+
+          videos.forEach(function (video) { observer.observe(video); });
+        } else {
+          videos.forEach(loadVideo);
+        }
+      });
+    })();
+  </script>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Video Sec",
+  "class": "section",
+  "settings": [
+     {
+        "type": "checkbox",
+        "id": "display_video_sec",
+        "label": "Display Video sec",
+        "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "video_link",
+      "label": "Video Link"
+    },
+    {
+      "type": "textarea",
+      "id": "mobile_video_link",
+      "label": "Mobile Video Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+     {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "description"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Sec"
+    }
+  ]
+}
+{% endschema %}
