@@ -155,29 +155,29 @@
           "settings": {
             "product": "",
             "desktop_x": 30,
-            "desktop_y": 44,
+            "desktop_y": 53,
             "mobile_x": 29,
-            "mobile_y": 45
+            "mobile_y": 53
           }
         },
         "hotspot_2": {
           "type": "hotspot",
           "settings": {
             "product": "",
-            "desktop_x": 69,
-            "desktop_y": 30,
-            "mobile_x": 82,
-            "mobile_y": 31
+            "desktop_x": 61,
+            "desktop_y": 40,
+            "mobile_x": 61,
+            "mobile_y": 40
           }
         },
         "hotspot_3": {
           "type": "hotspot",
           "settings": {
             "product": "",
-            "desktop_x": 56,
-            "desktop_y": 70,
-            "mobile_x": 59,
-            "mobile_y": 70
+            "desktop_x": 77,
+            "desktop_y": 29,
+            "mobile_x": 77,
+            "mobile_y": 29
           }
         }
       },
@@ -186,15 +186,27 @@
         "hotspot_2",
         "hotspot_3"
       ],
-      "name": "Designer's Edit",
+      "name": "Craft + Designer's Edit",
       "settings": {
+        "craft_heading": "OUR CRAFTMANSHIP",
+        "craft_subheading": "Every piece, a labor of passion",
+        "craft_image_1": "",
+        "craft_label_1": "DELIVERY",
+        "craft_image_2": "",
+        "craft_label_2": "FINISHING",
+        "craft_image_3": "",
+        "craft_label_3": "CRAFTSMANSHIP",
+        "craft_image_4": "",
+        "craft_label_4": "MATERIAL SELECTION",
+        "craft_image_5": "",
+        "craft_label_5": "SKETCH",
         "desktop_image": "",
         "mobile_image": "",
-        "image_alt": "Modern Parisian living room",
-        "placeholder_label": "IMAGE - Modern Parisian living room",
+        "image_alt": "Classic living room",
+        "placeholder_label": "IMAGE - Classic room",
         "eyebrow": "DESIGNER'S EDIT",
-        "heading": "Modern Parisian Living",
-        "body": "<p>A curated space blending classic Parisian charm with contemporary silhouettes.</p>",
+        "heading": "A CLASSIC ROOM",
+        "body": "<p>Timeless details, modern comforts — a curated blend of classic design and contemporary living.</p>",
         "button_label_desktop": "EXPLORE THE LOOK",
         "button_label_mobile": "SHOP THE LOOK",
         "show_piece_count": true,
