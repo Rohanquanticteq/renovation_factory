@@ -214,18 +214,6 @@
         "product_link_label": "VIEW PRODUCT"
       }
     },
-    "single_banner_m6KVBm": {
-      "type": "single-banner",
-      "disabled": true,
-      "name": "Single Banner Sec",
-      "settings": {
-        "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/IMG_6505.jpg",
-        "mobile_banner": "shopify://shop_images/New_Project_8.png",
-        "button_text": "DISCOVER MORE",
-        "link": "#"
-      }
-    },
     "video_sec_JzA4i4": {
       "type": "video-sec",
       "disabled": true,
@@ -859,6 +847,44 @@
         "autoplay": false,
         "autoplay_delay": 6
       }
+    },
+    "rf_journal": {
+      "type": "rf-journal",
+      "blocks": {
+        "article_1": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "image": "",
+            "category": "INTERIORS",
+            "title": "How to Create a Timeless Interior",
+            "link": "",
+            "read_more_label": "READ MORE"
+          }
+        },
+        "article_2": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "image": "",
+            "category": "MATERIALS",
+            "title": "A Guide to Natural Materials",
+            "link": "",
+            "read_more_label": "READ MORE"
+          }
+        }
+      },
+      "block_order": [
+        "article_1",
+        "article_2"
+      ],
+      "name": "RF Journal",
+      "settings": {
+        "eyebrow": "THE JOURNAL",
+        "heading": "Inspiration for a beautiful life",
+        "button_label": "EXPLORE THE JOURNAL",
+        "button_link": ""
+      }
     }
   },
   "order": [
@@ -868,7 +894,7 @@
     "rf_designers_edit",
     "rf_usp_strip",
     "rf_testimonials",
-    "single_banner_m6KVBm",
+    "rf_journal",
     "video_sec_JzA4i4",
     "video_sec_qa7FhF",
     "video_sec_wHxHVP",
