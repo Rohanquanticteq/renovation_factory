@@ -14,11 +14,11 @@
 
 .RF-Footer__Main {
   display: grid;
-  grid-template-columns: minmax(180px, 1.25fr) minmax(0, 3.8fr) minmax(150px, 1fr);
-  gap: clamp(30px, 4vw, 68px);
-  width: min(100%, 1366px);
+  grid-template-columns: 210px minmax(0, 1fr) 175px;
+  gap: 54px;
+  width: min(100%, 1380px);
   margin: 0 auto;
-  padding: 34px 58px 24px;
+  padding: 34px 62px 26px;
 }
 
 .RF-Footer__Brand {
@@ -33,31 +33,31 @@
 .RF-Footer__Logo {
   display: block;
   width: auto;
-  max-width: 128px;
-  max-height: 54px;
+  max-width: 132px;
+  max-height: 50px;
   object-fit: contain;
   object-position: left center;
 }
 
 .RF-Footer__BrandName {
   display: inline-block;
-  max-width: 125px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  max-width: 138px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 16px;
   font-weight: 400;
   line-height: 0.98;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
 }
 
 .RF-Footer__Tagline {
-  max-width: 155px;
+  max-width: 175px;
   margin-top: 22px;
   color: var(--rf-footer-text);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 8px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 10px;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.52;
   letter-spacing: 0;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .RF-Footer__SocialWrap {
-  margin-top: 18px;
+  margin-top: 17px;
 }
 
 .RF-Footer__Social {
@@ -85,8 +85,8 @@
 
 .RF-Footer__Social a {
   display: inline-flex;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--rf-footer-border);
@@ -100,8 +100,8 @@
 
 .RF-Footer__Menus {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
-  gap: 24px 34px;
+  grid-template-columns: repeat(4, minmax(110px, 1fr));
+  gap: 34px;
   min-width: 0;
 }
 
@@ -119,10 +119,10 @@
 .RF-Footer__JournalHeading {
   margin: 0 0 13px;
   color: var(--rf-footer-text);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 7px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 9px;
   font-weight: 700;
-  line-height: 1.45;
+  line-height: 1.25;
   letter-spacing: 0.015em;
   text-transform: uppercase;
 }
@@ -137,7 +137,7 @@
 
 .RF-Footer__MenuItem + .RF-Footer__MenuItem,
 .RF-Footer__Submenu li + li {
-  margin-top: 7px;
+  margin-top: 8px;
 }
 
 .RF-Footer__Submenu {
@@ -149,10 +149,10 @@
 .RF-Footer__TextContent,
 .RF-Footer__JournalText {
   color: var(--rf-footer-muted);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 7px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 9px;
   font-weight: 400;
-  line-height: 1.48;
+  line-height: 1.45;
   letter-spacing: 0;
 }
 
@@ -168,11 +168,11 @@
 .RF-Footer__Journal {
   align-self: end;
   min-width: 0;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
 }
 
 .RF-Footer__JournalText {
-  max-width: 160px;
+  max-width: 155px;
 }
 
 .RF-Footer__JournalLink {
@@ -181,8 +181,8 @@
   gap: 8px;
   margin-top: 13px;
   color: var(--rf-footer-text);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 7px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 9px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.015em;
@@ -214,7 +214,7 @@
   padding: 8px 0 8px 10px;
   color: var(--rf-footer-text);
   background: transparent;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -226,7 +226,7 @@
 
 .RF-Footer__Bottom {
   display: flex;
-  width: min(calc(100% - 116px), 1250px);
+  width: min(calc(100% - 124px), 1256px);
   min-height: 42px;
   align-items: center;
   justify-content: space-between;
@@ -238,10 +238,10 @@
 .RF-Footer__Copyright,
 .RF-Footer__Legal a {
   color: var(--rf-footer-muted);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 7px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 8px;
   font-weight: 400;
-  line-height: 1.48;
+  line-height: 1.45;
   letter-spacing: 0;
 }
 
@@ -260,9 +260,9 @@
 }
 
 .RF-Footer__Legal a + a::before {
-  content: '|';
+  content: "|";
   display: inline-block;
-  margin: 0 9px;
+  margin: 0 10px;
   color: var(--rf-footer-border);
 }
 
@@ -301,11 +301,17 @@
   outline-offset: 3px;
 }
 
-@media screen and (max-width: 989px) and (min-width: 750px) {
+@media screen and (max-width: 1199px) and (min-width: 750px) {
   .RF-Footer__Main {
-    grid-template-columns: 180px minmax(0, 1fr);
+    grid-template-columns: 185px minmax(0, 1fr);
+    gap: 34px;
     padding-right: 34px;
     padding-left: 34px;
+  }
+
+  .RF-Footer__Menus {
+    grid-template-columns: repeat(4, minmax(90px, 1fr));
+    gap: 24px;
   }
 
   .RF-Footer__Journal {
@@ -321,40 +327,44 @@
 @media screen and (max-width: 749px) {
   .RF-Footer__Main {
     display: block;
-    padding: 38px 20px 28px;
+    padding: 36px 20px 26px;
   }
 
   .RF-Footer__Logo {
     max-width: 118px;
   }
 
+  .RF-Footer__BrandName {
+    font-size: 15px;
+  }
+
   .RF-Footer__Tagline {
-    max-width: 250px;
+    max-width: 260px;
     margin-top: 18px;
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .RF-Footer__Menus {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px 24px;
-    margin-top: 36px;
+    gap: 28px 22px;
+    margin-top: 34px;
   }
 
   .RF-Footer__MenuTitle,
   .RF-Footer__JournalHeading {
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .RF-Footer__MenuLink,
   .RF-Footer__TextContent,
   .RF-Footer__JournalText {
-    font-size: 8px;
+    font-size: 9px;
     line-height: 1.5;
   }
 
   .RF-Footer__Journal {
-    margin-top: 34px;
-    padding-top: 24px;
+    margin-top: 32px;
+    padding-top: 22px;
     border-top: 1px solid var(--rf-footer-border);
   }
 
@@ -364,13 +374,13 @@
 
   .RF-Footer__JournalLink {
     margin-top: 13px;
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .RF-Footer__Bottom {
     display: block;
     width: calc(100% - 40px);
-    padding: 18px 0 24px;
+    padding: 18px 0 22px;
   }
 
   .RF-Footer__Copyright,
@@ -380,7 +390,7 @@
 
   .RF-Footer__Legal {
     flex-wrap: wrap;
-    margin-top: 13px;
+    margin-top: 12px;
   }
 
   .RF-Footer__Legal a + a::before {
