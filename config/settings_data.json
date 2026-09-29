@@ -285,7 +285,8 @@
             "settings": {
               "title": "CONNECT",
               "content": "<p>Sign up for Email and Text Updates</p>"
-            }
+            },
+            "disabled": true
           },
           "3898032c-51b0-40cd-83cb-0510d7729127": {
             "type": "links",
@@ -324,9 +325,25 @@
           "footer-0"
         ],
         "settings": {
-          "show_payment_methods": true,
-          "show_country_selector": true,
-          "show_locale_selector": true
+          "show_payment_methods": false,
+          "show_country_selector": false,
+          "show_locale_selector": false,
+          "brand_logo": "shopify://shop_images/Group_9.svg",
+          "brand_name": "RENOVATION FACTORY",
+          "brand_tagline": "<p>Timeless designs. Thoughtfully crafted. Made for the way you live.</p>",
+          "show_social_media": true,
+          "journal_heading": "THE JOURNAL",
+          "journal_text": "<p>Inspiration for a beautiful life.</p>",
+          "journal_link_label": "EXPLORE NOW",
+          "journal_link": "",
+          "copyright_name": "Renovation Factory",
+          "copyright_suffix": "All Rights Reserved.",
+          "legal_menu": "",
+          "accessibility_page": "",
+          "background_color": "#151311",
+          "text_color": "#F7F2EA",
+          "muted_text_color": "#C9C1B8",
+          "border_color": "#3B3631"
         }
       },
       "popup": {
