@@ -214,20 +214,6 @@
         "product_link_label": "VIEW PRODUCT"
       }
     },
-    "video_sec_4TFYf7": {
-      "type": "video-sec",
-      "disabled": true,
-      "name": "WILDWOOD",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/d88815eb0a63405692589cfe0784704d.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/d6079ea7d07543159a37ab894ef8fa62.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "EXPLORE DECOR",
-        "link": "shopify://collections/decor"
-      }
-    },
     "video_sec_3WnQWx": {
       "type": "video-sec",
       "disabled": true,
@@ -795,6 +781,57 @@
         "button_text": "SHOP NOW",
         "button_link": "shopify://collections/sale"
       }
+    },
+    "rf_usp_strip": {
+      "type": "rf-usp-strip",
+      "blocks": {
+        "usp_1": {
+          "type": "usp",
+          "settings": {
+            "icon": "shipping",
+            "text": "Free shipping across India"
+          }
+        },
+        "usp_2": {
+          "type": "usp",
+          "settings": {
+            "icon": "guidance",
+            "text": "Expert guidance for your space"
+          }
+        },
+        "usp_3": {
+          "type": "usp",
+          "settings": {
+            "icon": "packaging",
+            "text": "Secure packaging"
+          }
+        },
+        "usp_4": {
+          "type": "usp",
+          "settings": {
+            "icon": "quality",
+            "text": "Quality you can trust, crafted to last"
+          }
+        },
+        "usp_5": {
+          "type": "usp",
+          "settings": {
+            "icon": "installation",
+            "text": "Installation support"
+          }
+        }
+      },
+      "block_order": [
+        "usp_1",
+        "usp_2",
+        "usp_3",
+        "usp_4",
+        "usp_5"
+      ],
+      "name": "RF USP strip",
+      "settings": {
+        "accessibility_label": "Renovation Factory service benefits"
+      }
     }
   },
   "order": [
@@ -802,7 +839,7 @@
     "rf_editorial_stories",
     "main_slider_qYdcLE",
     "rf_designers_edit",
-    "video_sec_4TFYf7",
+    "rf_usp_strip",
     "video_sec_3WnQWx",
     "single_banner_m6KVBm",
     "video_sec_JzA4i4",
