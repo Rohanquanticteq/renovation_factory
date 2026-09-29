@@ -214,20 +214,6 @@
         "product_link_label": "VIEW PRODUCT"
       }
     },
-    "video_sec_JzA4i4": {
-      "type": "video-sec",
-      "disabled": true,
-      "name": "THEA",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/45ffb0cdda1a46e0b10f137e25fd685d.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/c5bb20253da549f3b114b504920a5ddb.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "",
-        "link": "shopify://collections/all-serveware"
-      }
-    },
     "video_sec_qa7FhF": {
       "type": "video-sec",
       "name": "DUSK",
@@ -912,6 +898,24 @@
         "button_label_mobile": "EXPLORE THE JOURNAL",
         "button_link": ""
       }
+    },
+    "rf_gallery_visit": {
+      "type": "rf-gallery-visit",
+      "name": "RF Gallery visit",
+      "settings": {
+        "desktop_image": "",
+        "mobile_image": "",
+        "image_alt": "Renovation Factory gallery interior",
+        "desktop_title": "GALLERY VISIT",
+        "mobile_title": "Visit our gallery",
+        "mobile_body": "<p>See, touch and sit on every piece. [GALLERY ADDRESS] · [OPENING HOURS]</p>",
+        "appointment_label": "BOOK APPOINTMENT",
+        "appointment_link": "",
+        "whatsapp_label": "Contact us on WhatsApp",
+        "whatsapp_link": "",
+        "directions_label": "GET DIRECTIONS",
+        "directions_link": ""
+      }
     }
   },
   "order": [
@@ -922,7 +926,7 @@
     "rf_usp_strip",
     "rf_testimonials",
     "rf_journal",
-    "video_sec_JzA4i4",
+    "rf_gallery_visit",
     "video_sec_qa7FhF",
     "video_sec_wHxHVP",
     "video_sec_rPDmpW",
