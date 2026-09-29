@@ -856,7 +856,7 @@
           "settings": {
             "article": "",
             "image": "",
-            "category": "INTERIORS",
+            "category": "DESIGN TIPS",
             "title": "How to Create a Timeless Interior",
             "link": "",
             "read_more_label": "READ MORE"
@@ -867,8 +867,30 @@
           "settings": {
             "article": "",
             "image": "",
-            "category": "MATERIALS",
+            "category": "MATERIAL GUIDE",
             "title": "A Guide to Natural Materials",
+            "link": "",
+            "read_more_label": "READ MORE"
+          }
+        },
+        "article_3": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "image": "",
+            "category": "TREND REPORT",
+            "title": "2024 Interior Trends to Watch",
+            "link": "",
+            "read_more_label": "READ MORE"
+          }
+        },
+        "article_4": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "image": "",
+            "category": "STYLING IDEAS",
+            "title": "Styling Shelves Like a Pro",
             "link": "",
             "read_more_label": "READ MORE"
           }
@@ -876,13 +898,18 @@
       },
       "block_order": [
         "article_1",
-        "article_2"
+        "article_2",
+        "article_3",
+        "article_4"
       ],
       "name": "RF Journal",
       "settings": {
         "eyebrow": "THE JOURNAL",
-        "heading": "Inspiration for a beautiful life",
-        "button_label": "EXPLORE THE JOURNAL",
+        "heading_desktop": "Inspiration for beautiful living.",
+        "heading_mobile": "Inspiration for a beautiful life",
+        "description": "<p>Stories, ideas, and expert advice to help you design a home that reflects you.</p>",
+        "button_label_desktop": "VIEW ALL ARTICLES",
+        "button_label_mobile": "EXPLORE THE JOURNAL",
         "button_link": ""
       }
     }
