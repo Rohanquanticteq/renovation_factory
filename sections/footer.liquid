@@ -69,17 +69,7 @@
                         {{ link.title | escape }}
                       </a>
 
-                      {%- if link.links != blank -%}
-                        <ul class="RF-Footer__Submenu" role="list">
-                          {%- for child_link in link.links -%}
-                            <li>
-                              <a class="RF-Footer__MenuLink" href="{{ child_link.url }}">
-                                {{ child_link.title | escape }}
-                              </a>
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      {%- endif -%}
+
                     </li>
                   {%- endfor -%}
                 </ul>
