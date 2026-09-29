@@ -322,20 +322,6 @@
         "link": "shopify://collections/all-candlelight"
       }
     },
-    "video_sec_ekkEBX": {
-      "type": "video-sec",
-      "disabled": true,
-      "name": "Video Sec",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://admin.shopify.com/store/renovationfactory/content/files/32516182048925?selectedView=all",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/b61a29b751eb41f0950ab1a61f503173.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "",
-        "link": ""
-      }
-    },
     "main_slider_Twtcyy": {
       "type": "main-slider",
       "blocks": {
@@ -813,7 +799,6 @@
     "video_sec_rPDmpW",
     "video_sec_FTiEYr",
     "video_sec_PKxc4m",
-    "video_sec_ekkEBX",
     "main_slider_Twtcyy",
     "single_banner_FpBHFk",
     "single_banner_ja4TfT",
