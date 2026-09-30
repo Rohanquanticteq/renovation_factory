@@ -71,6 +71,44 @@
   text-transform: uppercase;
 }
 
+@media screen and (min-width: 990px) {
+  .rf-usp-strip {
+    padding: 10px 30px;
+  }
+
+  .rf-usp-strip__grid {
+    max-width: 1380px;
+    padding: 8px 0;
+  }
+
+  .rf-usp-strip__item {
+    min-height: 78px;
+    gap: 16px;
+    padding: 10px 26px;
+  }
+
+  .rf-usp-strip__item + .rf-usp-strip__item::before {
+    top: 12px;
+    bottom: 12px;
+    background: #d7c2a2;
+  }
+
+  .rf-usp-strip__icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    color: #bd8d54;
+  }
+
+  .rf-usp-strip__text {
+    max-width: 150px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.015em;
+  }
+}
+
 @media screen and (max-width: 989px) and (min-width: 750px) {
   .rf-usp-strip {
     padding-right: 14px;
