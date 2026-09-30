@@ -137,6 +137,29 @@
   display: none;
 }
 
+@media screen and (min-width: 750px) {
+  .rf-testimonials__heading-band {
+    min-height: 78px;
+    padding: 18px 24px 6px;
+  }
+
+  .rf-testimonials__body {
+    padding: 20px 0 28px;
+  }
+
+  .rf-testimonials__track {
+    height: 230px;
+  }
+
+  .rf-testimonials__slide {
+    min-height: 200px;
+  }
+
+  .rf-testimonials__author {
+    margin-top: 22px;
+  }
+}
+
 @media screen and (max-width: 749px) {
   .shopify-section--rf-testimonials {
     background: #dcc5ad;
