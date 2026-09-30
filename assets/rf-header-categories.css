@@ -1,12 +1,12 @@
 .shopify-section--rf-header-categories {
   position: relative;
   z-index: 6;
-  background: #f5f1eb;
+  background: #fff;
 }
 
 .rf-header-categories {
   display: block;
-  padding: 4px;
+  padding: 6px 4px;
 }
 
 .rf-header-categories__heading {
@@ -83,6 +83,12 @@
 .rf-header-categories__tile:focus-visible {
   outline: 2px solid #fff;
   outline-offset: -6px;
+}
+
+@media screen and (min-width: 990px) {
+  .rf-header-categories__grid {
+    gap: 4px;
+  }
 }
 
 @media screen and (max-width: 989px) {
