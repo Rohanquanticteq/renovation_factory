@@ -13,35 +13,37 @@
   display: grid;
   grid-template-columns: minmax(0, 46.5%) minmax(0, 53.5%);
   width: 100%;
-  min-height: clamp(410px, 33vw, 520px);
+  min-height: 0;
 }
 
 .rf-designers-edit__craft {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  padding: clamp(30px, 3vw, 48px) clamp(24px, 2.7vw, 44px) clamp(24px, 2.6vw, 42px);
+  padding: 30px 30px 28px;
   border-right: 1px solid rgba(58, 48, 39, 0.18);
   background: #f7f1e8;
 }
 
 .rf-designers-edit__craft-header {
-  margin-bottom: clamp(24px, 2.5vw, 38px);
+  margin-bottom: 22px;
 }
 
 .rf-designers-edit__craft-title {
   margin: 0;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(22px, 2vw, 31px);
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.05;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .rf-designers-edit__craft-subheading {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 11px;
+  font-size: 10px;
+  font-weight: 400;
   line-height: 1.35;
 }
 
@@ -49,7 +51,8 @@
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
-  margin-top: auto;
+  width: min(100%, 620px);
+  margin-top: 0;
 }
 
 .rf-designers-edit__craft-item {
@@ -57,7 +60,7 @@
 }
 
 .rf-designers-edit__craft-media {
-  aspect-ratio: 0.82;
+  aspect-ratio: 0.78;
   overflow: hidden;
   background: #b4a392;
 }
@@ -86,11 +89,12 @@
 }
 
 .rf-designers-edit__craft-label {
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   color: #28231f;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 9px;
-  line-height: 1.35;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.3;
   text-align: center;
   text-transform: uppercase;
 }
@@ -107,8 +111,8 @@
   min-width: 0;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  padding: clamp(30px, 3vw, 46px) clamp(22px, 2.5vw, 38px);
+  justify-content: flex-start;
+  padding: 40px 28px 30px;
   background: #f5efe5;
 }
 
@@ -119,7 +123,7 @@
 .rf-designers-edit__eyebrow {
   margin: 0 0 20px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.04em;
@@ -127,20 +131,23 @@
 }
 
 .rf-designers-edit__heading {
+  max-width: 190px;
   margin: 0;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(28px, 2.45vw, 39px);
+  font-size: 28px;
   font-weight: 400;
   line-height: 1.02;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .rf-designers-edit__body {
-  max-width: 235px;
-  margin-top: 24px;
+  max-width: 205px;
+  margin-top: 22px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  line-height: 1.6;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 1.55;
 }
 
 .rf-designers-edit__body p {
@@ -149,17 +156,17 @@
 
 .rf-designers-edit__button {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 34px;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin-top: 28px;
-  padding: 11px 18px;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 9px 16px;
   border: 0;
   color: #f7f1e8;
   background: #3d2f24;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.03em;
