@@ -22,7 +22,7 @@
   flex-direction: column;
   padding: 30px 30px 28px;
   border-right: 1px solid rgba(58, 48, 39, 0.18);
-  background: #f7f1e8;
+  background: #faf3ec;
 }
 
 .rf-designers-edit__craft-header {
@@ -103,7 +103,7 @@
   display: grid;
   grid-template-columns: minmax(210px, 36%) minmax(0, 64%);
   min-width: 0;
-  background: #f5efe5;
+  background: #f2ece7;
 }
 
 .rf-designers-edit__content {
@@ -113,7 +113,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 40px 28px 30px;
-  background: #f5efe5;
+  background: #f2ece7;
 }
 
 .rf-designers-edit__copy {
