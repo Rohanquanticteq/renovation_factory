@@ -27,6 +27,12 @@
         if (distance < 0) this.handleNext();
         else this.handlePrev();
       };
+      this.handleSlideClick = (event) => {
+        const slide = event.target.closest('[data-rf-testimonial]');
+        if (!slide || !this.contains(slide) || slide.classList.contains('is-active')) return;
+        const slideIndex = Number(slide.dataset.index);
+        if (!Number.isNaN(slideIndex)) this.show(slideIndex);
+      };
       this.handleBlockSelect = (event) => {
         const block = event.target.closest('[data-rf-testimonial]');
         if (!block || !this.contains(block)) return;
@@ -39,6 +45,7 @@
       if (this.viewport) {
         this.viewport.addEventListener('touchstart', this.handleTouchStart, { passive: true });
         this.viewport.addEventListener('touchend', this.handleTouchEnd, { passive: true });
+        this.viewport.addEventListener('click', this.handleSlideClick);
       }
       document.addEventListener('shopify:block:select', this.handleBlockSelect);
 
@@ -56,6 +63,7 @@
       if (this.viewport) {
         this.viewport.removeEventListener('touchstart', this.handleTouchStart);
         this.viewport.removeEventListener('touchend', this.handleTouchEnd);
+        this.viewport.removeEventListener('click', this.handleSlideClick);
       }
       document.removeEventListener('shopify:block:select', this.handleBlockSelect);
       this.stopAutoplay();
@@ -67,10 +75,17 @@
 
       const total = this.slides.length;
       this.index = (index + total) % total;
+      const prevIndex = (this.index - 1 + total) % total;
+      const nextIndex = (this.index + 1) % total;
 
       this.slides.forEach((slide, slideIndex) => {
         const active = slideIndex === this.index;
+        const prev = total > 1 && slideIndex === prevIndex;
+        const next = total > 1 && slideIndex === nextIndex;
+
         slide.classList.toggle('is-active', active);
+        slide.classList.toggle('is-prev', prev && !active);
+        slide.classList.toggle('is-next', next && !active);
         slide.setAttribute('aria-hidden', active ? 'false' : 'true');
       });
 
