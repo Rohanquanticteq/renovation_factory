@@ -147,6 +147,12 @@
 }
 
 @media screen and (max-width: 749px) {
+  .rf-gallery-visit {
+    box-sizing: border-box;
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
   .rf-gallery-visit__layout {
     display: block;
     overflow: visible;
