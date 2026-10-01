@@ -10,7 +10,7 @@
           assign desktop_image = mobile_image
         endif
       -%}
-      <article class="rf-editorial-story rf-editorial-story--{{ block.settings.color_scheme }}" {{ block.shopify_attributes }}>
+      <article class="rf-editorial-story rf-editorial-story--{{ block.settings.color_scheme }}{% if block.settings.hide_content_desktop %} rf-editorial-story--hide-content-desktop{% endif %}{% if block.settings.hide_content_mobile %} rf-editorial-story--hide-content-mobile{% endif %}" {{ block.shopify_attributes }}>
         <div class="rf-editorial-story__media">
           {%- if desktop_image != blank -%}
             <picture>
@@ -88,6 +88,20 @@
       "settings": [
         { "type": "image_picker", "id": "desktop_image", "label": "Desktop image" },
         { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+        {
+          "type": "checkbox",
+          "id": "hide_content_desktop",
+          "label": "Hide content on desktop",
+          "info": "Use when the desktop image already contains the text. The image expands to fill the story panel.",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_content_mobile",
+          "label": "Hide content on mobile",
+          "info": "Use when the mobile image already contains the text. The image remains visible without the separate text panel.",
+          "default": false
+        },
         { "type": "text", "id": "image_alt", "label": "Image alt text" },
         { "type": "text", "id": "placeholder_label", "label": "Media label" },
         { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
