@@ -96,6 +96,9 @@
         "living-room": {
           "type": "space",
           "settings": {
+            "desktop_image": "shopify://shop_images/Renovation_Factory_-_Home_Page_10.png",
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": false,
             "image_alt": "Living room inspiration",
             "placeholder_label": "IMAGE",
             "title": "LIVING ROOM",
@@ -105,6 +108,9 @@
         "dining-room": {
           "type": "space",
           "settings": {
+            "desktop_image": "shopify://shop_images/Renovation_Factory_-_Home_Page_11.png",
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": false,
             "image_alt": "Dining room inspiration",
             "placeholder_label": "IMAGE",
             "title": "DINING ROOM",
@@ -114,6 +120,8 @@
         "bedroom": {
           "type": "space",
           "settings": {
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
             "image_alt": "Bedroom inspiration",
             "placeholder_label": "IMAGE",
             "title": "BEDROOM",
@@ -123,6 +131,8 @@
         "entryway": {
           "type": "space",
           "settings": {
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
             "image_alt": "Entryway inspiration",
             "placeholder_label": "IMAGE",
             "title": "ENTRYWAY",
