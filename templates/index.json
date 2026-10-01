@@ -15,7 +15,8 @@
         "arrive_campaign": {
           "type": "slide",
           "settings": {
-            "desktop_image": "shopify://shop_images/Desktop_Banner_04_06_2026_jpg.jpg",
+            "desktop_image": "shopify://shop_images/Renovation_Factory_-_Home_Page_7.png",
+            "desktop_image_includes_text": true,
             "mobile_image": "shopify://shop_images/Mobile_Banner_04_06_2026_jpg.jpg",
             "image_alt": "Renovation Factory seasonal arrival campaign",
             "heading": "ARRIVE",
@@ -49,8 +50,6 @@
         "octavia": {
           "type": "story",
           "settings": {
-            "desktop_image": "",
-            "mobile_image": "",
             "image_alt": "The Octavia coffee table in a living room",
             "placeholder_label": "IMAGE - Octavia coffee table in living room",
             "eyebrow": "FEATURED",
@@ -64,8 +63,6 @@
         "serveware": {
           "type": "story",
           "settings": {
-            "desktop_image": "",
-            "mobile_image": "",
             "image_alt": "Glassware and decanters",
             "placeholder_label": "IMAGE - Glassware & decanters",
             "eyebrow": "",
@@ -92,8 +89,6 @@
         "living-room": {
           "type": "space",
           "settings": {
-            "desktop_image": "",
-            "mobile_image": "",
             "image_alt": "Living room inspiration",
             "placeholder_label": "IMAGE",
             "title": "LIVING ROOM",
@@ -103,8 +98,6 @@
         "dining-room": {
           "type": "space",
           "settings": {
-            "desktop_image": "",
-            "mobile_image": "",
             "image_alt": "Dining room inspiration",
             "placeholder_label": "IMAGE",
             "title": "DINING ROOM",
@@ -114,8 +107,6 @@
         "bedroom": {
           "type": "space",
           "settings": {
-            "desktop_image": "",
-            "mobile_image": "",
             "image_alt": "Bedroom inspiration",
             "placeholder_label": "IMAGE",
             "title": "BEDROOM",
@@ -125,8 +116,6 @@
         "entryway": {
           "type": "space",
           "settings": {
-            "desktop_image": "",
-            "mobile_image": "",
             "image_alt": "Entryway inspiration",
             "placeholder_label": "IMAGE",
             "title": "ENTRYWAY",
@@ -190,18 +179,11 @@
       "settings": {
         "craft_heading": "OUR CRAFTMANSHIP",
         "craft_subheading": "Every piece, a labor of passion",
-        "craft_image_1": "",
         "craft_label_1": "DELIVERY",
-        "craft_image_2": "",
         "craft_label_2": "FINISHING",
-        "craft_image_3": "",
         "craft_label_3": "CRAFTSMANSHIP",
-        "craft_image_4": "",
         "craft_label_4": "MATERIAL SELECTION",
-        "craft_image_5": "",
         "craft_label_5": "SKETCH",
-        "desktop_image": "",
-        "mobile_image": "",
         "image_alt": "Classic living room",
         "placeholder_label": "IMAGE - Classic room",
         "eyebrow": "DESIGNER'S EDIT",
@@ -313,7 +295,6 @@
           "type": "article",
           "settings": {
             "article": "",
-            "image": "",
             "category": "DESIGN TIPS",
             "title": "How to Create a Timeless Interior",
             "link": "",
@@ -324,7 +305,6 @@
           "type": "article",
           "settings": {
             "article": "",
-            "image": "",
             "category": "MATERIAL GUIDE",
             "title": "A Guide to Natural Materials",
             "link": "",
@@ -335,7 +315,6 @@
           "type": "article",
           "settings": {
             "article": "",
-            "image": "",
             "category": "TREND REPORT",
             "title": "2024 Interior Trends to Watch",
             "link": "",
@@ -346,7 +325,6 @@
           "type": "article",
           "settings": {
             "article": "",
-            "image": "",
             "category": "STYLING IDEAS",
             "title": "Styling Shelves Like a Pro",
             "link": "",
@@ -375,8 +353,6 @@
       "type": "rf-gallery-visit",
       "name": "RF Gallery visit",
       "settings": {
-        "desktop_image": "",
-        "mobile_image": "",
         "image_alt": "Renovation Factory gallery interior",
         "desktop_title": "GALLERY VISIT",
         "mobile_title": "Visit our gallery",

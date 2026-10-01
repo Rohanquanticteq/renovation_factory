@@ -282,31 +282,31 @@
           },
           "footer-2": {
             "type": "newsletter",
+            "disabled": true,
             "settings": {
               "title": "CONNECT",
               "content": "<p>Sign up for Email and Text Updates</p>"
-            },
-            "disabled": true
+            }
           },
           "3898032c-51b0-40cd-83cb-0510d7729127": {
             "type": "links",
             "settings": {
-              "menu": "company",
-              "heading": "ABOUT US"
+              "heading": "ABOUT US",
+              "menu": "company"
             }
           },
           "7021f640-debe-41ac-b41d-985850a1e38f": {
             "type": "links",
             "settings": {
-              "menu": "policy",
-              "heading": "RESOURCES"
+              "heading": "RESOURCES",
+              "menu": "policy"
             }
           },
           "footer-1": {
             "type": "links",
             "settings": {
-              "menu": "footer",
-              "heading": "CUSTOMER CARE"
+              "heading": "CUSTOMER CARE",
+              "menu": "footer"
             }
           },
           "footer-0": {
@@ -336,9 +336,6 @@
           "footer-0"
         ],
         "settings": {
-          "show_payment_methods": false,
-          "show_country_selector": false,
-          "show_locale_selector": false,
           "brand_logo": "shopify://shop_images/Group_9.svg",
           "brand_name": "RENOVATION FACTORY",
           "brand_tagline": "<p>Timeless designs. Thoughtfully crafted. Made for the way you live.</p>",
@@ -354,7 +351,10 @@
           "background_color": "#151311",
           "text_color": "#F7F2EA",
           "muted_text_color": "#C9C1B8",
-          "border_color": "#3B3631"
+          "border_color": "#3B3631",
+          "show_payment_methods": false,
+          "show_country_selector": false,
+          "show_locale_selector": false
         }
       },
       "popup": {
@@ -413,11 +413,6 @@
       },
       "3753596010683798665": {
         "type": "shopify://apps/pushdaddy-many-chat-cloud-api/blocks/app-embed/e3f2054d-bf7b-4e63-8db3-00712592382c",
-        "disabled": false,
-        "settings": {}
-      },
-      "15088975470107108993": {
-        "type": "shopify://apps/frame-up/blocks/live_preview/1c5d072d-b18c-4203-9987-608903a9febe",
         "disabled": false,
         "settings": {}
       }
@@ -528,6 +523,10 @@
             "footer-2"
           ],
           "settings": {
+            "background_color": "#151311",
+            "text_color": "#F7F2EA",
+            "muted_text_color": "#C9C1B8",
+            "border_color": "#3B3631",
             "show_payment_methods": true
           }
         }
@@ -637,6 +636,10 @@
             "footer-2"
           ],
           "settings": {
+            "background_color": "#151311",
+            "text_color": "#F7F2EA",
+            "muted_text_color": "#C9C1B8",
+            "border_color": "#3B3631",
             "show_payment_methods": true
           }
         }
@@ -747,6 +750,10 @@
             "footer-2"
           ],
           "settings": {
+            "background_color": "#151311",
+            "text_color": "#F7F2EA",
+            "muted_text_color": "#C9C1B8",
+            "border_color": "#3B3631",
             "show_payment_methods": true
           }
         }
