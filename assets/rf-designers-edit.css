@@ -88,6 +88,10 @@
   background: #6f665d;
 }
 
+.rf-designers-edit__craft-number {
+  display: none;
+}
+
 .rf-designers-edit__craft-label {
   margin: 10px 0 0;
   color: #28231f;
@@ -400,45 +404,73 @@
   }
 
   .rf-designers-edit__craft {
-    padding: 36px 20px 34px;
+    padding: 34px 16px 28px;
     border-right: 0;
   }
 
   .rf-designers-edit__craft-header {
-    margin-bottom: 22px;
+    margin-bottom: 16px;
   }
 
   .rf-designers-edit__craft-title {
-    font-size: 28px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
   }
 
   .rf-designers-edit__craft-subheading {
-    margin-top: 8px;
-    font-size: 12px;
+    max-width: 250px;
+    margin-top: 9px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.08;
   }
 
   .rf-designers-edit__craft-grid {
-    grid-template-columns: repeat(5, 42vw);
+    display: flex;
     gap: 10px;
-    margin: 0 -20px;
-    padding: 0 20px 8px;
+    width: auto;
+    margin: 0 -16px;
+    padding: 0 16px 8px;
     overflow-x: auto;
-    scroll-padding-left: 20px;
+    scroll-padding-left: 16px;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
   }
 
   .rf-designers-edit__craft-item {
+    flex: 0 0 38vw;
+    min-width: 0;
     scroll-snap-align: start;
   }
 
+  .rf-designers-edit__craft-item:nth-child(5) { order: 1; }
+  .rf-designers-edit__craft-item:nth-child(4) { order: 2; }
+  .rf-designers-edit__craft-item:nth-child(3) { order: 3; }
+  .rf-designers-edit__craft-item:nth-child(2) { order: 4; }
+  .rf-designers-edit__craft-item:nth-child(1) { order: 5; }
+
   .rf-designers-edit__craft-media {
-    aspect-ratio: 0.86;
+    aspect-ratio: 0.81;
+  }
+
+  .rf-designers-edit__craft-number {
+    display: block;
+    margin-top: 8px;
+    color: #4d463f;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 8px;
+    line-height: 1;
   }
 
   .rf-designers-edit__craft-label {
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 9px;
+    line-height: 1.25;
+    text-align: left;
   }
 
   .rf-designers-edit__designer {
