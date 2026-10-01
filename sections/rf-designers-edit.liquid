@@ -33,6 +33,8 @@
             assign label_key = 'craft_label_' | append: i
             assign craft_image = section.settings[image_key]
             assign craft_label = section.settings[label_key]
+            assign craft_fallback = 'rf-craft-' | append: i | append: '.webp'
+            assign mobile_number = 6 | minus: i
           -%}
 
           <div class="rf-designers-edit__craft-item">
@@ -49,10 +51,18 @@
                     alt: craft_label
                 }}
               {%- else -%}
-                <span class="rf-designers-edit__craft-placeholder" aria-hidden="true"></span>
+                <img
+                  class="rf-designers-edit__craft-image"
+                  src="{{ craft_fallback | asset_url }}"
+                  width="112"
+                  height="139"
+                  loading="lazy"
+                  alt="{{ craft_label | escape }}"
+                >
               {%- endif -%}
             </div>
             {%- if craft_label != blank -%}
+              <span class="rf-designers-edit__craft-number" aria-hidden="true">0{{ mobile_number }}</span>
               <p class="rf-designers-edit__craft-label">{{ craft_label | escape }}</p>
             {%- endif -%}
           </div>
