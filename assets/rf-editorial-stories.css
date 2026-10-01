@@ -61,6 +61,19 @@
 }
 
 @media screen and (min-width: 750px) {
+  .rf-editorial-story--hide-content-desktop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rf-editorial-story--hide-content-desktop .rf-editorial-story__content {
+    display: none;
+  }
+
+  .rf-editorial-story--hide-content-desktop .rf-editorial-story__media {
+    order: 1;
+    grid-column: 1 / -1;
+  }
+
   .rf-editorial-story__media-label {
     display: none;
   }
@@ -146,6 +159,18 @@
 }
 
 @media screen and (max-width: 749px) {
+  .rf-editorial-story--hide-content-mobile {
+    grid-template-rows: minmax(300px, auto);
+  }
+
+  .rf-editorial-story--hide-content-mobile .rf-editorial-story__content {
+    display: none;
+  }
+
+  .rf-editorial-story--hide-content-mobile .rf-editorial-story__media {
+    order: 1;
+  }
+
   .rf-editorial-stories {
     padding: 19px 20px 31px;
   }
