@@ -38,7 +38,7 @@
         -%}
 
         <div
-          class="rf-home-hero__slide swiper-slide"
+          class="rf-home-hero__slide swiper-slide{% if block.settings.desktop_image_includes_text %} rf-home-hero__slide--desktop-artwork{% endif %}"
           data-block-id="{{ block.id }}"
           style="--rf-hero-text: {{ block.settings.text_color }}; --rf-hero-offer: {{ block.settings.offer_color }}; --rf-hero-overlay: {{ block.settings.overlay_opacity | divided_by: 100.0 }};"
           aria-roledescription="slide"
@@ -199,6 +199,13 @@
           "type": "video",
           "id": "desktop_video",
           "label": "Desktop video"
+        },
+        {
+          "type": "checkbox",
+          "id": "desktop_image_includes_text",
+          "label": "Desktop image already includes campaign text",
+          "info": "Turn this on when the uploaded desktop artwork already contains the heading, offer and CTA. Mobile text stays dynamic.",
+          "default": false
         },
         {
           "type": "header",
