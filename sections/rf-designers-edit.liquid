@@ -70,7 +70,7 @@
       </div>
     </section>
 
-    <section class="rf-designers-edit__designer" aria-labelledby="RFDesignerTitle-{{ section.id }}">
+    <section class="rf-designers-edit__designer{% if section.settings.desktop_image_includes_text %} rf-designers-edit__designer--desktop-artwork{% endif %}{% if section.settings.mobile_image_includes_text %} rf-designers-edit__designer--mobile-artwork{% endif %}" aria-labelledby="RFDesignerTitle-{{ section.id }}">
       <div class="rf-designers-edit__content">
         <div class="rf-designers-edit__copy">
           {%- if section.settings.eyebrow != blank -%}
@@ -328,9 +328,23 @@
       "label": "Desktop room image"
     },
     {
+      "type": "checkbox",
+      "id": "desktop_image_includes_text",
+      "label": "Desktop image already includes Designer's Edit content",
+      "info": "Turn this on when the uploaded desktop image contains the Designer's Edit text/content. The separate text column is hidden and the image fills the full right side.",
+      "default": false
+    },
+    {
       "type": "image_picker",
       "id": "mobile_image",
       "label": "Mobile room image"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_image_includes_text",
+      "label": "Mobile image already includes Designer's Edit content",
+      "info": "Turn this on when the uploaded mobile image contains the Designer's Edit text/content. The separate mobile text area is hidden.",
+      "default": false
     },
     {
       "type": "text",
