@@ -108,6 +108,12 @@
 }
 
 @media screen and (min-width: 750px) {
+  .rf-living-spaces__card--desktop-artwork .rf-living-spaces__title,
+  .rf-living-spaces__card--desktop-artwork .rf-living-spaces__shade,
+  .rf-living-spaces__card--desktop-artwork .rf-living-spaces__media-label {
+    display: none;
+  }
+
   .rf-living-spaces {
     padding: 18px 28px 24px;
   }
@@ -152,6 +158,12 @@
 }
 
 @media screen and (max-width: 749px) {
+  .rf-living-spaces__card--mobile-artwork .rf-living-spaces__title,
+  .rf-living-spaces__card--mobile-artwork .rf-living-spaces__shade,
+  .rf-living-spaces__card--mobile-artwork .rf-living-spaces__media-label {
+    display: none;
+  }
+
   .rf-living-spaces {
     padding: 36px 0 57px;
   }
