@@ -8,9 +8,9 @@
   <div class="rf-gallery-visit__layout">
     <div class="rf-gallery-visit__media">
       {%- assign desktop_image = section.settings.desktop_image -%}
-      {%- assign mobile_image = section.settings.mobile_image | default: desktop_image -%}
+      {%- assign mobile_image = section.settings.mobile_image -%}
 
-      {%- if desktop_image != blank or mobile_image != blank -%}
+      {%- if desktop_image != blank -%}
         <picture>
           {%- if mobile_image != blank -%}
             <source
@@ -30,13 +30,31 @@
             | image_tag:
               class: 'rf-gallery-visit__image',
               widths: '700, 1000, 1400, 1800',
-              sizes: '(min-width: 750px) 58vw, 100vw',
+              sizes: '100vw',
               loading: 'lazy',
               alt: section.settings.image_alt
           }}
         </picture>
+      {%- elsif mobile_image != blank -%}
+        {{
+          mobile_image
+          | image_url: width: 900
+          | image_tag:
+            class: 'rf-gallery-visit__image',
+            widths: '480, 750, 900',
+            sizes: '100vw',
+            loading: 'lazy',
+            alt: section.settings.image_alt
+        }}
       {%- else -%}
-        <span class="rf-gallery-visit__placeholder" aria-hidden="true"></span>
+        <img
+          class="rf-gallery-visit__image"
+          src="{{ 'rf-gallery-visit.webp' | asset_url }}"
+          width="1366"
+          height="173"
+          loading="lazy"
+          alt="{{ section.settings.image_alt | escape }}"
+        >
       {%- endif -%}
     </div>
 
