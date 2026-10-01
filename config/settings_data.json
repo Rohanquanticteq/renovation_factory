@@ -69,6 +69,62 @@
     "checkout_accent_color": "#1c1b1b",
     "checkout_button_color": "#1c1b1b",
     "sections": {
+      "rf-header-categories": {
+        "type": "rf-header-categories",
+        "blocks": {
+          "lighting": {
+            "type": "category",
+            "settings": {
+              "image": "shopify://shop_images/RFLifestyle1_720x_c9043b64-814d-45d0-9157-40a724092e4c.webp",
+              "image_alt": "Renovation Factory lighting collection",
+              "title": "Lighting",
+              "link_label": "SHOP NOW",
+              "link": "shopify://collections/lighting"
+            }
+          },
+          "furniture": {
+            "type": "category",
+            "settings": {
+              "image": "shopify://shop_images/RFLifestyle65_1024x_f78a73ca-9819-4c59-afe5-db09105f6d7a.webp",
+              "image_alt": "Renovation Factory furniture collection",
+              "title": "Furniture",
+              "link_label": "SHOP NOW",
+              "link": "shopify://collections/furniture"
+            }
+          },
+          "decor": {
+            "type": "category",
+            "settings": {
+              "image": "shopify://shop_images/001-21_1024x_b80649c6-8b28-4b2d-81bc-3c46db5ed005.webp",
+              "image_alt": "Renovation Factory decor collection",
+              "title": "Décor",
+              "link_label": "SHOP NOW",
+              "link": "shopify://collections/decor"
+            }
+          },
+          "tabletop-bar": {
+            "type": "category",
+            "settings": {
+              "image": "shopify://shop_images/1_1024x_5db66ed2-6838-4243-a568-5bf536962091.webp",
+              "image_alt": "Renovation Factory table top and bar collection",
+              "title": "Table Top & Bar",
+              "link_label": "SHOP NOW",
+              "link": "shopify://collections/table-top-bar"
+            }
+          }
+        },
+        "block_order": [
+          "lighting",
+          "furniture",
+          "decor",
+          "tabletop-bar"
+        ],
+        "settings": {
+          "show_section": true,
+          "heading": "Shop by category",
+          "accessibility_label": "Shop by category"
+        }
+      },
       "sidebar-menu": {
         "type": "sidebar-menu",
         "settings": {
@@ -197,14 +253,14 @@
           "show_country_selector": false,
           "show_locale_selector": true,
           "navigation_menu": "main-menu-2024",
-          "navigation_style": "center",
+          "navigation_style": "inline",
           "show_icons": true,
-          "enable_transparent_header": true,
+          "enable_transparent_header": false,
           "enable_transparent_header_collection": false,
           "show_transparent_header_border": false,
           "transparent_text_color": "#ffffff",
           "transparent_logo": "shopify://shop_images/RF_Final_Logo-03_2.png",
-          "announcement_text_1": "FREE SHIPPING PAN INDIA",
+          "announcement_text_1": "FREE SHIPPING ACROSS INDIA",
           "announcement_link_1": "",
           "announcement_text_2": "CLEARANCE SALE UPTO 60% OFF",
           "announcement_link_2": "",
@@ -229,24 +285,28 @@
             "settings": {
               "title": "CONNECT",
               "content": "<p>Sign up for Email and Text Updates</p>"
-            }
+            },
+            "disabled": true
           },
           "3898032c-51b0-40cd-83cb-0510d7729127": {
             "type": "links",
             "settings": {
-              "menu": "company"
+              "menu": "company",
+              "heading": "ABOUT US"
             }
           },
           "7021f640-debe-41ac-b41d-985850a1e38f": {
             "type": "links",
             "settings": {
-              "menu": "policy"
+              "menu": "policy",
+              "heading": "RESOURCES"
             }
           },
           "footer-1": {
             "type": "links",
             "settings": {
-              "menu": "footer"
+              "menu": "footer",
+              "heading": "CUSTOMER CARE"
             }
           },
           "footer-0": {
@@ -257,20 +317,44 @@
               "content": "<p><a href=\"mailto:care@renovationfactory.com\" title=\"mailto:care@renovationfactory.com\">care@renovationfactory.com</a></p><p><a href=\"tel:919289158882\" title=\"tel:919289158882\">9289158882</a><br/>(Monday - Friday, 9 AM - 6 AM)</p><p>AASR Collaborative Private Limited<br/>298, Udyog Vihar Phase-2, <br/>Gurgaon- 122016<br/>Haryana, India<br/><br/></p>",
               "show_social_media": false
             }
+          },
+          "rf-shop": {
+            "type": "links",
+            "settings": {
+              "heading": "SHOP",
+              "menu": "main-menu-2024"
+            }
           }
         },
         "block_order": [
-          "links_with_logo_zhKg9F",
-          "footer-2",
+          "rf-shop",
+          "footer-1",
           "3898032c-51b0-40cd-83cb-0510d7729127",
           "7021f640-debe-41ac-b41d-985850a1e38f",
-          "footer-1",
+          "links_with_logo_zhKg9F",
+          "footer-2",
           "footer-0"
         ],
         "settings": {
-          "show_payment_methods": true,
-          "show_country_selector": true,
-          "show_locale_selector": true
+          "show_payment_methods": false,
+          "show_country_selector": false,
+          "show_locale_selector": false,
+          "brand_logo": "shopify://shop_images/Group_9.svg",
+          "brand_name": "RENOVATION FACTORY",
+          "brand_tagline": "<p>Timeless designs. Thoughtfully crafted. Made for the way you live.</p>",
+          "show_social_media": true,
+          "journal_heading": "THE JOURNAL",
+          "journal_text": "<p>Inspiration for a beautiful life.</p>",
+          "journal_link_label": "EXPLORE NOW",
+          "journal_link": "",
+          "copyright_name": "Renovation Factory",
+          "copyright_suffix": "All Rights Reserved.",
+          "legal_menu": "",
+          "accessibility_page": "",
+          "background_color": "#151311",
+          "text_color": "#F7F2EA",
+          "muted_text_color": "#C9C1B8",
+          "border_color": "#3B3631"
         }
       },
       "popup": {

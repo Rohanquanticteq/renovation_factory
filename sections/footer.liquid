@@ -1,380 +1,510 @@
-<footer id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="footer" class="Footer {% if section.blocks.size <= 2 %}Footer--center{% endif %}" role="contentinfo">
-  <div class="Container">
-    {%- if section.blocks.size > 0 -%}
-      <div class="Footer__Inner">
-        {%- for block in section.blocks -%}
-          <div class="Footer__Block Footer__Block--{{ block.type }}" {{ block.shopify_attributes }}>
-            {%- case block.type -%}
-              {%- when 'text' -%}
-                {%- if block.settings.title != blank -%}
-                  <h2 class="Footer__Title Heading u-h6">{{ block.settings.title | escape }}</h2>
-                {%- endif -%}
+{{ 'rf-footer.css' | asset_url | stylesheet_tag }}
 
-                {%- if block.settings.content != blank -%}
-                  <div class="Footer__Content Rte">
-                    {{ block.settings.content }}
-                  </div>
-                {%- endif -%}
+<footer
+  id="section-{{ section.id }}"
+  class="RF-Footer"
+  data-section-id="{{ section.id }}"
+  data-section-type="footer"
+  role="contentinfo"
+  style="
+    --rf-footer-background: {{ section.settings.background_color }};
+    --rf-footer-text: {{ section.settings.text_color }};
+    --rf-footer-muted: {{ section.settings.muted_text_color }};
+    --rf-footer-border: {{ section.settings.border_color }};
+  "
+>
+  <div class="RF-Footer__Main">
+    <div class="RF-Footer__Brand">
+      <a class="RF-Footer__BrandLink" href="{{ routes.root_url }}">
+        {%- if section.settings.brand_logo != blank -%}
+          {{
+            section.settings.brand_logo
+            | image_url: width: 360
+            | image_tag:
+              class: 'RF-Footer__Logo',
+              widths: '140, 220, 360',
+              sizes: '150px',
+              loading: 'lazy',
+              alt: section.settings.brand_logo.alt
+          }}
+        {%- elsif section.settings.brand_name != blank -%}
+          <span class="RF-Footer__BrandName">{{ section.settings.brand_name | escape }}</span>
+        {%- else -%}
+          <span class="RF-Footer__BrandName">{{ shop.name | escape }}</span>
+        {%- endif -%}
+      </a>
 
-                {%- if block.settings.show_social_media -%}
-                  {% render 'social-media', class: 'Footer__Social', spacing: 'loose' %}
-                {%- endif -%}
-
-              {%- when 'links' -%}
-                {%- assign linklist = linklists[block.settings.menu] -%}
-
-                {%- if linklist != empty -%}
-                  <h2 class="Footer__Title Heading u-h6">{{ linklist.title | escape }}</h2>
-
-                  <ul class="Linklist">
-                    {%- for link in linklist.links -%}
-                      <li class="Linklist__Item">
-                        <a href="{{ link.url }}" {% if link.title == 'Location' %}target="_blank"{% endif %} class="Link Link--primary">{{ link.title | escape }}</a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                {%- endif -%}
-
-              {% when 'links_with_logo' %}
-              <div class="link_with_logo">
-                  <div class="footer_logo">
-                    <a href="/">
-                      <img src="{{ block.settings.footer_logo | img_url:"master" }}">
-                    </a>
-                  </div>
-                  <div class="f_two_linklist">
-                     {% if block.settings.menu != blank %}
-                       <div class="inner_list">
-                     {%- assign linklist = linklists[block.settings.menu] -%}
-                     <h2 class="Footer__Title Heading u-h6">{{ linklist.title | escape }}</h2>
-                     <ul class="Linklist">
-                      {%- for link in linklist.links -%}
-                        <li class="Linklist__Item">
-                          <a href="{{ link.url }}" {% if link.title == 'Location' %}target="_blank"{% endif %} class="a Link Link--primary">{{ link.title | escape }}</a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                       </div>
-                     {% endif %}
-                    {% if block.settings.menu_2 != blank %}
-                      <div class="inner_list">
-                       {%- assign linklist2 = linklists[block.settings.menu_2] -%}
-                        <h2 class="Footer__Title Heading u-h6">{{ linklist2.title | escape }}</h2>
-                     <ul class="Linklist">
-                      {%- for link in linklist2.links -%}
-                        <li class="Linklist__Item">
-                          <a href="{{ link.url }}" class="Link Link--primary">{{ link.title | escape }}</a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                      </div>
-                    {% endif %}
-                  </div>
-              </div>
-
-              {%- when 'newsletter' -%}
-              <div class="newsletterAndSocial">
-              <div class="newsletter__box">
-                {%- if block.settings.title != blank -%}
-                  <h2 class="Footer__Title Heading u-h6">{{ block.settings.title | escape }}</h2>
-                {%- endif -%}
-
-                {%- if block.settings.content != blank -%}
-                  <div class="Footer__Content Rte">
-                    {{ block.settings.content }}
-                  </div>
-                {%- endif -%}
-
-                {%- form 'customer', id: 'footer-newsletter', class: 'Footer__Newsletter Form' -%}
-                  {%- if form.posted_successfully? -%}
-                    <p class="Form__Alert Alert Alert--success">{{ 'footer.newsletter.success' | t }}</p>
-                  {%- else -%}
-                    {%- if form.errors -%}
-                      <p class="Form__Alert Alert Alert--error">{{ form.errors.messages['email'] }}</p>
-                    {%- endif -%}
-
-                    <input type="hidden" name="contact[tags]" value="newsletter">
-                    <input type="email" name="contact[email]" class="Form__Input" aria-label="{{ 'footer.newsletter.input' | t }}" placeholder="EMAIL ADDRESS" required>
-                    <button type="submit" class="Form__Submit Button Button--primary">Sign Up</button>
-                  {%- endif -%}
-                {%- endform -%}
-              </div>
-              <div class="social_media_d hidden-xs">
-              {% render 'social-media', class: 'Footer__Social', spacing: 'loose' %}
-              </div>
-              </div>
-            {%- endcase -%}
-          </div>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-
-    <div class="Footer__Aside">
-      {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
-        {%- assign country_selector = true -%}
-      {%- endif -%}
-
-      {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
-        {%- assign locale_selector = true -%}
-      {%- endif -%}
-
-      {%- if locale_selector or country_selector -%}
-        <div class="Footer__Localization">
-          {%- form 'localization', id: 'localization_form_footer', class: 'Footer__LocalizationForm' -%}
-            {%- if country_selector -%}
-              <div class="Footer__LocalizationItem">
-                <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
-                <span class="u-visually-hidden">{{ 'footer.general.country' | t }}</span>
-
-                <button type="button" class="SelectButton Link Link--primary u-h8" aria-haspopup="true" aria-expanded="false" aria-controls="footer-currency-popover">
-                  {{- localization.country.name }} ({{ localization.country.currency.iso_code }} {% if localization.country.currency.symbol %}{{ localization.country.currency.symbol }}{%- endif -%})
-                  {%- render 'icon', icon: 'select-arrow' -%}
-                </button>
-
-                <div id="footer-currency-popover" class="Popover Popover--small Popover--noWrap" aria-hidden="true">
-                  <header class="Popover__Header">
-                    <button type="button" class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover">{% render 'icon' with 'close' %}</button>
-                    <span class="Popover__Title Heading u-h4">{{ 'footer.general.country' | t }}</span>
-                  </header>
-
-                  <div class="Popover__Content">
-                    <div class="Popover__ValueList Popover__ValueList--center" data-scrollable>
-                      {%- for country in localization.available_countries -%}
-                        <button type="submit" name="country_code" class="Popover__Value {% if country.iso_code == localization.country.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6"  value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}aria-current="true"{% endif %}>
-                          {{- country.name }} ({{ country.currency.iso_code }} {% if country.currency.symbol %}{{ country.currency.symbol }}{%- endif -%})
-                        </button>
-                      {%- endfor -%}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            {%- endif -%}
-
-            {%- if locale_selector -%}
-              <div class="Footer__LocalizationItem">
-                <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
-                <span class="u-visually-hidden">{{ 'footer.general.locale' | t }}</span>
-
-                <button type="button" class="SelectButton Link Link--primary u-h8" aria-haspopup="true" aria-expanded="false" aria-controls="footer-locale-popover">
-                  {{- localization.language.endonym_name -}}
-                  {%- render 'icon', icon: 'select-arrow' -%}
-                </button>
-
-                <div id="footer-locale-popover" class="Popover Popover--small Popover--noWrap" aria-hidden="true">
-                  <header class="Popover__Header">
-                    <button type="button" class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover">{% render 'icon' with 'close' %}</button>
-                    <span class="Popover__Title Heading u-h4">{{ 'footer.general.locale' | t }}</span>
-                  </header>
-
-                  <div class="Popover__Content">
-                    <div class="Popover__ValueList Popover__ValueList--center" data-scrollable>
-                      {%- for language in localization.available_languages -%}
-                        <button type="submit" name="locale_code" class="Popover__Value {% if language.iso_code == localization.language.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6" value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %}>
-                          {{- language.endonym_name | capitalize -}}
-                        </button>
-                      {%- endfor -%}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            {%- endif -%}
-          {%- endform -%}
+      {%- if section.settings.brand_tagline != blank -%}
+        <div class="RF-Footer__Tagline Rte">
+          {{ section.settings.brand_tagline }}
         </div>
       {%- endif -%}
 
-      <div class="Footer__Copyright">
-        <!-- {{ shop.name }} -->
-        <a href="{{ routes.root_url }}" class="Footer__StoreName Heading u-h7 Link Link--secondary">© RF</a>
-         <span>AASR Industries Pvt. Ltd.</span>
-      </div>
-{% comment %} {% endcomment %}<div class="visible-xs">{% render 'social-media', class: 'Footer__Social', spacing: 'loose' %}<div>
-      {%- if section.settings.show_payment_methods -%}
-        {%- capture payment_methods -%}
-          {%- for type in shop.enabled_payment_types -%}
-            <li class="HorizontalList__Item">{{ type | payment_type_svg_tag }}</li>
-          {%- endfor -%}
-        {%- endcapture -%}
+      {%- if section.settings.show_social_media -%}
+        <div class="RF-Footer__SocialWrap">
+          {% render 'social-media', class: 'RF-Footer__Social', spacing: 'loose' %}
+        </div>
+      {%- endif -%}
+    </div>
 
-        {%- if payment_methods != blank -%}
-          <ul class="Footer__PaymentList HorizontalList">
-            {{ payment_methods }}
-          </ul>
-        {%- endif -%}
+    <div class="RF-Footer__Menus">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'links' -%}
+            {%- assign linklist = linklists[block.settings.menu] -%}
+            {%- if linklist != blank -%}
+              <div class="RF-Footer__MenuColumn" {{ block.shopify_attributes }}>
+                <h2 class="RF-Footer__MenuTitle">
+                  {%- if block.settings.heading != blank -%}
+                    {{ block.settings.heading | escape }}
+                  {%- else -%}
+                    {{ linklist.title | escape }}
+                  {%- endif -%}
+                </h2>
+
+                <ul class="RF-Footer__MenuList" role="list">
+                  {%- for link in linklist.links -%}
+                    <li class="RF-Footer__MenuItem">
+                      <a class="RF-Footer__MenuLink" href="{{ link.url }}">
+                        {{ link.title | escape }}
+                      </a>
+
+
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+
+          {%- when 'links_with_logo' -%}
+            <div class="RF-Footer__LegacyMenus" {{ block.shopify_attributes }}>
+              {%- assign linklist_one = linklists[block.settings.menu] -%}
+              {%- assign linklist_two = linklists[block.settings.menu_2] -%}
+
+              {%- if linklist_one != blank -%}
+                <div class="RF-Footer__MenuColumn">
+                  <h2 class="RF-Footer__MenuTitle">{{ linklist_one.title | escape }}</h2>
+                  <ul class="RF-Footer__MenuList" role="list">
+                    {%- for link in linklist_one.links -%}
+                      <li><a class="RF-Footer__MenuLink" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endif -%}
+
+              {%- if linklist_two != blank -%}
+                <div class="RF-Footer__MenuColumn">
+                  <h2 class="RF-Footer__MenuTitle">{{ linklist_two.title | escape }}</h2>
+                  <ul class="RF-Footer__MenuList" role="list">
+                    {%- for link in linklist_two.links -%}
+                      <li><a class="RF-Footer__MenuLink" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endif -%}
+            </div>
+
+          {%- when 'text' -%}
+            <div class="RF-Footer__TextColumn" {{ block.shopify_attributes }}>
+              {%- if block.settings.title != blank -%}
+                <h2 class="RF-Footer__MenuTitle">{{ block.settings.title | escape }}</h2>
+              {%- endif -%}
+              {%- if block.settings.content != blank -%}
+                <div class="RF-Footer__TextContent Rte">{{ block.settings.content }}</div>
+              {%- endif -%}
+            </div>
+
+          {%- when 'newsletter' -%}
+            <div class="RF-Footer__Newsletter" {{ block.shopify_attributes }}>
+              {%- if block.settings.title != blank -%}
+                <h2 class="RF-Footer__MenuTitle">{{ block.settings.title | escape }}</h2>
+              {%- endif -%}
+
+              {%- if block.settings.content != blank -%}
+                <div class="RF-Footer__TextContent Rte">{{ block.settings.content }}</div>
+              {%- endif -%}
+
+              {%- form 'customer', id: 'rf-footer-newsletter', class: 'RF-Footer__NewsletterForm' -%}
+                {%- if form.posted_successfully? -%}
+                  <p class="RF-Footer__FormMessage">{{ 'footer.newsletter.success' | t }}</p>
+                {%- else -%}
+                  {%- if form.errors -%}
+                    <p class="RF-Footer__FormMessage">{{ form.errors.messages['email'] }}</p>
+                  {%- endif -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <label class="u-visually-hidden" for="RF-FooterEmail-{{ section.id }}">
+                    {{ 'footer.newsletter.input' | t }}
+                  </label>
+                  <div class="RF-Footer__NewsletterRow">
+                    <input
+                      id="RF-FooterEmail-{{ section.id }}"
+                      type="email"
+                      name="contact[email]"
+                      class="RF-Footer__NewsletterInput"
+                      placeholder="{{ 'footer.newsletter.input' | t }}"
+                      required
+                    >
+                    <button type="submit" class="RF-Footer__NewsletterButton">
+                      {{ block.settings.button_label | escape }}
+                    </button>
+                  </div>
+                {%- endif -%}
+              {%- endform -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="RF-Footer__Journal">
+      {%- if section.settings.journal_heading != blank -%}
+        <h2 class="RF-Footer__JournalHeading">{{ section.settings.journal_heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.journal_text != blank -%}
+        <div class="RF-Footer__JournalText Rte">{{ section.settings.journal_text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.journal_link_label != blank -%}
+        <a
+          class="RF-Footer__JournalLink"
+          {% if section.settings.journal_link != blank %}
+            href="{{ section.settings.journal_link }}"
+          {% else %}
+            role="link"
+            aria-disabled="true"
+          {% endif %}
+        >
+          {{ section.settings.journal_link_label | escape }}
+          <span aria-hidden="true">&rarr;</span>
+        </a>
       {%- endif -%}
     </div>
   </div>
+
+  <div class="RF-Footer__Bottom">
+    <p class="RF-Footer__Copyright">
+      &copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright_name | default: shop.name | escape }}.
+      {%- if section.settings.copyright_suffix != blank -%}
+        &nbsp;{{ section.settings.copyright_suffix | escape }}
+      {%- endif -%}
+    </p>
+
+    <nav class="RF-Footer__Legal" aria-label="Footer legal">
+      {%- assign legal_menu = linklists[section.settings.legal_menu] -%}
+      {%- if legal_menu != blank -%}
+        {%- for link in legal_menu.links -%}
+          <a href="{{ link.url }}">{{ link.title | escape }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- if shop.privacy_policy != blank -%}
+          <a href="{{ shop.privacy_policy.url }}">{{ shop.privacy_policy.title | escape }}</a>
+        {%- endif -%}
+        {%- if shop.terms_of_service != blank -%}
+          <a href="{{ shop.terms_of_service.url }}">{{ shop.terms_of_service.title | escape }}</a>
+        {%- endif -%}
+        {%- if section.settings.accessibility_page != blank -%}
+          <a href="{{ section.settings.accessibility_page.url }}">{{ section.settings.accessibility_page.title | escape }}</a>
+        {%- endif -%}
+      {%- endif -%}
+    </nav>
+  </div>
+
+  {%- if section.settings.show_country_selector or section.settings.show_locale_selector or section.settings.show_payment_methods -%}
+    <div class="RF-Footer__Extras">
+      {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
+        {%- form 'localization', id: 'rf_footer_country_form', class: 'RF-Footer__LocalizationForm' -%}
+          <label class="u-visually-hidden" for="RF-FooterCountry-{{ section.id }}">{{ 'footer.general.country' | t }}</label>
+          <select id="RF-FooterCountry-{{ section.id }}" name="country_code" onchange="this.form.submit()">
+            {%- for country in localization.available_countries -%}
+              <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>
+                {{ country.name }} ({{ country.currency.iso_code }})
+              </option>
+            {%- endfor -%}
+          </select>
+        {%- endform -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
+        {%- form 'localization', id: 'rf_footer_locale_form', class: 'RF-Footer__LocalizationForm' -%}
+          <label class="u-visually-hidden" for="RF-FooterLocale-{{ section.id }}">{{ 'footer.general.locale' | t }}</label>
+          <select id="RF-FooterLocale-{{ section.id }}" name="locale_code" onchange="this.form.submit()">
+            {%- for language in localization.available_languages -%}
+              <option value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}selected{% endif %}>
+                {{ language.endonym_name | capitalize }}
+              </option>
+            {%- endfor -%}
+          </select>
+        {%- endform -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_payment_methods -%}
+        <ul class="RF-Footer__Payments" role="list">
+          {%- for type in shop.enabled_payment_types -%}
+            <li>{{ type | payment_type_svg_tag }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
 </footer>
 
-{% comment %}{% endcomment %} <div class="footerStickyText" id="footerStickyText">
+<div class="footerStickyText" id="footerStickyText">
   <div class="footerStickyText__track" id="footerStickyTrack">
-    <div class="save__text footerStickyText__slide is-active">RF 10% OFF sitewide <button contactform-trigger="418600"></button> </div>
-    <div class="save__text footerStickyText__slide"><a href="https://www.google.com/maps/place/Renovation+Facttory/@28.5074273,77.0869705,17z/data=!4m15!1m8!3m7!1s0x390d1944cb9b0e49:0xb81886ab8996fd0b!2s298,+Udyog+Vihar+II+Rd,+Phase+II,+Udyog+Vihar,+Sector+20,+Gurugram,+Haryana+122016!3b1!8m2!3d28.5074273!4d77.0869705!16s%2Fg%2F11snpzzmvv!3m5!1s0x390d199c79c24a95:0x2fe5dea2d0be374b!8m2!3d28.5076099!4d77.0870975!16s%2Fg%2F11smdp5gcm?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="footerStickyText__gallery-link"><img src="https://cdn.shopify.com/s/files/1/0576/3907/5997/files/maps-and-flags_1.svg?v=1788859199" alt="" class="footerStickyText__gallery-icon"> Visit Gallery</a></div>
+    <div class="save__text footerStickyText__slide is-active">RF 10% OFF sitewide <button contactform-trigger="418600"></button></div>
+    <div class="save__text footerStickyText__slide">
+      <a href="https://www.google.com/maps/place/Renovation+Facttory/@28.5074273,77.0869705,17z/data=!4m15!1m8!3m7!1s0x390d1944cb9b0e49:0xb81886ab8996fd0b!2s298,+Udyog+Vihar+II+Rd,+Phase+II,+Udyog+Vihar,+Sector+20,+Gurugram,+Haryana+122016!3b1!8m2!3d28.5074273!4d77.0869705!16s%2Fg%2F11snpzzmvv!3m5!1s0x390d199c79c24a95:0x2fe5dea2d0be374b!8m2!3d28.5076099!4d77.0870975!16s%2Fg%2F11smdp5gcm?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="footerStickyText__gallery-link">
+        <img src="https://cdn.shopify.com/s/files/1/0576/3907/5997/files/maps-and-flags_1.svg?v=1788859199" alt="" class="footerStickyText__gallery-icon">
+        Visit Gallery
+      </a>
+    </div>
   </div>
-  <div class="close_btn" id="closeBtn11">X</div>
+  <button class="close_btn" id="closeBtn11" type="button" aria-label="Close promotion">X</button>
 </div>
 
 <script>
-// Function to hide the div
-function hideFooter() {
-  const footerDiv = document.getElementById('footerStickyText');
-  footerDiv.style.display = 'none';
-}
-
-// Function to check if the footer should be hidden
-function checkFooterVisibility() {
-  const lastClosed = localStorage.getItem('footerClosedTime');
-  const now = new Date().getTime();
-  const twoHours = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
-
-  if (lastClosed && (now - lastClosed) < twoHours) {
-    hideFooter();
-  }
-}
-
-// Set up the click event listener on the close button
-document.getElementById('closeBtn11').addEventListener('click', function() {
-  const now = new Date().getTime();
-  localStorage.setItem('footerClosedTime', now); // Store the current time
-  hideFooter(); // Hide the footer
-});
-
-// Check the footer visibility on page load
-window.onload = checkFooterVisibility;
-
-// Auto-scroll (rotate) the footer sticky text slides
 (function () {
+  var footerDiv = document.getElementById('footerStickyText');
+  var closeButton = document.getElementById('closeBtn11');
   var slides = document.querySelectorAll('#footerStickyTrack .footerStickyText__slide');
-  if (!slides.length || slides.length < 2) return;
 
-  var current = 0;
-  var rotateInterval = 4000; // time (ms) each slide stays visible
+  if (!footerDiv) return;
 
-  function showSlide(index) {
-    slides.forEach(function (slide, i) {
-      slide.classList.toggle('is-active', i === index);
+  function hideFooter() {
+    footerDiv.style.display = 'none';
+  }
+
+  function checkFooterVisibility() {
+    var lastClosed = localStorage.getItem('footerClosedTime');
+    var now = new Date().getTime();
+    var twoHours = 2 * 60 * 60 * 1000;
+
+    if (lastClosed && (now - lastClosed) < twoHours) {
+      hideFooter();
+    }
+  }
+
+  if (closeButton) {
+    closeButton.addEventListener('click', function () {
+      localStorage.setItem('footerClosedTime', new Date().getTime());
+      hideFooter();
     });
   }
 
-  setInterval(function () {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  }, rotateInterval);
+  checkFooterVisibility();
+
+  if (slides.length > 1) {
+    var current = 0;
+    setInterval(function () {
+      current = (current + 1) % slides.length;
+      slides.forEach(function (slide, index) {
+        slide.classList.toggle('is-active', index === current);
+      });
+    }, 4000);
+  }
 })();
 </script>
-
-{%- if settings.footer_background == settings.background -%}
-  <style>
-    .Footer {
-      border-top: 1px solid var(--border-color);
-    }
-  </style>
-{%- endif -%}
 
 {% schema %}
 {
   "name": "Footer",
   "class": "shopify-section--footer",
+  "max_blocks": 8,
   "settings": [
     {
+      "type": "header",
+      "content": "Brand"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo",
+      "label": "Footer logo"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "RENOVATION FACTORY"
+    },
+    {
+      "type": "richtext",
+      "id": "brand_tagline",
+      "label": "Brand tagline",
+      "default": "<p>Timeless designs. Thoughtfully crafted. Made for the way you live.</p>"
+    },
+    {
       "type": "checkbox",
-      "id": "show_payment_methods",
-      "label": "Show payment methods",
-      "info": "Payment method icons are automatically displayed based on your Shopify payment methods.",
+      "id": "show_social_media",
+      "label": "Show social media",
       "default": true
     },
     {
       "type": "header",
-      "content": "Country/region selector",
-      "info": "To add a country/region, go to your [currency settings.](/admin/settings/payments)"
+      "content": "Journal promo"
+    },
+    {
+      "type": "text",
+      "id": "journal_heading",
+      "label": "Heading",
+      "default": "THE JOURNAL"
+    },
+    {
+      "type": "richtext",
+      "id": "journal_text",
+      "label": "Text",
+      "default": "<p>Inspiration for a beautiful life.</p>"
+    },
+    {
+      "type": "text",
+      "id": "journal_link_label",
+      "label": "Link label",
+      "default": "EXPLORE NOW"
+    },
+    {
+      "type": "url",
+      "id": "journal_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_name",
+      "label": "Copyright name"
+    },
+    {
+      "type": "text",
+      "id": "copyright_suffix",
+      "label": "Copyright suffix",
+      "default": "All Rights Reserved."
+    },
+    {
+      "type": "link_list",
+      "id": "legal_menu",
+      "label": "Legal menu"
+    },
+    {
+      "type": "page",
+      "id": "accessibility_page",
+      "label": "Accessibility page"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#151311"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#F7F2EA"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Muted text",
+      "default": "#C9C1B8"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#3B3631"
+    },
+    {
+      "type": "header",
+      "content": "Optional extras"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_methods",
+      "label": "Show payment methods",
+      "default": false
     },
     {
       "type": "checkbox",
       "id": "show_country_selector",
       "label": "Show country/region selector",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Language selector",
-      "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+      "default": false
     },
     {
       "type": "checkbox",
       "id": "show_locale_selector",
       "label": "Show language selector",
-      "default": true
+      "default": false
     }
   ],
   "blocks": [
     {
-      "type": "text",
-      "name": "Text / social media",
+      "type": "links",
+      "name": "Menu column",
       "settings": [
         {
           "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "About the shop"
+          "id": "heading",
+          "label": "Heading override"
         },
-        {
-          "type": "richtext",
-          "id": "content",
-          "label": "Text",
-          "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_social_media",
-          "label": "Show social media",
-          "info": "Make sure to have properly configured your social media in the theme settings.",
-          "default": true
-        }
-      ]
-    },
-    {
-      "type": "links",
-      "name": "Links",
-      "settings": [
         {
           "type": "link_list",
           "id": "menu",
-          "label": "Menu",
-          "info": "This menu won't show dropdown items."
+          "label": "Menu"
         }
       ]
     },
     {
       "type": "links_with_logo",
-      "name": "Links With Logo",
+      "name": "Two menu columns (legacy)",
       "settings": [
         {
           "type": "image_picker",
           "id": "footer_logo",
-          "label": "Footer Logo"
+          "label": "Legacy footer logo"
         },
         {
           "type": "link_list",
           "id": "menu",
-          "label": "Menu",
-          "info": "This menu won't show dropdown items."
+          "label": "Menu 1"
         },
         {
           "type": "link_list",
           "id": "menu_2",
-          "label": "Menu 2",
-          "info": "This menu won't show dropdown items."
+          "label": "Menu 2"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social_media",
+          "label": "Legacy social setting",
+          "default": false
         }
       ]
     },
     {
       "type": "newsletter",
-      "name": "Newsletter",
+      "name": "Newsletter column",
       "limit": 1,
       "settings": [
-        {
-          "type": "paragraph",
-          "content": "Customers who subscribe will have their email address added to the \"accepts marketing\" [customer list](/admin/customers?query=&accepts_marketing=1)."
-        },
         {
           "type": "text",
           "id": "title",
@@ -384,8 +514,13 @@ window.onload = checkFooterVisibility;
         {
           "type": "richtext",
           "id": "content",
-          "label": "Text",
-          "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "SIGN UP"
         }
       ]
     }
@@ -393,18 +528,10 @@ window.onload = checkFooterVisibility;
   "default": {
     "blocks": [
       {
-        "type": "text",
-        "settings": {}
-      },
-      {
         "type": "links",
         "settings": {
           "menu": "footer"
         }
-      },
-      {
-        "type": "newsletter",
-        "settings": {}
       }
     ]
   }

@@ -9,693 +9,395 @@
  */
 {
   "sections": {
-    "169125991439fc29ef": {
-      "type": "apps",
+    "single_banner_gxeaAE": {
+      "type": "rf-home-hero",
       "blocks": {
-        "ae096210-83f2-4819-b248-8100f990c0d6": {
-          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+        "arrive_campaign": {
+          "type": "slide",
           "settings": {
-            "title": "",
-            "title_color": "",
-            "title_size_v2": 0,
-            "alignment": "center",
-            "instafeed_margin_top": 0,
-            "instafeed_margin_bottom": 0,
-            "instafeed_margin_sides": 0,
-            "show_instagram_link": false,
-            "link_alignment": "left",
-            "link_color": "#000000",
-            "background_color": "",
-            "feed_id": "",
-            "html_area": ""
+            "desktop_image": "shopify://shop_images/Desktop_Banner_04_06_2026_jpg.jpg",
+            "mobile_image": "shopify://shop_images/Mobile_Banner_04_06_2026_jpg.jpg",
+            "image_alt": "Renovation Factory seasonal arrival campaign",
+            "heading": "ARRIVE",
+            "subheading": "the season of considered arrivals",
+            "date_text": "11 OCT - 10 NOV",
+            "offer_text": "25% OFF",
+            "offer_supporting_text": "SITEWIDE",
+            "button_label": "SHOP THE SALE",
+            "button_link": "shopify://collections/all",
+            "show_button_desktop": false,
+            "content_position": "center",
+            "text_color": "#f4f0e8",
+            "offer_color": "#d97568",
+            "overlay_opacity": 20
           }
         }
       },
       "block_order": [
-        "ae096210-83f2-4819-b248-8100f990c0d6"
+        "arrive_campaign"
       ],
-      "disabled": true,
+      "name": "Arrive campaign",
       "settings": {
-        "include_margins": false
+        "accessibility_label": "Homepage campaign",
+        "autoplay": true,
+        "autoplay_delay": 5
       }
     },
-    "single_banner_gxeaAE": {
-      "type": "single-banner",
-      "name": "Single Banner Sec",
+    "rf_editorial_stories": {
+      "type": "rf-editorial-stories",
+      "blocks": {
+        "octavia": {
+          "type": "story",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "The Octavia coffee table in a living room",
+            "placeholder_label": "IMAGE - Octavia coffee table in living room",
+            "eyebrow": "FEATURED",
+            "heading": "THE OCTAVIA COFFEE TABLE",
+            "body": "<p>Crafted from Italian Travertine and hand-finished metal, designed to become the centerpiece of contemporary homes.</p>",
+            "button_label": "VIEW DETAILS",
+            "button_link": "shopify://collections/coffee-tables",
+            "color_scheme": "light"
+          }
+        },
+        "serveware": {
+          "type": "story",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Glassware and decanters",
+            "placeholder_label": "IMAGE - Glassware & decanters",
+            "eyebrow": "",
+            "heading": "THE ART OF SERVING BEAUTIFULLY",
+            "body": "<p>Stories, inspirations and insights for a life well-designed.</p>",
+            "button_label": "EXPLORE SERVEWARE",
+            "button_link": "shopify://collections/serveware",
+            "color_scheme": "dark"
+          }
+        }
+      },
+      "block_order": [
+        "octavia",
+        "serveware"
+      ],
+      "name": "Featured stories",
       "settings": {
-        "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/Desktop_Banner_04_06_2026_jpg.jpg",
-        "mobile_banner": "shopify://shop_images/Mobile_Banner_04_06_2026_jpg.jpg",
-        "button_text": "",
-        "link": "#"
+        "accessibility_label": "Featured stories"
       }
     },
     "main_slider_qYdcLE": {
-      "type": "main-slider",
+      "type": "rf-living-spaces",
       "blocks": {
-        "image_73EjxV": {
-          "type": "image",
-          "disabled": true,
+        "living-room": {
+          "type": "space",
           "settings": {
-            "desktop_banner": "shopify://shop_images/3_1.jpg",
-            "mobile_banner": "shopify://shop_images/3_2_ac5483d8-973e-4cad-b932-fb0514ae28f6.jpg",
-            "title": "",
-            "description": "",
-            "link_text": "",
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Living room inspiration",
+            "placeholder_label": "IMAGE",
+            "title": "LIVING ROOM",
+            "link": "shopify://collections/living-room"
+          }
+        },
+        "dining-room": {
+          "type": "space",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Dining room inspiration",
+            "placeholder_label": "IMAGE",
+            "title": "DINING ROOM",
+            "link": "shopify://collections/dining-room"
+          }
+        },
+        "bedroom": {
+          "type": "space",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Bedroom inspiration",
+            "placeholder_label": "IMAGE",
+            "title": "BEDROOM",
+            "link": "shopify://collections/bedroom"
+          }
+        },
+        "entryway": {
+          "type": "space",
+          "settings": {
+            "desktop_image": "",
+            "mobile_image": "",
+            "image_alt": "Entryway inspiration",
+            "placeholder_label": "IMAGE",
+            "title": "ENTRYWAY",
+            "link": "shopify://collections/entryway"
+          }
+        }
+      },
+      "block_order": [
+        "living-room",
+        "dining-room",
+        "bedroom",
+        "entryway"
+      ],
+      "name": "Shop by Living Spaces",
+      "settings": {
+        "heading": "Shop by Living Spaces",
+        "view_all_label": "VIEW ALL",
+        "view_all_link": "shopify://collections/all"
+      }
+    },
+    "rf_designers_edit": {
+      "type": "rf-designers-edit",
+      "blocks": {
+        "hotspot_1": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "desktop_x": 30,
+            "desktop_y": 53,
+            "mobile_x": 29,
+            "mobile_y": 53
+          }
+        },
+        "hotspot_2": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "desktop_x": 61,
+            "desktop_y": 40,
+            "mobile_x": 61,
+            "mobile_y": 40
+          }
+        },
+        "hotspot_3": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "desktop_x": 77,
+            "desktop_y": 29,
+            "mobile_x": 77,
+            "mobile_y": 29
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_1",
+        "hotspot_2",
+        "hotspot_3"
+      ],
+      "name": "Craft + Designer's Edit",
+      "settings": {
+        "craft_heading": "OUR CRAFTMANSHIP",
+        "craft_subheading": "Every piece, a labor of passion",
+        "craft_image_1": "",
+        "craft_label_1": "DELIVERY",
+        "craft_image_2": "",
+        "craft_label_2": "FINISHING",
+        "craft_image_3": "",
+        "craft_label_3": "CRAFTSMANSHIP",
+        "craft_image_4": "",
+        "craft_label_4": "MATERIAL SELECTION",
+        "craft_image_5": "",
+        "craft_label_5": "SKETCH",
+        "desktop_image": "",
+        "mobile_image": "",
+        "image_alt": "Classic living room",
+        "placeholder_label": "IMAGE - Classic room",
+        "eyebrow": "DESIGNER'S EDIT",
+        "heading": "A CLASSIC ROOM",
+        "body": "<p>Timeless details, modern comforts — a curated blend of classic design and contemporary living.</p>",
+        "button_label_desktop": "EXPLORE THE LOOK",
+        "button_label_mobile": "SHOP THE LOOK",
+        "show_piece_count": true,
+        "button_link": "",
+        "product_link_label": "VIEW PRODUCT"
+      }
+    },
+    "rf_usp_strip": {
+      "type": "rf-usp-strip",
+      "blocks": {
+        "usp_1": {
+          "type": "usp",
+          "settings": {
+            "icon": "shipping",
+            "text": "Free shipping across India"
+          }
+        },
+        "usp_2": {
+          "type": "usp",
+          "settings": {
+            "icon": "guidance",
+            "text": "Expert guidance for your space"
+          }
+        },
+        "usp_3": {
+          "type": "usp",
+          "settings": {
+            "icon": "packaging",
+            "text": "Secure packaging"
+          }
+        },
+        "usp_4": {
+          "type": "usp",
+          "settings": {
+            "icon": "quality",
+            "text": "Quality you can trust, crafted to last"
+          }
+        },
+        "usp_5": {
+          "type": "usp",
+          "settings": {
+            "icon": "installation",
+            "text": "Installation support"
+          }
+        }
+      },
+      "block_order": [
+        "usp_1",
+        "usp_2",
+        "usp_3",
+        "usp_4",
+        "usp_5"
+      ],
+      "name": "RF USP strip",
+      "settings": {
+        "accessibility_label": "Renovation Factory service benefits"
+      }
+    },
+    "rf_testimonials": {
+      "type": "rf-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The products are artful, fun, have a story just as unique as the designers who made it.",
+            "name": "Akansha Verma",
+            "location": "New Delhi"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The best colors and materials.",
+            "name": "Renovation Factory Client",
+            "location": ""
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Beautifully considered pieces with a distinctive point of view.",
+            "name": "Renovation Factory Client",
+            "location": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "name": "RF Testimonials",
+      "settings": {
+        "heading_desktop": "What Clients Talk About Us",
+        "heading_mobile": "WHAT CLIENTS SAY",
+        "autoplay": false,
+        "autoplay_delay": 6
+      }
+    },
+    "rf_journal": {
+      "type": "rf-journal",
+      "blocks": {
+        "article_1": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "image": "",
+            "category": "DESIGN TIPS",
+            "title": "How to Create a Timeless Interior",
             "link": "",
-            "set_position": ""
+            "read_more_label": "READ MORE"
           }
-        }
-      },
-      "block_order": [
-        "image_73EjxV"
-      ],
-      "disabled": true,
-      "name": "Main Slider",
-      "settings": {
-        "display_main_slider": true
-      }
-    },
-    "video_sec_4TFYf7": {
-      "type": "video-sec",
-      "name": "WILDWOOD",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/d88815eb0a63405692589cfe0784704d.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/d6079ea7d07543159a37ab894ef8fa62.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "EXPLORE DECOR",
-        "link": "shopify://collections/decor"
-      }
-    },
-    "video_sec_3WnQWx": {
-      "type": "video-sec",
-      "name": "GALACTIC",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/64ec74de86a54131809d4510c2a452fe.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/c393445730804d7798c1ce2ebe3cc7de.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "Explore Lighting",
-        "link": "shopify://collections/lighting"
-      }
-    },
-    "single_banner_m6KVBm": {
-      "type": "single-banner",
-      "disabled": true,
-      "name": "Single Banner Sec",
-      "settings": {
-        "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/IMG_6505.jpg",
-        "mobile_banner": "shopify://shop_images/New_Project_8.png",
-        "button_text": "DISCOVER MORE",
-        "link": "#"
-      }
-    },
-    "video_sec_JzA4i4": {
-      "type": "video-sec",
-      "disabled": true,
-      "name": "THEA",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/45ffb0cdda1a46e0b10f137e25fd685d.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/c5bb20253da549f3b114b504920a5ddb.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "",
-        "link": "shopify://collections/all-serveware"
-      }
-    },
-    "video_sec_qa7FhF": {
-      "type": "video-sec",
-      "name": "DUSK",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/cc3095902ea84ac2bd5b484b1a6fff8e.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/2cd6bfb5f1104c54a295d62e645a3949.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "Explore the collection",
-        "link": "shopify://collections/dusk"
-      }
-    },
-    "video_sec_wHxHVP": {
-      "type": "video-sec",
-      "name": "JOIE",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/181313f699d348a38c7c10352a85c252.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/e8cd43262bb14e0880d49c69ada07488.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "Explore Furniture",
-        "link": "shopify://collections/furniture"
-      }
-    },
-    "video_sec_rPDmpW": {
-      "type": "video-sec",
-      "name": "ACCENT TABLES",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/95851e7e03444db8bcc4bdec6ca2a1f8.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/9056b0749a4b45579c98894e7bf9ae90.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "EXPLORE ACCENT TABLES",
-        "link": "shopify://collections/accent-and-drink-tables"
-      }
-    },
-    "video_sec_FTiEYr": {
-      "type": "video-sec",
-      "disabled": true,
-      "name": "ROSETTE",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/badc24f0af884f1fafe178c3f1b3e669.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/1bb4f4400fa64277a79851753c2ddbe8.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "Explore Serving",
-        "link": "shopify://collections/all-serveware"
-      }
-    },
-    "video_sec_PKxc4m": {
-      "type": "video-sec",
-      "name": "MYSA",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/c6f7a13827b040a3bd94c0abf54dda31.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/04a99305848b4b25ad68aa31d4975d22.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "Explore Candle Holders",
-        "link": "shopify://collections/all-candlelight"
-      }
-    },
-    "video_sec_ekkEBX": {
-      "type": "video-sec",
-      "disabled": true,
-      "name": "Video Sec",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://admin.shopify.com/store/renovationfactory/content/files/32516182048925?selectedView=all",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/b61a29b751eb41f0950ab1a61f503173.mp4",
-        "title": "",
-        "description": "",
-        "link_text": "",
-        "link": ""
-      }
-    },
-    "main_slider_Twtcyy": {
-      "type": "main-slider",
-      "blocks": {
-        "image_kH9pb6": {
-          "type": "image",
+        },
+        "article_2": {
+          "type": "article",
           "settings": {
-            "desktop_banner": "shopify://shop_images/WhatsApp_Image_2025-12-04_at_5.03.19_PM.jpg",
-            "mobile_banner": "shopify://shop_images/2_77c9c884-d33c-4f13-a2ab-34653e1e3056.jpg",
-            "title": "",
-            "description": "",
-            "link_text": "",
+            "article": "",
+            "image": "",
+            "category": "MATERIAL GUIDE",
+            "title": "A Guide to Natural Materials",
             "link": "",
-            "set_position": ""
+            "read_more_label": "READ MORE"
           }
         },
-        "image_MjGdCb": {
-          "type": "image",
-          "disabled": true,
+        "article_3": {
+          "type": "article",
           "settings": {
-            "desktop_banner": "shopify://shop_images/3_new.png",
-            "mobile_banner": "shopify://shop_images/new_banner_mobile.jpg",
-            "title": "",
-            "description": "",
-            "link_text": "",
-            "link": "shopify://collections/all-products-2025",
-            "set_position": ""
+            "article": "",
+            "image": "",
+            "category": "TREND REPORT",
+            "title": "2024 Interior Trends to Watch",
+            "link": "",
+            "read_more_label": "READ MORE"
           }
         },
-        "image_BYzqrf": {
-          "type": "image",
-          "disabled": true,
+        "article_4": {
+          "type": "article",
           "settings": {
-            "desktop_banner": "shopify://shop_images/4_dc11b04a-e327-4c69-a6fe-f0edabced464.jpg",
-            "mobile_banner": "shopify://shop_images/3_17f38d8d-8f75-4f68-9782-d5d47a932a09.jpg",
-            "title": "",
-            "description": "",
-            "link_text": "EXPLORE ALL LIGHTING",
-            "link": "shopify://collections/lighting",
-            "set_position": ""
-          }
-        },
-        "image_HGm6aT": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_banner": "shopify://shop_images/5_f9d3fb2e-c7b2-4e24-85a2-f0fe9d581228.jpg",
-            "mobile_banner": "shopify://shop_images/4_95361a27-fd0a-4097-815c-f8bfbbfd1971.jpg",
-            "title": "",
-            "description": "",
-            "link_text": "EXPLORE ALL FURNITURE",
-            "link": "shopify://collections/all-tables",
-            "set_position": ""
-          }
-        },
-        "image_cNHmqY": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_banner": "shopify://shop_images/6_52e5e814-9e77-473b-913f-a6f29c219c4b.jpg",
-            "mobile_banner": "shopify://shop_images/5_77d7b32c-903d-4d73-81a3-a3a46a81ca46.jpg",
-            "title": "",
-            "description": "",
-            "link_text": "EXPLORE ALL TABLE TOP & BAR",
-            "link": "shopify://collections/table-top-bar",
-            "set_position": ""
-          }
-        },
-        "image_Tdrn6W": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_banner": "shopify://shop_images/7_cea7c1f0-8182-4adc-bb51-a320e57c6fdb.jpg",
-            "mobile_banner": "shopify://shop_images/6_f279ce26-6d4e-4647-8c8b-00b9a772de0d.jpg",
-            "title": "",
-            "description": "",
-            "link_text": "EXPLORE ALL DECOR",
-            "link": "shopify://collections/decor",
-            "set_position": ""
+            "article": "",
+            "image": "",
+            "category": "STYLING IDEAS",
+            "title": "Styling Shelves Like a Pro",
+            "link": "",
+            "read_more_label": "READ MORE"
           }
         }
       },
       "block_order": [
-        "image_kH9pb6",
-        "image_MjGdCb",
-        "image_BYzqrf",
-        "image_HGm6aT",
-        "image_cNHmqY",
-        "image_Tdrn6W"
+        "article_1",
+        "article_2",
+        "article_3",
+        "article_4"
       ],
-      "disabled": true,
+      "name": "RF Journal",
       "settings": {
-        "display_main_slider": true
+        "eyebrow": "THE JOURNAL",
+        "heading_desktop": "Inspiration for beautiful living.",
+        "heading_mobile": "Inspiration for a beautiful life",
+        "description": "<p>Stories, ideas, and expert advice to help you design a home that reflects you.</p>",
+        "button_label_desktop": "VIEW ALL ARTICLES",
+        "button_label_mobile": "EXPLORE THE JOURNAL",
+        "button_link": ""
       }
     },
-    "single_banner_FpBHFk": {
-      "type": "single-banner",
-      "disabled": true,
-      "name": "Single Banner Sec",
+    "rf_gallery_visit": {
+      "type": "rf-gallery-visit",
+      "name": "RF Gallery visit",
       "settings": {
-        "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/Artboard_6_4x-100_6f64827e-2491-4aa9-ac2c-080f70cc5696.jpg",
-        "mobile_banner": "shopify://shop_images/Artboard_6_NEWcopy_4x-100.webp",
-        "button_text": "",
-        "link": "https://renovationfacttory.com/products/athena-round-shelving-unit?_pos=1&_sid=e2bd82b48&_ss=r"
-      }
-    },
-    "single_banner_ja4TfT": {
-      "type": "single-banner",
-      "disabled": true,
-      "name": "Single Banner Sec",
-      "settings": {
-        "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/DESKTOP_BANNER_2_1.jpg",
-        "mobile_banner": "shopify://shop_images/DESKTOP_BANNER_2_1_1.jpg",
-        "button_text": "",
-        "link": "shopify://collections/sale"
-      }
-    },
-    "video_sec_fdAN6M": {
-      "type": "video-sec",
-      "settings": {
-        "display_video_sec": true,
-        "video_link": "https://cdn.shopify.com/videos/c/o/v/2e0c4613861040f19c873cb91f0ef1ed.mp4",
-        "mobile_video_link": "https://cdn.shopify.com/videos/c/o/v/0afd51bdcfeb40f8b6fb5a0d92cb173b.mp4",
-        "title": "",
-        "description": "VISIT THE GALLERY",
-        "link_text": "BOOK AN APPOINTMENT",
-        "link": "shopify://pages/contact-us"
-      }
-    },
-    "single_banner_8XLYbJ": {
-      "type": "single-banner",
-      "disabled": true,
-      "name": "Single Banner Sec",
-      "settings": {
-        "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/The_Occasion_Edit_-_Slim_Banner.png",
-        "mobile_banner": "shopify://shop_images/The_Occasion_Edit_-_Slim_Banner_1.png",
-        "button_text": "",
-        "link": "shopify://collections/all-products"
-      }
-    },
-    "main_slider_jRA6PC": {
-      "type": "main-slider",
-      "blocks": {
-        "image_DDzq4b": {
-          "type": "image",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/1_Dusk.webp",
-            "mobile_banner": "shopify://shop_images/1_Dusk_3.png",
-            "title": "DUSK",
-            "description": "Lighting|Tables|Shelving",
-            "link_text": "SHOP THE COLLECTION",
-            "link": "shopify://collections/dusk",
-            "set_position": ""
-          }
-        },
-        "image_83XgVn": {
-          "type": "image",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/1_Thyra_1.png",
-            "mobile_banner": "shopify://shop_images/1_Thyra_2.png",
-            "title": "SILVA",
-            "description": "COFFEE TABLE | END TABLE | CONSOLE TABLE",
-            "link_text": "SHOP THE COLLECTION",
-            "link": "shopify://collections/thyra",
-            "set_position": ""
-          }
-        },
-        "image_TAt879": {
-          "type": "image",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/1_Thyra_1.png",
-            "mobile_banner": "shopify://shop_images/1_Thyra_2.png",
-            "title": "SILVA",
-            "description": "COFFEE TABLE | END TABLE | CONSOLE TABLE",
-            "link_text": "SHOP THE COLLECTION",
-            "link": "shopify://collections/thyra",
-            "set_position": ""
-          }
-        },
-        "image_MPA6mL": {
-          "type": "image",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/Image_55_1.png",
-            "mobile_banner": "shopify://shop_images/Image_58_1.png",
-            "title": "OCTAVIA",
-            "description": "COFFEE TABLE | END TABLE | CONSOLE TABLE",
-            "link_text": "SHOP THE COLLECTION",
-            "link": "shopify://collections/octavia",
-            "set_position": ""
-          }
-        },
-        "image_Hd4yeM": {
-          "type": "image",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/Image_55_1.png",
-            "mobile_banner": "shopify://shop_images/Image_58_1.png",
-            "title": "OCTAVIA",
-            "description": "COFFEE TABLE | END TABLE | CONSOLE TABLE",
-            "link_text": "SHOP THE COLLECTION",
-            "link": "shopify://collections/octavia",
-            "set_position": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_DDzq4b",
-        "image_83XgVn",
-        "image_TAt879",
-        "image_MPA6mL",
-        "image_Hd4yeM"
-      ],
-      "disabled": true,
-      "settings": {
-        "display_main_slider": true
-      }
-    },
-    "single_banner_VeMWeN": {
-      "type": "single-banner",
-      "disabled": true,
-      "settings": {
-        "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/WhatsApp_Image_2025-03-03_at_10.40.38_AM_1.jpg",
-        "mobile_banner": "shopify://shop_images/WhatsApp_Image_2025-03-03_at_10.40.41_AM.jpg",
-        "button_text": "",
-        "link": ""
-      }
-    },
-    "main_slider_pcKjEX": {
-      "type": "main-slider",
-      "blocks": {
-        "image_nY8V76": {
-          "type": "image",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/Image_14_1.png",
-            "mobile_banner": "shopify://shop_images/Image_14_1_1.png",
-            "title": "WINTER HOME",
-            "description": "The Chalet",
-            "link_text": "Shop WH Furniture",
-            "link": "shopify://collections/winter-furniture",
-            "set_position": "setPosition"
-          }
-        },
-        "image_CbjwYh": {
-          "type": "image",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/Image_40_1_1_1.png",
-            "mobile_banner": "shopify://shop_images/Image_40_1_1_3.png",
-            "title": "WINTER HOME",
-            "description": "The Chalet",
-            "link_text": "Shop WH Décor",
-            "link": "shopify://collections/winter-decor",
-            "set_position": "setPosition"
-          }
-        },
-        "image_HyppGd": {
-          "type": "image",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/RF_ID_3_1.webp",
-            "mobile_banner": "shopify://shop_images/RF_ID_3_1_1.png",
-            "title": "WINTER HOME",
-            "description": "The Chalet",
-            "link_text": "Shop WH Lighting",
-            "link": "shopify://collections/winter-lighting",
-            "set_position": "setPosition"
-          }
-        }
-      },
-      "block_order": [
-        "image_nY8V76",
-        "image_CbjwYh",
-        "image_HyppGd"
-      ],
-      "disabled": true,
-      "settings": {
-        "display_main_slider": true
-      }
-    },
-    "ccd5cfa7-bc77-4ff7-9a3d-58883e2f5238": {
-      "type": "smk_blocks_index",
-      "blocks": {
-        "845ef015-1be5-4e02-b586-c43e0df0260a": {
-          "type": "smk_text_block",
-          "settings": {
-            "show_section": true,
-            "section_location": "above",
-            "top_offset": "normal",
-            "fullwidth": true,
-            "text1": "- A conversation, a commune -",
-            "text2": "",
-            "text3": "",
-            "text1_align": "center",
-            "text2_align": "center",
-            "text3_align": "center",
-            "bg_color": "#ffffff",
-            "text1_color": "#191919",
-            "text2_color": "#191919",
-            "text3_color": "#191919",
-            "title_font_size": 36,
-            "title_line_height": 44,
-            "title_font_weight": 500,
-            "subtitle_font_size": 16,
-            "subtitle_line_height": 24,
-            "subtitle_font_weight": 500,
-            "description_font_size": 15,
-            "description_line_height": 22,
-            "description_font_weight": 400,
-            "description_offset": 33,
-            "title_font_size_mobile": 36,
-            "title_line_height_mobile": 44,
-            "title_font_weight_mobile": 500,
-            "subtitle_font_size_mobile": 16,
-            "subtitle_line_height_mobile": 24,
-            "subtitle_font_weight_mobile": 500,
-            "description_font_size_mobile": 15,
-            "description_line_height_mobile": 22,
-            "description_font_weight_mobile": 400,
-            "description_offset_mobile": 33
-          }
-        },
-        "6df90ddf-03ee-494d-a944-5b6d9a453613": {
-          "type": "smk_custom_html",
-          "disabled": true,
-          "settings": {
-            "show_section": true,
-            "section_location": "above",
-            "topoffset": true,
-            "fullwidth": false,
-            "fullwidth2": false,
-            "data": "<style>video {\n    height: 550px;\n    width: 100%;\n    object-fit: cover;\n}\n</style>\n<video desktop-src=\"https://cdn.shopify.com/videos/c/o/v/17eb3d853a1b4534b5639ebb3de445a3.mp4\" mobile-src=\"https://cdn.shopify.com/videos/c/o/v/17eb3d853a1b4534b5639ebb3de445a3.mp4\" autoplay=\"\" playsinline=\"\" preload=\"none\" loop=\"\" muted=\"\" src=\"https://cdn.shopify.com/videos/c/o/v/17eb3d853a1b4534b5639ebb3de445a3.mp4\">\n                </video>",
-            "usebgcolor": false,
-            "usebgcolorfullwidth": false,
-            "bgco": "#ffffff"
-          }
-        },
-        "f6d6b304-c1eb-4618-bcd1-d63078631b65": {
-          "type": "smk_video_banner",
-          "settings": {
-            "show_section": true,
-            "section_location": "above",
-            "top_offset": "normal",
-            "fullwidth": false,
-            "no_borders": false,
-            "title": "",
-            "subtitle": "",
-            "description": "",
-            "video_link": "https://cdn.shopify.com/videos/c/o/v/17eb3d853a1b4534b5639ebb3de445a3.mp4",
-            "video_link_m": "https://cdn.shopify.com/videos/c/o/v/17eb3d853a1b4534b5639ebb3de445a3.mp4",
-            "autoplay": true,
-            "loop": true,
-            "use_fixed_height": true,
-            "fixed_height": "550",
-            "fixed_height_mobile": "400",
-            "show_button": false,
-            "button_text": "START NOW",
-            "button_link": "",
-            "video_popup_link": "",
-            "button_background_color": "#ffffff",
-            "button_text_color": "#000000",
-            "button_font_size": 14,
-            "button_padding": 10,
-            "button_font_size_mobile": 12,
-            "button_padding_mobile": 5,
-            "title_color": "#ffffff",
-            "subtitle_color": "#ffffff",
-            "description_color": "#ffffff",
-            "use_shadow": true,
-            "shadow_color": "#000000",
-            "shadow_size": 10,
-            "texts_offset": "0",
-            "title_font_size": 78,
-            "title_line_height": 56,
-            "title_font_weight": 700,
-            "subtitle_font_size": 24,
-            "subtitle_line_height": 24,
-            "subtitle_font_weight": 400,
-            "description_font_size": 15,
-            "description_line_height": 20,
-            "description_font_weight": 300,
-            "texts_offset_mobile": "0",
-            "title_font_size_mobile": 24,
-            "title_line_height_mobile": 26,
-            "title_font_weight_mobile": 700,
-            "subtitle_font_size_mobile": 18,
-            "subtitle_line_height_mobile": 20,
-            "subtitle_font_weight_mobile": 400,
-            "description_font_size_mobile": 13,
-            "description_line_height_mobile": 13,
-            "description_font_weight_mobile": 300
-          }
-        }
-      },
-      "block_order": [
-        "845ef015-1be5-4e02-b586-c43e0df0260a",
-        "6df90ddf-03ee-494d-a944-5b6d9a453613",
-        "f6d6b304-c1eb-4618-bcd1-d63078631b65"
-      ],
-      "disabled": true,
-      "settings": {}
-    },
-    "slider_with_image_itfhdF": {
-      "type": "slider-with-image",
-      "blocks": {
-        "image_pg3qQ6": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Image_43_1.png",
-            "link": ""
-          }
-        },
-        "image_WHg8Ng": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Image_43_1_18606e51-1a7f-4fdf-b55d-b4c7bbe3dced.png",
-            "link": ""
-          }
-        },
-        "image_LtLqAj": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Image_43_1_8241fbae-0b5b-43a3-9d1b-d4c4ade4764f.png",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_pg3qQ6",
-        "image_WHg8Ng",
-        "image_LtLqAj"
-      ],
-      "disabled": true,
-      "settings": {
-        "display_slider_with_image": true,
-        "title": "ROOM STORIES",
-        "image": "shopify://shop_images/2nd_Banner_2.webp"
-      }
-    },
-    "single_banner_BdpQeU": {
-      "type": "single-banner",
-      "disabled": true,
-      "settings": {
-        "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/Macbook-Air-rh_1.png",
-        "mobile_banner": "shopify://shop_images/Macbook-Air-rh_2.png",
-        "mobile_banner_2": "shopify://shop_images/Macbook-Air-rh_1_1.png",
-        "button_text": "",
-        "link": "#"
-      }
-    },
-    "text_btn_sec_r7LxHi": {
-      "type": "text-btn-sec",
-      "disabled": true,
-      "settings": {
-        "display_text_btn_sec": true,
-        "title": "NOW UP TO 60% OFF CLEARANCE SALE",
-        "button_text": "SHOP NOW",
-        "button_link": "shopify://collections/sale"
+        "desktop_image": "",
+        "mobile_image": "",
+        "image_alt": "Renovation Factory gallery interior",
+        "desktop_title": "GALLERY VISIT",
+        "mobile_title": "Visit our gallery",
+        "mobile_body": "<p>See, touch and sit on every piece. [GALLERY ADDRESS] · [OPENING HOURS]</p>",
+        "appointment_label": "BOOK APPOINTMENT",
+        "appointment_link": "",
+        "whatsapp_label": "Contact us on WhatsApp",
+        "whatsapp_link": "",
+        "directions_label": "GET DIRECTIONS",
+        "directions_link": ""
       }
     }
   },
   "order": [
-    "169125991439fc29ef",
     "single_banner_gxeaAE",
+    "rf_editorial_stories",
     "main_slider_qYdcLE",
-    "video_sec_4TFYf7",
-    "video_sec_3WnQWx",
-    "single_banner_m6KVBm",
-    "video_sec_JzA4i4",
-    "video_sec_qa7FhF",
-    "video_sec_wHxHVP",
-    "video_sec_rPDmpW",
-    "video_sec_FTiEYr",
-    "video_sec_PKxc4m",
-    "video_sec_ekkEBX",
-    "main_slider_Twtcyy",
-    "single_banner_FpBHFk",
-    "single_banner_ja4TfT",
-    "video_sec_fdAN6M",
-    "single_banner_8XLYbJ",
-    "main_slider_jRA6PC",
-    "single_banner_VeMWeN",
-    "main_slider_pcKjEX",
-    "ccd5cfa7-bc77-4ff7-9a3d-58883e2f5238",
-    "slider_with_image_itfhdF",
-    "single_banner_BdpQeU",
-    "text_btn_sec_r7LxHi"
+    "rf_designers_edit",
+    "rf_usp_strip",
+    "rf_testimonials",
+    "rf_journal",
+    "rf_gallery_visit"
   ]
 }

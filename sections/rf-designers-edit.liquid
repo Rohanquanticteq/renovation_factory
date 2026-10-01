@@ -1,0 +1,491 @@
+{{ 'rf-designers-edit.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'rf-designers-edit.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign designer_desktop_image = section.settings.desktop_image
+  assign designer_mobile_image = section.settings.mobile_image | default: designer_desktop_image
+  if designer_desktop_image == blank
+    assign designer_desktop_image = designer_mobile_image
+  endif
+  assign piece_count = section.blocks.size
+-%}
+
+<rf-designers-edit
+  class="rf-designers-edit"
+  data-section-id="{{ section.id }}"
+  {{ section.shopify_attributes }}
+>
+  <div class="rf-designers-edit__shell">
+    <section class="rf-designers-edit__craft" aria-labelledby="RFCraftTitle-{{ section.id }}">
+      <header class="rf-designers-edit__craft-header">
+        <h2 id="RFCraftTitle-{{ section.id }}" class="rf-designers-edit__craft-title">
+          {{ section.settings.craft_heading | escape }}
+        </h2>
+        {%- if section.settings.craft_subheading != blank -%}
+          <p class="rf-designers-edit__craft-subheading">{{ section.settings.craft_subheading | escape }}</p>
+        {%- endif -%}
+      </header>
+
+      <div class="rf-designers-edit__craft-grid">
+        {%- for i in (1..5) -%}
+          {%- liquid
+            assign image_key = 'craft_image_' | append: i
+            assign label_key = 'craft_label_' | append: i
+            assign craft_image = section.settings[image_key]
+            assign craft_label = section.settings[label_key]
+            assign craft_fallback = 'rf-craft-' | append: i | append: '.webp'
+            assign mobile_number = 6 | minus: i
+          -%}
+
+          <div class="rf-designers-edit__craft-item">
+            <div class="rf-designers-edit__craft-media">
+              {%- if craft_image != blank -%}
+                {{
+                  craft_image
+                  | image_url: width: 700
+                  | image_tag:
+                    class: 'rf-designers-edit__craft-image',
+                    widths: '220, 360, 520, 700',
+                    sizes: '(min-width: 750px) 10vw, 42vw',
+                    loading: 'lazy',
+                    alt: craft_label
+                }}
+              {%- else -%}
+                <img
+                  class="rf-designers-edit__craft-image"
+                  src="{{ craft_fallback | asset_url }}"
+                  width="112"
+                  height="139"
+                  loading="lazy"
+                  alt="{{ craft_label | escape }}"
+                >
+              {%- endif -%}
+            </div>
+            {%- if craft_label != blank -%}
+              <span class="rf-designers-edit__craft-number" aria-hidden="true">0{{ mobile_number }}</span>
+              <p class="rf-designers-edit__craft-label">{{ craft_label | escape }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </section>
+
+    <section class="rf-designers-edit__designer" aria-labelledby="RFDesignerTitle-{{ section.id }}">
+      <div class="rf-designers-edit__content">
+        <div class="rf-designers-edit__copy">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="rf-designers-edit__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.heading != blank -%}
+            <h2 id="RFDesignerTitle-{{ section.id }}" class="rf-designers-edit__heading">
+              {{ section.settings.heading | escape }}
+            </h2>
+          {%- endif -%}
+
+          {%- if section.settings.body != blank -%}
+            <div class="rf-designers-edit__body">{{ section.settings.body }}</div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.button_label_desktop != blank or section.settings.button_label_mobile != blank -%}
+          <a
+            class="rf-designers-edit__button"
+            {% if section.settings.button_link != blank %}
+              href="{{ section.settings.button_link }}"
+            {% else %}
+              role="link"
+              aria-disabled="true"
+            {% endif %}
+          >
+            <span class="rf-designers-edit__button-desktop">
+              {{ section.settings.button_label_desktop | escape }}
+              <span aria-hidden="true">&rarr;</span>
+            </span>
+            <span class="rf-designers-edit__button-mobile">
+              {{ section.settings.button_label_mobile | escape }}
+              {%- if section.settings.show_piece_count and piece_count > 0 -%}
+                &nbsp;&middot;&nbsp; {{ piece_count }} {% if piece_count == 1 %}PIECE{% else %}PIECES{% endif %}
+              {%- endif -%}
+            </span>
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="rf-designers-edit__media">
+        {%- if designer_desktop_image != blank or designer_mobile_image != blank -%}
+          <picture>
+            {%- if designer_mobile_image != blank -%}
+              <source
+                media="(max-width: 749px)"
+                srcset="
+                  {{ designer_mobile_image | image_url: width: 450 }} 450w,
+                  {{ designer_mobile_image | image_url: width: 750 }} 750w,
+                  {{ designer_mobile_image | image_url: width: 900 }} 900w
+                "
+                sizes="100vw"
+              >
+            {%- endif -%}
+            {{
+              designer_desktop_image
+              | image_url: width: 1600
+              | image_tag:
+                class: 'rf-designers-edit__image',
+                widths: '600, 900, 1200, 1600',
+                sizes: '(min-width: 750px) 36vw, 100vw',
+                loading: 'lazy',
+                alt: section.settings.image_alt
+            }}
+          </picture>
+        {%- else -%}
+          <span class="rf-designers-edit__placeholder" aria-hidden="true"></span>
+          {%- if section.settings.placeholder_label != blank -%}
+            <span class="rf-designers-edit__media-label">{{ section.settings.placeholder_label | escape }}</span>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign product = all_products[block.settings.product]
+            assign desktop_x = block.settings.desktop_x
+            assign desktop_y = block.settings.desktop_y
+            assign mobile_x = block.settings.mobile_x
+            assign mobile_y = block.settings.mobile_y
+            assign popover_side = 'right'
+            if desktop_x > 63
+              assign popover_side = 'left'
+            endif
+          -%}
+
+          {%- if product != blank -%}
+            <a
+              class="rf-designers-edit__hotspot"
+              href="{{ product.url }}"
+              style="--rf-hotspot-x: {{ desktop_x }}%; --rf-hotspot-y: {{ desktop_y }}%; --rf-hotspot-mobile-x: {{ mobile_x }}%; --rf-hotspot-mobile-y: {{ mobile_y }}%;"
+              data-rf-hotspot
+              data-popover-id="RFDesignersEditPopover-{{ section.id }}-{{ block.id }}"
+              aria-controls="RFDesignersEditPopover-{{ section.id }}-{{ block.id }}"
+              aria-expanded="false"
+              aria-label="View {{ product.title | escape }}"
+              {{ block.shopify_attributes }}
+            >
+              <span aria-hidden="true">+</span>
+            </a>
+
+            <div
+              id="RFDesignersEditPopover-{{ section.id }}-{{ block.id }}"
+              class="rf-designers-edit__popover rf-designers-edit__popover--{{ popover_side }}"
+              style="--rf-hotspot-x: {{ desktop_x }}%; --rf-hotspot-y: {{ desktop_y }}%;"
+              data-rf-popover
+              hidden
+              role="dialog"
+              aria-label="{{ product.title | escape }}"
+            >
+              <button
+                class="rf-designers-edit__popover-close"
+                type="button"
+                data-rf-popover-close
+                aria-label="Close product"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+              <a class="rf-designers-edit__product-link" href="{{ product.url }}">
+                <span class="rf-designers-edit__product-media">
+                  {%- if product.featured_image != blank -%}
+                    {{
+                      product.featured_image
+                      | image_url: width: 360
+                      | image_tag:
+                        class: 'rf-designers-edit__product-image',
+                        widths: '160, 240, 360',
+                        sizes: '150px',
+                        loading: 'lazy',
+                        alt: product.featured_image.alt
+                    }}
+                  {%- else -%}
+                    {{ 'product-1' | placeholder_svg_tag: 'rf-designers-edit__product-image rf-designers-edit__product-placeholder' }}
+                  {%- endif -%}
+                </span>
+
+                <span class="rf-designers-edit__product-copy">
+                  <span class="rf-designers-edit__product-title">{{ product.title | escape }}</span>
+                  <span class="rf-designers-edit__product-price">
+                    {%- if product.price_varies -%}
+                      From {{ product.price_min | money }}
+                    {%- else -%}
+                      {{ product.price | money }}
+                    {%- endif -%}
+                  </span>
+                  <span class="rf-designers-edit__product-cta">
+                    {{ section.settings.product_link_label | escape }}
+                    <span aria-hidden="true">&rarr;</span>
+                  </span>
+                </span>
+              </a>
+            </div>
+          {%- else -%}
+            <span
+              class="rf-designers-edit__hotspot rf-designers-edit__hotspot--placeholder"
+              style="--rf-hotspot-x: {{ desktop_x }}%; --rf-hotspot-y: {{ desktop_y }}%; --rf-hotspot-mobile-x: {{ mobile_x }}%; --rf-hotspot-mobile-y: {{ mobile_y }}%;"
+              aria-hidden="true"
+              {{ block.shopify_attributes }}
+            >
+              <span>+</span>
+            </span>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </section>
+  </div>
+</rf-designers-edit>
+
+{% schema %}
+{
+  "name": "RF Craft + Designer edit",
+  "tag": "section",
+  "class": "shopify-section--rf-designers-edit",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Our Craftmanship"
+    },
+    {
+      "type": "text",
+      "id": "craft_heading",
+      "label": "Heading",
+      "default": "OUR CRAFTMANSHIP"
+    },
+    {
+      "type": "text",
+      "id": "craft_subheading",
+      "label": "Subheading",
+      "default": "Every piece, a labor of passion"
+    },
+    {
+      "type": "image_picker",
+      "id": "craft_image_1",
+      "label": "Delivery image"
+    },
+    {
+      "type": "text",
+      "id": "craft_label_1",
+      "label": "Delivery label",
+      "default": "DELIVERY"
+    },
+    {
+      "type": "image_picker",
+      "id": "craft_image_2",
+      "label": "Finishing image"
+    },
+    {
+      "type": "text",
+      "id": "craft_label_2",
+      "label": "Finishing label",
+      "default": "FINISHING"
+    },
+    {
+      "type": "image_picker",
+      "id": "craft_image_3",
+      "label": "Craftsmanship image"
+    },
+    {
+      "type": "text",
+      "id": "craft_label_3",
+      "label": "Craftsmanship label",
+      "default": "CRAFTSMANSHIP"
+    },
+    {
+      "type": "image_picker",
+      "id": "craft_image_4",
+      "label": "Material selection image"
+    },
+    {
+      "type": "text",
+      "id": "craft_label_4",
+      "label": "Material selection label",
+      "default": "MATERIAL SELECTION"
+    },
+    {
+      "type": "image_picker",
+      "id": "craft_image_5",
+      "label": "Sketch image"
+    },
+    {
+      "type": "text",
+      "id": "craft_label_5",
+      "label": "Sketch label",
+      "default": "SKETCH"
+    },
+    {
+      "type": "header",
+      "content": "Designer's Edit"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop room image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile room image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Room image alt text",
+      "default": "Classic living room"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_label",
+      "label": "Room placeholder label",
+      "default": "IMAGE - Classic room"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "DESIGNER'S EDIT"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A CLASSIC ROOM"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Description",
+      "default": "<p>Timeless details, modern comforts — a curated blend of classic design and contemporary living.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label_desktop",
+      "label": "Desktop button label",
+      "default": "EXPLORE THE LOOK"
+    },
+    {
+      "type": "text",
+      "id": "button_label_mobile",
+      "label": "Mobile button label",
+      "default": "SHOP THE LOOK"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_piece_count",
+      "label": "Show hotspot count on mobile button",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "product_link_label",
+      "label": "Hotspot product link label",
+      "default": "VIEW PRODUCT"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Product hotspot",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "header",
+          "content": "Desktop position"
+        },
+        {
+          "type": "range",
+          "id": "desktop_x",
+          "label": "Horizontal position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "desktop_y",
+          "label": "Vertical position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 45
+        },
+        {
+          "type": "header",
+          "content": "Mobile position"
+        },
+        {
+          "type": "range",
+          "id": "mobile_x",
+          "label": "Horizontal position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "mobile_y",
+          "label": "Vertical position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 45
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RF Craft + Designer edit",
+      "blocks": [
+        {
+          "type": "hotspot",
+          "settings": {
+            "desktop_x": 30,
+            "desktop_y": 53,
+            "mobile_x": 29,
+            "mobile_y": 53
+          }
+        },
+        {
+          "type": "hotspot",
+          "settings": {
+            "desktop_x": 61,
+            "desktop_y": 40,
+            "mobile_x": 61,
+            "mobile_y": 40
+          }
+        },
+        {
+          "type": "hotspot",
+          "settings": {
+            "desktop_x": 77,
+            "desktop_y": 29,
+            "mobile_x": 77,
+            "mobile_y": 29
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

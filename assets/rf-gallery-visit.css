@@ -1,0 +1,232 @@
+.shopify-section--rf-gallery-visit {
+  background: #f6f0e8;
+}
+
+.rf-gallery-visit {
+  display: block;
+  width: 100%;
+  color: #2a241f;
+  background: #f6f0e8;
+}
+
+.rf-gallery-visit__layout {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.rf-gallery-visit__media,
+.rf-gallery-visit__media picture,
+.rf-gallery-visit__image {
+  display: block;
+  width: 100%;
+}
+
+.rf-gallery-visit__image {
+  height: 100%;
+  object-fit: cover;
+}
+
+.rf-gallery-visit__content {
+  position: relative;
+  z-index: 1;
+}
+
+.rf-gallery-visit__title {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+}
+
+.rf-gallery-visit__title--mobile,
+.rf-gallery-visit__body,
+.rf-gallery-visit__directions {
+  display: none;
+}
+
+.rf-gallery-visit__actions {
+  display: flex;
+  align-items: center;
+}
+
+.rf-gallery-visit__appointment,
+.rf-gallery-visit__directions {
+  color: inherit;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rf-gallery-visit__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #211e1a;
+  text-decoration: none;
+}
+
+.rf-gallery-visit__whatsapp svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rf-gallery-visit__whatsapp--static {
+  pointer-events: none;
+}
+
+.rf-gallery-visit a:focus-visible {
+  outline: 2px solid #211e1a;
+  outline-offset: 3px;
+}
+
+@media screen and (min-width: 750px) {
+  .rf-gallery-visit {
+    padding: 0;
+  }
+
+  .rf-gallery-visit__layout {
+    height: clamp(145px, 12.65vw, 173px);
+    min-height: 145px;
+    max-height: 173px;
+  }
+
+  .rf-gallery-visit__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .rf-gallery-visit__image {
+    object-position: center;
+  }
+
+  .rf-gallery-visit__content {
+    position: absolute;
+    top: 50%;
+    left: 52.8%;
+    width: 42%;
+    transform: translateY(-50%);
+    padding: 0;
+    background: transparent;
+  }
+
+  .rf-gallery-visit__title--desktop {
+    display: block;
+    font-size: clamp(18px, 1.55vw, 22px);
+    line-height: 1;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+  }
+
+  .rf-gallery-visit__actions {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .rf-gallery-visit__appointment {
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+  }
+
+  .rf-gallery-visit__whatsapp {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+  }
+
+  .rf-gallery-visit__whatsapp svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .rf-gallery-visit {
+    box-sizing: border-box;
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .rf-gallery-visit__layout {
+    display: block;
+    overflow: visible;
+  }
+
+  .rf-gallery-visit__media {
+    height: 250px;
+    overflow: hidden;
+    background: #eee7dc;
+  }
+
+  .rf-gallery-visit__image {
+    height: 100%;
+    object-fit: cover;
+    object-position: 18% center;
+  }
+
+  .rf-gallery-visit__content {
+    padding: 30px 20px 40px;
+    background: #f6f0e8;
+  }
+
+  .rf-gallery-visit__title--desktop {
+    display: none;
+  }
+
+  .rf-gallery-visit__title--mobile {
+    display: block;
+    font-size: 31px;
+    line-height: 1.08;
+  }
+
+  .rf-gallery-visit__body {
+    display: block;
+    margin-top: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .rf-gallery-visit__body p {
+    margin: 0;
+  }
+
+  .rf-gallery-visit__actions {
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 24px;
+  }
+
+  .rf-gallery-visit__appointment,
+  .rf-gallery-visit__directions {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #211e1a;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+
+  .rf-gallery-visit__appointment {
+    width: 100%;
+    color: #f6f0e8;
+    background: #211e1a;
+  }
+
+  .rf-gallery-visit__directions {
+    width: 100%;
+    margin-top: 10px;
+    background: transparent;
+  }
+
+  .rf-gallery-visit__whatsapp {
+    display: none;
+  }
+}

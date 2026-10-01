@@ -1,0 +1,178 @@
+{{ 'rf-testimonials.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'rf-testimonials.js' | asset_url }}" defer="defer"></script>
+
+<rf-testimonials
+  class="rf-testimonials"
+  data-section-id="{{ section.id }}"
+  data-autoplay="{{ section.settings.autoplay }}"
+  data-autoplay-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+  {{ section.shopify_attributes }}
+>
+  <div class="rf-testimonials__heading-band">
+    {%- if section.settings.heading_desktop != blank -%}
+      <h2 class="rf-testimonials__heading rf-testimonials__heading--desktop">
+        {{ section.settings.heading_desktop | escape }}
+      </h2>
+    {%- endif -%}
+    {%- if section.settings.heading_mobile != blank -%}
+      <h2 class="rf-testimonials__heading rf-testimonials__heading--mobile">
+        {{ section.settings.heading_mobile | escape }}
+      </h2>
+    {%- endif -%}
+  </div>
+
+  <div class="rf-testimonials__body">
+    <div class="rf-testimonials__viewport" data-rf-testimonials-viewport>
+      <div class="rf-testimonials__track" data-rf-testimonials-track>
+        {%- for block in section.blocks -%}
+          <article
+            class="rf-testimonials__slide{% if forloop.first %} is-active{% endif %}"
+            data-rf-testimonial
+            data-index="{{ forloop.index0 }}"
+            aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.quote != blank -%}
+              <blockquote class="rf-testimonials__quote">
+                {{ block.settings.quote | escape }}
+              </blockquote>
+            {%- endif -%}
+
+            <div class="rf-testimonials__author">
+              {%- if block.settings.name != blank -%}
+                <p class="rf-testimonials__name">{{ block.settings.name | escape }}</p>
+              {%- endif -%}
+              {%- if block.settings.location != blank -%}
+                <p class="rf-testimonials__location">{{ block.settings.location | escape }}</p>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {%- if section.blocks.size > 1 -%}
+      <div class="rf-testimonials__controls">
+        <button
+          class="rf-testimonials__arrow rf-testimonials__arrow--prev"
+          type="button"
+          data-rf-testimonials-prev
+          aria-label="Previous testimonial"
+        >
+          <span aria-hidden="true">&larr;</span>
+        </button>
+
+        <p class="rf-testimonials__counter" aria-live="polite">
+          <span data-rf-testimonials-current>1</span>
+          <span aria-hidden="true"> / </span>
+          <span>{{ section.blocks.size }}</span>
+        </p>
+
+        <button
+          class="rf-testimonials__arrow rf-testimonials__arrow--next"
+          type="button"
+          data-rf-testimonials-next
+          aria-label="Next testimonial"
+        >
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+    {%- endif -%}
+  </div>
+</rf-testimonials>
+
+{% schema %}
+{
+  "name": "RF Testimonials",
+  "tag": "section",
+  "class": "shopify-section--rf-testimonials",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_desktop",
+      "label": "Desktop heading",
+      "default": "What Clients Talk About Us"
+    },
+    {
+      "type": "text",
+      "id": "heading_mobile",
+      "label": "Mobile heading",
+      "default": "WHAT CLIENTS SAY"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate testimonials",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "Time between testimonials",
+      "min": 4,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 6
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "The products are artful, fun, have a story just as unique as the designers who made it."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer name",
+          "default": "Akansha Verma"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "New Delhi"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RF Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The products are artful, fun, have a story just as unique as the designers who made it.",
+            "name": "Akansha Verma",
+            "location": "New Delhi"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The best colors and materials.",
+            "name": "Renovation Factory Client",
+            "location": ""
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Beautifully considered pieces with a distinctive point of view.",
+            "name": "Renovation Factory Client",
+            "location": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
