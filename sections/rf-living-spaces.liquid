@@ -23,7 +23,7 @@
         endif
       -%}
       <a
-        class="rf-living-spaces__card"
+        class="rf-living-spaces__card{% if block.settings.desktop_image_includes_text %} rf-living-spaces__card--desktop-artwork{% endif %}{% if block.settings.mobile_image_includes_text %} rf-living-spaces__card--mobile-artwork{% endif %}"
         {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% else %}role="link" aria-disabled="true"{% endif %}
         role="listitem"
         {{ block.shopify_attributes }}
@@ -78,7 +78,21 @@
       "name": "Living space",
       "settings": [
         { "type": "image_picker", "id": "desktop_image", "label": "Desktop image" },
+        {
+          "type": "checkbox",
+          "id": "desktop_image_includes_text",
+          "label": "Desktop image already includes text",
+          "info": "Turn this on when the uploaded desktop image already contains the living-space title. The theme title and overlay are hidden on desktop.",
+          "default": false
+        },
         { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+        {
+          "type": "checkbox",
+          "id": "mobile_image_includes_text",
+          "label": "Mobile image already includes text",
+          "info": "Turn this on when the uploaded mobile image already contains the living-space title. The theme title and overlay are hidden on mobile.",
+          "default": false
+        },
         { "type": "text", "id": "image_alt", "label": "Image alt text" },
         { "type": "text", "id": "placeholder_label", "label": "Media label" },
         { "type": "text", "id": "title", "label": "Title", "default": "Living room" },
