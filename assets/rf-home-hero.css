@@ -312,6 +312,11 @@
 }
 
 @media screen and (max-width: 749px) {
+  .rf-home-hero__slide--mobile-artwork .rf-home-hero__content,
+  .rf-home-hero__slide--mobile-artwork .rf-home-hero__shade {
+    display: none;
+  }
+
   .rf-home-hero__slide {
     min-height: clamp(500px, 139vw, 620px);
   }
