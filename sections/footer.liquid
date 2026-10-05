@@ -16,22 +16,7 @@
   <div class="RF-Footer__Main">
     <div class="RF-Footer__Brand">
       <a class="RF-Footer__BrandLink" href="{{ routes.root_url }}">
-        {%- if section.settings.brand_logo != blank -%}
-          {{
-            section.settings.brand_logo
-            | image_url: width: 360
-            | image_tag:
-              class: 'RF-Footer__Logo',
-              widths: '140, 220, 360',
-              sizes: '150px',
-              loading: 'lazy',
-              alt: section.settings.brand_logo.alt
-          }}
-        {%- elsif section.settings.brand_name != blank -%}
-          <span class="RF-Footer__BrandName">{{ section.settings.brand_name | escape }}</span>
-        {%- else -%}
-          <span class="RF-Footer__BrandName">{{ shop.name | escape }}</span>
-        {%- endif -%}
+        <span class="RF-Footer__BrandName">Renovation<br>Factory</span>
       </a>
 
       {%- if section.settings.brand_tagline != blank -%}
