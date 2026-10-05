@@ -271,6 +271,34 @@
       "footer": {
         "type": "footer",
         "blocks": {
+          "rf-shop": {
+            "type": "links",
+            "settings": {
+              "heading": "SHOP",
+              "menu": "shop-2026"
+            }
+          },
+          "footer-1": {
+            "type": "links",
+            "settings": {
+              "heading": "CUSTOMER CARE",
+              "menu": "customer-care"
+            }
+          },
+          "3898032c-51b0-40cd-83cb-0510d7729127": {
+            "type": "links",
+            "settings": {
+              "heading": "ABOUT US",
+              "menu": "about-us-2026"
+            }
+          },
+          "7021f640-debe-41ac-b41d-985850a1e38f": {
+            "type": "links",
+            "settings": {
+              "heading": "RESOURCES",
+              "menu": "resources"
+            }
+          },
           "links_with_logo_zhKg9F": {
             "type": "links_with_logo",
             "disabled": true,
@@ -285,28 +313,8 @@
             "disabled": true,
             "settings": {
               "title": "CONNECT",
-              "content": "<p>Sign up for Email and Text Updates</p>"
-            }
-          },
-          "3898032c-51b0-40cd-83cb-0510d7729127": {
-            "type": "links",
-            "settings": {
-              "heading": "ABOUT US",
-              "menu": "company"
-            }
-          },
-          "7021f640-debe-41ac-b41d-985850a1e38f": {
-            "type": "links",
-            "settings": {
-              "heading": "RESOURCES",
-              "menu": "policy"
-            }
-          },
-          "footer-1": {
-            "type": "links",
-            "settings": {
-              "heading": "CUSTOMER CARE",
-              "menu": "footer"
+              "content": "<p>Sign up for Email and Text Updates</p>",
+              "button_label": "SIGN UP"
             }
           },
           "footer-0": {
@@ -316,13 +324,6 @@
               "title": "Contact Us",
               "content": "<p><a href=\"mailto:care@renovationfactory.com\" title=\"mailto:care@renovationfactory.com\">care@renovationfactory.com</a></p><p><a href=\"tel:919289158882\" title=\"tel:919289158882\">9289158882</a><br/>(Monday - Friday, 9 AM - 6 AM)</p><p>AASR Collaborative Private Limited<br/>298, Udyog Vihar Phase-2, <br/>Gurgaon- 122016<br/>Haryana, India<br/><br/></p>",
               "show_social_media": false
-            }
-          },
-          "rf-shop": {
-            "type": "links",
-            "settings": {
-              "heading": "SHOP",
-              "menu": "main-menu-2024"
             }
           }
         },
@@ -349,9 +350,9 @@
           "legal_menu": "",
           "accessibility_page": "",
           "background_color": "#151311",
-          "text_color": "#F7F2EA",
-          "muted_text_color": "#C9C1B8",
-          "border_color": "#3B3631",
+          "text_color": "#f7f2ea",
+          "muted_text_color": "#c9c1b8",
+          "border_color": "#3b3631",
           "show_payment_methods": false,
           "show_country_selector": false,
           "show_locale_selector": false
