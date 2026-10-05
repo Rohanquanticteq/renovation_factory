@@ -367,7 +367,7 @@ HEADER CONTENT
       <a href="{{ routes.root_url }}" class="Header__LogoLink" aria-label="{{ shop.name | escape }}">
         <span class="Header__Wordmark" aria-hidden="true">
           <span class="Header__WordmarkInitials">RF</span>
-          <span class="Header__WordmarkName">RENOVATION FACTORY</span>
+          <span class="Header__WordmarkName">Renovation<br>Factory</span>
         </span>
       </a>
     {%- endcapture -%}
@@ -529,11 +529,13 @@ HEADER CONTENT
   .Header__WordmarkName {
     display: block;
     margin-top: 3px;
-    font-size: 10px;
+    font-size: 8px;
     font-weight: 600;
-    line-height: 1;
+    line-height: 0.9;
     letter-spacing: 0.04em;
-    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: normal;
   }
 
   .Header__MainNav > .HorizontalList > .HorizontalList__Item > .Heading {
@@ -599,8 +601,9 @@ HEADER CONTENT
 
     .Header__WordmarkName {
       margin-top: 2px;
-      font-size: 8px;
-      letter-spacing: 0.5em;
+      font-size: 6px;
+      line-height: 0.9;
+      letter-spacing: 0.04em;
     }
 
     .Header__Icon .Icon--nav {
