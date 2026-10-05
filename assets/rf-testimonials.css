@@ -42,6 +42,17 @@
 .rf-testimonials__viewport {
   width: 100%;
   overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.rf-testimonials__viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.rf-testimonials__track {
+  will-change: transform;
 }
 
 .rf-testimonials__track {
