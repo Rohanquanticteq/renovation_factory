@@ -187,7 +187,7 @@ header .Header__FlexItem.Header__FlexItem--fill{
 }
 @media screen and (min-width: 1200px) {
 header .Header__MainNav .HorizontalList__Item > a{
-    font-size:10px !important;
+    font-size:13px !important;
   }
 }
 @media screen and (min-width: 1400px) {
