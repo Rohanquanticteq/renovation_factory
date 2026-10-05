@@ -367,7 +367,7 @@ HEADER CONTENT
       <a href="{{ routes.root_url }}" class="Header__LogoLink" aria-label="{{ shop.name | escape }}">
         <span class="Header__Wordmark" aria-hidden="true">
           <span class="Header__WordmarkInitials">RF</span>
-          <span class="Header__WordmarkName">Renovation<br>Factory</span>
+          <span class="Header__WordmarkName">Renovation<br> Factory</span>
         </span>
       </a>
     {%- endcapture -%}
@@ -604,6 +604,11 @@ HEADER CONTENT
       font-size: 6px;
       line-height: 0.9;
       letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .Header__WordmarkName br {
+      display: none;
     }
 
     .Header__Icon .Icon--nav {
