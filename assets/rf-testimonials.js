@@ -13,21 +13,92 @@
       this.viewport = this.querySelector('[data-rf-testimonials-viewport]');
       this.index = Math.max(0, this.slides.findIndex((slide) => slide.classList.contains('is-active')));
       this.startX = 0;
-      this.endX = 0;
+      this.dragX = 0;
+      this.pointerId = null;
+      this.didDrag = false;
+      this.wheelAccumulator = 0;
+      this.wheelLocked = false;
+      this.wheelTimer = null;
 
       this.handlePrev = () => this.show(this.index - 1);
       this.handleNext = () => this.show(this.index + 1);
-      this.handleTouchStart = (event) => {
-        this.startX = event.touches[0].clientX;
+      this.handlePointerDown = (event) => {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+        this.pointerId = event.pointerId;
+        this.startX = event.clientX;
+        this.dragX = 0;
+        this.didDrag = false;
+
+        this.viewport.classList.add('is-dragging');
+        this.viewport.setPointerCapture?.(event.pointerId);
       };
-      this.handleTouchEnd = (event) => {
-        this.endX = event.changedTouches[0].clientX;
-        const distance = this.endX - this.startX;
-        if (Math.abs(distance) < 50) return;
+
+      this.handlePointerMove = (event) => {
+        if (this.pointerId !== event.pointerId) return;
+
+        this.dragX = event.clientX - this.startX;
+
+        if (Math.abs(this.dragX) > 5) {
+          this.didDrag = true;
+        }
+
+        const limitedDrag = Math.max(-180, Math.min(180, this.dragX));
+        this.track.style.transform = `translate3d(${limitedDrag}px, 0, 0)`;
+      };
+
+      this.handlePointerEnd = (event) => {
+        if (this.pointerId !== event.pointerId) return;
+
+        const distance = this.dragX;
+
+        this.viewport.releasePointerCapture?.(event.pointerId);
+        this.viewport.classList.remove('is-dragging');
+        this.pointerId = null;
+        this.dragX = 0;
+        this.track.style.transform = '';
+
+        if (Math.abs(distance) < 45) return;
+
         if (distance < 0) this.handleNext();
         else this.handlePrev();
       };
+
+      this.handleWheel = (event) => {
+        const horizontalDelta =
+          Math.abs(event.deltaX) > Math.abs(event.deltaY)
+            ? event.deltaX
+            : event.shiftKey
+              ? event.deltaY
+              : 0;
+
+        if (!horizontalDelta) return;
+
+        event.preventDefault();
+
+        if (this.wheelLocked) return;
+
+        this.wheelAccumulator += horizontalDelta;
+
+        if (Math.abs(this.wheelAccumulator) < 35) return;
+
+        if (this.wheelAccumulator > 0) this.handleNext();
+        else this.handlePrev();
+
+        this.wheelAccumulator = 0;
+        this.wheelLocked = true;
+
+        window.clearTimeout(this.wheelTimer);
+        this.wheelTimer = window.setTimeout(() => {
+          this.wheelLocked = false;
+        }, 420);
+      };
       this.handleSlideClick = (event) => {
+        if (this.didDrag) {
+          this.didDrag = false;
+          return;
+        }
+
         const slide = event.target.closest('[data-rf-testimonial]');
         if (!slide || !this.contains(slide) || slide.classList.contains('is-active')) return;
         const slideIndex = Number(slide.dataset.index);
@@ -43,8 +114,11 @@
       if (this.prevButton) this.prevButton.addEventListener('click', this.handlePrev);
       if (this.nextButton) this.nextButton.addEventListener('click', this.handleNext);
       if (this.viewport) {
-        this.viewport.addEventListener('touchstart', this.handleTouchStart, { passive: true });
-        this.viewport.addEventListener('touchend', this.handleTouchEnd, { passive: true });
+        this.viewport.addEventListener('pointerdown', this.handlePointerDown);
+        this.viewport.addEventListener('pointermove', this.handlePointerMove);
+        this.viewport.addEventListener('pointerup', this.handlePointerEnd);
+        this.viewport.addEventListener('pointercancel', this.handlePointerEnd);
+        this.viewport.addEventListener('wheel', this.handleWheel, { passive: false });
         this.viewport.addEventListener('click', this.handleSlideClick);
       }
       document.addEventListener('shopify:block:select', this.handleBlockSelect);
@@ -61,10 +135,15 @@
       if (this.prevButton) this.prevButton.removeEventListener('click', this.handlePrev);
       if (this.nextButton) this.nextButton.removeEventListener('click', this.handleNext);
       if (this.viewport) {
-        this.viewport.removeEventListener('touchstart', this.handleTouchStart);
-        this.viewport.removeEventListener('touchend', this.handleTouchEnd);
+        this.viewport.removeEventListener('pointerdown', this.handlePointerDown);
+        this.viewport.removeEventListener('pointermove', this.handlePointerMove);
+        this.viewport.removeEventListener('pointerup', this.handlePointerEnd);
+        this.viewport.removeEventListener('pointercancel', this.handlePointerEnd);
+        this.viewport.removeEventListener('wheel', this.handleWheel);
         this.viewport.removeEventListener('click', this.handleSlideClick);
       }
+
+      window.clearTimeout(this.wheelTimer);
       document.removeEventListener('shopify:block:select', this.handleBlockSelect);
       this.stopAutoplay();
       this.initialized = false;
