@@ -120,11 +120,18 @@
   margin: 0 0 14px;
   color: var(--rf-footer-text);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0.015em;
   text-transform: uppercase;
+}
+
+.RF-Footer__MenuTitle {
+  font-size: 16px;
+}
+
+.RF-Footer__JournalHeading {
+  font-size: 10px;
 }
 
 .RF-Footer__MenuList,
@@ -143,10 +150,18 @@
 .RF-Footer__JournalText {
   color: var(--rf-footer-muted);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
   font-weight: 400;
   line-height: 1.45;
   letter-spacing: 0;
+}
+
+.RF-Footer__MenuLink {
+  font-size: 16px;
+}
+
+.RF-Footer__TextContent,
+.RF-Footer__JournalText {
+  font-size: 10px;
 }
 
 .RF-Footer__MenuLink {
@@ -338,12 +353,19 @@
     margin-top: 34px;
   }
 
-  .RF-Footer__MenuTitle,
+  .RF-Footer__MenuTitle {
+    font-size: 16px;
+  }
+
   .RF-Footer__JournalHeading {
     font-size: 10px;
   }
 
-  .RF-Footer__MenuLink,
+  .RF-Footer__MenuLink {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
   .RF-Footer__TextContent,
   .RF-Footer__JournalText {
     font-size: 10px;
