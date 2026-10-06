@@ -40,14 +40,25 @@
             {%- if linklist != blank -%}
               <div class="RF-Footer__MenuColumn" {{ block.shopify_attributes }}>
                 <h2 class="RF-Footer__MenuTitle">
-                  {%- if block.settings.heading != blank -%}
-                    {{ block.settings.heading | escape }}
-                  {%- else -%}
-                    {{ linklist.title | escape }}
-                  {%- endif -%}
+                  <span>
+                    {%- if block.settings.heading != blank -%}
+                      {{ block.settings.heading | escape }}
+                    {%- else -%}
+                      {{ linklist.title | escape }}
+                    {%- endif -%}
+                  </span>
+                  <button
+                    class="RF-Footer__MenuToggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="RF-FooterMenu-{{ section.id }}-{{ block.id }}"
+                    aria-label="Toggle footer menu"
+                  >
+                    <span aria-hidden="true">+</span>
+                  </button>
                 </h2>
 
-                <ul class="RF-Footer__MenuList" role="list">
+                <ul id="RF-FooterMenu-{{ section.id }}-{{ block.id }}" class="RF-Footer__MenuList" role="list">
                   {%- for link in linklist.links -%}
                     <li class="RF-Footer__MenuItem">
                       <a class="RF-Footer__MenuLink" href="{{ link.url }}">
@@ -232,6 +243,29 @@
     </div>
   {%- endif -%}
 </footer>
+
+<script>
+(function () {
+  var footer = document.getElementById('section-{{ section.id }}');
+  if (!footer || footer.dataset.rfMobileMenusReady === 'true') return;
+
+  footer.dataset.rfMobileMenusReady = 'true';
+
+  footer.addEventListener('click', function (event) {
+    var toggle = event.target.closest('.RF-Footer__MenuToggle');
+    if (!toggle || !footer.contains(toggle)) return;
+
+    var column = toggle.closest('.RF-Footer__MenuColumn');
+    if (!column) return;
+
+    var isOpen = column.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+    var icon = toggle.querySelector('span');
+    if (icon) icon.textContent = isOpen ? '−' : '+';
+  });
+})();
+</script>
 
 <div class="footerStickyText" id="footerStickyText">
   <div class="footerStickyText__track" id="footerStickyTrack">
