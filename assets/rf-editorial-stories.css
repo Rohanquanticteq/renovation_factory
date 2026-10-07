@@ -118,7 +118,7 @@
   max-width: 210px;
   margin-top: 16px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.55;
 }
 
@@ -133,13 +133,13 @@
   gap: 10px;
   width: auto;
   min-width: 128px;
-  min-height: 36px;
+  min-height: 40px;
   margin-top: 22px;
   padding: 10px 14px;
   border: 1px solid currentColor;
   color: inherit;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 8px;
+  font-size:11px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.035em;
