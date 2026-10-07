@@ -25,7 +25,7 @@
 .rf-journal__eyebrow {
   margin: 0 0 18px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.12em;
@@ -59,7 +59,7 @@
 .rf-journal__description {
   max-width: 225px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.55;
 }
 
@@ -74,7 +74,7 @@
   margin-top: 28px;
   color: inherit;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.06em;
@@ -139,7 +139,7 @@
 .rf-journal__category {
   margin: 0 0 8px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 7px;
+  font-size: 9px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.08em;
@@ -168,7 +168,7 @@
   padding-bottom: 3px;
   border-bottom: 1px solid currentColor;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 7px;
+  font-size: 9px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.08em;
