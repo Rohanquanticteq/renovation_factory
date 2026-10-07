@@ -443,7 +443,10 @@ HEADER CONTENT
 </div>
   </div>
 
+{%- assign rf_navigation_font = section.settings.rf_navigation_font -%}
 <style>
+  {{ rf_navigation_font | font_face: font_display: 'swap' }}
+
   {%- if section.settings.use_sticky_header -%}
     :root {
       --use-sticky-header: 1;
@@ -539,6 +542,7 @@ HEADER CONTENT
   }
 
   .Header__MainNav > .HorizontalList > .HorizontalList__Item > .Heading {
+    font-family: {{ rf_navigation_font.family }}, {{ rf_navigation_font.fallback_families }};
     font-size: 9px;
     font-weight: 600;
     line-height: 1.2;
@@ -749,6 +753,12 @@ HEADER CONTENT
       "id": "navigation_menu",
       "label": "Menu",
       "default": "main-menu"
+    },
+    {
+      "type": "font_picker",
+      "id": "rf_navigation_font",
+      "label": "Navigation font",
+      "default": "lato_n4"
     },
     {
       "type": "select",
