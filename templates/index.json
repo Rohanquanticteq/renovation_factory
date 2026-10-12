@@ -312,10 +312,11 @@
             "mobile_image_includes_text": false,
             "image_alt": "Drink Tables",
             "eyebrow": "FEATURED",
-            "heading": "DRINK\\nTABLES",
+            "heading": "DRINK",
             "body": "<p>Sculptural details for every corner</p>",
             "cta_label": "EXPLORE DRINK TABLES",
-            "link": "shopify://collections/drink-tables"
+            "link": "shopify://collections/drink-tables",
+            "subheading": "TABLES"
           }
         },
         "orbit_sculpture": {
@@ -327,10 +328,11 @@
             "mobile_image_includes_text": false,
             "image_alt": "Orbit Sculpture",
             "eyebrow": "",
-            "heading": "ORBIT\\nSCULPTURE",
-            "body": "<p>Ribbons of bronze resting on marble</p>",
+            "heading": "ORBIT",
+            "body": "<p>RIBBONS OF BRONZE<br>RESTING ON MARBLE</p>",
             "cta_label": "EXPLORE DECOR",
-            "link": "shopify://collections/decor"
+            "link": "shopify://collections/decor",
+            "subheading": "SCULPTURE"
           }
         },
         "flare_wall_sconce": {
@@ -342,10 +344,11 @@
             "mobile_image_includes_text": false,
             "image_alt": "Flare Wall Sconce",
             "eyebrow": "",
-            "heading": "FLARE\\nWALL SCONCE",
+            "heading": "FLARE",
             "body": "",
             "cta_label": "EXPLORE WALL LIGHTS",
-            "link": "shopify://collections/all-wall-lighting"
+            "link": "shopify://collections/all-wall-lighting",
+            "subheading": "WALL SCONCE"
           }
         }
       },
@@ -356,7 +359,9 @@
       ],
       "settings": {
         "show_section": true,
-        "accessibility_label": "Featured collections"
+        "accessibility_label": "Featured collections",
+        "desktop_images_include_text": false,
+        "mobile_images_include_text": false
       }
     },
     "rf_arrival_product_trio": {
