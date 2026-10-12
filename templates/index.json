@@ -358,17 +358,66 @@
         "show_section": true,
         "accessibility_label": "Featured collections"
       }
+    },
+    "rf_arrival_product_trio": {
+      "type": "rf-arrival-product-trio",
+      "name": "RF Arrival product trio",
+      "blocks": {
+        "dwine_candleholders": {
+          "type": "feature",
+          "settings": {
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Dwine Candleholders",
+            "heading": "DWINE CANDLEHOLDERS",
+            "cta_label": "SHOP NOW",
+            "link": ""
+          }
+        },
+        "troy_link_pendant": {
+          "type": "feature",
+          "settings": {
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Troy Link Pendant",
+            "heading": "TROY LINK PENDANT",
+            "cta_label": "SHOP NOW",
+            "link": ""
+          }
+        },
+        "ardor_side_table": {
+          "type": "feature",
+          "settings": {
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Ardor Side Table",
+            "heading": "ARDOR SIDE TABLE",
+            "cta_label": "SHOP NOW",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "dwine_candleholders",
+        "troy_link_pendant",
+        "ardor_side_table"
+      ],
+      "settings": {
+        "show_section": true,
+        "accessibility_label": "Featured products"
+      }
     }
   },
   "order": [
     "single_banner_gxeaAE",
     "rf_arrival_category_strip",
-    "rf_arrival_editorial_showcase",
     "single_banner_pVVt9T",
+    "rf_arrival_editorial_showcase",
     "single_banner_qT6pgr",
     "single_banner_ACeKMP",
     "single_banner_cjdXGi",
     "single_banner_QmaNQK",
+    "rf_arrival_product_trio",
     "single_banner_MgPXgM",
     "single_banner_Wb6fNj",
     "single_banner_zPkaVJ",
