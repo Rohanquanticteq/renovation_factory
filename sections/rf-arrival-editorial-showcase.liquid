@@ -9,6 +9,8 @@
     <div class="rf-arrival-editorial-showcase__grid">
       {%- for block in section.blocks -%}
         {%- liquid
+          assign desktop_video = block.settings.desktop_video
+          assign mobile_video = block.settings.mobile_video
           assign desktop_image = block.settings.desktop_image
           assign mobile_image = block.settings.mobile_image | default: desktop_image
           if desktop_image == blank
@@ -38,19 +40,34 @@
           {%- endif -%}
 
           <div class="rf-arrival-editorial-showcase__media">
-            {%- if desktop_image != blank -%}
-              <picture>
-                {%- if mobile_image != blank -%}
-                  <source
-                    media="(max-width: 749px)"
-                    srcset="
-                      {{ mobile_image | image_url: width: 500 }} 500w,
-                      {{ mobile_image | image_url: width: 750 }} 750w,
-                      {{ mobile_image | image_url: width: 1000 }} 1000w
-                    "
-                    sizes="100vw"
-                  >
-                {%- endif -%}
+            <div class="rf-arrival-editorial-showcase__media-desktop">
+              {%- if desktop_video != blank -%}
+                <video
+                  class="rf-arrival-editorial-showcase__video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  {%- if desktop_image != blank %} poster="{{ desktop_image | image_url: width: 1400 }}"{% endif -%}
+                >
+                  {%- for source in desktop_video.sources -%}
+                    <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                  {%- endfor -%}
+                  {%- if desktop_image != blank -%}
+                    {{
+                      desktop_image
+                      | image_url: width: 1400
+                      | image_tag:
+                        class: 'rf-arrival-editorial-showcase__image',
+                        widths: '500, 750, 1000, 1200, 1400',
+                        sizes: '(min-width: 750px) 40vw, 100vw',
+                        loading: 'lazy',
+                        alt: block.settings.image_alt
+                    }}
+                  {%- endif -%}
+                </video>
+              {%- elsif desktop_image != blank -%}
                 {{
                   desktop_image
                   | image_url: width: 1800
@@ -61,10 +78,78 @@
                     loading: 'lazy',
                     alt: block.settings.image_alt
                 }}
-              </picture>
-            {%- else -%}
-              <div class="rf-arrival-editorial-showcase__placeholder" aria-hidden="true"></div>
-            {%- endif -%}
+              {%- else -%}
+                <div class="rf-arrival-editorial-showcase__placeholder" aria-hidden="true"></div>
+              {%- endif -%}
+            </div>
+
+            <div class="rf-arrival-editorial-showcase__media-mobile">
+              {%- if mobile_video != blank -%}
+                <video
+                  class="rf-arrival-editorial-showcase__video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  {%- if mobile_image != blank %} poster="{{ mobile_image | image_url: width: 1000 }}"{% endif -%}
+                >
+                  {%- for source in mobile_video.sources -%}
+                    <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                  {%- endfor -%}
+                  {%- if mobile_image != blank -%}
+                    {{
+                      mobile_image
+                      | image_url: width: 1000
+                      | image_tag:
+                        class: 'rf-arrival-editorial-showcase__image',
+                        widths: '500, 750, 1000',
+                        sizes: '100vw',
+                        loading: 'lazy',
+                        alt: block.settings.image_alt
+                    }}
+                  {%- endif -%}
+                </video>
+              {%- elsif mobile_image != blank -%}
+                {{
+                  mobile_image
+                  | image_url: width: 1000
+                  | image_tag:
+                    class: 'rf-arrival-editorial-showcase__image',
+                    widths: '500, 750, 1000',
+                    sizes: '100vw',
+                    loading: 'lazy',
+                    alt: block.settings.image_alt
+                }}
+              {%- elsif desktop_video != blank -%}
+                <video
+                  class="rf-arrival-editorial-showcase__video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  {%- if desktop_image != blank %} poster="{{ desktop_image | image_url: width: 1000 }}"{% endif -%}
+                >
+                  {%- for source in desktop_video.sources -%}
+                    <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                  {%- endfor -%}
+                </video>
+              {%- elsif desktop_image != blank -%}
+                {{
+                  desktop_image
+                  | image_url: width: 1000
+                  | image_tag:
+                    class: 'rf-arrival-editorial-showcase__image',
+                    widths: '500, 750, 1000',
+                    sizes: '100vw',
+                    loading: 'lazy',
+                    alt: block.settings.image_alt
+                }}
+              {%- else -%}
+                <div class="rf-arrival-editorial-showcase__placeholder" aria-hidden="true"></div>
+              {%- endif -%}
+            </div>
           </div>
 
           <div class="rf-arrival-editorial-showcase__content">
@@ -116,15 +201,15 @@
     {
       "type": "checkbox",
       "id": "desktop_images_include_text",
-      "label": "Desktop images already include text",
-      "info": "Turn this on when all three desktop artworks already contain their text and CTA. Dynamic HTML content will be hidden and each image will fill its panel.",
+      "label": "Desktop media already includes text",
+      "info": "Turn this on only when all three desktop media items already contain their text and CTA. Dynamic HTML content will be hidden in all three columns.",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "mobile_images_include_text",
-      "label": "Mobile images already include text",
-      "info": "Turn this on when all three mobile artworks already contain their text and CTA.",
+      "label": "Mobile media already includes text",
+      "info": "Turn this on only when all three mobile media items already contain their text and CTA.",
       "default": false
     },
     {
@@ -176,27 +261,41 @@
           "default": "dark"
         },
         {
+          "type": "video",
+          "id": "desktop_video",
+          "label": "Desktop video",
+          "info": "Optional. When selected, the video is used instead of the desktop image."
+        },
+        {
           "type": "image_picker",
           "id": "desktop_image",
-          "label": "Desktop image"
+          "label": "Desktop image / video fallback",
+          "info": "Used when there is no desktop video and as the video poster/fallback when a video is selected."
         },
         {
           "type": "checkbox",
           "id": "desktop_image_includes_text",
-          "label": "This desktop image already includes text",
-          "info": "Use this only when this individual desktop panel already contains all of its text and CTA.",
+          "label": "Desktop media already includes text",
+          "info": "Turn this on when the selected desktop video or image already contains all text and CTA. That media fills this one column and the separate HTML text is hidden.",
           "default": false
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "Mobile video",
+          "info": "Optional. When selected, the video is used instead of the mobile image."
         },
         {
           "type": "image_picker",
           "id": "mobile_image",
-          "label": "Mobile image"
+          "label": "Mobile image / video fallback",
+          "info": "Used when there is no mobile video and as the mobile video poster/fallback."
         },
         {
           "type": "checkbox",
           "id": "mobile_image_includes_text",
-          "label": "This mobile image already includes text",
-          "info": "Use this only when this individual mobile panel already contains all of its text and CTA.",
+          "label": "Mobile media already includes text",
+          "info": "Turn this on when the selected mobile video or image already contains all text and CTA.",
           "default": false
         },
         {
