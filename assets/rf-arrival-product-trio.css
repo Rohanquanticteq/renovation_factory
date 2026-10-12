@@ -1,0 +1,118 @@
+.shopify-section--rf-arrival-product-trio {
+  margin: 0;
+}
+
+.rf-arrival-product-trio {
+  width: 100%;
+  overflow: hidden;
+  background: #111;
+}
+
+.rf-arrival-product-trio__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  width: 100%;
+  background: #fff;
+}
+
+.rf-arrival-product-trio__card {
+  position: relative;
+  display: block;
+  min-height: 470px;
+  overflow: hidden;
+  color: #fff;
+  background: #6f645a;
+  text-decoration: none;
+}
+
+.rf-arrival-product-trio__media,
+.rf-arrival-product-trio__media picture,
+.rf-arrival-product-trio__image,
+.rf-arrival-product-trio__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rf-arrival-product-trio__media {
+  position: absolute;
+  inset: 0;
+}
+
+.rf-arrival-product-trio__image {
+  object-fit: cover;
+}
+
+.rf-arrival-product-trio__placeholder {
+  background: #75695e;
+}
+
+.rf-arrival-product-trio__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0.36) 100%);
+  pointer-events: none;
+}
+
+.rf-arrival-product-trio__content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 28px 24px;
+}
+
+.rf-arrival-product-trio__heading {
+  margin: 0;
+  color: inherit;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(24px, 2vw, 38px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.rf-arrival-product-trio__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 750px) {
+  .rf-arrival-product-trio__card--desktop-artwork .rf-arrival-product-trio__content,
+  .rf-arrival-product-trio__card--desktop-artwork .rf-arrival-product-trio__shade {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .rf-arrival-product-trio__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rf-arrival-product-trio__card {
+    min-height: 460px;
+  }
+
+  .rf-arrival-product-trio__content {
+    padding: 24px 20px 20px;
+  }
+
+  .rf-arrival-product-trio__heading {
+    font-size: 30px;
+  }
+
+  .rf-arrival-product-trio__card--mobile-artwork .rf-arrival-product-trio__content,
+  .rf-arrival-product-trio__card--mobile-artwork .rf-arrival-product-trio__shade {
+    display: none;
+  }
+}
