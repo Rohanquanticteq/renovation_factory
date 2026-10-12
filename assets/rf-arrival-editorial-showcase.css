@@ -1,0 +1,212 @@
+.shopify-section--rf-arrival-editorial {
+  margin: 0;
+}
+
+.rf-arrival-editorial-showcase {
+  width: 100%;
+  overflow: hidden;
+  background: #f4f0e8;
+}
+
+.rf-arrival-editorial-showcase__grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1.6fr 0.95fr;
+  width: 100%;
+}
+
+.rf-arrival-editorial-showcase__panel {
+  position: relative;
+  min-width: 0;
+  min-height: 430px;
+  overflow: hidden;
+  text-decoration: none;
+  background: #ede8df;
+}
+
+.rf-arrival-editorial-showcase__media,
+.rf-arrival-editorial-showcase__media picture,
+.rf-arrival-editorial-showcase__image,
+.rf-arrival-editorial-showcase__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rf-arrival-editorial-showcase__media {
+  position: absolute;
+  inset: 0;
+}
+
+.rf-arrival-editorial-showcase__image {
+  object-fit: cover;
+}
+
+.rf-arrival-editorial-showcase__placeholder {
+  background: #c9c1b6;
+}
+
+.rf-arrival-editorial-showcase__content {
+  position: relative;
+  z-index: 1;
+}
+
+.rf-arrival-editorial-showcase__panel--dark {
+  color: #211b16;
+}
+
+.rf-arrival-editorial-showcase__panel--light {
+  color: #fff;
+}
+
+.rf-arrival-editorial-showcase__panel--split-left {
+  display: grid;
+  grid-template-columns: 31% 69%;
+  background: #f7f2e8;
+}
+
+.rf-arrival-editorial-showcase__panel--split-left .rf-arrival-editorial-showcase__media {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.rf-arrival-editorial-showcase__panel--split-left .rf-arrival-editorial-showcase__content {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 34px 24px;
+  background: rgba(247, 242, 232, 0.96);
+}
+
+.rf-arrival-editorial-showcase__panel--overlay-top .rf-arrival-editorial-showcase__content {
+  position: absolute;
+  top: 34px;
+  left: 30px;
+  max-width: 250px;
+}
+
+.rf-arrival-editorial-showcase__panel--overlay-bottom .rf-arrival-editorial-showcase__content {
+  position: absolute;
+  right: 20px;
+  bottom: 34px;
+  left: 20px;
+}
+
+.rf-arrival-editorial-showcase__eyebrow {
+  margin: 0 0 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.rf-arrival-editorial-showcase__heading {
+  margin: 0;
+  color: inherit;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(28px, 2.25vw, 44px);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.rf-arrival-editorial-showcase__body {
+  max-width: 220px;
+  margin-top: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.rf-arrival-editorial-showcase__body p {
+  margin: 0;
+}
+
+.rf-arrival-editorial-showcase__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-top: 24px;
+  padding: 10px 13px;
+  border: 1px solid currentColor;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 750px) {
+  .rf-arrival-editorial-showcase__panel--desktop-artwork {
+    display: block;
+  }
+
+  .rf-arrival-editorial-showcase__panel--desktop-artwork .rf-arrival-editorial-showcase__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .rf-arrival-editorial-showcase__panel--desktop-artwork .rf-arrival-editorial-showcase__content {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .rf-arrival-editorial-showcase__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rf-arrival-editorial-showcase__panel {
+    min-height: 430px;
+  }
+
+  .rf-arrival-editorial-showcase__panel--split-left {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(280px, 1fr) auto;
+  }
+
+  .rf-arrival-editorial-showcase__panel--split-left .rf-arrival-editorial-showcase__media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .rf-arrival-editorial-showcase__panel--split-left .rf-arrival-editorial-showcase__content {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 26px 22px;
+  }
+
+  .rf-arrival-editorial-showcase__panel--overlay-top .rf-arrival-editorial-showcase__content {
+    top: 28px;
+    left: 22px;
+    max-width: 230px;
+  }
+
+  .rf-arrival-editorial-showcase__panel--overlay-bottom .rf-arrival-editorial-showcase__content {
+    right: 22px;
+    bottom: 24px;
+    left: 22px;
+  }
+
+  .rf-arrival-editorial-showcase__heading {
+    font-size: 32px;
+  }
+
+  .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__content {
+    display: none;
+  }
+
+  .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__media {
+    position: absolute;
+    inset: 0;
+  }
+}
