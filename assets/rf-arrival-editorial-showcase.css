@@ -12,14 +12,13 @@
   display: grid;
   grid-template-columns: 504fr 537.434fr 324.566fr;
   width: 100%;
-  aspect-ratio: 1366 / 504;
 }
 
 .rf-arrival-editorial-showcase__panel {
   position: relative;
   min-width: 0;
-  min-height: 0;
-  height: 100%;
+  min-height: 430px;
+  height: auto;
   overflow: hidden;
   color: #211b16;
   background: #ede8df;
@@ -186,6 +185,15 @@
 }
 
 @media screen and (min-width: 750px) {
+  .rf-arrival-editorial-showcase__grid {
+    height: clamp(360px, 31.5vw, 430px);
+  }
+
+  .rf-arrival-editorial-showcase__panel {
+    min-height: 0;
+    height: 100%;
+  }
+
   .rf-arrival-editorial-showcase--desktop-artwork .rf-arrival-editorial-showcase__panel,
   .rf-arrival-editorial-showcase__panel--desktop-artwork {
     display: block;
