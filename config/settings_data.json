@@ -48,7 +48,8 @@
     "cart_show_free_shipping_threshold": false,
     "cart_free_shipping_threshold": "50",
     "social_facebook": "https://www.facebook.com/RenovationFactory",
-    "social_instagram": "https://www.instagram.com/renovationfacttoryofficial/",
+    "social_twitter": "",
+    "social_instagram": "https://www.instagram.com/renovationfactoryofficial",
     "favicon": "shopify://shop_images/fevicon_1_256x256_53a7fea7-f39d-4cf0-9cc6-a0151f15925b.png",
     "mid": "19g6im5vzegdw",
     "envType": "production",
@@ -329,11 +330,6 @@
       },
       "3753596010683798665": {
         "type": "shopify://apps/pushdaddy-many-chat-cloud-api/blocks/app-embed/e3f2054d-bf7b-4e63-8db3-00712592382c",
-        "disabled": false,
-        "settings": {}
-      },
-      "15088975470107108993": {
-        "type": "shopify://apps/frame-up/blocks/live_preview/1c5d072d-b18c-4203-9987-608903a9febe",
         "disabled": false,
         "settings": {}
       }
@@ -668,5 +664,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "div#footerStickyText {display: none;}"
+    ]
   }
 }
