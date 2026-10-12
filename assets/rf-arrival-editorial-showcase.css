@@ -34,8 +34,10 @@
 }
 
 .rf-arrival-editorial-showcase__media,
-.rf-arrival-editorial-showcase__media picture,
+.rf-arrival-editorial-showcase__media-desktop,
+.rf-arrival-editorial-showcase__media-mobile,
 .rf-arrival-editorial-showcase__image,
+.rf-arrival-editorial-showcase__video,
 .rf-arrival-editorial-showcase__placeholder {
   display: block;
   width: 100%;
@@ -47,8 +49,13 @@
   inset: 0;
 }
 
-.rf-arrival-editorial-showcase__image {
+.rf-arrival-editorial-showcase__image,
+.rf-arrival-editorial-showcase__video {
   object-fit: cover;
+}
+
+.rf-arrival-editorial-showcase__media-mobile {
+  display: none;
 }
 
 .rf-arrival-editorial-showcase__placeholder {
@@ -212,6 +219,14 @@
 }
 
 @media screen and (max-width: 749px) {
+  .rf-arrival-editorial-showcase__media-desktop {
+    display: none;
+  }
+
+  .rf-arrival-editorial-showcase__media-mobile {
+    display: block;
+  }
+
   .rf-arrival-editorial-showcase__grid {
     grid-template-columns: 1fr;
     aspect-ratio: auto;
