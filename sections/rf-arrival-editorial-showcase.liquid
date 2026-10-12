@@ -14,6 +14,19 @@
           if desktop_image == blank
             assign desktop_image = mobile_image
           endif
+
+          assign heading_text = block.settings.heading
+          assign subheading_text = block.settings.subheading
+
+          if subheading_text == blank and heading_text contains '\\N'
+            assign heading_parts = heading_text | split: '\\N'
+            assign heading_text = heading_parts | first
+            assign subheading_text = heading_parts | last
+          elsif subheading_text == blank and heading_text contains '\\n'
+            assign heading_parts = heading_text | split: '\\n'
+            assign heading_text = heading_parts | first
+            assign subheading_text = heading_parts | last
+          endif
         -%}
 
         <div
@@ -59,12 +72,12 @@
               <p class="rf-arrival-editorial-showcase__eyebrow">{{ block.settings.eyebrow | escape }}</p>
             {%- endif -%}
 
-            {%- if block.settings.heading != blank -%}
-              <h2 class="rf-arrival-editorial-showcase__heading">{{ block.settings.heading | escape }}</h2>
+            {%- if heading_text != blank -%}
+              <h2 class="rf-arrival-editorial-showcase__heading">{{ heading_text | escape }}</h2>
             {%- endif -%}
 
-            {%- if block.settings.subheading != blank -%}
-              <p class="rf-arrival-editorial-showcase__subheading">{{ block.settings.subheading | escape }}</p>
+            {%- if subheading_text != blank -%}
+              <p class="rf-arrival-editorial-showcase__subheading">{{ subheading_text | escape }}</p>
             {%- endif -%}
 
             {%- if block.settings.body != blank -%}
