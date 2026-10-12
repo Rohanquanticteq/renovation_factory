@@ -238,10 +238,71 @@
         "link_text": "BOOK AN APPOINTMENT",
         "link": "shopify://pages/contact-us"
       }
+    },
+    "rf_arrival_category_strip": {
+      "type": "rf-arrival-category-strip",
+      "name": "RF Arrival category strip",
+      "blocks": {
+        "lighting": {
+          "type": "category",
+          "settings": {
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Lighting",
+            "title": "LIGHTING",
+            "cta_label": "SHOP NOW",
+            "link": "shopify://collections/lighting"
+          }
+        },
+        "furniture": {
+          "type": "category",
+          "settings": {
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Furniture",
+            "title": "FURNITURE",
+            "cta_label": "SHOP NOW",
+            "link": "shopify://collections/furniture"
+          }
+        },
+        "decor": {
+          "type": "category",
+          "settings": {
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Decor",
+            "title": "DECOR",
+            "cta_label": "SHOP NOW",
+            "link": "shopify://collections/decor"
+          }
+        },
+        "tabletop_bar": {
+          "type": "category",
+          "settings": {
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Table Top and Bar",
+            "title": "TABLE TOP & BAR",
+            "cta_label": "SHOP NOW",
+            "link": "shopify://collections/all-barware"
+          }
+        }
+      },
+      "block_order": [
+        "lighting",
+        "furniture",
+        "decor",
+        "tabletop_bar"
+      ],
+      "settings": {
+        "show_section": true,
+        "accessibility_label": "Shop by category"
+      }
     }
   },
   "order": [
     "single_banner_gxeaAE",
+    "rf_arrival_category_strip",
     "single_banner_pVVt9T",
     "single_banner_qT6pgr",
     "single_banner_ACeKMP",
