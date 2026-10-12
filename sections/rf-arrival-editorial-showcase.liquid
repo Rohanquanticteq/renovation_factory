@@ -2,7 +2,7 @@
 
 {%- if section.settings.show_section -%}
   <section
-    class="rf-arrival-editorial-showcase"
+    class="rf-arrival-editorial-showcase{% if section.settings.desktop_images_include_text %} rf-arrival-editorial-showcase--desktop-artwork{% endif %}{% if section.settings.mobile_images_include_text %} rf-arrival-editorial-showcase--mobile-artwork{% endif %}"
     aria-label="{{ section.settings.accessibility_label | escape }}"
     {{ section.shopify_attributes }}
   >
@@ -16,26 +16,13 @@
           endif
         -%}
 
-        {%- capture panel_classes -%}
-          rf-arrival-editorial-showcase__panel
-          rf-arrival-editorial-showcase__panel--{{ block.settings.layout_style }}
-          rf-arrival-editorial-showcase__panel--{{ block.settings.text_tone }}
-          {%- if block.settings.desktop_image_includes_text %} rf-arrival-editorial-showcase__panel--desktop-artwork{% endif -%}
-          {%- if block.settings.mobile_image_includes_text %} rf-arrival-editorial-showcase__panel--mobile-artwork{% endif -%}
-        {%- endcapture -%}
-
-        {%- if block.settings.link != blank -%}
-          <a
-            class="{{ panel_classes | strip }}"
-            href="{{ block.settings.link }}"
-            {{ block.shopify_attributes }}
-          >
-        {%- else -%}
-          <div
-            class="{{ panel_classes | strip }}"
-            {{ block.shopify_attributes }}
-          >
-        {%- endif -%}
+        <div
+          class="rf-arrival-editorial-showcase__panel rf-arrival-editorial-showcase__panel--{{ block.settings.layout_style }} rf-arrival-editorial-showcase__panel--{{ block.settings.text_tone }}{% if block.settings.desktop_image_includes_text %} rf-arrival-editorial-showcase__panel--desktop-artwork{% endif %}{% if block.settings.mobile_image_includes_text %} rf-arrival-editorial-showcase__panel--mobile-artwork{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.link != blank -%}
+            <a class="rf-arrival-editorial-showcase__link" href="{{ block.settings.link }}">
+          {%- endif -%}
 
           <div class="rf-arrival-editorial-showcase__media">
             {%- if desktop_image != blank -%}
@@ -51,7 +38,6 @@
                     sizes="100vw"
                   >
                 {%- endif -%}
-
                 {{
                   desktop_image
                   | image_url: width: 1800
@@ -74,7 +60,11 @@
             {%- endif -%}
 
             {%- if block.settings.heading != blank -%}
-              <h2 class="rf-arrival-editorial-showcase__heading">{{ block.settings.heading | escape | newline_to_br }}</h2>
+              <h2 class="rf-arrival-editorial-showcase__heading">{{ block.settings.heading | escape }}</h2>
+            {%- endif -%}
+
+            {%- if block.settings.subheading != blank -%}
+              <p class="rf-arrival-editorial-showcase__subheading">{{ block.settings.subheading | escape }}</p>
             {%- endif -%}
 
             {%- if block.settings.body != blank -%}
@@ -89,11 +79,10 @@
             {%- endif -%}
           </div>
 
-        {%- if block.settings.link != blank -%}
-          </a>
-        {%- else -%}
-          </div>
-        {%- endif -%}
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- endif -%}
+        </div>
       {%- endfor -%}
     </div>
   </section>
@@ -110,6 +99,20 @@
       "id": "show_section",
       "label": "Show section",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "desktop_images_include_text",
+      "label": "Desktop images already include text",
+      "info": "Turn this on when all three desktop artworks already contain their text and CTA. Dynamic HTML content will be hidden and each image will fill its panel.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_images_include_text",
+      "label": "Mobile images already include text",
+      "info": "Turn this on when all three mobile artworks already contain their text and CTA.",
+      "default": false
     },
     {
       "type": "text",
@@ -167,8 +170,8 @@
         {
           "type": "checkbox",
           "id": "desktop_image_includes_text",
-          "label": "Desktop image already includes text",
-          "info": "Turn this on when the desktop artwork already contains all heading, copy and CTA text. The separate HTML content will be hidden and the artwork will fill the panel.",
+          "label": "This desktop image already includes text",
+          "info": "Use this only when this individual desktop panel already contains all of its text and CTA.",
           "default": false
         },
         {
@@ -179,8 +182,8 @@
         {
           "type": "checkbox",
           "id": "mobile_image_includes_text",
-          "label": "Mobile image already includes text",
-          "info": "Turn this on when the mobile artwork already contains all heading, copy and CTA text. The separate HTML content will be hidden on mobile.",
+          "label": "This mobile image already includes text",
+          "info": "Use this only when this individual mobile panel already contains all of its text and CTA.",
           "default": false
         },
         {
@@ -194,9 +197,14 @@
           "label": "Eyebrow"
         },
         {
-          "type": "textarea",
+          "type": "text",
           "id": "heading",
-          "label": "Heading"
+          "label": "Primary heading"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Secondary heading"
         },
         {
           "type": "richtext",
@@ -226,7 +234,8 @@
             "layout_style": "split-left",
             "text_tone": "dark",
             "eyebrow": "FEATURED",
-            "heading": "DRINK\nTABLES",
+            "heading": "DRINK",
+            "subheading": "TABLES",
             "body": "<p>Sculptural details for every corner</p>",
             "cta_label": "EXPLORE DRINK TABLES"
           }
@@ -236,8 +245,9 @@
           "settings": {
             "layout_style": "overlay-top",
             "text_tone": "dark",
-            "heading": "ORBIT\nSCULPTURE",
-            "body": "<p>Ribbons of bronze resting on marble</p>",
+            "heading": "ORBIT",
+            "subheading": "SCULPTURE",
+            "body": "<p>RIBBONS OF BRONZE<br>RESTING ON MARBLE</p>",
             "cta_label": "EXPLORE DECOR"
           }
         },
@@ -246,7 +256,8 @@
           "settings": {
             "layout_style": "overlay-bottom",
             "text_tone": "dark",
-            "heading": "FLARE\nWALL SCONCE",
+            "heading": "FLARE",
+            "subheading": "WALL SCONCE",
             "cta_label": "EXPLORE WALL LIGHTS"
           }
         }
