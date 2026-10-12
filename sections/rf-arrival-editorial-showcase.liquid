@@ -1,0 +1,257 @@
+{{ 'rf-arrival-editorial-showcase.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.show_section -%}
+  <section
+    class="rf-arrival-editorial-showcase"
+    aria-label="{{ section.settings.accessibility_label | escape }}"
+    {{ section.shopify_attributes }}
+  >
+    <div class="rf-arrival-editorial-showcase__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign desktop_image = block.settings.desktop_image
+          assign mobile_image = block.settings.mobile_image | default: desktop_image
+          if desktop_image == blank
+            assign desktop_image = mobile_image
+          endif
+        -%}
+
+        {%- capture panel_classes -%}
+          rf-arrival-editorial-showcase__panel
+          rf-arrival-editorial-showcase__panel--{{ block.settings.layout_style }}
+          rf-arrival-editorial-showcase__panel--{{ block.settings.text_tone }}
+          {%- if block.settings.desktop_image_includes_text %} rf-arrival-editorial-showcase__panel--desktop-artwork{% endif -%}
+          {%- if block.settings.mobile_image_includes_text %} rf-arrival-editorial-showcase__panel--mobile-artwork{% endif -%}
+        {%- endcapture -%}
+
+        {%- if block.settings.link != blank -%}
+          <a
+            class="{{ panel_classes | strip }}"
+            href="{{ block.settings.link }}"
+            {{ block.shopify_attributes }}
+          >
+        {%- else -%}
+          <div
+            class="{{ panel_classes | strip }}"
+            {{ block.shopify_attributes }}
+          >
+        {%- endif -%}
+
+          <div class="rf-arrival-editorial-showcase__media">
+            {%- if desktop_image != blank -%}
+              <picture>
+                {%- if mobile_image != blank -%}
+                  <source
+                    media="(max-width: 749px)"
+                    srcset="
+                      {{ mobile_image | image_url: width: 500 }} 500w,
+                      {{ mobile_image | image_url: width: 750 }} 750w,
+                      {{ mobile_image | image_url: width: 1000 }} 1000w
+                    "
+                    sizes="100vw"
+                  >
+                {%- endif -%}
+
+                {{
+                  desktop_image
+                  | image_url: width: 1800
+                  | image_tag:
+                    class: 'rf-arrival-editorial-showcase__image',
+                    widths: '500, 750, 1000, 1300, 1600, 1800',
+                    sizes: '(min-width: 750px) 40vw, 100vw',
+                    loading: 'lazy',
+                    alt: block.settings.image_alt
+                }}
+              </picture>
+            {%- else -%}
+              <div class="rf-arrival-editorial-showcase__placeholder" aria-hidden="true"></div>
+            {%- endif -%}
+          </div>
+
+          <div class="rf-arrival-editorial-showcase__content">
+            {%- if block.settings.eyebrow != blank -%}
+              <p class="rf-arrival-editorial-showcase__eyebrow">{{ block.settings.eyebrow | escape }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.heading != blank -%}
+              <h2 class="rf-arrival-editorial-showcase__heading">{{ block.settings.heading | escape | newline_to_br }}</h2>
+            {%- endif -%}
+
+            {%- if block.settings.body != blank -%}
+              <div class="rf-arrival-editorial-showcase__body">{{ block.settings.body }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.cta_label != blank -%}
+              <span class="rf-arrival-editorial-showcase__cta">
+                {{ block.settings.cta_label | escape }}
+                <span aria-hidden="true">&rarr;</span>
+              </span>
+            {%- endif -%}
+          </div>
+
+        {%- if block.settings.link != blank -%}
+          </a>
+        {%- else -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "RF Arrival editorial",
+  "class": "shopify-section--rf-arrival-editorial",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Accessibility label",
+      "default": "Featured collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature panel",
+      "settings": [
+        {
+          "type": "select",
+          "id": "layout_style",
+          "label": "Layout style",
+          "options": [
+            {
+              "value": "split-left",
+              "label": "Text panel left, image right"
+            },
+            {
+              "value": "overlay-top",
+              "label": "Text over image, top"
+            },
+            {
+              "value": "overlay-bottom",
+              "label": "Text over image, bottom"
+            }
+          ],
+          "default": "overlay-top"
+        },
+        {
+          "type": "select",
+          "id": "text_tone",
+          "label": "Text tone",
+          "options": [
+            {
+              "value": "dark",
+              "label": "Dark"
+            },
+            {
+              "value": "light",
+              "label": "Light"
+            }
+          ],
+          "default": "dark"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop image"
+        },
+        {
+          "type": "checkbox",
+          "id": "desktop_image_includes_text",
+          "label": "Desktop image already includes text",
+          "info": "Turn this on when the desktop artwork already contains all heading, copy and CTA text. The separate HTML content will be hidden and the artwork will fill the panel.",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_image_includes_text",
+          "label": "Mobile image already includes text",
+          "info": "Turn this on when the mobile artwork already contains all heading, copy and CTA text. The separate HTML content will be hidden on mobile.",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Body"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "CTA label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RF Arrival editorial",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "layout_style": "split-left",
+            "text_tone": "dark",
+            "eyebrow": "FEATURED",
+            "heading": "DRINK\nTABLES",
+            "body": "<p>Sculptural details for every corner</p>",
+            "cta_label": "EXPLORE DRINK TABLES"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "layout_style": "overlay-top",
+            "text_tone": "dark",
+            "heading": "ORBIT\nSCULPTURE",
+            "body": "<p>Ribbons of bronze resting on marble</p>",
+            "cta_label": "EXPLORE DECOR"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "layout_style": "overlay-bottom",
+            "text_tone": "dark",
+            "heading": "FLARE\nWALL SCONCE",
+            "cta_label": "EXPLORE WALL LIGHTS"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
