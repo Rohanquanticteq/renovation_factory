@@ -11,7 +11,7 @@
 .rf-arrival-product-trio__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
+  gap: 0;
   width: 100%;
   background: #fff;
 }
@@ -88,9 +88,19 @@
 }
 
 @media screen and (min-width: 750px) {
+  .rf-arrival-product-trio__card {
+    min-height: 0;
+    aspect-ratio: 700 / 930;
+  }
+
   .rf-arrival-product-trio__card--desktop-artwork .rf-arrival-product-trio__content,
   .rf-arrival-product-trio__card--desktop-artwork .rf-arrival-product-trio__shade {
     display: none;
+  }
+
+  .rf-arrival-product-trio__card--desktop-artwork .rf-arrival-product-trio__image {
+    object-fit: cover;
+    object-position: center;
   }
 }
 
