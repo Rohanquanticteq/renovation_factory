@@ -308,15 +308,16 @@
           "settings": {
             "layout_style": "split-left",
             "text_tone": "dark",
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
             "image_alt": "Drink Tables",
             "eyebrow": "FEATURED",
             "heading": "DRINK",
             "body": "<p>Sculptural details for every corner</p>",
             "cta_label": "EXPLORE DRINK TABLES",
             "link": "shopify://collections/drink-tables",
-            "subheading": "TABLES"
+            "subheading": "TABLES",
+            "desktop_video": "shopify://files/videos/800_-800_VIDEO.mp4"
           }
         },
         "orbit_sculpture": {
@@ -324,15 +325,16 @@
           "settings": {
             "layout_style": "overlay-top",
             "text_tone": "dark",
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
             "image_alt": "Orbit Sculpture",
             "eyebrow": "",
             "heading": "ORBIT",
             "body": "<p>RIBBONS OF BRONZE<br>RESTING ON MARBLE</p>",
             "cta_label": "EXPLORE DECOR",
             "link": "shopify://collections/decor",
-            "subheading": "SCULPTURE"
+            "subheading": "SCULPTURE",
+            "desktop_image": "shopify://shop_images/BANNERS.jpg"
           }
         },
         "flare_wall_sconce": {
@@ -340,15 +342,16 @@
           "settings": {
             "layout_style": "overlay-bottom",
             "text_tone": "dark",
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
             "image_alt": "Flare Wall Sconce",
             "eyebrow": "",
             "heading": "FLARE",
             "body": "",
             "cta_label": "EXPLORE WALL LIGHTS",
             "link": "shopify://collections/all-wall-lighting",
-            "subheading": "WALL SCONCE"
+            "subheading": "WALL SCONCE",
+            "desktop_image": "shopify://shop_images/BANNERS_1.jpg"
           }
         }
       },
@@ -371,34 +374,37 @@
         "dwine_candleholders": {
           "type": "feature",
           "settings": {
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
             "image_alt": "Dwine Candleholders",
             "heading": "DWINE CANDLEHOLDERS",
             "cta_label": "SHOP NOW",
-            "link": ""
+            "link": "",
+            "desktop_image": "shopify://shop_images/Dwine_Real_Photo_700x930.png"
           }
         },
         "troy_link_pendant": {
           "type": "feature",
           "settings": {
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
             "image_alt": "Troy Link Pendant",
             "heading": "TROY LINK PENDANT",
             "cta_label": "SHOP NOW",
-            "link": ""
+            "link": "",
+            "desktop_image": "shopify://shop_images/Troy_Link_Real_Photo_700x930.png"
           }
         },
         "ardor_side_table": {
           "type": "feature",
           "settings": {
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
             "image_alt": "Ardor Side Table",
             "heading": "ARDOR SIDE TABLE",
             "cta_label": "SHOP NOW",
-            "link": ""
+            "link": "",
+            "desktop_image": "shopify://shop_images/Ardor_Original_Photo_Banner_700x930.png"
           }
         }
       },
