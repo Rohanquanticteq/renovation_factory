@@ -193,7 +193,10 @@
 
 @media screen and (min-width: 750px) {
   .rf-arrival-editorial-showcase__grid {
-    height: clamp(360px, 31.5vw, 430px);
+    width: min(100%, 1366px);
+    margin-inline: auto;
+    height: auto;
+    aspect-ratio: 1366 / 504;
   }
 
   .rf-arrival-editorial-showcase__panel {
