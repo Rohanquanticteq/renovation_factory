@@ -20,6 +20,70 @@
         "link": "https://www.renovationfactory.com/collections/lighting"
       }
     },
+    "rf_arrival_category_strip": {
+      "type": "rf-arrival-category-strip",
+      "blocks": {
+        "lighting": {
+          "type": "category",
+          "settings": {
+            "desktop_image": "shopify://shop_images/stripcategory-1.png",
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Lighting",
+            "title": "LIGHTING",
+            "cta_label": "SHOP NOW",
+            "link": "shopify://collections/lighting"
+          }
+        },
+        "furniture": {
+          "type": "category",
+          "settings": {
+            "desktop_image": "shopify://shop_images/strip-category-2.png",
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Furniture",
+            "title": "FURNITURE",
+            "cta_label": "SHOP NOW",
+            "link": "shopify://collections/furniture"
+          }
+        },
+        "decor": {
+          "type": "category",
+          "settings": {
+            "desktop_image": "shopify://shop_images/strip-category-3.png",
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Decor",
+            "title": "DECOR",
+            "cta_label": "SHOP NOW",
+            "link": "shopify://collections/decor"
+          }
+        },
+        "tabletop_bar": {
+          "type": "category",
+          "settings": {
+            "desktop_image": "shopify://shop_images/strip-category-4.png",
+            "desktop_image_includes_text": false,
+            "mobile_image_includes_text": false,
+            "image_alt": "Table Top and Bar",
+            "title": "TABLE TOP & BAR",
+            "cta_label": "SHOP NOW",
+            "link": "shopify://collections/all-barware"
+          }
+        }
+      },
+      "block_order": [
+        "lighting",
+        "furniture",
+        "decor",
+        "tabletop_bar"
+      ],
+      "name": "RF Arrival category strip",
+      "settings": {
+        "show_section": true,
+        "accessibility_label": "Shop by category"
+      }
+    },
     "single_banner_pVVt9T": {
       "type": "single-banner",
       "name": "Single Banner Sec",
@@ -29,6 +93,74 @@
         "mobile_banner": "shopify://shop_images/Bring_your_space_together-2.png",
         "button_text": "",
         "link": "https://www.renovationfactory.com/collections/furniture"
+      }
+    },
+    "rf_arrival_editorial_showcase": {
+      "type": "rf-arrival-editorial-showcase",
+      "blocks": {
+        "drink_tables": {
+          "type": "feature",
+          "settings": {
+            "layout_style": "split-left",
+            "text_tone": "dark",
+            "desktop_video": "shopify://files/videos/800 -800 VIDEO.mp4",
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
+            "image_alt": "Drink Tables",
+            "eyebrow": "FEATURED",
+            "heading": "DRINK",
+            "subheading": "TABLES",
+            "body": "<p>Sculptural details for every corner</p>",
+            "cta_label": "EXPLORE DRINK TABLES",
+            "link": "shopify://collections/drink-tables"
+          }
+        },
+        "orbit_sculpture": {
+          "type": "feature",
+          "settings": {
+            "layout_style": "overlay-top",
+            "text_tone": "dark",
+            "desktop_image": "shopify://shop_images/BANNERS.jpg",
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
+            "image_alt": "Orbit Sculpture",
+            "eyebrow": "",
+            "heading": "ORBIT",
+            "subheading": "SCULPTURE",
+            "body": "<p>RIBBONS OF BRONZE<br>RESTING ON MARBLE</p>",
+            "cta_label": "EXPLORE DECOR",
+            "link": "shopify://collections/decor"
+          }
+        },
+        "flare_wall_sconce": {
+          "type": "feature",
+          "settings": {
+            "layout_style": "overlay-bottom",
+            "text_tone": "dark",
+            "desktop_image": "shopify://shop_images/BANNERS_1.jpg",
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
+            "image_alt": "Flare Wall Sconce",
+            "eyebrow": "",
+            "heading": "FLARE",
+            "subheading": "WALL SCONCE",
+            "body": "",
+            "cta_label": "EXPLORE WALL LIGHTS",
+            "link": "shopify://collections/all-wall-lighting"
+          }
+        }
+      },
+      "block_order": [
+        "drink_tables",
+        "orbit_sculpture",
+        "flare_wall_sconce"
+      ],
+      "name": "RF Arrival editorial",
+      "settings": {
+        "show_section": true,
+        "desktop_images_include_text": false,
+        "mobile_images_include_text": false,
+        "accessibility_label": "Featured collections"
       }
     },
     "single_banner_qT6pgr": {
@@ -74,6 +206,57 @@
         "mobile_banner": "shopify://shop_images/The_Art_of_Serving-15.png",
         "button_text": "",
         "link": "https://www.renovationfactory.com/collections/all-serveware"
+      }
+    },
+    "rf_arrival_product_trio": {
+      "type": "rf-arrival-product-trio",
+      "blocks": {
+        "dwine_candleholders": {
+          "type": "feature",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Dwine_Real_Photo_700x930_dbd5d07b-46ef-49ad-a114-d76eb5ae37a9.png",
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
+            "image_alt": "Dwine Candleholders",
+            "heading": "DWINE CANDLEHOLDERS",
+            "cta_label": "SHOP NOW",
+            "link": ""
+          }
+        },
+        "troy_link_pendant": {
+          "type": "feature",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Troy_Link_Real_Photo_700x930_a9a5c0c1-ceeb-4d27-9a4a-a9859f3d61f4.png",
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
+            "image_alt": "Troy Link Pendant",
+            "heading": "TROY LINK PENDANT",
+            "cta_label": "SHOP NOW",
+            "link": ""
+          }
+        },
+        "ardor_side_table": {
+          "type": "feature",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Ardor_Original_Photo_Banner_700x930_0f008f25-284c-4e2a-8c99-6b7ae23d2218.png",
+            "desktop_image_includes_text": true,
+            "mobile_image_includes_text": true,
+            "image_alt": "Ardor Side Table",
+            "heading": "ARDOR SIDE TABLE",
+            "cta_label": "SHOP NOW",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "dwine_candleholders",
+        "troy_link_pendant",
+        "ardor_side_table"
+      ],
+      "name": "RF Arrival product trio",
+      "settings": {
+        "show_section": true,
+        "accessibility_label": "Featured products"
       }
     },
     "single_banner_MgPXgM": {
@@ -237,184 +420,6 @@
         "description": "VISIT THE GALLERY",
         "link_text": "BOOK AN APPOINTMENT",
         "link": "shopify://pages/contact-us"
-      }
-    },
-    "rf_arrival_category_strip": {
-      "type": "rf-arrival-category-strip",
-      "name": "RF Arrival category strip",
-      "blocks": {
-        "lighting": {
-          "type": "category",
-          "settings": {
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
-            "image_alt": "Lighting",
-            "title": "LIGHTING",
-            "cta_label": "SHOP NOW",
-            "link": "shopify://collections/lighting"
-          }
-        },
-        "furniture": {
-          "type": "category",
-          "settings": {
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
-            "image_alt": "Furniture",
-            "title": "FURNITURE",
-            "cta_label": "SHOP NOW",
-            "link": "shopify://collections/furniture"
-          }
-        },
-        "decor": {
-          "type": "category",
-          "settings": {
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
-            "image_alt": "Decor",
-            "title": "DECOR",
-            "cta_label": "SHOP NOW",
-            "link": "shopify://collections/decor"
-          }
-        },
-        "tabletop_bar": {
-          "type": "category",
-          "settings": {
-            "desktop_image_includes_text": false,
-            "mobile_image_includes_text": false,
-            "image_alt": "Table Top and Bar",
-            "title": "TABLE TOP & BAR",
-            "cta_label": "SHOP NOW",
-            "link": "shopify://collections/all-barware"
-          }
-        }
-      },
-      "block_order": [
-        "lighting",
-        "furniture",
-        "decor",
-        "tabletop_bar"
-      ],
-      "settings": {
-        "show_section": true,
-        "accessibility_label": "Shop by category"
-      }
-    },
-    "rf_arrival_editorial_showcase": {
-      "type": "rf-arrival-editorial-showcase",
-      "name": "RF Arrival editorial",
-      "blocks": {
-        "drink_tables": {
-          "type": "feature",
-          "settings": {
-            "layout_style": "split-left",
-            "text_tone": "dark",
-            "desktop_image_includes_text": true,
-            "mobile_image_includes_text": true,
-            "image_alt": "Drink Tables",
-            "eyebrow": "FEATURED",
-            "heading": "DRINK",
-            "body": "<p>Sculptural details for every corner</p>",
-            "cta_label": "EXPLORE DRINK TABLES",
-            "link": "shopify://collections/drink-tables",
-            "subheading": "TABLES"
-          }
-        },
-        "orbit_sculpture": {
-          "type": "feature",
-          "settings": {
-            "layout_style": "overlay-top",
-            "text_tone": "dark",
-            "desktop_image_includes_text": true,
-            "mobile_image_includes_text": true,
-            "image_alt": "Orbit Sculpture",
-            "eyebrow": "",
-            "heading": "ORBIT",
-            "body": "<p>RIBBONS OF BRONZE<br>RESTING ON MARBLE</p>",
-            "cta_label": "EXPLORE DECOR",
-            "link": "shopify://collections/decor",
-            "subheading": "SCULPTURE",
-            "desktop_image": "shopify://shop_images/BANNERS.jpg"
-          }
-        },
-        "flare_wall_sconce": {
-          "type": "feature",
-          "settings": {
-            "layout_style": "overlay-bottom",
-            "text_tone": "dark",
-            "desktop_image_includes_text": true,
-            "mobile_image_includes_text": true,
-            "image_alt": "Flare Wall Sconce",
-            "eyebrow": "",
-            "heading": "FLARE",
-            "body": "",
-            "cta_label": "EXPLORE WALL LIGHTS",
-            "link": "shopify://collections/all-wall-lighting",
-            "subheading": "WALL SCONCE",
-            "desktop_image": "shopify://shop_images/BANNERS_1.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "drink_tables",
-        "orbit_sculpture",
-        "flare_wall_sconce"
-      ],
-      "settings": {
-        "show_section": true,
-        "accessibility_label": "Featured collections",
-        "desktop_images_include_text": false,
-        "mobile_images_include_text": false
-      }
-    },
-    "rf_arrival_product_trio": {
-      "type": "rf-arrival-product-trio",
-      "name": "RF Arrival product trio",
-      "blocks": {
-        "dwine_candleholders": {
-          "type": "feature",
-          "settings": {
-            "desktop_image_includes_text": true,
-            "mobile_image_includes_text": true,
-            "image_alt": "Dwine Candleholders",
-            "heading": "DWINE CANDLEHOLDERS",
-            "cta_label": "SHOP NOW",
-            "link": "",
-            "desktop_image": "shopify://shop_images/Dwine_Real_Photo_700x930.png"
-          }
-        },
-        "troy_link_pendant": {
-          "type": "feature",
-          "settings": {
-            "desktop_image_includes_text": true,
-            "mobile_image_includes_text": true,
-            "image_alt": "Troy Link Pendant",
-            "heading": "TROY LINK PENDANT",
-            "cta_label": "SHOP NOW",
-            "link": "",
-            "desktop_image": "shopify://shop_images/Troy_Link_Real_Photo_700x930.png"
-          }
-        },
-        "ardor_side_table": {
-          "type": "feature",
-          "settings": {
-            "desktop_image_includes_text": true,
-            "mobile_image_includes_text": true,
-            "image_alt": "Ardor Side Table",
-            "heading": "ARDOR SIDE TABLE",
-            "cta_label": "SHOP NOW",
-            "link": "",
-            "desktop_image": "shopify://shop_images/Ardor_Original_Photo_Banner_700x930.png"
-          }
-        }
-      },
-      "block_order": [
-        "dwine_candleholders",
-        "troy_link_pendant",
-        "ardor_side_table"
-      ],
-      "settings": {
-        "show_section": true,
-        "accessibility_label": "Featured products"
       }
     }
   },
