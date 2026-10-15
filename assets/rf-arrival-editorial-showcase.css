@@ -223,6 +223,14 @@
   .rf-arrival-editorial-showcase__panel--desktop-artwork .rf-arrival-editorial-showcase__content {
     display: none !important;
   }
+
+  .rf-arrival-editorial-showcase--desktop-artwork .rf-arrival-editorial-showcase__image,
+  .rf-arrival-editorial-showcase--desktop-artwork .rf-arrival-editorial-showcase__video,
+  .rf-arrival-editorial-showcase__panel--desktop-artwork .rf-arrival-editorial-showcase__image,
+  .rf-arrival-editorial-showcase__panel--desktop-artwork .rf-arrival-editorial-showcase__video {
+    object-fit: contain;
+    object-position: center;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -307,5 +315,13 @@
   .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__content,
   .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__content {
     display: none !important;
+  }
+
+  .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__image,
+  .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__video,
+  .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__image,
+  .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__video {
+    object-fit: contain;
+    object-position: center;
   }
 }
