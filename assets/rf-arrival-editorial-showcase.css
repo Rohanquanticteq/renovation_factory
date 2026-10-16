@@ -300,19 +300,28 @@
   .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__panel,
   .rf-arrival-editorial-showcase__panel--mobile-artwork {
     display: block;
+    min-height: 0;
+    height: auto;
   }
 
   .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__link,
   .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__link {
     display: block;
+    height: auto;
   }
 
   .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__media,
   .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__media {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    inset: auto;
+    height: auto;
     grid-column: auto;
     grid-row: auto;
+  }
+
+  .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__media-mobile,
+  .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__media-mobile {
+    height: auto;
   }
 
   .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__content,
@@ -324,6 +333,7 @@
   .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__video,
   .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__image,
   .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__video {
+    height: auto;
     object-fit: contain;
     object-position: center;
   }
