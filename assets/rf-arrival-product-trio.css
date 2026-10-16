@@ -121,8 +121,18 @@
     font-size: 30px;
   }
 
+  .rf-arrival-product-trio__card--mobile-artwork {
+    min-height: 0;
+    aspect-ratio: 700 / 930;
+  }
+
   .rf-arrival-product-trio__card--mobile-artwork .rf-arrival-product-trio__content,
   .rf-arrival-product-trio__card--mobile-artwork .rf-arrival-product-trio__shade {
     display: none;
+  }
+
+  .rf-arrival-product-trio__card--mobile-artwork .rf-arrival-product-trio__image {
+    object-fit: contain;
+    object-position: center;
   }
 }
