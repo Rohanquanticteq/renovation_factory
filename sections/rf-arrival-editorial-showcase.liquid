@@ -172,7 +172,15 @@
             </div>
 
             {%- if block.settings.cta_label != blank -%}
-              <span class="rf-arrival-editorial-showcase__cta action_btn">
+              <span
+                class="rf-arrival-editorial-showcase__cta action_btn"
+                style="
+                  --rf-editorial-button-text: {{ block.settings.button_text_color }};
+                  --rf-editorial-button-underline: {{ block.settings.button_underline_color }};
+                  --rf-editorial-button-fill: {{ block.settings.button_hover_background }};
+                  --rf-editorial-button-hover-text: {{ block.settings.button_hover_text_color }};
+                "
+              >
                 <span class="button11">{{ block.settings.cta_label | escape }}</span>
               </span>
             {%- endif -%}
@@ -203,14 +211,14 @@
       "type": "checkbox",
       "id": "desktop_images_include_text",
       "label": "Desktop media already includes text",
-      "info": "Turn this on only when all three desktop media items already contain their text and CTA. Dynamic HTML content will be hidden in all three columns.",
+      "info": "Turn this on only when all three desktop media items already contain their heading/body text. Dynamic text is hidden, while each configurable button remains visible.",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "mobile_images_include_text",
       "label": "Mobile media already includes text",
-      "info": "Turn this on only when all three mobile media items already contain their text and CTA.",
+      "info": "Turn this on only when all three mobile media items already contain their heading/body text. Dynamic text is hidden, while each configurable button remains visible.",
       "default": false
     },
     {
@@ -333,6 +341,30 @@
           "type": "url",
           "id": "link",
           "label": "Button link"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_underline_color",
+          "label": "Button underline color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_hover_background",
+          "label": "Button hover fill color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_hover_text_color",
+          "label": "Button hover text color",
+          "default": "#000000"
         }
       ]
     }
