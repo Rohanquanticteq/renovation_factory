@@ -74,17 +74,8 @@
 }
 
 .rf-arrival-category-strip__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-block;
   margin-top: 8px;
-  color: inherit;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(10px, 0.82vw, 14px);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
 }
 
 .rf-arrival-category-strip__card[href]:hover .rf-arrival-category-strip__image {
@@ -98,7 +89,7 @@
 }
 
 @media screen and (min-width: 750px) {
-  .rf-arrival-category-strip__card--desktop-artwork .rf-arrival-category-strip__content,
+  .rf-arrival-category-strip__card--desktop-artwork .rf-arrival-category-strip__title,
   .rf-arrival-category-strip__card--desktop-artwork .rf-arrival-category-strip__shade {
     display: none;
   }
@@ -137,10 +128,9 @@
 
   .rf-arrival-category-strip__cta {
     margin-top: 7px;
-    font-size: 11px;
   }
 
-  .rf-arrival-category-strip__card--mobile-artwork .rf-arrival-category-strip__content,
+  .rf-arrival-category-strip__card--mobile-artwork .rf-arrival-category-strip__title,
   .rf-arrival-category-strip__card--mobile-artwork .rf-arrival-category-strip__shade {
     display: none;
   }
