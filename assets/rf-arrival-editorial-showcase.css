@@ -176,19 +176,9 @@
 }
 
 .rf-arrival-editorial-showcase__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  display: inline-block;
   width: fit-content;
   margin-top: 24px;
-  padding: 9px 13px;
-  border: 1px solid currentColor;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(7px, 0.58vw, 9px);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 @media screen and (min-width: 750px) {
@@ -222,9 +212,28 @@
     grid-row: auto;
   }
 
+  .rf-arrival-editorial-showcase--desktop-artwork .rf-arrival-editorial-showcase__copy,
+  .rf-arrival-editorial-showcase__panel--desktop-artwork .rf-arrival-editorial-showcase__copy {
+    display: none !important;
+  }
+
   .rf-arrival-editorial-showcase--desktop-artwork .rf-arrival-editorial-showcase__content,
   .rf-arrival-editorial-showcase__panel--desktop-artwork .rf-arrival-editorial-showcase__content {
-    display: none !important;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex !important;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 20px 26px;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .rf-arrival-editorial-showcase--desktop-artwork .rf-arrival-editorial-showcase__cta,
+  .rf-arrival-editorial-showcase__panel--desktop-artwork .rf-arrival-editorial-showcase__cta {
+    margin-top: 0;
+    pointer-events: auto;
   }
 
   .rf-arrival-editorial-showcase--desktop-artwork .rf-arrival-editorial-showcase__image,
@@ -324,9 +333,28 @@
     height: auto;
   }
 
+  .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__copy,
+  .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__copy {
+    display: none !important;
+  }
+
   .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__content,
   .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__content {
-    display: none !important;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex !important;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 16px 18px;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__cta,
+  .rf-arrival-editorial-showcase__panel--mobile-artwork .rf-arrival-editorial-showcase__cta {
+    margin-top: 0;
+    pointer-events: auto;
   }
 
   .rf-arrival-editorial-showcase--mobile-artwork .rf-arrival-editorial-showcase__image,
