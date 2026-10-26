@@ -76,9 +76,8 @@
             {%- endif -%}
 
             {%- if block.settings.cta_label != blank -%}
-              <span class="rf-arrival-category-strip__cta">
-                {{ block.settings.cta_label | escape }}
-                <span aria-hidden="true">&rarr;</span>
+              <span class="rf-arrival-category-strip__cta action_btn">
+                <span class="button11">{{ block.settings.cta_label | escape }}</span>
               </span>
             {%- endif -%}
           </div>
@@ -126,7 +125,7 @@
           "type": "checkbox",
           "id": "desktop_image_includes_text",
           "label": "Desktop image already includes text",
-          "info": "Turn this on when the desktop artwork already contains the category title and Shop Now text. The separate HTML text and overlay will be hidden on desktop.",
+          "info": "Turn this on when the desktop artwork already contains the category title. The dynamic button stays visible and configurable.",
           "default": false
         },
         {
@@ -138,7 +137,7 @@
           "type": "checkbox",
           "id": "mobile_image_includes_text",
           "label": "Mobile image already includes text",
-          "info": "Turn this on when the mobile artwork already contains the category title and Shop Now text. The separate HTML text and overlay will be hidden on mobile.",
+          "info": "Turn this on when the mobile artwork already contains the category title. The dynamic button stays visible and configurable.",
           "default": false
         },
         {
@@ -155,13 +154,13 @@
         {
           "type": "text",
           "id": "cta_label",
-          "label": "CTA label",
+          "label": "Button text",
           "default": "SHOP NOW"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "Link"
+          "label": "Button link"
         }
       ]
     }
