@@ -14,8 +14,8 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/02_1920x1075_24f68506-e47b-4348-ac8f-8618e6144eb2.png",
-        "mobile_banner": "shopify://shop_images/Seasonal_arrival_25__off_sitewide-1.png",
+        "desktop_banner": "shopify://shop_images/1_b42febb8-c9ae-43dc-820c-0fdf6d365643.jpg",
+        "mobile_banner": "shopify://shop_images/1_1_2226d771-c062-45b0-aacf-7d13ca7b254f.png",
         "button_text": "",
         "link": "https://www.renovationfactory.com/collections/lighting"
       }
@@ -31,7 +31,7 @@
             "mobile_image_includes_text": false,
             "image_alt": "Lighting",
             "title": "LIGHTING",
-            "cta_label": "SHOP NOW",
+            "cta_label": "EXPLORE",
             "link": "shopify://collections/lighting"
           }
         },
@@ -43,7 +43,7 @@
             "mobile_image_includes_text": false,
             "image_alt": "Furniture",
             "title": "FURNITURE",
-            "cta_label": "SHOP NOW",
+            "cta_label": "EXPLORE",
             "link": "shopify://collections/furniture"
           }
         },
@@ -55,7 +55,7 @@
             "mobile_image_includes_text": false,
             "image_alt": "Decor",
             "title": "DECOR",
-            "cta_label": "SHOP NOW",
+            "cta_label": "EXPLORE",
             "link": "shopify://collections/decor"
           }
         },
@@ -67,7 +67,7 @@
             "mobile_image_includes_text": false,
             "image_alt": "Table Top and Bar",
             "title": "TABLE TOP & BAR",
-            "cta_label": "SHOP NOW",
+            "cta_label": "EXPLORE",
             "link": "shopify://collections/all-barware"
           }
         }
@@ -89,8 +89,8 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/03_1920x1075_d91bc25b-67de-4175-b529-c1f05d7df0a0.png",
-        "mobile_banner": "shopify://shop_images/Bring_your_space_together-2.png",
+        "desktop_banner": "shopify://shop_images/2_44c8ed8e-5038-4a00-b28c-8a9dc8a578be.jpg",
+        "mobile_banner": "shopify://shop_images/Bring_your_space_together-3.png",
         "button_text": "",
         "link": "https://www.renovationfactory.com/collections/furniture"
       }
@@ -103,7 +103,7 @@
           "settings": {
             "layout_style": "split-left",
             "text_tone": "dark",
-            "desktop_video": "shopify://files/videos/800 -800 VIDEO.mp4",
+            "desktop_video": "shopify://files/videos/3a.mp4",
             "desktop_image_includes_text": true,
             "mobile_image_includes_text": true,
             "image_alt": "Drink Tables",
@@ -120,14 +120,14 @@
           "settings": {
             "layout_style": "overlay-top",
             "text_tone": "dark",
-            "desktop_image": "shopify://shop_images/BANNERS.jpg",
+            "desktop_image": "shopify://shop_images/3b.png",
             "desktop_image_includes_text": true,
             "mobile_image_includes_text": true,
             "image_alt": "Orbit Sculpture",
             "eyebrow": "",
             "heading": "ORBIT",
             "subheading": "SCULPTURE",
-            "body": "<p>RIBBONS OF BRONZE<br>RESTING ON MARBLE</p>",
+            "body": "<p>RIBBONS OF BRONZE<br/>RESTING ON MARBLE</p>",
             "cta_label": "EXPLORE DECOR",
             "link": "shopify://collections/decor"
           }
@@ -137,7 +137,7 @@
           "settings": {
             "layout_style": "overlay-bottom",
             "text_tone": "dark",
-            "desktop_image": "shopify://shop_images/BANNERS_1.jpg",
+            "desktop_image": "shopify://shop_images/3c_ba6c2a4c-03a1-4e0e-be4e-9c53abc4c8f2.png",
             "desktop_image_includes_text": true,
             "mobile_image_includes_text": true,
             "image_alt": "Flare Wall Sconce",
@@ -168,9 +168,9 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/07_1920x1075_a57f4ab4-f0be-4f32-ac91-cfc2656ba888.png",
-        "mobile_banner": "shopify://shop_images/Janus_Planters_Bring_Gardens_Indoors-5.png",
-        "button_text": "",
+        "desktop_banner": "shopify://shop_images/4_60c6ce2a-130d-4bd7-90aa-348f262dd9df.jpg",
+        "mobile_banner": "shopify://shop_images/Bronze_Janus_Planters_in_Stone-5.png",
+        "button_text": "EXPLORE DECOR",
         "link": "https://www.renovationfactory.com/collections/decor"
       }
     },
@@ -191,9 +191,9 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/05_1920x1075_460d86fc-8f44-4b99-8b19-51116e4837e6.png",
-        "mobile_banner": "shopify://shop_images/Attica_pendants_for_a_warm_welcome-7_83b86613-461c-4496-8e90-a49e1c91b035.png",
-        "button_text": "",
+        "desktop_banner": "shopify://shop_images/5_b31f2d7a-2482-4cf0-a9d3-ff640e5e5cfc.jpg",
+        "mobile_banner": "shopify://shop_images/Luxury_pendant_showcase_CTA_removed-1.png",
+        "button_text": "EXPLORE PENDENTS",
         "link": "https://www.renovationfactory.com/collections/pendants"
       }
     },
@@ -202,9 +202,9 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/13_1920x1075_a8d2d7f1-1239-4a59-a7f0-2509de3b591c.png",
-        "mobile_banner": "shopify://shop_images/The_Art_of_Serving-15.png",
-        "button_text": "",
+        "desktop_banner": "shopify://shop_images/6_e78e587f-fa55-404e-84d0-40a565687de1.jpg",
+        "mobile_banner": "shopify://shop_images/The_art_of_elegant_serving-4.png",
+        "button_text": "EXPLORE SERVEWARE",
         "link": "https://www.renovationfactory.com/collections/all-serveware"
       }
     },
@@ -214,7 +214,7 @@
         "dwine_candleholders": {
           "type": "feature",
           "settings": {
-            "desktop_image": "shopify://shop_images/Dwine_Real_Photo_700x930_dbd5d07b-46ef-49ad-a114-d76eb5ae37a9.png",
+            "desktop_image": "shopify://shop_images/7a.png",
             "desktop_image_includes_text": true,
             "mobile_image_includes_text": true,
             "image_alt": "Dwine Candleholders",
@@ -226,7 +226,7 @@
         "troy_link_pendant": {
           "type": "feature",
           "settings": {
-            "desktop_image": "shopify://shop_images/Troy_Link_Real_Photo_700x930_a9a5c0c1-ceeb-4d27-9a4a-a9859f3d61f4.png",
+            "desktop_image": "shopify://shop_images/7b.png",
             "desktop_image_includes_text": true,
             "mobile_image_includes_text": true,
             "image_alt": "Troy Link Pendant",
@@ -238,7 +238,7 @@
         "ardor_side_table": {
           "type": "feature",
           "settings": {
-            "desktop_image": "shopify://shop_images/Ardor_Original_Photo_Banner_700x930_0f008f25-284c-4e2a-8c99-6b7ae23d2218.png",
+            "desktop_image": "shopify://shop_images/7c.png",
             "desktop_image_includes_text": true,
             "mobile_image_includes_text": true,
             "image_alt": "Ardor Side Table",
@@ -264,9 +264,9 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/11_1920x1075_35eef717-3a43-4f94-8461-4e378e49da57.png",
-        "mobile_banner": "shopify://shop_images/Sculptural_wall_mirrors_in_warm_light-12.png",
-        "button_text": "",
+        "desktop_banner": "shopify://shop_images/8_f158c046-360c-4cec-b2b4-b202f46a21ca.jpg",
+        "mobile_banner": "shopify://shop_images/Contemporary_mirror_collection_showcase-2.png",
+        "button_text": "EXPLORE ALL MIRRORS",
         "link": "https://www.renovationfactory.com/collections/all-wall-art"
       }
     },
@@ -275,9 +275,9 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/BANNERS_7.jpg",
-        "mobile_banner": "shopify://shop_images/Marcello_drink_tables_endless_pairings-8.png",
-        "button_text": "",
+        "desktop_banner": "shopify://shop_images/9_8ea8d2af-8a83-4440-9202-35311f8caefb.jpg",
+        "mobile_banner": "shopify://shop_images/BANNERS_2.jpg",
+        "button_text": "EXPLORE DRINK TABLES",
         "link": "https://www.renovationfactory.com/collections/drink-tables"
       }
     },
@@ -286,9 +286,9 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/8_de6f8c01-50ac-4f65-8cbc-ec3e3929c4ba.jpg",
-        "mobile_banner": "shopify://shop_images/8.png",
-        "button_text": "",
+        "desktop_banner": "shopify://shop_images/10_bb5d71b0-b2b3-4cf2-bba8-79a87cdc1721.jpg",
+        "mobile_banner": "shopify://shop_images/Elegant_barware_collection_showcase-4.png",
+        "button_text": "EXPLORE ALL BARWARE",
         "link": "https://www.renovationfactory.com/collections/all-barware"
       }
     },
@@ -297,9 +297,9 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/06_1920x1075_2fdff20b-490e-4b08-9c7f-847ff4b2bd89.png",
-        "mobile_banner": "shopify://shop_images/Warm_halo_hand-blown_glass_pendants-4.png",
-        "button_text": "",
+        "desktop_banner": "shopify://shop_images/11_d4d638bb-1f22-4073-867b-e4d86fe5a563.jpg",
+        "mobile_banner": "shopify://shop_images/Elegant_lighting_product_display-1.png",
+        "button_text": "EXPLORE LIGHTING",
         "link": "https://www.renovationfactory.com/collections/pendants"
       }
     },
@@ -320,9 +320,9 @@
       "name": "Single Banner Sec",
       "settings": {
         "display_single_banner_sec": true,
-        "desktop_banner": "shopify://shop_images/12_1920x1075_3de73cc5-6cbb-4d4e-9493-97ef5f449c40.png",
-        "mobile_banner": "shopify://shop_images/Zues_Septa_Chandelier_Showcase-10.png",
-        "button_text": "",
+        "desktop_banner": "shopify://shop_images/12.png",
+        "mobile_banner": "shopify://shop_images/Chandelier_display_with_clean_background-2.png",
+        "button_text": "EXPLORE CHANDELIERS",
         "link": "https://www.renovationfactory.com/collections/chandeliers"
       }
     },
